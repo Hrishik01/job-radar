@@ -1,0 +1,95 @@
+{
+  "titles": {
+    "keep": [
+      "business analyst", "data analyst", "data scientist", "analytics",
+      "business intelligence", "revenue operations", "sales operations",
+      "commercial operations", "business operations", "strategy analyst",
+      "insights analyst", "reporting analyst", "analytics engineer",
+      "business systems analyst", "operations analyst", "product analyst"
+    ],
+    "drop": [
+      "senior", "sr", "lead", "manager", "principal", "staff", "director",
+      "head of", "vp", "avp", "vice president", "architect",
+      "intern", "internship", "co-op"
+    ]
+  },
+  "max_years_required": 3,
+
+  "skills": [
+    {"name": "SQL", "aliases": ["SQL", "CTEs", "window functions", "query tuning"]},
+    {"name": "Python", "aliases": ["Python", "pandas", "scikit-learn", "sklearn", "Snowpark"]},
+    {"name": "R", "special": "r_language"},
+    {"name": "Excel", "aliases": ["Excel", "VBA"], "case_sensitive": true},
+    {"name": "Power BI", "aliases": ["Power BI", "PowerBI"]},
+    {"name": "Tableau", "aliases": ["Tableau"]},
+    {"name": "Snowflake", "aliases": ["Snowflake"]},
+    {"name": "Salesforce", "aliases": ["Salesforce", "SFDC"]},
+    {"name": "SAP", "aliases": ["SAP"], "case_sensitive": true},
+    {"name": "Airflow", "aliases": ["Airflow"]},
+    {"name": "Docker", "aliases": ["Docker"]},
+    {"name": "MLflow", "aliases": ["MLflow"]},
+    {"name": "AWS", "aliases": ["AWS", "Amazon Web Services"]},
+    {"name": "PostgreSQL", "aliases": ["PostgreSQL", "Postgres"]},
+    {"name": "MySQL", "aliases": ["MySQL"]},
+    {"name": "Git", "aliases": ["Git", "GitHub", "GitLab"]},
+    {"name": "Jira", "aliases": ["Jira"]},
+    {"name": "PowerPoint", "aliases": ["PowerPoint"]},
+    {"name": "Data modeling", "aliases": ["data modeling", "data modelling", "dimensional modeling"]},
+    {"name": "ETL", "aliases": ["ETL", "ELT"]},
+    {"name": "KPI definition", "aliases": ["KPI", "KPIs", "key performance indicators"]},
+    {"name": "Data governance", "aliases": ["data governance"]},
+    {"name": "Forecasting", "aliases": ["forecasting", "forecast", "forecasts"]},
+    {"name": "Segmentation", "aliases": ["segmentation"]},
+    {"name": "Root cause analysis", "aliases": ["root cause analysis", "root-cause analysis"]},
+    {"name": "Stakeholder management", "aliases": ["stakeholder management", "stakeholder engagement", "managing stakeholders"]},
+    {"name": "Executive presentations", "aliases": ["executive presentations", "presenting to executives", "present to executives", "executive audiences"]},
+    {"name": "Territory and quota planning", "aliases": ["territory planning", "quota planning", "territory design", "quota setting"]},
+    {"name": "Process documentation", "aliases": ["process documentation", "SOPs", "SOP", "standard operating procedures"]}
+  ],
+  "match_cap": 10,
+
+  "locations": {
+    "boston_area": [
+      "Boston", "Cambridge", "Waltham", "Somerville", "Brookline", "Newton",
+      "Watertown", "Quincy", "Needham", "Burlington", "Lexington", "Woburn",
+      "Medford", "Malden", "Wellesley", "Bedford", "Framingham", "Natick",
+      "Braintree", "Dedham", "Lowell", "Andover", "Marlborough", "Chelsea",
+      "Everett", "Revere", "Arlington", "Belmont", "Canton", "Norwood"
+    ]
+  },
+
+  "uscis_aliases": {
+    "walmart": "wal mart associates",
+    "fidelity": "fidelity investments",
+    "moderna": "modernatx",
+    "state street": "state street bank and trust company",
+    "cerebras": "cerebras systems",
+    "palantir": "palantir technologies",
+    "twitch": "twitch interactive",
+    "graphcore": "graphcore technologies",
+    "crusoe": "crusoe energy systems",
+    "valon": "valon technologies",
+    "notion": "notion labs",
+    "shieldai": "shield ai",
+    "datalabusa": "datalab usa",
+    "nooks": "nooks communications",
+    "chalk": "chalk ai",
+    "koahlabs": "koah labs"
+  },
+
+  "workday_search_terms": ["analyst", "analytics", "data scientist", "operations"],
+
+  "discovery": {
+    "uscis_top_n": 2000,
+    "recheck_days": 30,
+    "simplify_readme_url": "https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/README.md"
+  },
+
+  "http": {
+    "delay_seconds": 0.5,
+    "probe_delay_seconds": 0.3,
+    "list_cache_minutes": 50
+  },
+
+  "schedule_note": "Phase 4 cron: weekdays every 3h 6 AM-9 PM ET, weekends once at 10 AM ET."
+}

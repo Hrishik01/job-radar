@@ -1,0 +1,17 @@
+# Private planning notes stay local
+BRIEF.md
+
+# Local editor/agent settings
+.claude/settings.local.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Raw API responses, discovery probe cache and run logs
+data/cache/
+
+# Raw USCIS downloads (only the compact lookup is committed)
+data/uscis/*.csv
+data/uscis/*.xlsx

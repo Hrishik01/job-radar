@@ -1,0 +1,123 @@
+"""Polite HTTP for public job feeds.
+
+- Honest User-Agent, never browser impersonation.
+- A minimum delay between requests to the same host (thread-safe, so the
+  discovery step can run one worker per ATS host).
+- Retries with backoff on 429 / 5xx, honouring Retry-After.
+- Optional on-disk cache of raw JSON responses in data/cache/http/.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import threading
+import time
+from pathlib import Path
+from urllib.parse import urlsplit
+
+import requests
+
+ROOT = Path(__file__).resolve().parent.parent
+CACHE_DIR = ROOT / "data" / "cache" / "http"
+USER_AGENT = "job-radar/0.1 (personal job tracker; polite, cached)"
+TIMEOUT = (10, 90)  # connect, read — some Lever boards are tens of MB
+
+_local = threading.local()
+_host_lock = threading.Lock()
+_next_slot: dict[str, float] = {}
+
+
+class FetchError(Exception):
+    """A board could not be read (bad status, bad JSON, or network failure)."""
+
+
+def _session() -> requests.Session:
+    if not hasattr(_local, "session"):
+        s = requests.Session()
+        s.headers.update({"User-Agent": USER_AGENT, "Accept": "application/json"})
+        _local.session = s
+    return _local.session
+
+
+def _wait_for_host(host: str, delay: float) -> None:
+    """Reserve the next free time slot for this host, then sleep until it."""
+    with _host_lock:
+        now = time.monotonic()
+        slot = max(now, _next_slot.get(host, 0.0))
+        _next_slot[host] = slot + delay
+    if slot > now:
+        time.sleep(slot - now)
+
+
+def _cache_path(method: str, url: str, body) -> Path:
+    key = f"{method} {url} {json.dumps(body, sort_keys=True) if body else ''}"
+    return CACHE_DIR / f"{hashlib.sha1(key.encode()).hexdigest()}.json"
+
+
+def request_json(
+    method: str,
+    url: str,
+    *,
+    body: dict | None = None,
+    delay: float = 0.5,
+    cache_seconds: int = 0,
+    allow_404: bool = False,
+    retries: int = 3,
+):
+    """Fetch JSON. Returns None for a 404 when allow_404 is set."""
+    path = _cache_path(method, url, body)
+    if cache_seconds and path.exists() and time.time() - path.stat().st_mtime < cache_seconds:
+        return json.loads(path.read_text("utf-8"))
+
+    host = urlsplit(url).netloc
+    last_error = "no attempt made"
+    for attempt in range(retries):
+        _wait_for_host(host, delay)
+        try:
+            resp = _session().request(method, url, json=body, timeout=TIMEOUT)
+        except requests.RequestException as exc:
+            last_error = f"{type(exc).__name__}: {exc}"
+            time.sleep(2 ** attempt)
+            continue
+
+        if resp.status_code == 404 and allow_404:
+            return None
+        if resp.status_code == 429 or resp.status_code >= 500:
+            retry_after = resp.headers.get("Retry-After", "")
+            wait = float(retry_after) if retry_after.isdigit() else 2 ** (attempt + 1)
+            last_error = f"HTTP {resp.status_code}"
+            time.sleep(min(wait, 60))
+            continue
+        if resp.status_code != 200:
+            raise FetchError(f"HTTP {resp.status_code} for {method} {url}")
+
+        try:
+            data = resp.json()
+        except ValueError as exc:
+            raise FetchError(f"Invalid JSON from {url}") from exc
+
+        if cache_seconds:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(data), "utf-8")
+        return data
+
+    raise FetchError(f"{last_error} for {method} {url} after {retries} attempts")
+
+
+def get_text(url: str, *, delay: float = 0.5, cache_seconds: int = 0) -> str:
+    """Fetch a plain-text document (used for the SimplifyJobs README)."""
+    path = _cache_path("GET-TEXT", url, None)
+    if cache_seconds and path.exists() and time.time() - path.stat().st_mtime < cache_seconds:
+        return path.read_text("utf-8")
+    _wait_for_host(urlsplit(url).netloc, delay)
+    try:
+        resp = _session().get(url, timeout=TIMEOUT, headers={"Accept": "text/plain"})
+    except requests.RequestException as exc:
+        raise FetchError(f"{type(exc).__name__}: {exc}") from exc
+    if resp.status_code != 200:
+        raise FetchError(f"HTTP {resp.status_code} for GET {url}")
+    if cache_seconds:
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        path.write_text(resp.text, "utf-8")
+    return resp.text
