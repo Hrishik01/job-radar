@@ -2,7 +2,7 @@
 BRIEF.md
 
 # Local editor/agent settings
-.claude/settings.local.json
+.claude/
 
 # Python
 .venv/

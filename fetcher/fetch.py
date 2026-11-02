@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,6 +32,11 @@ DATA = ROOT / "data"
 JOBS_PATH = DATA / "jobs.json"
 LOG_DIR = DATA / "cache" / "logs"
 MAX_RUNS_KEPT = 500
+
+# A run fails (exit 1, jobs.json untouched) only when more than this share of
+# boards errored, which points to an outage or a network block. A single dead
+# board, like a company that left its ATS, is logged and skipped.
+MAX_FAILED_SHARE = 0.5
 
 # Raw fields that only fill_details() provides; reused for jobs we already know.
 DETAIL_FIELDS = ("description", "salary_hint", "country_hint", "posted_raw",
@@ -55,6 +61,11 @@ def first_full_sweep(runs: list[dict]) -> str | None:
         return None
     most = max(r["boards_ok"] for r in runs)
     return next(r["started_utc"] for r in runs if r["boards_ok"] >= 0.9 * most)
+
+
+def run_failed(boards_ok: int, boards_failed: int) -> bool:
+    """True when too many boards errored for this run's results to be trusted."""
+    return boards_failed > MAX_FAILED_SHARE * (boards_ok + boards_failed)
 
 
 def board_key(board: str, slug: str) -> str:
@@ -223,8 +234,9 @@ def main() -> int:
         run["kept"] += kept_here
         log.info("[%d/%d] %s: %d listed, %d kept", n, len(companies), company["name"], len(listed), kept_here)
 
-    if not fetched_boards:
-        log.error("Every board failed; jobs.json left untouched.")
+    if run_failed(run["boards_ok"], run["boards_failed"]):
+        log.error("%d of %d boards failed; jobs.json left untouched.",
+                  run["boards_failed"], run["boards_ok"] + run["boards_failed"])
         for f in failures:
             log.error("  %s", f)
         return 1
@@ -263,6 +275,9 @@ def main() -> int:
         log.info("Tier 2 sponsorship sentences logged: %d -> data/cache/logs/sponsorship_tier2.log", len(tier2_lines))
     if failures:
         log.info("Failed boards:\n  " + "\n  ".join(failures))
+        if os.environ.get("GITHUB_ACTIONS"):  # yellow warnings on the Actions run page
+            for f in failures:
+                print(f"::warning title=Board failed::{f}")
     return 0
 
 

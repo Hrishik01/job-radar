@@ -44,7 +44,13 @@ site/
   insights.html  charts page (KPIs, heatmap, weekly trend, time to apply,
   insights.js    funnel, location split, top companies), hand-built SVG
 tests/           unittest smoke tests and text fixtures
+.github/workflows/fetch.yml  scheduled fetch; commits jobs.json as github-actions[bot]
+index.html       redirects the GitHub Pages root to site/
+docs/screenshots README images (taken with a fresh browser profile, no personal state)
 ```
+
+The scheduled run fails (and commits nothing) only when more than half the
+boards error (`MAX_FAILED_SHARE` in `fetch.py`). Fewer failures show as warnings.
 
 ## Running
 

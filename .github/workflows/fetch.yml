@@ -1,0 +1,65 @@
+# Runs the fetcher on a schedule and commits the updated data/jobs.json.
+# GitHub Pages then serves the dashboard from the same branch.
+
+name: fetch
+
+on:
+  schedule:
+    # Cron is always UTC. These times assume Eastern Standard Time (UTC-5,
+    # early November to mid March). During daylight time (UTC-4) every run
+    # lands one hour later in ET, e.g. 7 AM instead of 6 AM.
+    #
+    # Weekdays every 3 hours, 6 AM to 9 PM ET (6 runs):
+    #   6 AM, 9 AM, 12 PM, 3 PM, 6 PM ET = 11, 14, 17, 20, 23 UTC, Mon-Fri
+    - cron: "0 11,14,17,20,23 * * 1-5"
+    #   9 PM ET Mon-Fri = 02 UTC the next day, Tue-Sat
+    - cron: "0 2 * * 2-6"
+    # Weekends once, 10 AM ET = 15 UTC, Sat and Sun
+    - cron: "0 15 * * 0,6"
+  workflow_dispatch: {}  # "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write  # lets the job push the jobs.json commit
+
+# Never run two fetches at once; a second one waits for the first.
+concurrency:
+  group: fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Smoke tests
+        run: python -m unittest -v
+
+      # Exits 1 (failing the run, red X, email to the repo owner) when most
+      # boards error out. In that case jobs.json is not written, so nothing is
+      # committed. A few dead boards show up as yellow warnings instead.
+      - name: Fetch jobs
+        run: python fetcher/fetch.py
+
+      - name: Commit jobs.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jobs.json
+          if git diff --cached --quiet; then
+            echo "jobs.json unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update jobs.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          # Pick up any commit pushed while the fetch was running.
+          git pull --rebase
+          git push

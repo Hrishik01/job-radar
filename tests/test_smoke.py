@@ -270,5 +270,15 @@ class BackfillTests(unittest.TestCase):
         self.assertFalse("2026-11-02T13:00:00+00:00" <= board_first)  # found later: a real new posting
 
 
+class RunHealthTests(unittest.TestCase):
+    def test_one_dead_board_does_not_fail_the_run(self):
+        self.assertFalse(fetch.run_failed(boards_ok=239, boards_failed=1))
+        self.assertFalse(fetch.run_failed(boards_ok=1, boards_failed=1))  # exactly half is still ok
+
+    def test_most_boards_failing_fails_the_run(self):
+        self.assertTrue(fetch.run_failed(boards_ok=100, boards_failed=140))
+        self.assertTrue(fetch.run_failed(boards_ok=0, boards_failed=1))   # --only on a dead board
+
+
 if __name__ == "__main__":
     unittest.main()
