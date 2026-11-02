@@ -464,7 +464,11 @@ function renderKpis() {
   let last = 0;
   spark("spark-spons", all.map((n, i) => (last = n ? lik[i] / n : last)));
 
-  const boston = active.filter((j) => j.location_group === "Boston area");
+  // Same basis as the Boston area chip with no other filters: jobs in New,
+  // minus won't-sponsor and PERM jobs unless their toggles are on
+  const p = state.prefs;
+  const boston = newPool().filter((j) => j.location_group === "Boston area" &&
+    (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely));
   $("#kpi-boston").textContent = boston.length;
   spark("spark-boston", dailyCounts(seen(jobs.filter((j) => j.location_group === "Boston area"))));
 

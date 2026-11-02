@@ -161,6 +161,18 @@ class FilterTests(unittest.TestCase):
         for t in drop:
             self.assertFalse(filters.title_passes(t, SETTINGS), t)
 
+    def test_engineer_titles_only_analytics_or_bi(self):
+        keep = ["Analytics Engineer", "BI Engineer", "Business Intelligence Engineer II"]
+        drop = ["Systems Engineer, Insights and Analytics", "Data Engineer, Analytics",
+                "Software Engineers - Business Intelligence Platform"]
+        for t in keep:
+            self.assertTrue(filters.title_passes(t, SETTINGS), t)
+        for t in drop:
+            self.assertFalse(filters.title_passes(t, SETTINGS), t)
+
+    def test_mba_titles_dropped(self):
+        self.assertFalse(filters.title_passes("MBA Full-Time Hire - Strategic Finance & Business Operations", SETTINGS))
+
     def test_years_takes_smallest_requirement(self):
         self.assertEqual(filters.min_years_required("Requires 5+ years of experience with a BS, or 3+ years of experience with an MS."), 3)
         self.assertEqual(filters.min_years_required("4+ years of experience in analytics."), 4)

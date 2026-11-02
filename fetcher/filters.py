@@ -10,10 +10,20 @@ import re
 # ================================================================ titles
 
 def title_passes(title: str, settings: dict) -> bool:
-    """Keep analytics-family titles; drop senior/lead/manager etc. and internships."""
+    """Keep analytics-family titles; drop senior/lead/manager etc. and internships.
+
+    `drop_unless` drops a word unless one of its allowed phrases is also in the
+    title, e.g. "engineer" is dropped except in "analytics engineer".
+    """
     t = title.lower()
-    keep = any(re.search(rf"\b{re.escape(k)}\b", t) for k in settings["titles"]["keep"])
-    drop = any(re.search(rf"\b{re.escape(d)}\b", t) for d in settings["titles"]["drop"])
+    titles = settings["titles"]
+    keep = any(re.search(rf"\b{re.escape(k)}\b", t) for k in titles["keep"])
+    drop = any(re.search(rf"\b{re.escape(d)}\b", t) for d in titles["drop"])
+    for word, allowed in titles.get("drop_unless", {}).items():
+        if re.search(rf"\b{re.escape(word)}s?\b", t) and not any(
+            re.search(rf"\b{re.escape(a)}s?\b", t) for a in allowed
+        ):
+            drop = True
     return keep and not drop
 
 

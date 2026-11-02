@@ -72,13 +72,190 @@
     "detail_errors": 0,
     "kept": 167,
     "new": 0
+   },
+   {
+    "started_utc": "2026-11-02T13:26:14+00:00",
+    "boards_ok": 236,
+    "boards_failed": 1,
+    "listed": 33345,
+    "dropped_title": 33064,
+    "dropped_years": 57,
+    "dropped_non_us": 73,
+    "detail_errors": 0,
+    "kept": 151,
+    "new": 4
    }
   ],
-  "generated_utc": "2026-10-29T19:20:22+00:00",
-  "job_count": 172,
-  "active_count": 167
+  "generated_utc": "2026-11-02T13:33:08+00:00",
+  "job_count": 176,
+  "active_count": 151
  },
  "jobs": [
+  {
+   "id": "1e1d4963f241a816",
+   "company": "Ripple ",
+   "board": "greenhouse",
+   "slug": "ripple",
+   "native_id": "8331714",
+   "title": "Operations Analyst",
+   "location": "San Francisco, CA, United States",
+   "apply_url": "https://ripple.com/careers/all-jobs/job/8331714?gh_jid=8331714",
+   "description": "At Ripple, we’re building a world where value moves like information does today. It’s big, it’s bold, and we’re already doing it. Through our crypto solutions for financial institutions, businesses, governments and developers, we are improving the global financial system and creating greater economic fairness and opportunity for more people, in more places around the world. And we get to do the best work of our career and grow our skills surrounded by colleagues who have our backs.\n\nIf you’re ready to see your impact and unlock incredible career growth opportunities, join us, and build real world value.\n\nDevelop, recommend and update policies and procedures to improve performance. Build dashboards and reports in Jira for leadership analysis. Automate new workflows, collaborating with DevOps teams to improve efficiency and compliance with ITIL standards. Work with Finance teams to report internally on the progress of overdue client invoices. Create and implement monthly and ad-hoc reports for management on key findings and assessments. Identify and communicate any solutions resourcing risks, and ensure accountability from internal stakeholders to Ripple client success. Report on project/milestone completion to ensure resources are on track with go-live timelines for migration of acquired companies into Ripple.\n\nTelecommuting permitted up to 100% per week. Candidate may live anywhere in the U.S.\n\n40 hrs/week, Mon-Fri, 8:30 a.m. - 5:30 p.m.\n\nMINIMUM REQUIREMENTS:\n\nMust have a Bachelor’s degree in Business, Finance, Operations Management or a related field plus two (2) years of experience recommending and creating policies and procedures to improve company performance.\n\nMust have 2 years of experience with treasury management systems or treasury workstation software.\n\nMust have 2 years of experience using Kantata to report on project/milestone completion.\n\nMust have 2 years of experience using PowerBI to enhance reporting with data visualizations.\n\nMust have 2 years of experience reporting on professional services KPIs for internal executives.\n\nMust have 2 years of experience with Jira, including all of the following:\n\n- Automating workflows;\n\n- Integrating AI tools within Jira;\n\n- Building dashboards to track real-time performance with real-time stats;\n\n- Conducting a comparative analysis of ticket KPIs across regions, workflows, or clients, and;\n\n- Collaborating with DevOps teams to implement change control processes to improve efficiency and compliance with ITIL standards.\n\n#LI-DNI\n\nFor positions that will be based in CA, the annual salary range for this position is below. Actual salaries may vary based on numerous factors including, among other things, an individual applicant’s experience and qualifications for the position. This range does not include equity or additional compensation, such as bonuses or commissions.\n\nCA Annual Base Salary Range\n\n$79,269—$79,469 USD\n\nWHO WE ARE:\n\nDo Your Best Work\n\n- The opportunity to build in a fast-paced start-up environment with experienced industry leaders\n\n- A learning environment where you can dive deep into the latest technologies and make an impact. A professional development budget to support other modes of learning.\n\n- Thrive in an environment where no matter what race, ethnicity, gender, origin, or culture they identify with, every employee is a respected, valued, and empowered part of the team.\n\n- In-office collaboration for moments that matter is important to our culture, and we give managers and teams the flexibility to decide which 10+ days a month they come in.\n\n- Bi-weekly all-company meeting - business updates and ask me anything style discussion with our Leadership Team\n\n- We come together for moments that matter which include team offsites, team bonding activities, happy hours and more!\n\nTake Control of Your Finances\n\n- Competitive salary, bonuses, and equity\n\n- Competitive benefits that cover physical and mental healthcare, retirement, family forming, and family support\n\n- Employee giving match\n\n- Mobile phone stipend\n\nTake Care of Yourself\n\n- R&R days so you can rest and recharge\n\n- Generous wellness reimbursement and weekly onsite & virtual programming\n\n- Generous vacation policy - work with your manager to take time off when you need it\n\n- Industry-leading parental leave policies. Family planning benefits.\n\n- Catered lunches, fully-stocked kitchens with premium snacks/beverages, and plenty of fun events\n\nBenefits listed above are for full-time employees.\n\nRipple is an Equal Opportunity Employer. We’re committed to building a diverse and inclusive team. We do not discriminate against qualified employees or applicants because of race, color, religion, gender identity, sex, sexual identity, pregnancy, national origin, ancestry, citizenship, age, marital status, physical disability, mental disability, medical condition, military status, or any other characteristic protected by local law or ordinance.\n\nPlease find our California, UK/EU, Singapore, DIFC, ADGM, Australia, and Switzerland Applicant Privacy Notice for reference.",
+   "posted_raw": "2026-10-29T19:44:07-04:00",
+   "posted_source": "greenhouse.first_published",
+   "workplace_hint": "",
+   "country_hint": "",
+   "salary_hint": {
+    "min": 79269.0,
+    "max": 79469.0,
+    "currency": "USD",
+    "interval": "year"
+   },
+   "perm_flag": null,
+   "work_mode": "onsite",
+   "work_mode_source": "default",
+   "location_group": "Onsite (US)",
+   "salary_min": 79269,
+   "salary_max": 79469,
+   "salary_hourly": false,
+   "salary_source": "greenhouse.feed",
+   "sponsorship": "likely",
+   "sponsorship_evidence": null,
+   "perm_likely": false,
+   "perm_markers": [
+    "telecommuting permitted"
+   ],
+   "match_pct": 30,
+   "matched_skills": [
+    "Power BI",
+    "Jira",
+    "KPI definition"
+   ],
+   "us_uncertain": false,
+   "min_years": 2,
+   "first_seen_utc": "2026-11-02T13:26:14+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
+   "active": true
+  },
+  {
+   "id": "c3b6b328713f4849",
+   "company": "Plaid",
+   "board": "ashby",
+   "slug": "plaid",
+   "native_id": "9d8a139c-8f99-4049-b7bd-8de693820d7b",
+   "title": "Data Scientist - Credit (Retros)",
+   "location": "New York City Office",
+   "apply_url": "https://jobs.ashbyhq.com/plaid/9d8a139c-8f99-4049-b7bd-8de693820d7b",
+   "description": "We believe that the way people interact with their finances will drastically improve in the next few years. We’re dedicated to empowering this transformation by building the tools and experiences that thousands of developers use to create their own products. Plaid powers the tools millions of people rely on to live a healthier financial life. We work with thousands of companies like Venmo, SoFi, several of the Fortune 500, and many of the largest banks to make it easy for people to connect their financial accounts to the apps and services they want to use. Plaid’s network covers 12,000 financial institutions across the US, Canada, UK and Europe. Founded in 2013, the company is headquartered in San Francisco with offices in New York, Seattle, Washington D.C., Raleigh, London, and Amsterdam.\n\n\nABOUT THE TEAM\n\nWe’re part of Plaid’s Data organization, building models and insights that help millions of people better understand and grow their financial lives. We use Plaid’s unique financial data to help lenders make more informed decisions and build better credit experiences.\n\nWe partner across data science, engineering, product, and Go-to-Market to turn complex data into practical customer recommendations and scalable solutions. We value technical rigor, creativity, user empathy, and teamwork.\n\n\n\nABOUT THE ROLE\n\nAs a Data Scientist on the Credit team, you’ll apply quantitative analysis and deep credit expertise to help lenders make better use of cash flow insights. You’ll work across customer problems, credit policy, and data products—translating Plaid’s data into recommendations and insights that drive business impact and inform product direction.\n\nYour day-to-day responsibilities may include:\n\n - Deep-dive into model performance for clients, triage issues, and identify opportunities to improve outcomes.\n\n - Analyze Plaid’s unique data to identify emerging credit risk signals and build and evaluate credit retrospectives.\n\n - Create tailored recommendations for clients based on their data and Plaid’s insights.\n\n - Build and maintain data pipelines, including ETL processes using tools such as dbt.\n\n - Develop metrics, alerts, and dashboards to monitor production machine learning model performance.\n\nIn this role, you will:\n\n - Own the process of developing hands-on recommendations for incorporating cash flow insights into lending decisions, using best practices for account-level decisioning.\n\n - Improve customer adoption of Plaid Insights through custom analysis tailored to each customer’s needs.\n\n - Serve as a subject matter expert on credit insights and credit policy implementation, supporting Data Science, Engineering, and Go-to-Market partners.\n\n - Apply your expertise in quantitative analysis, data mining, and data visualization to develop models and actionable insights.\n\n - Identify useful signals that can inform machine learning models.\n\n - Inform and influence Product and Engineering teams through clear analysis and presentations.\n\n\n\nWHAT EXCITES YOU\n\n - Applying data science and credit expertise to real-world lending decisions.\n\n - Working with Plaid’s unique financial data to uncover emerging credit risk signals and create useful customer insights.\n\n - Helping lenders make more informed decisions with cash flow data and account-level recommendations.\n\n - Partnering across Data Science, Engineering, Product, and Go-to-Market to turn analysis into customer and product impact.\n\n - Working on high-impact problems that can improve financial access and outcomes.\n\n\n\nWHAT EXCITES US\n\n - 2–5 years of industry experience in a financial services Data Science role.\n\n - Deep familiarity with SQL and Python.\n\n - Deep understanding of credit risk and the development of underwriting models.\n\n - Hands-on credit expertise building and maintaining credit policies for lenders.\n\n - Knowledge of the lending lifecycle and how to optimize each step, including marketing, acquisition, customer management, and collections or recoveries.\n\n - Demonstrated ability to make data-driven decisions.\n\n - Nice to have: Experience building data pipelines and automating ETL processes with dbt or similar tools.\n\nOur mission at Plaid is to unlock financial freedom for everyone. To support that mission, we seek to build a diverse team of driven individuals who care deeply about making the financial ecosystem more equitable. We recognize that strong qualifications can come from both prior work experiences and lived experiences. We encourage you to apply to a role even if your experience doesn't fully match the job description. We are always looking for team members that will bring something unique to Plaid!\n\n\n\nPlaid is proud to be an equal opportunity employer and values diversity at our company. We do not discriminate based on race, color, national origin, ethnicity, religion or religious belief, sex (including pregnancy, childbirth, or related medical conditions), sexual orientation, gender, gender identity, gender expression, transgender status, sexual stereotypes, age, military or veteran status, disability, or other applicable legally protected characteristics. We also consider qualified applicants with criminal histories, consistent with applicable federal, state, and local laws. Plaid is committed to providing reasonable accommodations for candidates with disabilities in our recruiting process. If you need any assistance with your application or interviews due to a disability, please let us know at accommodations@plaid.com.\n\n\n\nPlease review our Candidate Privacy Notice here https://plaid.com/legal/#candidate-privacy-notice.\n\n\nAdditional compensation in the form(s) of equity and/or commission are dependent on the position offered. Plaid provides a comprehensive benefit plan, including medical, dental, vision, and 401(k). Pay is based on factors such as (but not limited to) scope and responsibilities of the position, candidate's work experience and skillset, and location. Pay and benefits are subject to change at any time, consistent with the terms of any applicable compensation or benefit plans.",
+   "posted_raw": "2026-11-02T05:28:53.960+00:00",
+   "posted_source": "ashby.publishedAt",
+   "workplace_hint": "Hybrid",
+   "country_hint": "United States",
+   "salary_hint": {
+    "min": 176400,
+    "max": 226800,
+    "currency": "USD",
+    "interval": "1 YEAR"
+   },
+   "perm_flag": null,
+   "work_mode": "hybrid",
+   "work_mode_source": "feed",
+   "location_group": "Hybrid (US)",
+   "salary_min": 176400,
+   "salary_max": 226800,
+   "salary_hourly": false,
+   "salary_source": "ashby.feed",
+   "sponsorship": "unknown",
+   "sponsorship_evidence": null,
+   "perm_likely": false,
+   "perm_markers": [],
+   "match_pct": 30,
+   "matched_skills": [
+    "SQL",
+    "Python",
+    "ETL"
+   ],
+   "us_uncertain": false,
+   "min_years": 2,
+   "first_seen_utc": "2026-11-02T13:26:14+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
+   "active": true
+  },
+  {
+   "id": "94fcfa2577502272",
+   "company": "Perpay - Career's Page",
+   "board": "greenhouse",
+   "slug": "perpay",
+   "native_id": "4856030007",
+   "title": "Super Day - Business Operations Associate (Rotational Program)",
+   "location": "Philadelphia, Pennsylvania, United States",
+   "apply_url": "https://job-boards.greenhouse.io/perpay/jobs/4856030007",
+   "description": "About Us:\n\nPerpay is a certified B Corp and Philadelphia’s most impactful growth-stage startup. We are driven by a mission to significantly improve the financial stability of everyday Americans. For the past decade, we have established strong product-market fit and a profitable, efficient operating model across a suite of products, positioning Perpay as the premier financial partner for consumers with subprime credit.\n\nWith over 500,000 customers who have utilized more than $1 billion in spending power, we are at a pivotal moment. We are scaling our operations, building new offerings, and deepening our impact. We are looking for teammates eager to join us on this journey.\n\nOur venture partners include First Round Capital and L Catterton.\n\nProducts we’ve built to make an impact:\n\n- Perpay Marketplace: Combines interest-free payments and modern e-commerce to reduce cost of ownership and promote healthy repayment behavior.\n\n- Perpay+: Leverages Marketplace repayment history to help members monitor and build credit with all 3 credit bureaus.\n\n- Perpay Credit Card: Expands access to the flexibility and benefits of a World Mastercard by removing common barriers like high security deposits and low approval odds.\n\nOur team thrives on in-person collaboration, operating from our unique center-city Philadelphia office. This comfortable \"home away from home\" space offers river views and fosters rapid product development, strong relationships, and career growth. The energy from achieving big wins is palpable here. While we primarily work in the office, we offer sensible flexibility for personal needs, such as sick children or urgent errands, and coordinate official remote weeks around major holidays. If you are passionate about a meaningful mission, collaboration, equity, and generous perks, Perpay is the best place to be in Philadelphia right now.\n\nThis is a 🚀 Super Day Hiring Event 🚀 specific job posting.\n\nWhat is Super Day?\n\nIt's an accelerated hiring event that will give recent graduates the unique opportunity to land this role in just one day! We will host it on January 7th at Perpay HQ in Philadelphia. Selected candidates will tour the office, meet the team, and experience a fast-tracked interview process. Attendance is invite-only, and applicants must complete a pre-work video challenge to be considered. Launch your career by applying below! *Application Deadline: December 19th*\n\nAbout the Role:\n\nWe’re seeking highly motivated recent graduates who are passionate about our mission and eager to make a meaningful impact on our customers, while supporting the growth of operations. As a Business Operations Specialist, you’ll be instrumental in helping customers navigate their shopping and credit-building experiences. By analyzing customer feedback and operational performance data, you'll help identify areas for improvement and drive changes that enhance both customer satisfaction and overall operational efficiency.\n\nThis role also provides a unique chance to explore a range of professional growth opportunities through rotations across various internal teams (for example: Product, Acquisition, Merchandising, Credit Card, Marketing, Compliance, People, and more). During each 10-11 week rotation, you will integrate yourself into the team, work on impactful projects, and build your professional network. You’ll play an integral role in shaping product development and process improvements, acting as a liaison between customers and internal teams. Throughout your rotations, we’ll empower you to discover your path and challenge you to elevate your contributions.\n\nOur greatest strength is our people and we’d love for you to be one of them!\n\nWhat You'll Do:\n\nInitially\n\n- Deliver exceptional customer service across multiple channels (chat, email, phone), guiding users through their shopping and credit-building journey\n\n- Drive resolution of high-impact problems across operational verticals: Core, Marketplace, Card, and Risk\n\n- Collect and analyze customer service data to develop and implement performance improvement strategies\n\n- Collaborate with overseas BPO (Business Process Outsourcing) partner to provide actionable feedback on customer service interactions, ensuring continuous improvement in agent efficiency, accuracy, and overall service quality\n\n- Maintain and update internal training materials, including SOPs and operational documentation\n\n- Help shape the future of Perpay, ensuring that we continue to exceed customer expectations and expand access to financial services for all\n\nWorking Towards\n\n- Rotate through internal teams including Product, Acquisition, Merchandising, Credit Card, Marketing, Compliance, and People\n\n- Work cross-functionally by proposing solutions to optimize operational efficiency and drive business outcomes\n\n- Measure and communicate user friction points to the Product team and propose UX solutions\n\n- Collaborate with Merchandising to support seamless execution of orders, pricing, shipments, and vendor coordination\n\n- Leverage customer service expertise to manage BPO operations, setting clear performance standards to shape agent output while ensuring alignment of business goals\n\n- Lead training for new and existing team members\n\n- Design your career trajectory by diving into experiences that will help you draw your own map – unlocking your professional potential and aligning your passions with meaningful work\n\nReal Stories, Real Growth\n\nThis role is just the beginning – a launchpad. Check out how others have navigated their own growth, developed new skills, and taken on exciting new challenges.\n\n“I joined Perpay as a Business Operations Specialist in October 2022, and did rotations through our Merchandising, Product, and Compliance teams. I transitioned to Perpay’s Compliance team full-time shortly after. Now I report directly to our C Suite. Every day, I get to learn from incredibly experienced and talented individuals.” -Luke, Compliance Analyst\n\n\"I started with a rotation on the Credit Card team, where I became a subject matter expert on our Credit Card product. Now I lead the Credit Card vertical on the BizOps team, shaping strategy, supporting our outsourced customer service team, and partnering across Product, Engineering, and Compliance to drive impact. It’s been an incredible journey of growth, ownership, and learning.\" -Steph, Business Operations Specialist\n\nThings We Value:\n\n- Curiosity - You don’t just ask questions, you chase them.\n\n- Passion - You’re excited by the idea of helping others build financial freedom.\n\n- Drive - You act with intention and take initiative.\n\n- Relentlessness - Setbacks don’t faze you. You try, learn, and try again.\n\n- Strong Communication - You speak up, listen well, and aren’t afraid to say “I don’t get it.”\n\n- Grit - You show up, dig in, and get things across the finish line.\n\n- Adaptability - You can handle pivots in responsibilities and are able to adjust as needed.\n\nWhat You’ll Bring:\n\n- A BA/BS degree, completed in 2025, 2026, or 2027\n\n- GPA of 3.0 or higher\n\n- Commitment to an in-person work environment\n\nHey, we know not everybody checks all the boxes, so if you’re interested, please apply because you could be just what we’re looking for!\n\nWhat We’ll Bring to Full-time Team Members:\n\n- Meaningful compensation and equity\n\n- Premium medical benefits (fully paid base plan, and very reasonable premium for the buy-up option)\n\n- 5% employer 401k match\n\n- Unlimited PTO policy\n\n- ​​Remote weeks around major holidays + extra holiday on weekends like MDW and LDW\n\n- High quality catered lunch by local chefs, 4 days / week\n\n- Gym subsidy\n\n- Paid cell phone + plan\n\n- Student loan repayment match program\n\n- Family savings match program\n\n- Relocation assistance\n\n- Generous team member discounts\n\nThis is not a remote opportunity; it is 100% onsite (#LI-Onsite) (#LI-TH1) (#LI-AK1)\n\nPerpay is proud to be an equal opportunity employer. We value diversity in all its forms and are committed to creating an inclusive environment. We do not discriminate on the basis of race, religion, color, national origin, gender identity, sexual orientation, sex (including pregnancy), marital status, political affiliation, age, veteran status, disability status or other non-merit factor. Please contact us at careers@perpay.com to request accommodation.",
+   "posted_raw": "2025-09-05T11:33:43-04:00",
+   "posted_source": "greenhouse.first_published",
+   "workplace_hint": "",
+   "country_hint": "",
+   "salary_hint": null,
+   "perm_flag": null,
+   "work_mode": "onsite",
+   "work_mode_source": "default",
+   "location_group": "Onsite (US)",
+   "salary_min": null,
+   "salary_max": null,
+   "salary_hourly": false,
+   "salary_source": null,
+   "sponsorship": "unknown",
+   "sponsorship_evidence": null,
+   "perm_likely": false,
+   "perm_markers": [],
+   "match_pct": 5,
+   "matched_skills": [
+    "Process documentation"
+   ],
+   "us_uncertain": false,
+   "min_years": null,
+   "first_seen_utc": "2026-11-02T13:26:14+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
+   "active": true
+  },
+  {
+   "id": "85ad3097dad7793b",
+   "company": "Asana",
+   "board": "greenhouse",
+   "slug": "asana",
+   "native_id": "8282518",
+   "title": "Legal Operations Analyst",
+   "location": "Chicago",
+   "apply_url": "https://www.asana.com/jobs/apply/8282518?gh_jid=8282518",
+   "description": "The Legal team at Asana works collaboratively across functions to achieve our ambitious mission of fostering effortless teamwork for everyone. We are a tightly-knit and cooperative group committed to supporting teams throughout the organization, ensuring they have the necessary resources for success while protecting Asana's core values and interests. As a Legal Operations Analyst, you will co-create and drive projects, processes, and enablement to elevate the effectiveness of the Legal & Stock Team while partnering cross-functionally to optimize legal technology and workflows.\n\nThis role is based in our Chicago office with an office-centric hybrid schedule. The standard in-office days are Monday, Tuesday, and Thursday. Most Asanas have the option to work from home on Wednesdays. Working from home on Fridays depends on the type of work you do and the teams with which you partner. If you're interviewing for this role, your recruiter will share more about the in-office requirements.\n\nWhat you’ll achieve\n\n-\n\nAdminister contracts within the management system (Ironclad) and oversee signature routing in compliance with our global signature policy, ensuring metadata integrity and repository upkeep.\n\n-\n\nDesign, build, and deploy automated workflows and self-service tools to streamline operations, eliminate administrative bottlenecks, and accelerate turnaround times.\n\n-\n\nAdminister the e-billing platform (Brightflag), managing matters, rate reviews, outside counsel onboarding, and invoice processing in partnership with Finance on purchase orders and accruals.\n\n-\n\nDevelop and deliver actionable analytics, reports, and dashboards on department KPIs, cycle times, and resource utilization to inform strategic improvements.\n\n-\n\nPartner with cross-functional stakeholders (e.g., Finance, Sales, Enterprise Technology) and serve as a reliable lead for legal operations requests, bug fixes, and general troubleshooting.\n\n-\n\nDesign and facilitate legal enablement programs and documentation—including training sessions, playbooks, and FAQs—to drive adoption of legal tools and policies.\n\n-\n\nEvaluate and pilot AI tools and emerging technology solutions to drive productivity, automate routine tasks, and support data-informed decision-making.\n\nAbout you\n\n-\n\nDemonstrates curiosity about AI tools and emerging technologies, with a willingness to learn and leverage them to enhance productivity, collaboration, or decision-making.\n\n-\n\nProven experience in legal operations, legal engineering, or legal technology administration, preferably within a high-growth technology environment.\n\n-\n\nDeep familiarity with legal operations tools (such as Ironclad, Brightflag, Salesforce, and DocuSign), along with hands-on practice mapping business processes or building workflows in no-code/low-code tools.\n\n-\n\nStrong proficiency with modern work management tools (e.g., Asana) to structure complex deliverables, organize project timelines, and automate cross-functional handoffs.\n\n-\n\nStrong analytical and problem-solving skills, with comfort gathering, synthesizing, and communicating quantitative data into practical business insights.\n\n-\n\nClear, empathetic, and adaptable communication skills, with an ability to translate complex processes for varied stakeholders and thrive across shifting priorities.\n\nAt Asana, we're committed to building teams that include a variety of backgrounds, perspectives, and skills, as this is critical to helping us achieve our mission. If you're interested in this role and don't meet every listed requirement, we still encourage you to apply.\n\nWhat we’ll offer Our comprehensive compensation package plays a big part in how we recognize you for the impact you have on our path to achieving our mission. We believe that compensation should be reflective of the value you create relative to the market value of your role. To ensure pay is fair and not impacted by biases, we're committed to looking at market value which is why we check ourselves and conduct a yearly pay equity audit.\n\nFor this role, the estimated base salary range is between $125,000 - $142,000. The actual base salary will vary based on various factors, including market and individual qualifications objectively assessed during the interview process. The listed range above is a guideline, and the base salary range for this role may be modified.\n\nIn addition to base salary, your compensation package may include additional components such as equity, sales incentive pay (for most sales roles), and benefits. If you're interviewing for this role, speak with your recruiter to learn more about the total compensation and benefits for this role.\n\nWe strive to provide equitable and competitive benefits packages that support our employees worldwide and include:\n\n-\n\nMental health, wellness & fitness benefits\n\n-\n\nCareer coaching & support\n\n-\n\nInclusive family building benefits\n\n-\n\nLong-term savings or retirement plans\n\n-\n\nIn-office culinary options to cater to your dietary preferences\n\nThese are just some of the benefits we offer, and benefits may vary based on role, country, and local regulations. If you're interviewing for this role, speak with your recruiter to learn more about the total compensation and benefits for this role.\n\n#LI-Hybrid\n\nAbout us\n\nAsana is a leading platform for human + AI collaboration. Millions of teams around the world rely on Asana to achieve their most important goals, faster. Asana has been named to Fortune's Best Workplaces for 7+ years and recognized by Fast Company, Forbes, and Gartner for excellence in workplace culture and innovation. We offer an exceptional office-centric culture while adopting the best elements of hybrid models to ensure that every one of our global team members can work together effortlessly. With 13+ offices all over the world, we are always looking for individuals who care about building technology that drives positive change in the world and a culture where everyone feels that they belong.\n\nWe believe in supporting people to do their best work and thrive. Our goal is to ensure that Asana upholds an environment where all people feel that they are respected and valued, whether they are applying for an open position or working at the company. We provide equal employment opportunities to all applicants without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by law.\n\nJoin Asana’s Talent Network to stay up to date on job opportunities and life at Asana.",
+   "posted_raw": "2026-10-30T16:28:47-04:00",
+   "posted_source": "greenhouse.first_published",
+   "workplace_hint": "",
+   "country_hint": "",
+   "salary_hint": null,
+   "perm_flag": null,
+   "work_mode": "hybrid",
+   "work_mode_source": "description",
+   "location_group": "Hybrid (US)",
+   "salary_min": 125000,
+   "salary_max": 142000,
+   "salary_hourly": false,
+   "salary_source": "description",
+   "sponsorship": "likely",
+   "sponsorship_evidence": null,
+   "perm_likely": false,
+   "perm_markers": [],
+   "match_pct": 15,
+   "matched_skills": [
+    "Salesforce",
+    "KPI definition"
+   ],
+   "us_uncertain": true,
+   "min_years": null,
+   "first_seen_utc": "2026-11-02T13:26:14+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
+   "active": true
+  },
   {
    "id": "55ad2acea6593739",
    "company": "Zoox",
@@ -115,7 +292,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -158,7 +335,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -201,7 +378,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -238,7 +415,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -279,7 +456,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -317,7 +494,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -361,7 +538,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -405,7 +582,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -444,7 +621,7 @@
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "981809fddc1f0378",
@@ -483,7 +660,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -526,7 +703,7 @@
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "1bce3b13cc5b9e36",
@@ -566,7 +743,7 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -610,7 +787,7 @@
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -652,7 +829,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -698,7 +875,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -735,7 +912,7 @@
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -774,7 +951,7 @@
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -816,7 +993,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -856,7 +1033,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -901,7 +1078,7 @@
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "2988a39de8cb3ab8",
@@ -944,7 +1121,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "8ae2f4602e3e09b1",
@@ -980,7 +1157,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1017,7 +1194,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1144,7 +1321,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1187,7 +1364,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1296,7 +1473,7 @@
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "7e916fdc60b6ca1c",
@@ -1370,7 +1547,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "a9b6dec86d670863",
@@ -1412,7 +1589,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1452,7 +1629,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1490,7 +1667,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1534,7 +1711,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1580,7 +1757,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1627,7 +1804,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1666,7 +1843,7 @@
    "us_uncertain": true,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1703,7 +1880,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1745,7 +1922,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1791,7 +1968,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1835,7 +2012,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1879,7 +2056,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1923,7 +2100,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -1969,7 +2146,7 @@
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "dc1f3b671e866230",
@@ -2012,7 +2189,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2053,7 +2230,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2090,7 +2267,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2127,7 +2304,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2164,7 +2341,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2201,7 +2378,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2238,7 +2415,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2279,7 +2456,7 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2322,7 +2499,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2359,7 +2536,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2397,7 +2574,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2439,7 +2616,7 @@
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "b1e022f26176f020",
@@ -2478,7 +2655,7 @@
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "0bfc1c1477abc8c8",
@@ -2516,7 +2693,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2557,7 +2734,7 @@
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "88bd7e7ddef614c3",
@@ -2601,7 +2778,7 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2646,7 +2823,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2689,7 +2866,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2732,7 +2909,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2772,7 +2949,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2809,7 +2986,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2853,7 +3030,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -2897,7 +3074,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "f1de906516d94927",
@@ -2940,7 +3117,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "9eb592fc2d6422b3",
@@ -2983,7 +3160,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "17ed407c7045356e",
@@ -3025,7 +3202,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3062,7 +3239,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3100,7 +3277,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3138,7 +3315,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "cb473ed6e24913a0",
@@ -3178,7 +3355,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3218,7 +3395,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3263,7 +3440,7 @@
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3307,7 +3484,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3349,7 +3526,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "72db22d57cd4263d",
@@ -3390,7 +3567,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "63a23dbbb849049b",
@@ -3429,7 +3606,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "c046808d8a3ae915",
@@ -3467,7 +3644,7 @@
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3507,7 +3684,7 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3549,7 +3726,7 @@
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3593,7 +3770,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3638,7 +3815,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3680,7 +3857,7 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3720,7 +3897,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3768,7 +3945,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3811,7 +3988,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3858,7 +4035,7 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3903,7 +4080,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3947,7 +4124,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -3991,7 +4168,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4035,7 +4212,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4079,7 +4256,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4122,7 +4299,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4164,7 +4341,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4206,7 +4383,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4249,7 +4426,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4286,7 +4463,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4329,7 +4506,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4370,7 +4547,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4408,7 +4585,7 @@
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4448,7 +4625,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4493,7 +4670,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4537,7 +4714,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4583,7 +4760,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4629,7 +4806,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4667,7 +4844,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4710,7 +4887,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4753,7 +4930,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4796,7 +4973,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4834,7 +5011,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4876,7 +5053,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4914,7 +5091,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4954,7 +5131,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -4998,7 +5175,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5042,7 +5219,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5094,7 +5271,7 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5137,7 +5314,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5174,7 +5351,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5212,7 +5389,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5249,7 +5426,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5292,7 +5469,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5334,7 +5511,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5378,7 +5555,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5416,7 +5593,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5461,7 +5638,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5506,7 +5683,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5549,7 +5726,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5592,7 +5769,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5635,7 +5812,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5674,7 +5851,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5718,7 +5895,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "d19bf0e8cd2d5dd3",
@@ -5762,7 +5939,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5807,7 +5984,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5852,7 +6029,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5898,7 +6075,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5944,7 +6121,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -5988,7 +6165,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6026,7 +6203,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6065,7 +6242,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6107,7 +6284,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6151,7 +6328,7 @@
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "fd10563d8476b1ad",
@@ -6199,7 +6376,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6246,7 +6423,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6293,7 +6470,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6340,7 +6517,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6387,7 +6564,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6432,7 +6609,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6472,7 +6649,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6512,7 +6689,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6554,7 +6731,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6599,7 +6776,7 @@
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
    "last_seen_utc": "2026-10-29T19:20:12+00:00",
-   "active": true
+   "active": false
   },
   {
    "id": "6b435805334adf9a",
@@ -6640,7 +6817,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6682,7 +6859,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6722,7 +6899,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6769,7 +6946,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6814,7 +6991,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6859,7 +7036,7 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6896,7 +7073,7 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6908,7 +7085,7 @@
    "title": "Master Class - Business Consultant - Life Sciences Analytics (United States)",
    "location": "Massachusetts - Boston",
    "apply_url": "https://jobs.lever.co/veeva/225df3e7-7f5c-497e-8860-963153b51a08",
-   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n \nThe Role\nWe are hiring high potential people who are early in their careers and want to pivot into Life Sciences Consulting through our Master Class Program.  \n \nBreaking into business consulting after starting your career down a different path can be hard. As an alternative to an MBA, this program is intentionally designed as the entry path to shape experienced professionals as Business Consultants capable of making an impact for the Life Sciences industry.  \n \nEarly in the program, you will own key workstreams on customer-facing engagements to create high-impact business solutions while collaborating with team members at all levels of Veeva. You will be given the tools and resources to accelerate your consulting skills development.\n   \nOur Business Consulting team builds effective business and operational improvement strategies powered by Veeva’s unique industry insights, and market-leading technology. Our offerings are focused on speeding drug development, launching treatments more effectively, and shaping the best engagement for our customers.\n \nIf you’re graduating with an advanced degree, have 3-5 years of industry experience, or have served your country and are excited to pivot your career into consulting for a critical industry, Master Class is for you.\n  \nThe anticipated start date is April 2027.\n\nWhat You'll Do\n- Support and deliver all components of customer engagements (e.g., customer communications, workshops, stakeholder interviews, data analysis, managing timelines)\n\n- Leverage data and analytics to deliver insights and business solutions, powered by Veeva’s Data Cloud\n\n- Collaborate with Business Consultants to create deliverables that optimize customer operating and engagement models, process, and analytics\n\nREQUIREMENTS | We are looking for people who meet the following requirements:\n- 3+ years of experience from one of the following paths: Life Sciences Industry experience; Advanced Degree (PhD, PharmD, MD); Other non-Consulting work experience; or Veteran/Military Service\n\n- Desire to work within an intense, challenging program and environment\n\n- Excellent verbal and written communication skills\n\n- An analytical type of person who loves digging into numbers and other data to find insights\n\n- A problem-solving mindset: anticipating issues early, analyzing, and proactively finding solutions\n\n- Basic understanding of SQL, Python, or a comparable coding language\n\n- High work ethic. Veeva is a hard-working company\n\n- High integrity and honesty. Veeva is a PBC and a “do the right thing” company, and we expect that from all employees\n\n- Willingness to travel up to 20% of your time per year. Travel varies per customer engagement, coworking, internal meetings, and events with your team\n\nTHE PROCESS | Our process is different than most. It is designed to be fast, efficient and respectful. Here are the steps:\n- You submit your resume, short cover letter of questions, and take a personality test\n\n- Within one week we will notify you via email if we would like to go to the next step or not\n\n- The next step is a 45-minute interview with the Executive Leader of the practice, followed by a case exercise. You will have one week to prepare for the case exercise.\n\n- Within one week after this step, we will give you an offer, or let you know that we do not wish to move forward\n\n- You will have two weeks to accept our offer or not. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview would be an ethical violation in our view\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Starting Salary: $130,000\n\n- After one year, if you perform well, you will receive a salary increase and be granted equity\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position.\n \nWork Environment: Veeva is a Work Anywhere company. You can choose to work in an office or remotely from home on any given day of the week. There is no requirement to live near a Veeva office if a candidate is in proximity to an airport and able to meet travel requirements.\n \n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n \nThe Role\nWe are hiring high potential people who are early in their careers and want to pivot into Life Sciences Consulting through our Master Class Program.  \n \nBreaking into business consulting after starting your career down a different path can be hard. As an alternative to an MBA, this program is intentionally designed as the entry path to shape experienced professionals as Business Consultants capable of making an impact for the Life Sciences industry.  \n \nEarly in the program, you will own key workstreams on customer-facing engagements to create high-impact business solutions while collaborating with team members at all levels of Veeva. You will be given the tools and resources to accelerate your consulting skills development.\n   \nOur Business Consulting team builds effective business and operational improvement strategies powered by Veeva’s unique industry insights, and market-leading technology. Our offerings are focused on speeding drug development, launching treatments more effectively, and shaping the best engagement for our customers.\n \nIf you’re graduating with an advanced degree, have 3-5 years of industry experience, or have served your country and are excited to pivot your career into consulting for a critical industry, Master Class is for you.\n  \nThe anticipated start date is April 2027.\n\nWhat You'll Do\n- Support and deliver all components of customer engagements (e.g., customer communications, workshops, stakeholder interviews, data analysis, managing timelines)\n\n- Leverage data and analytics to deliver insights and business solutions, powered by Veeva’s Data Cloud\n\n- Collaborate with Business Consultants to create deliverables that optimize customer operating and engagement models, process, and analytics\n\nREQUIREMENTS | We are looking for people who meet the following requirements:\n- 3+ years of experience from one of the following paths: Life Sciences Industry experience; Advanced Degree (PhD, PharmD, MD); Other non-Consulting work experience; or Veteran/Military Service\n\n- Desire to work within an intense, challenging program and environment\n\n- Excellent verbal and written communication skills\n\n- An analytical type of person who loves digging into numbers and other data to find insights\n\n- A problem-solving mindset: anticipating issues early, analyzing, and proactively finding solutions\n\n- Basic understanding of SQL, Python, or a comparable coding language\n\n- High work ethic. Veeva is a hard-working company\n\n- High integrity and honesty. Veeva is a PBC and a “do the right thing” company, and we expect that from all employees\n\n- Willingness to travel up to 20% of your time per year. Travel varies per customer engagement, coworking, internal meetings, and events with your team\n\nTHE PROCESS | Our process is different than most. It is designed to be fast, efficient and respectful. Here are the steps:\n- You submit your resume, short cover letter of questions, and take a personality test, unless you have already completed it with Veeva previously\n\n- Within one week we will notify you via email if we would like to go to the next step or not\n\n- The next step is a 45-minute interview with the Executive Leader of the practice, followed by a case exercise. You will have one week to prepare for the case exercise\n\n- Within one week after this step, we will give you an offer, or let you know that we do not wish to move forward\n\n- You will have two weeks to accept our offer or not. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview would be an ethical violation in our view\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Starting Salary: $130,000\n\n- After one year, if you perform well, you will receive a salary increase and be granted equity\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position.\n \nWork Environment: Veeva is a Work Anywhere company. You can choose to work in an office or remotely from home on any given day of the week. There is no requirement to live near a Veeva office if a candidate is in proximity to an airport and able to meet travel requirements.\n \n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2025-12-01T17:54:13.156000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -6934,7 +7111,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6946,7 +7123,7 @@
    "title": "Marketing Analytics - Data Analyst - July 2027 Start Date - ADP",
    "location": "New York - New York City",
    "apply_url": "https://jobs.lever.co/veeva/28c47d34-3ad6-4485-85a9-686b4239b9ea",
-   "description": "Veeva Systems is building the industry cloud for Life Sciences to help companies work in a more efficient and connected way. Learn more about our products, vision and values, and status as a public benefit corporation on our website.\n \nCrossix is positioned at the center of big data, innovative technology, media, and life sciences.  Our mission is to empower life sciences companies with the data and insights they need to drive patient and provider marketing effectiveness and, ultimately, better patient outcomes.  As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Role\nWe are hiring recent university graduates to grow the next generation of data analysts through our Analytics Development Program.\n \nThe Marketing Data Analyst (MDA) is a member of the internal analytics team focused on product analytics.  This team’s primary function is to produce the analytical reports that are incorporated into Veeva Crossix products and shared with customers.\n\n What this role is (and isn’t):\nWhat it IS: A data analytics role. You will be part of our internal analytics team, focusing on backend report generation, quality control, and pressure-testing results. Using SQL, Excel, and our proprietary coding language, you will link marketing data to health data, transforming large datasets into core analytical reports embedded in Veeva Crossix products. Your work will be used to generate the insights our customers use to make business decisions.\n \nWhat it IS NOT: This is not a client-facing consulting role. If you want to spend your days in external client meetings, presenting slide decks, and advising on marketing strategies, check out the Client Services Associate track. This is also not a software engineering role - your focus is on data logic, manipulation, and insights, not building software architecture.\n\nThis role is part of Generation Veeva, and as such you can expect:\nA “learn by doing” environment with challenging and impactful work, where you will be expected to learn quickly and deliver early\nA collaborative work environment where you will work closely with many levels of our team, from other early-career professionals through senior leaders\nMentorship and continuous professional development opportunities, aiding in your immediate and long-term success at Veeva\nThe anticipated start date is July 2027. \nThe Analytics Development Program offers two distinct paths. Please review our other track, the Client Services Associate role, to choose the best fit for your skills and interests.\nWe welcome you to apply to all roles that align with your skills and interests. See all open opportunities here: Generation Veeva Careers\n\nWhat You'll Do\n- Produce Analytics Reports: Own the end-to-end execution, rigorous quality control, and timely delivery of high-value, recurring analytical reports across a large portfolio.\n\n- Link Complex Datasets: Connect marketing exposure data to massive, transactional healthcare datasets. Your data manipulation will provide the analytical foundation that helps pharmaceutical and life sciences companies optimize their marketing efforts and ultimately improve patient outcomes.\n\n- Formulate Analytical Hypotheses: Transform complex client questions into hypotheses that are testable using SQL, Excel, and Crossix’s proprietary analytical coding language.\n\n- Partner Internally with Client Services: Communicate the technical results and methodology of marketing campaign analyses to our Client Services teams, acting as the subject-matter expert on the underlying data logic.\n\n- Master Modern Data Tools: Leverage a robust toolkit including SQL, advanced Excel, data visualization suites, and internal platforms to clean, manipulate, and present data effectively.\n\nREQUIREMENTS | We are looking for graduates who meet the following requirements:\n- Technical Foundation: Intermediate proficiency in SQL, Python, or a comparable coding language. You have a natural comfort with data structures and a knack for logical, step-by-step problem-solving.\n\n- High Drive & Performance: A self-starter with a track record of excellence who thrives in a demanding and dynamic environment, and is hungry for rapid professional growth.\n\n- Meticulous Attention to Detail: Exceptional precision and a commitment to rigorous quality control. You take pride in catching small errors before they impact the final product.\n\n- Effective Communication Skills: Strong verbal and written communication skills, with the ability to effectively share technical insights and methodology with our internal client services teams.\n\n- Academic Excellence: Bachelor’s degree (any major) with a 3.0 – 4.0 GPA, demonstrating the intellectual curiosity, time management, and work ethic necessary for a high-performance analytics career.\n\n- Experience Level: This role is designed for upcoming or recent graduates with 0–2 years of post-grad full-time work experience.\n\n- Location & Presence: You live within about a 45-60 minute commute of our NYC office (or plan to be by your start date) and look forward to collaborating with the team on-site 4 days a week.\n\n- Unwavering Integrity: Veeva is a Public Benefit Corporation (PBC) and a “do the right thing” company. We hold ourselves to high ethical standards and expect honesty and integrity from every team member.\n\nTHE PROCESS | Our process is different from most. It is designed to be fast, efficient and respectful. Here are the steps:\n- Application & Assessment: You submit your resume, responses to a few short application questions, and complete a brief online assessment.\n\n- Application Response (Within 1 Week): We review every application thoroughly. Within about one week of submission, we will notify you via email whether we’d like to move you to the next stage.\n\n- Initial Interview: You will participate in a 60-minute job interview with a senior member of our team.\n\n- Case Interview: If we proceed following your initial interview, you will complete an analytics case exercise. This will be a live demonstration of your skills, with no prework required.\n\n- Final Decision (Within 1 Week): Within about one week of completing your case exercise, we will either extend an official offer or let you know that we are not moving forward.\n\n- Your Decision (2 Weeks): If extended an offer, you will have two weeks to make your final decision. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview for other roles would be an ethical violation in our view.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Starting base pay: $82,500\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position. \n \n#LI-Entry\n#WU\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is building the industry cloud for Life Sciences to help companies work in a more efficient and connected way. Learn more about our products, vision and values, and status as a public benefit corporation on our website.\n \nCrossix is positioned at the center of big data, innovative technology, media, and life sciences.  Our mission is to empower life sciences companies with the data and insights they need to drive patient and provider marketing effectiveness and, ultimately, better patient outcomes.  As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Role\nWe are hiring recent university graduates to grow the next generation of data analysts through our Analytics Development Program.\n \nThe Marketing Data Analyst (MDA) is a member of the internal analytics team focused on product analytics.  This team’s primary function is to produce the analytical reports that are incorporated into Veeva Crossix products and shared with customers.\n\n What this role is (and isn’t):\nWhat it IS: A data analytics role. You will be part of our internal analytics team, focusing on backend report generation, quality control, and pressure-testing results. Using SQL, Excel, and our proprietary coding language, you will link marketing data to health data, transforming large datasets into core analytical reports embedded in Veeva Crossix products. Your work will be used to generate the insights our customers use to make business decisions.\n \nWhat it IS NOT: This is not a client-facing consulting role. If you want to spend your days in external client meetings, presenting slide decks, and advising on marketing strategies, check out the Client Services Associate track. This is also not a software engineering role - your focus is on data logic, manipulation, and insights, not building software architecture.\n\nThis role is part of Generation Veeva, and as such you can expect:\nA “learn by doing” environment with challenging and impactful work, where you will be expected to learn quickly and deliver early\nA collaborative work environment where you will work closely with many levels of our team, from other early-career professionals through senior leaders\nMentorship and continuous professional development opportunities, aiding in your immediate and long-term success at Veeva\nThe anticipated start date is July 2027. \nThe Analytics Development Program offers two distinct paths. Please review our other track, the Client Services Associate role, to choose the best fit for your skills and interests.\nWe welcome you to apply to all roles that align with your skills and interests. See all open opportunities here: Generation Veeva Careers\n\nWhat You'll Do\n- Produce Analytics Reports: Own the end-to-end execution, rigorous quality control, and timely delivery of high-value, recurring analytical reports across a large portfolio.\n\n- Link Complex Datasets: Connect marketing exposure data to massive, transactional healthcare datasets. Your data manipulation will provide the analytical foundation that helps pharmaceutical and life sciences companies optimize their marketing efforts and ultimately improve patient outcomes.\n\n- Formulate Analytical Hypotheses: Transform complex client questions into hypotheses that are testable using SQL, Excel, and Crossix’s proprietary analytical coding language.\n\n- Partner Internally with Client Services: Communicate the technical results and methodology of marketing campaign analyses to our Client Services teams, acting as the subject-matter expert on the underlying data logic.\n\n- Master Modern Data Tools: Leverage a robust toolkit including SQL, advanced Excel, data visualization suites, and internal platforms to clean, manipulate, and present data effectively.\n\nREQUIREMENTS | We are looking for graduates who meet the following requirements:\n- Technical Foundation: Intermediate proficiency in SQL, Python, or a comparable coding language. You have a natural comfort with data structures and a knack for logical, step-by-step problem-solving.\n\n- High Drive & Performance: A self-starter with a track record of excellence who thrives in a demanding and dynamic environment, and is hungry for rapid professional growth.\n\n- Meticulous Attention to Detail: Exceptional precision and a commitment to rigorous quality control. You take pride in catching small errors before they impact the final product.\n\n- Effective Communication Skills: Strong verbal and written communication skills, with the ability to effectively share technical insights and methodology with our internal client services teams.\n\n- Academic Excellence: Bachelor’s degree (any major) with a 3.0 – 4.0 GPA, demonstrating the intellectual curiosity, time management, and work ethic necessary for a high-performance analytics career.\n\n- Experience Level: This role is designed for upcoming or recent graduates with 0–2 years of post-grad full-time work experience.\n\n- Location & Presence: You live within about a 45-60 minute commute of our NYC office (or plan to be by your start date) and look forward to collaborating with the team on-site 4 days a week.\n\n- Unwavering Integrity: Veeva is a Public Benefit Corporation (PBC) and a “do the right thing” company. We hold ourselves to high ethical standards and expect honesty and integrity from every team member.\n\nTHE PROCESS | Our process is different from most. It is designed to be fast, efficient and respectful. Here are the steps:\n- Application & Assessment: You submit your resume, responses to a few short application questions, and complete a brief online assessment, unless you have already completed it with Veeva previously.\n\n- Application Response (Within 1 Week): We review every application thoroughly. Within about one week of submission, we will notify you via email whether we’d like to move you to the next stage.\n\n- Initial Interview: You will participate in a 60-minute job interview with a senior member of our team.\n\n- Case Interview: If we proceed following your initial interview, you will complete an analytics case exercise. This will be a live demonstration of your skills, with no prework required.\n\n- Final Decision (Within 1 Week): Within about one week of completing your case exercise, we will either extend an official offer or let you know that we are not moving forward.\n\n- Your Decision (2 Weeks): If extended an offer, you will have two weeks to make your final decision. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview for other roles would be an ethical violation in our view.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Starting base pay: $82,500\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position. \n \n#LI-Entry\n#WU\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2022-07-14T16:40:35.056000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "onsite",
@@ -6975,7 +7152,7 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -6987,7 +7164,7 @@
    "title": "Marketing Analytics - Client Services Associate - July 2027 Start Date - ADP",
    "location": "New York - New York City",
    "apply_url": "https://jobs.lever.co/veeva/2d2cce21-bba9-42e7-b1b8-e5cf83ebe4c2",
-   "description": "Veeva Systems is building the industry cloud for Life Sciences to help companies work in a more efficient and connected way. Learn more about our products, vision and values, and status as a public benefit corporation on our website.\n \nCrossix is positioned at the center of big data, innovative technology, media, and life sciences.  Our mission is to empower life sciences companies with the data and insights they need to drive patient and provider marketing effectiveness and, ultimately, better patient outcomes.  As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Role\nWe are hiring recent university graduates to grow the next generation of analytics services professionals through our Analytics Development Program. \n What this role is (and isn’t):\nWhat it IS: A data-driven, customer-facing role where you'll work directly with media agencies and pharmaceutical brand teams.  You will use the Crossix Measurement Suite to help the world’s leading pharmaceutical brands optimize their marketing, ultimately helping them deliver life-changing treatments to patients more effectively.\nWhat it IS NOT: This is not a sales role. You will not be cold-calling, hunting leads, or chasing sales quotas. It is also not a back-end technical programming position.\n This role is part of Generation Veeva, and as such you can expect:\nA “learn by doing” environment with challenging and impactful work, where you will be expected to learn quickly and deliver early\nA collaborative work environment where you will work closely with many levels of our team, from other early-career professionals through senior leaders\nMentorship and continuous professional development opportunities, aiding in your immediate and long-term success at Veeva\nThe anticipated start date is July 2027.\nThe Analytics Development Program offers two distinct paths. Please review our other track, the Marketing Data Analyst role, to choose the best fit for your skills and interests.\nWe welcome you to apply to all roles that align with your skills and interests. See all open opportunities here: Generation Veeva Careers\n\nWhat You'll Do\n- Translate Data into Strategy: Partner with experienced team members to translate complex healthcare data into compelling, high-impact stories. You will be responsible for providing strategic recommendations that directly influence the multi-million dollar marketing investments of leading global pharmaceutical brands.\n\n- Consult Directly with Clients: Serve as a strategic advisor to media agencies and pharma brand teams. You will quickly become an expert on the Crossix Measurement Suite, helping clients interpret their data, answer critical business questions, and maximize the value of our platform.\n\n- Own Your Deliverables: Manage end-to-end client workstreams. In our fast-paced environment where high-performance is rewarded, you will actively manage deliverables, solve real-world problems, and rapidly evolve into a future leader on the Crossix team.\n\nREQUIREMENTS | We are looking for graduates who meet the following requirements:\n- Analytical & Strategic Mindset: Exceptional problem-solving skills and the ability to translate quantitative findings into qualitative business recommendations.\n\n- High Drive & Performance: A self-starter with a track record of excellence who thrives in a demanding and dynamic environment, and is hungry for rapid professional growth.\n\n- Consultative Communication & Storytelling: Ability to build strong, trusting client relationships and present complex ideas clearly to diverse audiences, from technical analysts to senior executives.\n\n- Academic Excellence: Bachelor’s degree (any major) with a 3.0 – 4.0 GPA, demonstrating the intellectual curiosity, time management, and work ethic necessary for a high-performance consulting career.\n\n- Experience Level: This role is designed for upcoming or recent graduates with 0–2 years of post-grad full-time work experience.\n\n- Location & Presence: You live within about a 45-60 minute commute of our NYC office (or plan to be by your start date) and look forward to collaborating with the team on-site 4 days a week.\n\n- Unwavering Integrity: Veeva is a Public Benefit Corporation (PBC) and a “do the right thing” company. We hold ourselves to high ethical standards and expect honesty and integrity from every team member.\n\nTHE PROCESS | Our process is different from most. It is designed to be fast, efficient and respectful. Here are the steps:\n- Application & Assessment: You submit your resume, responses to a few short application questions, and complete a brief online assessment.\n\n- Application Response (Within 1 Week): We review every application thoroughly. Within about one week of submission, we will notify you via email whether we’d like to move you to the next stage.\n\n- Initial Interview: You will participate in a 60-minute job interview with a senior member of our team.\n\n- Case Interview: If we proceed following your initial interview, you will complete a strategic case exercise. You will be given one full week to prepare for the case.\n\n- Final Decision (Within 1 Week): Within about one week of completing your case exercise, we will either extend an official offer or let you know that we are not moving forward.\n\n- Your Decision (2 Weeks): If extended an offer, you will have two weeks to make your final decision. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview for other roles would be an ethical violation in our view.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Starting base pay: $82,500\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position. \n \n#LI-Entry\n#WU\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is building the industry cloud for Life Sciences to help companies work in a more efficient and connected way. Learn more about our products, vision and values, and status as a public benefit corporation on our website.\n \nCrossix is positioned at the center of big data, innovative technology, media, and life sciences.  Our mission is to empower life sciences companies with the data and insights they need to drive patient and provider marketing effectiveness and, ultimately, better patient outcomes.  As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Role\nWe are hiring recent university graduates to grow the next generation of analytics services professionals through our Analytics Development Program. \n What this role is (and isn’t):\nWhat it IS: A data-driven, customer-facing role where you'll work directly with media agencies and pharmaceutical brand teams.  You will use the Crossix Measurement Suite to help the world’s leading pharmaceutical brands optimize their marketing, ultimately helping them deliver life-changing treatments to patients more effectively.\nWhat it IS NOT: This is not a sales role. You will not be cold-calling, hunting leads, or chasing sales quotas. It is also not a back-end technical programming position.\n This role is part of Generation Veeva, and as such you can expect:\nA “learn by doing” environment with challenging and impactful work, where you will be expected to learn quickly and deliver early\nA collaborative work environment where you will work closely with many levels of our team, from other early-career professionals through senior leaders\nMentorship and continuous professional development opportunities, aiding in your immediate and long-term success at Veeva\nThe anticipated start date is July 2027.\nThe Analytics Development Program offers two distinct paths. Please review our other track, the Marketing Data Analyst role, to choose the best fit for your skills and interests.\nWe welcome you to apply to all roles that align with your skills and interests. See all open opportunities here: Generation Veeva Careers\n\nWhat You'll Do\n- Translate Data into Strategy: Partner with experienced team members to translate complex healthcare data into compelling, high-impact stories. You will be responsible for providing strategic recommendations that directly influence the multi-million dollar marketing investments of leading global pharmaceutical brands.\n\n- Consult Directly with Clients: Serve as a strategic advisor to media agencies and pharma brand teams. You will quickly become an expert on the Crossix Measurement Suite, helping clients interpret their data, answer critical business questions, and maximize the value of our platform.\n\n- Own Your Deliverables: Manage end-to-end client workstreams. In our fast-paced environment where high-performance is rewarded, you will actively manage deliverables, solve real-world problems, and rapidly evolve into a future leader on the Crossix team.\n\nREQUIREMENTS | We are looking for graduates who meet the following requirements:\n- Analytical & Strategic Mindset: Exceptional problem-solving skills and the ability to translate quantitative findings into qualitative business recommendations.\n\n- High Drive & Performance: A self-starter with a track record of excellence who thrives in a demanding and dynamic environment, and is hungry for rapid professional growth.\n\n- Consultative Communication & Storytelling: Ability to build strong, trusting client relationships and present complex ideas clearly to diverse audiences, from technical analysts to senior executives.\n\n- Academic Excellence: Bachelor’s degree (any major) with a 3.0 – 4.0 GPA, demonstrating the intellectual curiosity, time management, and work ethic necessary for a high-performance consulting career.\n\n- Experience Level: This role is designed for upcoming or recent graduates with 0–2 years of post-grad full-time work experience.\n\n- Location & Presence: You live within about a 45-60 minute commute of our NYC office (or plan to be by your start date) and look forward to collaborating with the team on-site 4 days a week.\n\n- Unwavering Integrity: Veeva is a Public Benefit Corporation (PBC) and a “do the right thing” company. We hold ourselves to high ethical standards and expect honesty and integrity from every team member.\n\nTHE PROCESS | Our process is different from most. It is designed to be fast, efficient and respectful. Here are the steps:\n- Application & Assessment: You submit your resume, responses to a few short application questions, and complete a brief online assessment, unless you have already completed it with Veeva previously.\n\n- Application Response (Within 1 Week): We review every application thoroughly. Within about one week of submission, we will notify you via email whether we’d like to move you to the next stage.\n\n- Initial Interview: You will participate in a 60-minute job interview with a senior member of our team.\n\n- Case Interview: If we proceed following your initial interview, you will complete a strategic case exercise. You will be given one full week to prepare for the case.\n\n- Final Decision (Within 1 Week): Within about one week of completing your case exercise, we will either extend an official offer or let you know that we are not moving forward.\n\n- Your Decision (2 Weeks): If extended an offer, you will have two weeks to make your final decision. If you accept, we will hold a spot for you and expect you to show up on your start date. Accepting an offer and continuing to interview for other roles would be an ethical violation in our view.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Starting base pay: $82,500\n\nWork Authorization: Qualified candidates must be legally authorized to be employed in the United States. Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position. \n \n#LI-Entry\n#WU\n\n\nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2023-08-15T13:15:54.089000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "onsite",
@@ -7012,7 +7189,7 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7024,7 +7201,7 @@
    "title": "Business Consultant - Patient Analytics",
    "location": "Massachusetts - Boston",
    "apply_url": "https://jobs.lever.co/veeva/44be4bc4-cb38-4c80-80be-80f35f58f83b",
-   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n\n\nThe Role\nAs a Consultant in our GlobalAnalyticsPractice, you will help customers bring treatments to patients faster by transforming how they work with Technology, Data, and AI. You will focus on reshaping operating models, driving organizational change, and measuring tangible business value.\n \nAnalyze industry-leading patient-level claims data, alongside other real-world datasets, to convert raw data into actionable insights around market sizing, patient journey, line of therapy, and referral patterns.\n \nApply these insights throughout the product lifecycle - from pre-launch planning to post-launch execution and real-world evidence generation.\n\nWhat You'll Do\n- Lead project workstreams from end-to-end, ensuring the high-quality design and delivery of customer solutions\n\n- Solve complex problems for Life Sciences leaders, leveraging Veeva’s unique data and software insights\n\n- Mentor and manage Associate Consultants, overseeing their work and professional development within your workstream\n\n- Drive practice growth by contributing to business development and internal IP creation\n\nRequirements\n- Experience: 3+ years in Life Sciences Consulting (Business or Management Consulting preferred)\n\n- Domain Knowledge:\n\n- Experience working with or understanding of anonymized, patient-level claims data (preferred) or other large, real-world datasets\n\n- Demonstrated knowledge of real-world data use cases/applications across the product lifecycle\n\n- Proficient in SQL for querying and manipulating large datasets\n\n- Analytical Rigor: A strong mindset for both quantitative and qualitative reasoning\n\n- Communication: Ability to articulate complex ideas clearly to senior stakeholders\n\n- Education: Bachelor’s degree or higher\n\n- Not a perfect match yet? If you have 3–5 years of life sciences experience, a recent advanced degree, or a military background, Master Class is your pathway to a consulting career. [Explore Master Class]\n\nNice to Have\n- Knowledge of Veeva products\n\n- Experience delivering SaaS or Tech-enabled consulting solutions\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Base pay: $70,000 - $140,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n\n\nThe Role\nAs a Consultant in our GlobalAnalyticsPractice, you will help customers bring treatments to patients faster by transforming how they work with Technology, Data, and AI. You will focus on reshaping operating models, driving organizational change, and measuring tangible business value.\n \nAnalyze industry-leading patient-level claims data, alongside other real-world datasets, to convert raw data into actionable insights around market sizing, patient journey, line of therapy, and referral patterns.\n \nApply these insights throughout the product lifecycle - from pre-launch planning to post-launch execution and real-world evidence generation.\n\nWhat You'll Do\n- Lead project workstreams from end-to-end, ensuring the high-quality design and delivery of customer solutions\n\n- Solve complex problems for Life Sciences leaders, leveraging Veeva’s unique data and software insights\n\n- Mentor and manage Associate Consultants, overseeing their work and professional development within your workstream\n\n- Drive practice growth by contributing to business development and internal IP creation\n\nRequirements\n- Experience: 3+ years in Life Sciences Consulting (Business or Management Consulting preferred)\n\n- Domain Knowledge:\n\n- Experience working with or understanding of anonymized, patient-level claims data (preferred) or other large, real-world datasets\n\n- Demonstrated knowledge of real-world data use cases/applications across the product lifecycle\n\n- Proficient in SQL for querying and manipulating large datasets\n\n- Analytical Rigor: A strong mindset for both quantitative and qualitative reasoning\n\n- Communication: Ability to articulate complex ideas clearly to senior stakeholders\n\n- Education: Bachelor’s degree or higher\n\n- Not a perfect match yet? If you have 3–5 years of life sciences experience, a recent advanced degree, or a military background, Master Class is your pathway to a consulting career. [Explore Master Class]\n\nNice to Have\n- Knowledge of Veeva products\n\n- Experience delivering SaaS or Tech-enabled consulting solutions\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Base pay: $70,000 - $140,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2026-02-17T21:42:38.884000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7049,7 +7226,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7061,7 +7238,7 @@
    "title": "Business Consultant - Global Analytics",
    "location": "Massachusetts - Boston",
    "apply_url": "https://jobs.lever.co/veeva/2803a9e9-f1db-4729-bc59-9b0197be51b0",
-   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n\n\nThe Role\nAs a Consultant in our Global Analytics Practice, you will help customers bring treatments to patients faster by transforming how they work with Technology, Data, and AI. You will focus on reshaping operating models, driving organizational change, and measuring tangible business value.\n \nVeeva Analytic Business Consulting removes the legacy barrier of data preparation by bringing pre-integrated, industry best-in-class data to generate high-impact insights.  Our analyses jump start field activation, pinpoint the right patient populations and HCPs, driving higher engagement and improving patient outcomes.\n\nWhat You’ll Do\n- Lead project workstreams from end-to-end, ensuring the high-quality design and delivery of customer solutions\n\n- Solve complex problems for Life Sciences leaders, leveraging Veeva’s unique data and software insights\n\n- Mentor and manage Associate Consultants, overseeing their work and professional development within your workstream\n\n- Drive practice growth by contributing to business development and internal IP creation\n\nRequirements\n- Experience: 3+ years in Life Sciences Consulting (Business or Management Consulting preferred)\n\n- Domain Knowledge: Proven expertise in varying healthcare data sets (claims, engagement, and reference) and industry-specific analytics use cases such as segmentation & targeting, call planning, forecasting, and field deployment. Proficiency in SQL with the ability to quickly master new tools as needed\n\n- Analytical Rigor: A strong mindset for both quantitative and qualitative reasoning\n\n- Communication: Ability to articulate complex ideas clearly to senior stakeholders\n\n- Education: Bachelor’s degree or higher\n\n- Not a perfect match yet? If you have 3–5 years of life sciences experience, a recent advanced degree, or a military background, Master Class is your pathway to a consulting career. [Explore Master Class]\n\nNice to Have\n- Knowledge of Veeva products\n\n- Proficiency in Python\n\n- Experience delivering SaaS or Tech-enabled consulting solutions\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Base pay: $70,000 - $140,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva is building the industry cloud for Life Sciences through software, data, AI, and business consulting working together. Learn more about our products, vision, values, and status as a Public Benefit Corporation (PBC) on our website.\n \nConsulting is changing, and we’re not like other firms. Launched in 2019, Veeva Business Consulting has grown quickly and organically to over 500 global experts who combine deep domain knowledge with innovative technology to help Life Sciences companies work in a more efficient and connected way.\n \nWe are growing aggressively as we look towards 2030.  We are seeking great people to help shape the future of the industry with the world’s leading software, data, AI, and expertise at their back.\n\n\nThe Role\nAs a Consultant in our Global Analytics Practice, you will help customers bring treatments to patients faster by transforming how they work with Technology, Data, and AI. You will focus on reshaping operating models, driving organizational change, and measuring tangible business value.\n \nVeeva Analytic Business Consulting removes the legacy barrier of data preparation by bringing pre-integrated, industry best-in-class data to generate high-impact insights.  Our analyses jump start field activation, pinpoint the right patient populations and HCPs, driving higher engagement and improving patient outcomes.\n\nWhat You’ll Do\n- Lead project workstreams from end-to-end, ensuring the high-quality design and delivery of customer solutions\n\n- Solve complex problems for Life Sciences leaders, leveraging Veeva’s unique data and software insights\n\n- Mentor and manage Associate Consultants, overseeing their work and professional development within your workstream\n\n- Drive practice growth by contributing to business development and internal IP creation\n\nRequirements\n- Experience: 3+ years in Life Sciences Consulting (Business or Management Consulting preferred)\n\n- Domain Knowledge: Proven expertise in varying healthcare data sets (claims, engagement, and reference) and industry-specific analytics use cases such as segmentation & targeting, call planning, forecasting, and field deployment. Proficiency in SQL with the ability to quickly master new tools as needed\n\n- Analytical Rigor: A strong mindset for both quantitative and qualitative reasoning\n\n- Communication: Ability to articulate complex ideas clearly to senior stakeholders\n\n- Education: Bachelor’s degree or higher\n\n- Not a perfect match yet? If you have 3–5 years of life sciences experience, a recent advanced degree, or a military background, Master Class is your pathway to a consulting career. [Explore Master Class]\n\nNice to Have\n- Knowledge of Veeva products\n\n- Proficiency in Python\n\n- Experience delivering SaaS or Tech-enabled consulting solutions\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\n- Unrivaled career progression in a fast-growing, global team\n\n- Veeva is a Work Anywhere company. You can work from home or the office on any given day\n\nCompensation\n- Base pay: $70,000 - $140,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-RemoteUS\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2026-02-11T19:55:05.415000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7089,7 +7266,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7101,7 +7278,7 @@
    "title": "Account Partner - Marketing Analytics",
    "location": "New Jersey - Newark",
    "apply_url": "https://jobs.lever.co/veeva/1276cd2d-eef0-4920-8ad8-2aa41267b327",
-   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2025-04-15T20:08:30.608000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7126,7 +7303,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7138,7 +7315,7 @@
    "title": "Account Partner - Marketing Analytics",
    "location": "Massachusetts - Boston",
    "apply_url": "https://jobs.lever.co/veeva/6f4f761a-4850-4d45-8bd2-d693a33e5f26",
-   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner to drive sales within our media measurement and optimization business to Life Sciences companies. As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you are strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical. You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You’ll Do\n- Develop a thorough understanding of Crossix's offerings, hardworking advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant, you love teaching clients how to maximize their potential working with us\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized and with a firm grasp of your business, you log all sales activity and prospecting in SFDC quickly and accurately\n\n- Understanding of the digital media/marketing landscape, with the ability to credibly articulate strategic insights based on data and research for clients\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- 3+ years of experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or a closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- 5+ years of overall business experience in sales, business development, or account management, preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner to drive sales within our media measurement and optimization business to Life Sciences companies. As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you are strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical. You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You’ll Do\n- Develop a thorough understanding of Crossix's offerings, hardworking advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant, you love teaching clients how to maximize their potential working with us\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized and with a firm grasp of your business, you log all sales activity and prospecting in SFDC quickly and accurately\n\n- Understanding of the digital media/marketing landscape, with the ability to credibly articulate strategic insights based on data and research for clients\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- 3+ years of experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or a closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- 5+ years of overall business experience in sales, business development, or account management, preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2024-07-31T17:27:52.719000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7163,7 +7340,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7175,7 +7352,7 @@
    "title": "Account Partner - Marketing Analytics",
    "location": "Pennsylvania - Philadelphia",
    "apply_url": "https://jobs.lever.co/veeva/70825ca5-2c1c-450b-b3ab-496357897968",
-   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2025-04-15T20:06:54.200000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7200,7 +7377,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   },
   {
@@ -7212,7 +7389,7 @@
    "title": "Account Partner - Marketing Analytics",
    "location": "New York - New York City",
    "apply_url": "https://jobs.lever.co/veeva/ed458e3b-7bc8-4392-9c11-e85b697371f4",
-   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
+   "description": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B in revenue in our last fiscal year with extensive growth potential ahead.\n \nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We're not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n \nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n \nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\n\nThe Role\nCrossix is positioned at the center of big data, innovative technology, media, and life sciences. Our mission is to empower life sciences companies with the data and insights they need to drive DTC and HCP marketing effectiveness and, ultimately, better patient outcomes. As part of Veeva, the Crossix team offers the agility of a high-growth team with the stability of a global leader.\n \nThe Veeva Crossix Sales team is looking for a skilled Account Partner (Marketing Analytics) to drive sales within our media measurement and optimization business to Life Sciences companies.  As an Account Partner, you will be responsible for aligning customer objectives with the Veeva Crossix marketing analytics solutions, including the Crossix Measurement Suite.\n \nTo be successful in this role, you must be strong at communicating across various business functions, organizational levels (including C-level), and brand marketing departments. Creativity, initiative, and the ability to work effectively within a growing team are critical.  You are also someone who is humble, hungry, and smart  –  you put the success of the team ahead of your own; you have a relentless drive to do what it takes to succeed, and you find a way to overcome obstacles and solve business problems.\n\nWhat You'll Do\n- Develop a thorough understanding of Crossix offerings, competitive advantages, and processes. Learn to articulate them persuasively to prospects and customers\n\n- Develop strong and mutually valuable relationships with new and existing customers\n\n- Manage pipeline with CRM tools for maximum efficiency and visibility, with carefully executed follow-up to closure\n\n- Work in close partnership with Client Services to manage successful client deployments and to ensure ongoing high client satisfaction, renewal, and deep penetration of customer organizations for incremental business\n\n- Keep current with industry trends; engage your customers, address their business challenges, and propose solutions\n\nRequirements\n- Passionate about healthcare with a strong interest in pharmaceutical marketing. You feel a strong connection to our mission and will work hard to ensure customer success\n\n- As an educator and business consultant; you love teaching clients about how they could maximize their potential working with us.\n\n- Demonstrated development of meaningful partnerships with a diverse client base and proven track record as a trusted advisor to brands\n\n- Highly organized with a firm grasp of your business - you accurately log all sales activity and prospecting in SFDC with speed and accuracy\n\n- Understanding of the digital media/marketing landscape with the ability to credibly articulate strategic insights for clients that are based on data and research\n\n- A fast learner, you love to stay at the forefront of an ever-evolving industry\n\n- A creative problem solver - you stay cool under pressure and thrive in an atmosphere of change\n\n- At least 3 years experience in selling technology, marketing, pharma data/insights, or media solutions in the life sciences industry or closely related field\n\n- Proven track record of exceeding sales goals while contributing to the success of the team\n\n- Strong understanding of digital media and ad tech ecosystem\n\n- At least 5 years of overall business experience in sales, business development, or account management preferably in digital advertising, technology businesses, and healthcare data/consulting\n\n- Eagerness to work in a startup team environment that will be rapidly changing\n\n- BS or BA degree is required\n\nInterviewing with Veeva\nWe value your time and believe in a transparent hiring process. Here is the process you can expect.\n\n- Follow the application process and submit your resume.\n\n- Within 3 days, you will receive a link to a personality assessment administered by a third party, unless you have already completed it with Veeva previously.\n\n- Once you complete the assessment, our team will review your full application package and follow up via email with our decision.\n\n- If moving to the interview stage, the process is as follows:\n\n- A conversation with the hiring manager\n\n- A practical case exercise\n\n- A final conversation with our group's Senior Leader.\n\n- Once all interviews are complete, the manager will be in touch with a final decision.\n\nPerks & Benefits\n- Medical, dental, vision, and basic life insurance\n\n- Flexible PTO and company paid holidays\n\n- Retirement programs\n\n- 1% charitable giving program\n\nCompensation\n- Base pay: $80,000 - $300,000\n\n- The salary range listed here has been provided to comply with local regulations and represents a potential base salary range for this role. Please note that actual salaries may vary within the range above or below, depending on experience and location. We look at compensation for each individual and base our offer on your unique qualifications, experience, and expected contributions. This position may also be eligible for other types of compensation in addition to base salary, such as variable bonus and/or stock bonus.\n\n#LI-Remote\n#LI-Associate\n\n\nVeeva’s headquarters is located in the San Francisco Bay Area with offices in more than 15 countries around the world.\n \nVeeva is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, sex, sexual orientation, gender identity or expression, religion, national origin or ancestry, age, disability, marital status, pregnancy, protected veteran status, protected genetic information, political affiliation, or any other characteristics protected by local laws, regulations, or ordinances. If you need assistance or accommodation due to a disability or special need when applying for a role or in our recruitment process, please contact us at talent_accommodations@veeva.com.",
    "posted_raw": "2025-04-15T19:01:32.843000+00:00",
    "posted_source": "lever.createdAt",
    "workplace_hint": "remote",
@@ -7237,7 +7414,7 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-10-29T19:20:12+00:00",
+   "last_seen_utc": "2026-11-02T13:26:14+00:00",
    "active": true
   }
  ]

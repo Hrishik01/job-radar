@@ -5,13 +5,16 @@
       "business intelligence", "revenue operations", "sales operations",
       "commercial operations", "business operations", "strategy analyst",
       "insights analyst", "reporting analyst", "analytics engineer",
-      "business systems analyst", "operations analyst", "product analyst"
+      "bi engineer", "business systems analyst", "operations analyst", "product analyst"
     ],
     "drop": [
       "senior", "sr", "lead", "manager", "principal", "staff", "director",
       "head of", "vp", "avp", "vice president", "architect",
-      "intern", "internship", "co-op"
-    ]
+      "intern", "internship", "co-op", "mba"
+    ],
+    "drop_unless": {
+      "engineer": ["analytics engineer", "bi engineer", "business intelligence engineer"]
+    }
   },
   "max_years_required": 3,
 
