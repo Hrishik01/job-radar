@@ -113,8 +113,12 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
 - **Dashboard state** (applications, removed, opened, preferences, the outreach
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
-  Application numbers start at 1 and are never reused. Won't-sponsor and PERM
-  jobs are hidden by default behind two toggles that show counts.
+  Application numbers start at 1 and are never reused. Won't-sponsor, PERM and
+  older-than-30-day jobs are hidden by default behind three toggles that show counts.
+- **Freshness** (in `app.js`) is measured from the posted date, or first-seen when
+  a job has none: under 24h gets the ink "Fresh" badge and the Fresh only chip,
+  over 15 days gets "Old posting", over 30 days is hidden. Newest sorts by the
+  same date; Recently found sorts by first-seen.
 - The site has one green accent, used only for sponsorship-likely and key
   numbers. Buttons, tags and chips must never wrap or overflow (`white-space: nowrap`).
 - Board modules expose `list_jobs(company, settings)`, `fill_details(company, job, settings)`

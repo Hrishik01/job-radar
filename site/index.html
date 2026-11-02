@@ -72,6 +72,9 @@
           <button type="button" class="chip" data-mode="hybrid" aria-pressed="true">Hybrid <span class="mono" data-count="hybrid"></span></button>
           <button type="button" class="chip" data-mode="onsite" aria-pressed="true">Onsite <span class="mono" data-count="onsite"></span></button>
         </div>
+        <div class="chips" role="group" aria-label="Freshness">
+          <button type="button" class="chip" id="fresh-only" aria-pressed="false" title="Posted in the last 24 hours">Fresh only <span class="mono" data-count="fresh"></span></button>
+        </div>
       </div>
 
       <!-- Always open on desktop; folded by default on phones -->
@@ -128,6 +131,7 @@
       <div class="toggle-row">
         <label class="switch"><input type="checkbox" id="show-no"><span class="track" aria-hidden="true"></span><span class="switch-text">Show won't-sponsor <span class="mono" id="count-no"></span></span></label>
         <label class="switch"><input type="checkbox" id="show-perm"><span class="track" aria-hidden="true"></span><span class="switch-text">Show PERM notices <span class="mono" id="count-perm"></span></span></label>
+        <label class="switch"><input type="checkbox" id="show-old"><span class="track" aria-hidden="true"></span><span class="switch-text">Show postings older than 30 days <span class="mono" id="count-old"></span></span></label>
       </div>
     </div>
   </section>
