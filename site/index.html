@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Radar</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- Apply the saved theme before first paint so there's no flash -->
+<script>
+  try {
+    var t = JSON.parse(localStorage.getItem("jobradar.v1") || "{}").prefs?.theme;
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#list">Skip to jobs</a>
+
+<header class="masthead wrap">
+  <div class="mast-left">
+    <h1>Job Radar</h1>
+    <p class="mono dateline" id="dateline">Loading jobs…</p>
+  </div>
+  <div class="mast-right">
+    <div class="mast-buttons">
+      <button class="btn" id="theme-btn" type="button" aria-label="Theme: system">Theme: system</button>
+      <button class="btn" id="settings-btn" type="button">Settings</button>
+      <button class="btn" id="import-btn" type="button">Import</button>
+      <button class="btn primary" id="export-btn" type="button">Export backup</button>
+    </div>
+    <p class="export-note" id="export-note"></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="banner warn" id="export-banner" hidden></div>
+
+  <section class="kpis" aria-label="Summary">
+    <div class="kpi"><span class="kpi-label">New this week</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-new">–</span><svg class="spark" id="spark-new" aria-hidden="true"></svg></span></div>
+    <div class="kpi"><span class="kpi-label">Sponsor likely</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-spons">–</span><svg class="spark" id="spark-spons" aria-hidden="true"></svg></span></div>
+    <div class="kpi"><span class="kpi-label">Boston area</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-boston">–</span><svg class="spark" id="spark-boston" aria-hidden="true"></svg></span></div>
+    <div class="kpi"><span class="kpi-label">Applied</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-applied">–</span><svg class="spark" id="spark-applied" aria-hidden="true"></svg></span></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Job lists">
+    <button role="tab" id="tab-new" data-tab="new" aria-selected="true">New <span class="mono count" id="count-new"></span></button>
+    <button role="tab" id="tab-applied" data-tab="applied" aria-selected="false">Applied <span class="mono count" id="count-applied"></span></button>
+    <button role="tab" id="tab-removed" data-tab="removed" aria-selected="false">Removed <span class="mono count" id="count-removed"></span></button>
+    <button class="btn tabs-action" id="log-btn" type="button">Log application</button>
+  </nav>
+
+  <section class="controls" aria-label="Search and filters">
+    <label class="search">
+      <span class="sr-only">Search title, company or skill</span>
+      <input type="search" id="search" placeholder="Search title, company, skill" autocomplete="off">
+      <kbd class="mono">/</kbd>
+    </label>
+
+    <div class="filter-rows" id="new-filters">
+      <div class="chip-row">
+        <div class="seg" role="group" aria-label="Location">
+          <button type="button" class="seg-btn" data-loc="all" aria-pressed="true">All US <span class="mono" data-count="loc-all"></span></button>
+          <button type="button" class="seg-btn" data-loc="boston" aria-pressed="false">Boston area <span class="mono" data-count="loc-boston"></span></button>
+        </div>
+        <div class="chips" role="group" aria-label="Work mode">
+          <button type="button" class="chip" data-mode="remote" aria-pressed="true">Remote <span class="mono" data-count="remote"></span></button>
+          <button type="button" class="chip" data-mode="hybrid" aria-pressed="true">Hybrid <span class="mono" data-count="hybrid"></span></button>
+          <button type="button" class="chip" data-mode="onsite" aria-pressed="true">Onsite <span class="mono" data-count="onsite"></span></button>
+        </div>
+      </div>
+
+      <!-- Always open on desktop; folded by default on phones -->
+      <details class="more-filters" id="more-filters" open>
+      <summary>Filters and sort <span class="mono" id="active-filters"></span></summary>
+      <div class="filter-row">
+        <label class="field">Sort
+          <select id="sort">
+            <option value="newest">Newest</option>
+            <option value="match">Highest match</option>
+            <option value="pay">Highest pay</option>
+            <option value="boston">Boston first</option>
+          </select>
+        </label>
+        <label class="field">Title
+          <input type="text" id="f-title" placeholder="analyst" autocomplete="off">
+        </label>
+        <label class="field">Company
+          <input type="text" id="f-company" list="company-list" placeholder="Any" autocomplete="off">
+          <datalist id="company-list"></datalist>
+        </label>
+        <label class="field">Sponsorship
+          <select id="f-spons">
+            <option value="any">Any</option>
+            <option value="likely">Likely</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </label>
+        <label class="field">Salary ≥
+          <select id="f-salary">
+            <option value="0">Any</option>
+            <option value="60000">$60k</option>
+            <option value="70000">$70k</option>
+            <option value="80000">$80k</option>
+            <option value="90000">$90k</option>
+            <option value="100000">$100k</option>
+            <option value="120000">$120k</option>
+          </select>
+        </label>
+        <label class="field">Match ≥
+          <select id="f-match">
+            <option value="0">Any</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+            <option value="60">60%</option>
+          </select>
+        </label>
+      </div>
+      </details>
+
+      <div class="toggle-row">
+        <label class="switch"><input type="checkbox" id="show-no"><span class="track" aria-hidden="true"></span>Show won't-sponsor <span class="mono" id="count-no"></span></label>
+        <label class="switch"><input type="checkbox" id="show-perm"><span class="track" aria-hidden="true"></span>Show PERM notices <span class="mono" id="count-perm"></span></label>
+      </div>
+    </div>
+  </section>
+
+  <p class="result-line" id="result-line" aria-live="polite"></p>
+  <div id="list" class="list" tabindex="-1"></div>
+
+  <footer class="foot">
+    <p>Keys: <kbd class="mono">/</kbd> search · <kbd class="mono">j</kbd> <kbd class="mono">k</kbd> move · <kbd class="mono">o</kbd> open · <kbd class="mono">a</kbd> applied · <kbd class="mono">x</kbd> remove</p>
+    <p>Your status lives only in this browser. Export a backup now and then.</p>
+  </footer>
+</main>
+
+<!-- "Did you apply?" asked on the next visit after clicking Open -->
+<dialog id="ask-dialog" aria-labelledby="ask-title">
+  <form method="dialog">
+    <h2 id="ask-title">Did you apply?</h2>
+    <p id="ask-body"></p>
+    <div class="dialog-buttons">
+      <button class="btn" value="no">No, keep in New</button>
+      <button class="btn primary" value="yes">Yes, I applied</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="log-dialog" aria-labelledby="log-title">
+  <form method="dialog" id="log-form">
+    <h2 id="log-title">Log application</h2>
+    <p class="muted">For jobs you found elsewhere. It gets the next application number.</p>
+    <label class="field block">Company <input name="company" required autocomplete="off"></label>
+    <label class="field block">Title <input name="title" required autocomplete="off"></label>
+    <label class="field block">Link <input name="url" type="url" placeholder="https://" autocomplete="off"></label>
+    <label class="field block">Date applied <input name="date" type="date" required></label>
+    <p class="form-error" id="log-error" hidden></p>
+    <div class="dialog-buttons">
+      <button class="btn" value="cancel" formnovalidate>Cancel</button>
+      <button class="btn primary" value="save">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+  <form method="dialog">
+    <h2 id="settings-title">Settings</h2>
+    <label class="field block">Your background, for the outreach prompt
+      <textarea id="background" rows="5" placeholder="Two or three lines: degrees, tools, what you're looking for."></textarea>
+    </label>
+    <p class="muted">Saved only in this browser and in your exports. It's never sent anywhere.</p>
+    <div class="dialog-buttons">
+      <button class="btn primary" value="done">Done</button>
+    </div>
+  </form>
+</dialog>
+
+<input type="file" id="import-file" accept="application/json,.json" hidden>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

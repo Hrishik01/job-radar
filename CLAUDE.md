@@ -37,6 +37,10 @@ data/
   jobs.json      output, committed
   uscis/         raw CSV gitignored; compact lookup committed
   cache/         HTTP cache, probe cache, logs (gitignored)
+site/
+  index.html     dashboard: New / Applied / Removed tabs, filters, dialogs
+  styles.css     ledger theme, light and dark (system default plus toggle)
+  app.js         loads ../data/jobs.json; your status lives in localStorage
 tests/           unittest smoke tests and text fixtures
 ```
 
@@ -58,6 +62,13 @@ python -m venv .venv
 .venv/Scripts/python fetcher/uscis.py data/uscis/<export>.csv  # rebuild the lookup
 
 .venv/Scripts/python -m unittest -v
+```
+
+The dashboard fetches `../data/jobs.json`, so serve the repo root over HTTP
+(opening the file directly won't load data), then visit `http://127.0.0.1:8765/site/`:
+
+```
+.venv/Scripts/python -m http.server 8765 --bind 127.0.0.1
 ```
 
 A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a run:
@@ -83,6 +94,13 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
   comes from location text (Boston-area towns first); work mode from the feed
   field, then location text, then description.
 - Tunable lists live in `data/settings.json`, not in code.
+- **Dashboard state** (applications, removed, opened, preferences, the outreach
+  background text) lives only in the browser's `localStorage` under
+  `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
+  Application numbers start at 1 and are never reused. Won't-sponsor and PERM
+  jobs are hidden by default behind two toggles that show counts.
+- The site has one green accent, used only for sponsorship-likely and key
+  numbers. Buttons, tags and chips must never wrap or overflow (`white-space: nowrap`).
 - Board modules expose `list_jobs(company, settings)`, `fill_details(company, job, settings)`
   and `NEEDS_DETAILS`. To support a new ATS, add a module in `fetcher/boards/`
   and register it in `boards/__init__.py`.
