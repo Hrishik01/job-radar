@@ -5,7 +5,7 @@
   "manual/greenhouse": 3,
   "manual/lever": 1,
   "manual/workday": 7,
-  "simplify/ashby": 56,
+  "simplify/ashby": 55,
   "simplify/greenhouse": 47,
   "simplify/lever": 9,
   "uscis/ashby": 22,
@@ -374,14 +374,6 @@
    "name": "Fellowai",
    "board": "ashby",
    "slug": "fellowai",
-   "source": "simplify",
-   "status": "ok",
-   "verified": true
-  },
-  {
-   "name": "Firetiger",
-   "board": "ashby",
-   "slug": "firetiger",
    "source": "simplify",
    "status": "ok",
    "verified": true

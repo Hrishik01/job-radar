@@ -28,7 +28,9 @@ concurrency:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    # Pinned, so GitHub moving ubuntu-latest to a new release can't change
+    # the environment under us. Bump this deliberately.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
