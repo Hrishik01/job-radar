@@ -255,5 +255,20 @@ class RerunTests(unittest.TestCase):
         self.assertTrue(all(r["first_seen_utc"] == "run0" for r in store.values()))
 
 
+class BackfillTests(unittest.TestCase):
+    def test_first_full_sweep_skips_partial_runs(self):
+        runs = [{"started_utc": "2026-10-29T17:04:14+00:00", "boards_ok": 3},
+                {"started_utc": "2026-10-29T17:08:58+00:00", "boards_ok": 115},
+                {"started_utc": "2026-10-29T19:05:05+00:00", "boards_ok": 237},
+                {"started_utc": "2026-11-02T13:00:00+00:00", "boards_ok": 236}]
+        self.assertEqual(fetch.first_full_sweep(runs), "2026-10-29T19:05:05+00:00")
+        self.assertIsNone(fetch.first_full_sweep([]))
+
+    def test_backfill_compares_iso_times(self):
+        board_first = "2026-10-29T19:05:05+00:00"
+        self.assertTrue("2026-10-29T17:08:58+00:00" <= board_first)   # found in the sweep
+        self.assertFalse("2026-11-02T13:00:00+00:00" <= board_first)  # found later: a real new posting
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -41,6 +41,8 @@ site/
   index.html     dashboard: New / Applied / Removed tabs, filters, dialogs
   styles.css     ledger theme, light and dark (system default plus toggle)
   app.js         loads ../data/jobs.json; your status lives in localStorage
+  insights.html  charts page (KPIs, heatmap, weekly trend, time to apply,
+  insights.js    funnel, location split, top companies), hand-built SVG
 tests/           unittest smoke tests and text fixtures
 ```
 
@@ -94,6 +96,14 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
   comes from location text (Boston-area towns first); work mode from the feed
   field, then location text, then description.
 - Tunable lists live in `data/settings.json`, not in code.
+- **Backfill:** `meta.boards_first_fetched_utc` records each board's first
+  fetch, and jobs found on it get `"backfill": true`. Their first-seen time is
+  when tracking started, not when they were posted, so time-based charts and
+  "new this week" leave them out. `meta.first_sweep_utc` is when tracking began.
+- **Insights charts never draw from too little history.** Each one has a
+  minimum (the `MIN` table in `insights.js`) and shows a "Not enough history
+  yet" panel with progress until it's met. Charts are plain SVG; ask before
+  adding a chart library.
 - **Dashboard state** (applications, removed, opened, preferences, the outreach
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.

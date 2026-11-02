@@ -16,6 +16,7 @@ function defaultState() {
     nextNum: 1,        // running application number, never reused
     removed: {},       // job id -> ISO time removed
     opened: {},        // job id -> ISO time Open was clicked (pending "Did you apply?")
+    openedLog: {},     // job id -> ISO time first opened; never cleared (insights funnel)
     lastExport: null,  // ISO time of the last export
     prefs: {
       tab: "new", theme: "system", sort: "newest", loc: "all",
@@ -192,7 +193,10 @@ function appliedJobIds() {
 }
 
 function addApplication({ job_id = null, company, title, url = "", date = todayLocal(), manual = false }) {
-  const app = { n: state.nextNum, job_id, company: company.trim(), title: title.trim(), url, date, manual };
+  // applied_utc is the exact time you marked it, for time-to-apply; manual
+  // entries are backdated, so they only get the date
+  const app = { n: state.nextNum, job_id, company: company.trim(), title: title.trim(), url, date, manual,
+                applied_utc: manual ? null : new Date().toISOString() };
   state.apps.push(app);
   state.nextNum += 1;
   if (job_id) delete state.opened[job_id];
@@ -441,8 +445,27 @@ function dailyCounts(times, days = 14) {
   return out;
 }
 
+const SPARK_MIN_DAYS = 7;
+
+// Days of real history since the first full sweep (jobs from the sweep
+// itself are backfill and say nothing about when things were posted)
+function trackedDays() {
+  const sweep = Date.parse(meta.first_sweep_utc || "");
+  return sweep ? daysSince(sweep) : 0;
+}
+
 function spark(id, values) {
-  const svg = document.getElementById(id);
+  let svg = document.getElementById(id);
+  const days = trackedDays();
+  // Too little history: a line would just be one spike. Say so instead.
+  if (days < SPARK_MIN_DAYS) {
+    svg.outerHTML = `<span class="spark-wait" id="${id}" title="Sparklines need ${SPARK_MIN_DAYS} days of tracking">trend in ${SPARK_MIN_DAYS - days}d</span>`;
+    return;
+  }
+  if (svg.tagName.toLowerCase() !== "svg") {
+    svg.outerHTML = `<svg class="spark" id="${id}" aria-hidden="true"></svg>`;
+    svg = document.getElementById(id);
+  }
   const w = 64, h = 22, max = Math.max(...values, 1);
   const pts = values.map((v, i) => `${(i / (values.length - 1)) * w},${h - 1 - (v / max) * (h - 2)}`).join(" ");
   svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
@@ -454,13 +477,14 @@ function renderKpis() {
   const seen = (list) => list.map((j) => Date.parse(j.first_seen_utc));
   const weekAgo = Date.now() - 7 * 86400000;
 
-  $("#kpi-new").textContent = jobs.filter((j) => Date.parse(j.first_seen_utc) >= weekAgo).length;
-  spark("spark-new", dailyCounts(seen(jobs)));
+  const fresh = jobs.filter((j) => !j.backfill);   // found after the first sweep
+  $("#kpi-new").textContent = fresh.filter((j) => Date.parse(j.first_seen_utc) >= weekAgo).length;
+  spark("spark-new", dailyCounts(seen(fresh)));
 
   const likely = active.filter((j) => j.sponsorship === "likely");
   $("#kpi-spons").textContent = active.length ? Math.round((likely.length / active.length) * 100) + "%" : "–";
   // Daily share of newly found jobs tagged likely (carries forward on quiet days)
-  const all = dailyCounts(seen(jobs)), lik = dailyCounts(seen(jobs.filter((j) => j.sponsorship === "likely")));
+  const all = dailyCounts(seen(fresh)), lik = dailyCounts(seen(fresh.filter((j) => j.sponsorship === "likely")));
   let last = 0;
   spark("spark-spons", all.map((n, i) => (last = n ? lik[i] / n : last)));
 
@@ -470,7 +494,7 @@ function renderKpis() {
   const boston = newPool().filter((j) => j.location_group === "Boston area" &&
     (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely));
   $("#kpi-boston").textContent = boston.length;
-  spark("spark-boston", dailyCounts(seen(jobs.filter((j) => j.location_group === "Boston area"))));
+  spark("spark-boston", dailyCounts(seen(fresh.filter((j) => j.location_group === "Boston area"))));
 
   $("#kpi-applied").textContent = state.apps.length;
   spark("spark-applied", dailyCounts(state.apps.map((a) => localDate(a.date).getTime())));
@@ -633,6 +657,7 @@ function moveCurrentAfter(id) {
 function markOpened(job) {
   if (appliedJobIds().has(job.id)) return;
   state.opened[job.id] = new Date().toISOString();
+  state.openedLog[job.id] ??= state.opened[job.id];
   openedThisSession = true;
   saveState();
   // Re-render after the click so the "Opened" tag shows when you come back

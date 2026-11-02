@@ -120,6 +120,7 @@ main.wrap { border-top: 2px solid var(--ink); }
 .kpi-label { display: block; font-size: 12px; color: var(--muted); }
 .kpi-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
 .kpi-num { font-size: 26px; line-height: 1.1; }
+.spark-wait { font-size: 11px; color: var(--muted); white-space: nowrap; padding-bottom: 3px; }
 .spark { width: 64px; height: 22px; flex-shrink: 1; min-width: 0; color: var(--ink); overflow: visible; }
 
 /* ---------- Tabs ---------- */
@@ -259,6 +260,65 @@ dialog p { margin: 6px 0; }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------- Insights ---------- */
+.history-note { margin: 12px 0 0; padding: 8px 0; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--rule); }
+.history-note b { color: var(--ink); font-weight: 600; }
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+.chart { padding: 20px 0 22px; border-bottom: 1px solid var(--rule); min-width: 0; }
+.chart.wide { grid-column: 1 / -1; }
+.chart h2 { margin: 0; font: 500 22px/1.2 var(--serif); }
+.chart-sub { margin: 4px 0 14px; font-size: 13px; color: var(--muted); }
+.chart-foot, .legend { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+.chart-body { min-width: 0; }
+.chart-body svg { display: block; max-width: 100%; overflow: visible; }
+
+/* SVG marks: ink for data, accent only for sponsorship-likely */
+svg .axis { font: 11px var(--mono); fill: var(--muted); }
+svg .gridline { stroke: var(--rule); }
+svg .heat { fill: var(--ink); }
+svg .heat-empty { fill: none; stroke: var(--rule); }
+svg .bar { fill: var(--rule-strong); }
+svg .bar.partial { fill: var(--rule); }
+svg .line { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+svg .dot { fill: var(--ink); }
+
+.key { display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 10px; vertical-align: -1px; background: var(--rule-strong); }
+.key:first-child { margin-left: 0; }
+.key.likely { background: var(--signal); }
+.key.bar { background: var(--rule-strong); }
+.key.line { height: 2px; vertical-align: 3px; background: var(--ink); }
+
+.bars { display: flex; flex-direction: column; gap: 8px; }
+.bar-row { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr) 64px; gap: 10px; align-items: center; font-size: 13px; }
+.bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { height: 12px; background: transparent; }
+.bar-track i { display: block; height: 100%; background: var(--rule-strong); position: relative; }
+.bar-track b { position: absolute; left: 0; top: 0; bottom: 0; background: var(--signal); }
+.bar-num { text-align: right; white-space: nowrap; }
+
+.funnel { display: flex; flex-direction: column; gap: 12px; }
+.funnel-row { display: grid; grid-template-columns: 64px 70px minmax(0, 1fr) 48px; column-gap: 10px; align-items: center; font-size: 13px; }
+.funnel-label { font-weight: 600; }
+.funnel-num { text-align: right; font-size: 15px; }
+.funnel-track { height: 10px; }
+.funnel-track i { display: block; height: 100%; background: var(--ink); }
+.funnel-pct { text-align: right; color: var(--muted); font-size: 12px; }
+.funnel-note { grid-column: 2 / -1; font-size: 12px; color: var(--muted); }
+
+.big-stat { margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+.big-stat .mono { font-size: 26px; margin-right: 6px; }
+
+/* "Not enough history yet": a quiet ruled box, never an empty chart */
+.wait { border: 1px dashed var(--rule-strong); padding: 14px 16px; font-size: 13px; color: var(--muted); }
+.wait p { margin: 0 0 10px; }
+.wait-title { font: 500 17px var(--serif); color: var(--ink); margin-bottom: 4px !important; }
+.wait-row { display: grid; grid-template-columns: 64px 90px minmax(0, 1fr); gap: 10px; align-items: center; margin: 6px 0; }
+.wait-row .mono { color: var(--ink); white-space: nowrap; }
+.wait-bar { height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+.wait-bar i { display: block; height: 100%; background: var(--ink); }
+.wait-ready { margin: 10px 0 0 !important; color: var(--ink); font-size: 12px; }
+.wait-inline { margin: 12px 0 0; padding: 8px 10px; border: 1px dashed var(--rule-strong); font-size: 12px; color: var(--muted); }
+
 /* ---------- Phone ---------- */
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
@@ -284,6 +344,9 @@ dialog p { margin: 6px 0; }
   .job-side .salary-note { display: none; }
   .match { max-width: none; }
   .actions .btn { min-height: 36px; }
+  .charts { grid-template-columns: minmax(0, 1fr); }
+  .bar-row { grid-template-columns: minmax(0, 110px) minmax(0, 1fr) 56px; }
+  .funnel-row { grid-template-columns: 58px 62px minmax(0, 1fr) 42px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

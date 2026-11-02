@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Radar Insights</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- Apply the saved theme before first paint so there's no flash -->
+<script>
+  try {
+    var t = new URLSearchParams(location.search).get("theme") ||
+            JSON.parse(localStorage.getItem("jobradar.v1") || "{}").prefs?.theme;
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+<body>
+<header class="masthead wrap">
+  <div class="mast-left">
+    <h1>Insights</h1>
+    <p class="mono dateline" id="dateline">Loading jobs…</p>
+  </div>
+  <div class="mast-right">
+    <div class="mast-buttons">
+      <a class="btn" href="index.html">Dashboard</a>
+      <button class="btn" id="theme-btn" type="button">Theme: system</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="history-note" id="history-note"></p>
+
+  <section class="kpis" aria-label="Summary">
+    <div class="kpi"><span class="kpi-label">New this week</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-new">–</span><span id="spark-new"></span></span></div>
+    <div class="kpi"><span class="kpi-label">Applied this week</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-applied-week">–</span><span id="spark-applied"></span></span></div>
+    <div class="kpi"><span class="kpi-label">Applied all-time</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-applied-all">–</span><span id="spark-applied-all"></span></span></div>
+    <div class="kpi"><span class="kpi-label">Sponsor likely</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-spons">–</span><span id="spark-spons"></span></span></div>
+  </section>
+
+  <div class="charts">
+    <section class="chart wide" aria-labelledby="h-heat">
+      <h2 id="h-heat">When new jobs appear</h2>
+      <p class="chart-sub">New postings by day and hour first seen, Eastern time.</p>
+      <div class="chart-body" id="c-heat"></div>
+      <p class="chart-foot">First-seen times can only be as precise as the fetch schedule: a job posted at 9:10 shows up at the next run. Jobs from the first sweep are left out.</p>
+    </section>
+
+    <section class="chart" aria-labelledby="h-trend">
+      <h2 id="h-trend">Weekly trend</h2>
+      <p class="chart-sub">New postings and your applications per week (Mon–Sun, ET).</p>
+      <div class="chart-body" id="c-trend"></div>
+    </section>
+
+    <section class="chart" aria-labelledby="h-tta">
+      <h2 id="h-tta">Time to apply</h2>
+      <p class="chart-sub">Median hours from first seen to your application, by week.</p>
+      <div class="chart-body" id="c-tta"></div>
+    </section>
+
+    <section class="chart" aria-labelledby="h-funnel">
+      <h2 id="h-funnel">Funnel</h2>
+      <p class="chart-sub">From every listing on watched boards to your applications.</p>
+      <div class="chart-body" id="c-funnel"></div>
+    </section>
+
+    <section class="chart" aria-labelledby="h-loc">
+      <h2 id="h-loc">Open jobs by location</h2>
+      <p class="chart-sub">Jobs listed right now, by location group.</p>
+      <div class="chart-body" id="c-loc"></div>
+    </section>
+
+    <section class="chart wide" aria-labelledby="h-top">
+      <h2 id="h-top">Top companies by openings</h2>
+      <p class="chart-sub">Companies with the most matching jobs listed right now.</p>
+      <div class="chart-body" id="c-top"></div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p>Built from data/jobs.json and the status saved in this browser. Nothing leaves your device.</p>
+  </footer>
+</main>
+
+<script src="insights.js"></script>
+</body>
+</html>

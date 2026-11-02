@@ -47,6 +47,20 @@ def load_json(path: Path, default):
     return json.loads(path.read_text("utf-8")) if path.exists() else default
 
 
+def first_full_sweep(runs: list[dict]) -> str | None:
+    """Start time of the first run that read at least 90% of the most boards
+    any run has read. Used once, to seed board first-fetch times for data
+    collected before they were recorded."""
+    if not runs:
+        return None
+    most = max(r["boards_ok"] for r in runs)
+    return next(r["started_utc"] for r in runs if r["boards_ok"] >= 0.9 * most)
+
+
+def board_key(board: str, slug: str) -> str:
+    return f"{board}:{slug}"
+
+
 def uscis_match(company: dict, lookup: Lookup) -> tuple[str | None, str]:
     """(employer key, how). Only "exact" and "alias" count as a sponsor.
     A USCIS-guessed Lever/Ashby board is "unverified" (the feed has no company
@@ -118,6 +132,20 @@ def main() -> int:
     store = load_json(JOBS_PATH, {"meta": {"runs": []}, "jobs": []})
     known = {j["id"]: j for j in store["jobs"]}
     started = now_utc()
+
+    # When each board was first fetched. Jobs found on that first fetch are
+    # "backfill": their first-seen time is when tracking started, not when
+    # they were posted, so the insights page leaves them out of time charts.
+    meta = store["meta"]
+    if "boards_first_fetched_utc" not in meta:
+        seed = first_full_sweep(meta.get("runs", []))
+        meta["first_sweep_utc"] = seed or started
+        boards = {board_key(j["board"], j["slug"]) for j in store["jobs"]}
+        if meta.get("runs"):  # boards with no kept jobs were in the sweep too
+            boards |= {board_key(c["board"], c["slug"]) for c in companies}
+        meta["boards_first_fetched_utc"] = {b: meta["first_sweep_utc"] for b in sorted(boards)}
+    first_fetched = meta["boards_first_fetched_utc"]
+
     run = {"started_utc": started, "boards_ok": 0, "boards_failed": 0, "listed": 0,
            "dropped_title": 0, "dropped_years": 0, "dropped_non_us": 0,
            "detail_errors": 0, "kept": 0, "new": 0}
@@ -139,6 +167,7 @@ def main() -> int:
         run["boards_ok"] += 1
         run["listed"] += len(listed)
         fetched_boards.add((company["board"], company["slug"]))
+        board_first = first_fetched.setdefault(board_key(company["board"], company["slug"]), started)
 
         sponsor_likely = False
         if lookup:
@@ -175,11 +204,13 @@ def main() -> int:
                 continue
 
             record, tier2 = tag(job, settings, matchers, sponsor_likely)
+            first_seen = previous["first_seen_utc"] if previous else started  # never updated
             record.update({
                 "us_uncertain": us == "uncertain",
                 "min_years": years,
-                "first_seen_utc": previous["first_seen_utc"] if previous else started,  # never updated
+                "first_seen_utc": first_seen,
                 "last_seen_utc": started,
+                "backfill": first_seen <= board_first,
                 "active": True,
             })
             if not previous:
@@ -204,6 +235,9 @@ def main() -> int:
     for job_id, record in known.items():
         if job_id not in seen_ids and (record["board"], record["slug"]) in fetched_boards:
             record["active"] = False
+        if "backfill" not in record:  # jobs this run didn't touch, from before the field existed
+            board_first = first_fetched.get(board_key(record["board"], record["slug"]), meta["first_sweep_utc"])
+            record["backfill"] = record["first_seen_utc"] <= board_first
 
     jobs = sorted(known.values(), key=lambda j: (j["first_seen_utc"], j["company"], j["title"]), reverse=True)
     ids = [j["id"] for j in jobs]
