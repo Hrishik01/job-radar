@@ -30,6 +30,7 @@ class Job:
     description: str = ""          # plain text; may be filled later by fill_details()
     posted_raw: str | None = None  # whatever the board gives, unverified
     posted_source: str | None = None  # which feed field posted_raw came from
+    closes_raw: str | None = None  # application end date, when the board gives one (Workday endDate)
     # Board-specific hints, used before falling back to text parsing
     workplace_hint: str = ""       # e.g. Lever/Ashby workplaceType
     country_hint: str = ""         # e.g. Lever "US", Ashby "United States"

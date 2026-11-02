@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "fetcher"))
 
 import fetch  # noqa: E402
 import filters  # noqa: E402
+from boards import workday  # noqa: E402
 import scoring  # noqa: E402
 from models import Job, stable_id  # noqa: E402
 from parse import clean_url, parse_salary, salary_from_hint  # noqa: E402
@@ -278,6 +279,26 @@ class RunHealthTests(unittest.TestCase):
     def test_most_boards_failing_fails_the_run(self):
         self.assertTrue(fetch.run_failed(boards_ok=100, boards_failed=140))
         self.assertTrue(fetch.run_failed(boards_ok=0, boards_failed=1))   # --only on a dead board
+
+
+class DetailTests(unittest.TestCase):
+    def test_records_missing_a_detail_field_are_refetched_once(self):
+        current = {f: None for f in fetch.DETAIL_FIELDS} | {"description": "text"}
+        older = {k: v for k, v in current.items() if k != "closes_raw"}
+        self.assertTrue(fetch.can_reuse_details(current))
+        self.assertFalse(fetch.can_reuse_details(older))
+        self.assertFalse(fetch.can_reuse_details(None))
+
+    def test_workday_end_date_is_kept(self):
+        company = {"name": "Acme", "slug": "acme", "tenant": "acme", "pod": 1, "site": "Careers"}
+        job = Job(company="Acme", board="workday", slug="acme", native_id="/job/R-1", title="Data Analyst")
+        detail = {"jobPostingInfo": {"jobDescription": "<p>SQL</p>", "startDate": "2026-10-14", "endDate": "2026-11-13"}}
+        original, workday.request_json = workday.request_json, lambda *a, **kw: detail
+        try:
+            workday.fill_details(company, job, SETTINGS)
+        finally:
+            workday.request_json = original
+        self.assertEqual((job.posted_raw, job.closes_raw), ("2026-10-14", "2026-11-13"))
 
 
 if __name__ == "__main__":

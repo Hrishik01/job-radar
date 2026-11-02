@@ -88,8 +88,26 @@ function ageLabel(t) {
   return d === 0 ? "today" : `${d}d`;
 }
 
+// The company's own posted date, or 0 when the board gives none
+function postedOn(job) {
+  return Date.parse(job.posted_raw || "") || 0;
+}
+
+// For sorting: the posted date, else when the fetcher first saw the job
 function postedTime(job) {
-  return Date.parse(job.posted_raw || "") || Date.parse(job.first_seen_utc) || 0;
+  return postedOn(job) || Date.parse(job.first_seen_utc) || 0;
+}
+
+// Workday's application end date ("2026-11-13"), counted in local days
+function closesLabel(job) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(job.closes_raw || "");
+  if (!m) return "";
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.round((new Date(+m[1], m[2] - 1, +m[3]) - today) / 86400000);
+  if (days < 0) return "close date passed";
+  if (days === 0) return "closes today";
+  return days === 1 ? "closes tomorrow" : `closes in ${days} days`;
 }
 
 function kMoney(n) {
@@ -230,9 +248,12 @@ function searchTerms() {
 
 function sortJobs(list) {
   const p = state.prefs;
-  const newest = (a, b) => postedTime(b) - postedTime(a);
+  // Genuinely new postings first, so a backfill job (already listed when its
+  // board was first fetched) never outranks one. Then the company's posted date.
+  const newest = (a, b) => (!b.backfill - !a.backfill) || postedTime(b) - postedTime(a);
   const by = {
     newest,
+    found: (a, b) => Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc) || postedTime(b) - postedTime(a),
     match: (a, b) => (b.match_pct || 0) - (a.match_pct || 0) || newest(a, b),
     pay: (a, b) => topPay(b) - topPay(a) || newest(a, b),
     boston: (a, b) => (b.location_group === "Boston area") - (a.location_group === "Boston area") || newest(a, b),
@@ -309,8 +330,9 @@ function jobRow(job, tab) {
         ${job.location_group === "Boston area"
           ? `<span>Boston area · ${esc(modeLabel(job.work_mode))}</span>`
           : `<span>${esc(job.location_group || modeLabel(job.work_mode))}</span>`}
-        <span>posted ${ageLabel(postedTime(job))}</span>
+        ${postedOn(job) ? `<span>posted ${ageLabel(postedOn(job))}</span>` : ""}
         <span>found ${ageLabel(Date.parse(job.first_seen_utc))}</span>
+        ${job.active && closesLabel(job) ? `<span>${closesLabel(job)}</span>` : ""}
         ${job.active ? "" : "<span>no longer listed</span>"}
       </p>
       <div class="match">

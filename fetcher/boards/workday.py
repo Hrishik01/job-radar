@@ -69,3 +69,4 @@ def fill_details(company: dict, job: Job, settings: dict) -> None:
     if info.get("startDate"):
         job.posted_raw = info["startDate"]
         job.posted_source = "workday.startDate"
+    job.closes_raw = info.get("endDate")  # e.g. "2026-11-13"; many postings have none

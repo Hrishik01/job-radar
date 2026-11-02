@@ -40,7 +40,14 @@ MAX_FAILED_SHARE = 0.5
 
 # Raw fields that only fill_details() provides; reused for jobs we already know.
 DETAIL_FIELDS = ("description", "salary_hint", "country_hint", "posted_raw",
-                 "posted_source", "location", "apply_url")
+                 "posted_source", "closes_raw", "location", "apply_url")
+
+
+def can_reuse_details(previous: dict | None) -> bool:
+    """True when a stored record already has every detail field. Records
+    written before a field was added get their details fetched once more."""
+    return bool(previous and previous.get("description")
+                and all(f in previous for f in DETAIL_FIELDS))
 
 log = logging.getLogger("fetch")
 
@@ -195,7 +202,7 @@ def main() -> int:
 
             previous = known.get(job.id)
             try:
-                if board.NEEDS_DETAILS and previous and previous.get("description"):
+                if board.NEEDS_DETAILS and can_reuse_details(previous):
                     for f in DETAIL_FIELDS:
                         setattr(job, f, previous.get(f) or getattr(job, f))
                 elif board.NEEDS_DETAILS:
