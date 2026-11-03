@@ -58,17 +58,34 @@ _OTHER_HEAD = re.compile(
 )
 
 
+# Inside a mixed section, the words that make one line a preference
+_PREFERRED_LINE = re.compile(r"\b(preferred|nice to have|a plus|ideally)\b", re.IGNORECASE)
+
+
+def _is_mixed_heading(head: str, preferred: re.Match) -> bool:
+    """"Education & Preferred Qualifications", "Required and Preferred
+    Qualifications": a requirement part joined to the preferred word by
+    &/and/,/slash. "Preferred Skills and Experience" (word first) is not."""
+    return bool(re.search(r"\w.*(?:&|\band\b|/|,)", head[:preferred.start()], re.IGNORECASE))
+
+
 def _section_text(description: str, keep: str) -> str:
     """Lines by section. keep="required": under requirement headings
     ("Qualifications", "What we need to see"); "preferred": under preferred
     ones ("Nice to have", "Ways to stand out"); "not_preferred": everything
-    outside preferred sections. Bulleted lines are never headings."""
+    outside preferred sections. A mixed heading counts as requirements, and
+    only its lines that say "preferred", "a plus" etc. count as preferred.
+    Bulleted lines are never headings."""
     lines, state = [], None
     for line in description.splitlines():
         head = line.strip().rstrip(":").strip()
         if (0 < len(head) <= 60 and len(head.split()) <= 8 and not head.endswith(".")
                 and not head.startswith(("-", "•", "*"))):
-            if _PREFERRED_HEAD.search(head):
+            preferred = _PREFERRED_HEAD.search(head)
+            if preferred and _is_mixed_heading(head, preferred):
+                state = "mixed"
+                continue
+            if preferred:
                 state = "preferred"
                 continue
             if _REQUIRED_HEAD.match(head):
@@ -77,7 +94,10 @@ def _section_text(description: str, keep: str) -> str:
             if _OTHER_HEAD.match(head):
                 state = None
                 continue
-        if (state == keep) or (keep == "not_preferred" and state != "preferred"):
+        line_state = state
+        if state == "mixed":
+            line_state = "preferred" if _PREFERRED_LINE.search(line) else "required"
+        if (line_state == keep) or (keep == "not_preferred" and line_state != "preferred"):
             lines.append(line)
     return "\n".join(lines)
 
@@ -193,32 +213,69 @@ _FOREIGN_COUNTRY_RE = re.compile(
 )
 
 
-def names_foreign_country(title: str, location: str) -> bool:
-    """True when the title or location names a non-US country, e.g.
-    "Business Consultant (Denmark)". Overrides a feed that says US."""
-    return bool(_FOREIGN_COUNTRY_RE.search(title) or _FOREIGN_COUNTRY_RE.search(location))
-
+# Foreign cities with no well-known US namesake: foreign even beside a
+# state-like code, so "Gurugram IN" is India, not Indiana.
+_FOREIGN_CITY_RE = re.compile(
+    r"\b(Gurugram|Gurgaon|Noida|New Delhi|Bengaluru|Bangalore|Hyderabad|Pune|Mumbai|Chennai|Kolkata|"
+    r"Ahmedabad|Edinburgh|Glasgow|Munich|München|Frankfurt|Düsseldorf|Amsterdam|Rotterdam|Madrid|"
+    r"Barcelona|Lisbon|Milan|Zurich|Zürich|Geneva|Stockholm|Copenhagen|Oslo|Helsinki|Warsaw|Krakow|"
+    r"Kraków|Wroclaw|Prague|Budapest|Bucharest|Kyiv|Tel Aviv|Dubai|Abu Dhabi|Riyadh|Doha|Cairo|Lagos|"
+    r"Nairobi|Cape Town|Johannesburg|Singapore|Kuala Lumpur|Jakarta|Bangkok|Manila|Ho Chi Minh|Hanoi|"
+    r"Shanghai|Beijing|Shenzhen|Taipei|Seoul|Tokyo|Osaka|Sydney|Auckland|Montreal|Montréal|Ottawa|"
+    r"Calgary|Mexico City|Guadalajara|Monterrey|São Paulo|Sao Paulo|Rio de Janeiro|Buenos Aires|"
+    r"Bogotá|Bogota|Medellín|Medellin)\b",
+    re.IGNORECASE,
+)
+# Foreign cities that share a name with US places ("Dublin, CA", "Melbourne,
+# FL", "Paris, TX"): foreign only when no US state is named alongside.
+_AMBIGUOUS_CITY_RE = re.compile(
+    r"\b((?<!New )London|Manchester|Dublin|Paris|Berlin|Athens|Delhi|Lima|Toronto|Vancouver|"
+    r"Melbourne|Hamburg|Birmingham)\b",
+    re.IGNORECASE,
+)
+_CA_PROVINCE_RE = re.compile(r",\s*(ON|BC|QC|AB|MB|NS|NB|NL|PE|SK)\b")  # "Toronto, ON"
+# Country codes at the end of a location that can't be a US state. IN, CA,
+# DE, ID and the like are left out on purpose: they are also state codes.
+_FOREIGN_CODE_RE = re.compile(
+    r"(?:,|\s)\s*(GB|IE|FR|ES|NL|BE|CH|AT|DK|PL|PT|CZ|HU|RO|AE|SG|MY|JP|CN|HK|TW|KR|AU|NZ|BR|MX|PH|"
+    r"TH|VN|ZA|NG|KE|EG|TR|UA|IND|GBR|CAN|DEU|FRA|ESP|ITA|NLD|IRL|POL|PRT|CHE|SGP|JPN|CHN|AUS|BRA|"
+    r"MEX|ISR|PHL|ARE)\s*$"
+)
 
 # Separators between locations in a multi-location string,
 # e.g. "Remote, Canada; Remote, United States" or "Remote - US or Canada".
 _LOCATION_SPLIT = re.compile(r"\s*(?:;|\||\n|\s/\s|\bor\b)\s*")
 
 
+def _place_is_foreign(part: str) -> bool:
+    """One location (or a title): names a foreign country, city or code."""
+    if (_FOREIGN_COUNTRY_RE.search(part) or _FOREIGN_CITY_RE.search(part)
+            or _CA_PROVINCE_RE.search(part) or _FOREIGN_CODE_RE.search(part)):
+        return True
+    return bool(_AMBIGUOUS_CITY_RE.search(part)) and not _US_TEXT_RE.search(part)
+
+
+def names_foreign_place(text: str) -> bool:
+    """True when any listed place is foreign, e.g. "Business Consultant
+    (Denmark)" or "Gurugram IN". Overrides a feed that says US."""
+    return any(_place_is_foreign(part) for part in _LOCATION_SPLIT.split(text) if part)
+
+
 def lists_us_location(location: str) -> bool:
     """True when any one of the listed locations is in the US."""
-    return any(_US_TEXT_RE.search(part) and not _FOREIGN_COUNTRY_RE.search(part)
+    return any(_US_TEXT_RE.search(part) and not _place_is_foreign(part)
                for part in _LOCATION_SPLIT.split(location) if part)
 
 
 def us_status(title: str, location: str, country_hint: str) -> str:
     """'us', 'non_us', or 'uncertain' (e.g. a bare "Remote").
 
-    A foreign country in the title always drops the job (the Veeva Denmark
+    A foreign place in the title always drops the job (the Veeva Denmark
     case). In the location it drops the job only when no listed location is
     in the US: "Remote, Canada; Remote, United States" is kept."""
-    if _FOREIGN_COUNTRY_RE.search(title):
+    if names_foreign_place(title):
         return "non_us"
-    if _FOREIGN_COUNTRY_RE.search(location):
+    if names_foreign_place(location):
         return "us" if lists_us_location(location) else "non_us"
     if country_hint:
         return "us" if country_hint.strip().lower() in _US_COUNTRY else "non_us"

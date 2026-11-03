@@ -242,6 +242,19 @@ class FilterTests(unittest.TestCase):
         self.assertIsNone(filters.min_years_required(text))
         self.assertEqual(filters.min_years_preferred(text), 1)
 
+    def test_mixed_heading_counts_as_requirements(self):
+        text = ("Education & Preferred Qualifications\n"
+                "- Bachelor's degree in Finance preferred\n"
+                "- 5+ years of financial services experience, preferably in payments.\n"
+                "- 2+ years of Python experience is a plus")
+        self.assertEqual(filters.min_years_required(text), 5)     # the "a plus" line stays preferred
+        self.assertEqual(filters.min_years_required(
+            "Required and Preferred Qualifications:\n- 4+ years in risk analytics"), 4)
+        # Preferred word first: the whole heading is preferred
+        text = "Preferred Skills and Experience\n- 6+ years in fintech"
+        self.assertIsNone(filters.min_years_required(text))
+        self.assertEqual(filters.min_years_preferred(text), 6)
+
     def test_a_bullet_is_never_a_heading(self):
         text = ("The Expertise and Skills You Bring\n- Bachelor's degree or equivalent experience preferred\n"
                 "- 3-5 years of Accounting/Finance or Stock Plan Administration experience")
@@ -261,6 +274,18 @@ class FilterTests(unittest.TestCase):
         for text, keep in cases.items():
             years = filters.min_years_required(text)
             self.assertEqual(filters.experience_passes(years, SETTINGS), keep, text)
+
+    def test_foreign_cities_and_codes(self):
+        t = "Data Analyst"
+        for loc in ["Gurugram IN", "Gurugram, Haryana, IN", "Bengaluru, KA, IND", "Toronto, ON",
+                    "Toronto, ON, CA", "London", "Dublin", "Singapore", "Paris, FR", "Sydney, AU",
+                    "Tel Aviv", "Mexico City", "Remote - Gurugram"]:
+            self.assertEqual(filters.us_status(t, loc, ""), "non_us", loc)
+        for loc in ["Indianapolis, IN", "Dublin, CA", "Dublin, Ohio", "Melbourne, FL", "Paris, TX",
+                    "New London, CT", "Cambridge, MA", "Wilmington, DE", "Boise, ID",
+                    "Gurugram IN; Boston, MA"]:
+            self.assertEqual(filters.us_status(t, loc, ""), "us", loc)
+        self.assertEqual(filters.us_status("Market Analyst - Gurugram", "Remote", ""), "non_us")
 
     def test_us_status(self):
         t = "Data Analyst"
