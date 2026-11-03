@@ -132,10 +132,22 @@
     "detail_errors": 0,
     "kept": 153,
     "new": 0
+   },
+   {
+    "started_utc": "2026-11-03T17:06:56+00:00",
+    "boards_ok": 236,
+    "boards_failed": 0,
+    "listed": 33248,
+    "dropped_title": 32969,
+    "dropped_years": 54,
+    "dropped_non_us": 72,
+    "detail_errors": 0,
+    "kept": 153,
+    "new": 1
    }
   ],
-  "generated_utc": "2026-11-03T09:10:20+00:00",
-  "job_count": 183,
+  "generated_utc": "2026-11-03T17:14:47+00:00",
+  "job_count": 184,
   "active_count": 153,
   "first_sweep_utc": "2026-10-29T19:05:05+00:00",
   "boards_first_fetched_utc": {
@@ -380,6 +392,49 @@
  },
  "jobs": [
   {
+   "id": "84bb9da431e96d19",
+   "company": "State Street",
+   "board": "workday",
+   "slug": "statestreet",
+   "native_id": "/job/BOSTON/Technical-Business-Analyst--Officer_R-794000",
+   "title": "Technical Business Analyst, Officer",
+   "location": "BOSTON",
+   "apply_url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/BOSTON/Technical-Business-Analyst--Officer_R-794000",
+   "description": "Who we are looking for\n\nWe are seeking a junior Technical Business Analyst to collaborate with a stellar team of BA’s developing the product through its next phase of growth. This role focuses on technical analysis and documentation to support the Product Management team in designing new functionality and features.\n\nWith a strong technical background, the successful candidate will be able to show a successful track-record of delivering solutions where attention to detail and intellectual.\n\nThis role can be performed in a hybrid model, where you can balance work from home and office to match your needs and role requirements.\n\nWhy this role is important to us\n\nThe team you will be joining is a part of State Street Markets. As a leading provider of trading and lending solutions to the world’s institutional investors, we deliver the industry’s most innovative platforms, financing and portfolio solutions. Our capabilities are backed by proprietary, high-value research, insights and indicators that power clients’ investment decisions, accelerate performance and help investors stay ahead of shifting markets. Across our comprehensive set of solutions – data-driven macro market intelligence that give an information advantage; client-first platforms and tools that redefine trading; financing solutions that streamline liquidity access; and portfolio solutions designed to help achieve peak performance – we deliver a breakthrough edge to drive business success.\n\nJoin us if making your mark in the capital markets industry from day one is a challenge you are up for.\n\nWhat you will be responsible for\n\nAs Technical Business Analyst, Product Officer you will\n\n· Develop a deep understanding of existing Fund Connect infrastructure, data-models and database architecture.\n\n· Conduct detailed front-to-back analysis of trading & settlement workflows for asset management & liquidity products.\n\n· Deliver high-quality, detailed technical documentation business requirements in conjunction with product, technical & business teams including workflow diagrams, GUI definition and screen mock-ups.\n\n· Provide input into database technical design (Oracle, SQL server)\n\n· Create and manage administration of documentation including product development schedules, release schedules, bug tracking and user manuals.\n\n· Contribute to the design & testing of new functionality and GUI’s.\n\n· Work autonomously with confidence in a fast-moving, complex technical environment.\n\n· Build solid relationships with colleagues across multiple functional groups of differing levels of seniority.\n\nWhat we value\n\nThese skills will help you succeed in this role.\n\n· Minimum of 2 years of experience in technical business analysis and/or product in a financial services environment\n\n· Relevant experience with electronic trading platforms in the Mutual Fund, FX and/or Fixed Income space\n\n· Highly self-motivated with exceptional integrity\n\n· Willingness to learn and eagerness to collaborate as part of a larger team.\n\n· Confident & clear communicator\n\n· Ability to articulate complex technical concepts to any audience.\n\nEducation & Preferred Qualifications\n\n· Bachelor’s degree or equivalent\n\n· Technically competent with the ability to code in Python, VBA and SQL\n\n· Power user of Excel\n\n· Messaging familiarity with FIX, REST API, SFTP, JSON, XML, SWIFT FIN/MX\n\nAre you the right candidate? Yes!\n\nWe truly believe in the power that comes from the diverse backgrounds and experiences our employees bring with them. Although each vacancy details what we are looking for, we don’t necessarily need you to fulfil all of them when applying. If you like change and innovation, seek to see the bigger picture, make data driven decisions and are a good team player, you could be a great fit.\n\nAbout State Street\n\nWhat we do. State Street is one of the largest custodian banks, asset managers and asset intelligence companies in the world. From technology to product innovation, we’re making our mark on the financial services industry. For more than two centuries, we’ve been helping our clients safeguard and steward the investments of millions of people. We provide investment servicing, data & analytics, investment research & trading and investment management to institutional clients.\n\nWork, Live and Grow. We make all efforts to create a great work environment. Our benefits packages are competitive and comprehensive. Details vary by location, but you may expect generous medical care, insurance and savings plans, among other perks. You’ll have access to flexible Work Programs to help you match your needs. And our wealth of development programs and educational support will help you reach your full potential.\n\nInclusion, Diversity and Social Responsibility. We truly believe our employees’ diverse backgrounds, experiences and perspectives are a powerful contributor to creating an inclusive environment where everyone can thrive and reach their maximum potential while adding value to both our organization and our clients. We warmly welcome candidates of diverse origin, background, ability, age, sexual orientation, gender identity and personality. Another fundamental value at State Street is active engagement with our communities around the world, both as a partner and a leader. You will have tools to help balance your professional and personal life, paid volunteer days, matching gift programs and access to employee networks that help you stay connected to what matters to you.\n\nState Street is an equal opportunity and affirmative action employer.\n\nSalary Range:\n$65,000 - $113,750 Annual\n\nThe range quoted above applies to the role in the primary location specified. If the candidate would ultimately work outside of the primary location above, the applicable range could differ.\n\nEmployees are eligible to participate in State Street’s comprehensive benefits program, which includes: our retirement savings plan (401K) with company match; insurance coverage including basic life, medical, dental, vision, long-term disability, and other optional additional coverages; paid-time off including vacation, sick leave, short term disability, and family care responsibilities; access to our Employee Assistance Program; incentive compensation including eligibility for annual performance-based awards (excluding certain sales roles subject to sales incentive plans); and, eligibility for certain tax advantaged savings plans.\n\nFor a full overview, visit https://hrportal.ehr.com/statestreet/Home.\n\nAbout State Street\n\nAcross the globe, institutional investors rely on us to help them manage risk, respond to challenges, and drive performance and profitability. We keep our clients at the heart of everything we do, and smart, engaged employees are essential to our continued success.\n\nWe are committed to fostering an environment where every employee feels valued and empowered to reach their full potential. As an essential partner in our shared success, you’ll benefit from inclusive development opportunities, flexible work-life support, paid volunteer days, and vibrant employee networks that keep you connected to what matters most. Join us in shaping the future.\n\nAs an Equal Opportunity Employer, we consider all qualified applicants for all positions without regard to race, creed, color, religion, national origin, ancestry, ethnicity, age, disability, genetic information, sex, sexual orientation, gender identity or expression, citizenship, marital status, domestic partnership or civil union status, familial status, military and veteran status, and other characteristics protected by applicable law.\n\nDiscover more information on jobs at StateStreet.com/careers\n\nRead our CEO Statement\n\nJob Application Disclosure:\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law shall be subject to criminal penalties and civil liability.",
+   "posted_raw": "2026-11-03",
+   "posted_source": "workday.startDate",
+   "closes_raw": "2026-11-08",
+   "workplace_hint": "",
+   "country_hint": "United States of America",
+   "salary_hint": null,
+   "perm_flag": null,
+   "work_mode": "hybrid",
+   "work_mode_source": "description",
+   "location_group": "Boston area",
+   "salary_min": 65000,
+   "salary_max": 113750,
+   "salary_hourly": false,
+   "salary_source": "description",
+   "sponsorship": "likely",
+   "sponsorship_evidence": null,
+   "perm_likely": false,
+   "perm_markers": [],
+   "match_pct": 30,
+   "matched_skills": [
+    "SQL",
+    "Python",
+    "Excel"
+   ],
+   "us_uncertain": false,
+   "min_years": 2,
+   "first_seen_utc": "2026-11-03T17:06:56+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
+   "backfill": false,
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
+  },
+  {
    "id": "d1c04b1f3d878e8c",
    "company": "Zoox",
    "board": "lever",
@@ -423,9 +478,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "8cd27cefa3fcb502",
@@ -465,9 +522,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "2441fbf5fc2af6e1",
@@ -497,17 +556,18 @@
    "sponsorship_evidence": "- To conform to US Government export regulations, applicant must be a (i) US citizen or national, (ii) US lawful, permanent resident (aka green card holder), (iii) Refugee under 8 USC.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 20,
+   "match_pct": 10,
    "matched_skills": [
-    "Python",
-    "ETL"
+    "Python"
    ],
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "5394330503a75406",
@@ -550,9 +610,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "24abb12977e82a63",
@@ -595,9 +657,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "a3d152862c9e8642",
@@ -634,9 +698,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "2efadd19e058a25d",
@@ -677,9 +743,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-11-02T23:43:48+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "1e1d4963f241a816",
@@ -761,18 +829,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 30,
+   "match_pct": 20,
    "matched_skills": [
     "SQL",
-    "Python",
-    "ETL"
+    "Python"
    ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-11-02T13:26:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "94fcfa2577502272",
@@ -804,14 +873,16 @@
    "perm_markers": [],
    "match_pct": 5,
    "matched_skills": [
-    "Process documentation"
+    "SOPs"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-11-02T13:26:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "85ad3097dad7793b",
@@ -849,9 +920,11 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-11-02T13:26:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": false,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "55ad2acea6593739",
@@ -890,9 +963,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "f59a6820b46b05dc",
@@ -935,9 +1010,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "374b183531983ece",
@@ -980,9 +1057,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "6a5e67827c4047f3",
@@ -1019,9 +1098,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "8b2835b3acb1fd98",
@@ -1062,9 +1143,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "f617a365627883a6",
@@ -1102,9 +1185,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "95a8458ae08cc0f1",
@@ -1148,9 +1233,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "996bff02aaaad783",
@@ -1194,9 +1281,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "dee08278c142b1a9",
@@ -1265,19 +1354,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 35,
+   "match_pct": 25,
    "matched_skills": [
     "SQL",
     "Snowflake",
-    "ETL",
     "KPI definition"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "6d9c67e905347026",
@@ -1361,9 +1451,11 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "45f5369cd950b94b",
@@ -1393,23 +1485,24 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 45,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Python",
     "Excel",
     "Power BI",
     "Tableau",
-    "Data modeling",
     "KPI definition",
     "Forecasting"
    ],
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "857bc4d4ef983d6a",
@@ -1451,9 +1544,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "1bb9e9caa41cc824",
@@ -1499,9 +1594,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0ea64bf97feb8220",
@@ -1538,9 +1635,11 @@
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "dfc4d5fa085a69b6",
@@ -1579,9 +1678,11 @@
    "us_uncertain": true,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "e29859f5f7e5745a",
@@ -1623,9 +1724,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "bbd3fe9d515869d9",
@@ -1659,15 +1762,17 @@
    "matched_skills": [
     "SQL",
     "Power BI",
-    "Data modeling",
+    "Governance",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "d976f24ec87e964f",
@@ -1793,9 +1898,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "e4df6753025e2e09",
@@ -1832,9 +1939,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "6f1d5bd8c1ccb2aa",
@@ -1950,22 +2059,22 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 55,
+   "match_pct": 35,
    "matched_skills": [
     "SQL",
     "Python",
     "Power BI",
-    "Data modeling",
-    "ETL",
-    "Data governance",
+    "Governance",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "7f787232657d3d0c",
@@ -2003,14 +2112,16 @@
     "Power BI",
     "Tableau",
     "AWS",
-    "Process documentation"
+    "SOPs"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "cf64643ccc0f015c",
@@ -2120,9 +2231,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "7e916fdc60b6ca1c",
@@ -2228,22 +2341,23 @@
    "sponsorship_evidence": "- To conform to US Government export regulations, applicant must be a (i) US citizen or national, (ii) US lawful, permanent resident (aka green card holder), (iii) Refugee under 8 USC.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 55,
+   "match_pct": 50,
    "matched_skills": [
     "SQL",
     "Python",
     "Power BI",
     "Tableau",
-    "ETL",
     "KPI definition",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "692e3725f09fa26b",
@@ -2273,19 +2387,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
-    "Excel",
-    "Data modeling"
+    "Excel"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "d0f34b3190c27126",
@@ -2323,9 +2438,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "9e89fde7d7174009",
@@ -2369,9 +2486,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "c2bc5433422fce1c",
@@ -2417,9 +2536,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "beefbb07f3983f29",
@@ -2454,21 +2575,21 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 60,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Python",
     "Airflow",
-    "Data modeling",
-    "ETL",
-    "Data governance"
+    "Governance"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "fa70a71c91f344c9",
@@ -2507,9 +2628,11 @@
    "us_uncertain": true,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "208c6ff3b7b144f5",
@@ -2546,9 +2669,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "6acc6fc5473ea35b",
@@ -2590,9 +2715,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "153c801a57f6c7b4",
@@ -2622,7 +2749,7 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 85,
+   "match_pct": 75,
    "matched_skills": [
     "SQL",
     "Python",
@@ -2630,17 +2757,18 @@
     "Excel",
     "Tableau",
     "Snowflake",
-    "Salesforce",
     "MySQL",
-    "Forecasting",
-    "Territory and quota planning"
+    "Salesforce",
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "f945c79bf9e3e751",
@@ -2675,18 +2803,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 30,
+   "match_pct": 20,
    "matched_skills": [
     "SQL",
-    "Python",
-    "Stakeholder management"
+    "Python"
    ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "2a21ebdae9da9436",
@@ -2730,9 +2859,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "92bdd1f85b5b3bd8",
@@ -2776,9 +2907,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "29e886401d90b14b",
@@ -2868,9 +3001,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0f88be1d5aa4f8ef",
@@ -2911,9 +3046,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "53a8975f29ebb4e2",
@@ -2950,9 +3087,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "5a1d82d3b7ab8c77",
@@ -2989,9 +3128,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "bb4d60787c4870d6",
@@ -3028,9 +3169,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "13756a408c55ae46",
@@ -3067,9 +3210,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "16971e672204f6f5",
@@ -3106,9 +3251,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "442f73742dd63866",
@@ -3149,9 +3296,11 @@
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "b805f072b18d2571",
@@ -3194,9 +3343,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "64630b43f8b7a1ae",
@@ -3233,9 +3384,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0dee61a23048af9d",
@@ -3273,9 +3426,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0db3918a5249ecb0",
@@ -3396,9 +3551,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "cd1137e45fec57f6",
@@ -3484,9 +3641,11 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "f27bb24e40d015e8",
@@ -3521,19 +3680,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
-    "Excel",
-    "Stakeholder management"
+    "Excel"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "7e556034f88e43a4",
@@ -3576,9 +3736,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "a8df8d647b815f82",
@@ -3621,9 +3783,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "55bed5100fedc2f1",
@@ -3655,17 +3819,19 @@
    "perm_markers": [
     "exact salary $98,775"
    ],
-   "match_pct": 10,
+   "match_pct": 15,
    "matched_skills": [
-    "Data modeling",
+    "Governance",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "16fee165416fce78",
@@ -3702,9 +3868,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "13778dde50631b75",
@@ -3742,15 +3910,17 @@
     "Excel",
     "Tableau",
     "Salesforce",
-    "Forecasting",
-    "Territory and quota planning"
+    "Quota planning",
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "cb01fce88ed020b5",
@@ -3925,9 +4095,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "2520d4b0bde1b3ab",
@@ -3964,9 +4136,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "e3c68dd4b8b23521",
@@ -4004,9 +4178,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "01c683892ed192b9",
@@ -4074,20 +4250,21 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 50,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Python",
     "Power BI",
-    "Tableau",
-    "ETL"
+    "Tableau"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "103867b379605204",
@@ -4127,9 +4304,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "28deffc65a61a980",
@@ -4164,19 +4343,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 20,
+   "match_pct": 15,
    "matched_skills": [
     "SQL",
     "Tableau",
-    "ETL",
     "KPI definition"
    ],
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "cbeb6c04d945c376",
@@ -4220,9 +4400,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "1ef8489793a6ea27",
@@ -4376,18 +4558,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 30,
+   "match_pct": 20,
    "matched_skills": [
     "SQL",
-    "Forecasting",
-    "Executive presentations"
+    "Forecasting"
    ],
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "10b0ce0ef90217bf",
@@ -4421,15 +4604,17 @@
    "matched_skills": [
     "SQL",
     "Salesforce",
-    "Forecasting",
-    "Territory and quota planning"
+    "Territory planning",
+    "Forecasting"
    ],
    "us_uncertain": true,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "844e4e0bccff6477",
@@ -4459,21 +4644,21 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 60,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Python",
     "R",
-    "Airflow",
-    "Git",
-    "Stakeholder management"
+    "Airflow"
    ],
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "7fa9774688f9f853",
@@ -4508,18 +4693,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 25,
+   "match_pct": 20,
    "matched_skills": [
     "SQL",
-    "Python",
-    "ETL"
+    "Python"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "214d780b86f149fb",
@@ -4554,19 +4740,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "Python",
     "Salesforce",
-    "Git",
     "Jira"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": true,
+   "unicorn": false
   },
   {
    "id": "c1960c7f770ab513",
@@ -4608,9 +4795,11 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "80bea6f3af76a965",
@@ -4650,9 +4839,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0465ce6c0b466334",
@@ -4687,22 +4878,23 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 60,
+   "match_pct": 50,
    "matched_skills": [
     "Excel",
     "Tableau",
     "Salesforce",
-    "Data modeling",
     "KPI definition",
-    "Forecasting",
-    "Territory and quota planning"
+    "Territory planning",
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "09c3cb870f6bfa81",
@@ -4745,9 +4937,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "f2364bb7ee0bcd39",
@@ -4794,9 +4988,11 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "6c0bf09b9daaca37",
@@ -4841,9 +5037,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "79f2c17fe46f62be",
@@ -4887,9 +5085,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "33b81123d334df58",
@@ -4933,9 +5133,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "85f44415e3d4cc63",
@@ -4979,9 +5181,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "8c3315e897777e53",
@@ -5025,9 +5229,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "7e8f4745e32f0a70",
@@ -5070,9 +5276,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "00f85740dc42ad16",
@@ -5114,9 +5322,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "6d8b2ed477a16c2c",
@@ -5158,9 +5368,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0a70a531307d6864",
@@ -5203,9 +5415,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "1bcf4c1065fd69af",
@@ -5244,7 +5458,7 @@
    "first_seen_utc": "2026-10-29T19:05:05+00:00",
    "last_seen_utc": "2026-11-03T09:04:20+00:00",
    "backfill": true,
-   "active": true
+   "active": false
   },
   {
    "id": "ee94107cbbf41645",
@@ -5318,20 +5532,21 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 50,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Python",
     "Snowflake",
-    "Git",
-    "Data modeling"
+    "Git"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "5eec862e2eeb140e",
@@ -5369,9 +5584,11 @@
    "us_uncertain": true,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "e63970e3046e096a",
@@ -5411,9 +5628,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "dad209570f841993",
@@ -5458,9 +5677,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "10695d07505ad802",
@@ -5504,9 +5725,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "eb45d5673cbea050",
@@ -5541,20 +5764,21 @@
    "sponsorship_evidence": "Eligibility requirements: US citizenship is required for this position under applicable federal contract requirements.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
     "Airflow",
-    "AWS",
-    "ETL"
+    "AWS"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "7f90c9cad476d231",
@@ -5589,20 +5813,21 @@
    "sponsorship_evidence": "Eligibility requirements: US citizenship is required for this position under applicable federal contract requirements.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
     "Airflow",
-    "AWS",
-    "ETL"
+    "AWS"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "17c370334b0ab04b",
@@ -5640,9 +5865,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "cd41ee17abda48d7",
@@ -5685,9 +5912,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "cb45a52f25a36a52",
@@ -5813,9 +6042,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "267d4b17bf14a4a6",
@@ -5857,9 +6088,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "cf553f9afb519e4c",
@@ -5897,9 +6130,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "e6b08eb58886d1c9",
@@ -5939,9 +6174,11 @@
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "9e2eda8fd0b204f7",
@@ -5971,23 +6208,24 @@
    "sponsorship_evidence": "- To conform to US Government export regulations, applicant must be a (i) US citizen or national, (ii) US lawful, permanent resident (aka green card holder), (iii) Refugee under 8 USC.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 75,
+   "match_pct": 65,
    "matched_skills": [
     "SQL",
     "Python",
     "Excel",
     "Power BI",
     "Tableau",
-    "ETL",
     "KPI definition",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "1e39b67ea5a0edf0",
@@ -6017,23 +6255,24 @@
    "sponsorship_evidence": "- To conform to US Government export regulations, applicant must be a (i) US citizen or national, (ii) US lawful, permanent resident (aka green card holder), (iii) Refugee under 8 USC.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 75,
+   "match_pct": 65,
    "matched_skills": [
     "SQL",
     "Python",
     "Excel",
     "Power BI",
     "Tableau",
-    "ETL",
     "KPI definition",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "5f64241e649a8e1b",
@@ -6072,22 +6311,22 @@
     "or foreign equivalent",
     "telecommuting permitted"
    ],
-   "match_pct": 55,
+   "match_pct": 45,
    "matched_skills": [
     "SQL",
     "Python",
     "Tableau",
     "Snowflake",
-    "ETL",
-    "Forecasting",
-    "Stakeholder management"
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 1,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "61453c18093b99a9",
@@ -6130,9 +6369,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "c3c5e14fed62d963",
@@ -6208,9 +6449,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "e3755ffc437e0fa9",
@@ -6247,9 +6490,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "7abc7b02870913f7",
@@ -6292,9 +6537,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "2e80771911afbf54",
@@ -6330,15 +6577,17 @@
     "Excel",
     "Tableau",
     "Salesforce",
-    "Forecasting",
-    "Segmentation"
+    "Segmentation",
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0edf9ac3c9f46a87",
@@ -6382,9 +6631,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "cd0d0030c82abae5",
@@ -6422,9 +6673,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "86529547d610a03a",
@@ -6454,7 +6707,7 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 85,
+   "match_pct": 70,
    "matched_skills": [
     "SQL",
     "Python",
@@ -6462,16 +6715,16 @@
     "Tableau",
     "Airflow",
     "Git",
-    "Data modeling",
-    "ETL",
-    "Data governance"
+    "Governance"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "2a28fa07eae9a0bd",
@@ -6506,19 +6759,20 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
-    "Forecasting",
-    "Executive presentations"
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "0d67f168353dbc09",
@@ -6561,9 +6815,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "b00d12cb3b20b69b",
@@ -6606,9 +6862,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "348677db17feae49",
@@ -6651,9 +6909,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "76a8d02346ba86fb",
@@ -6692,9 +6952,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "597eae8f9b1b53e8",
@@ -6819,19 +7081,20 @@
    "sponsorship_evidence": "will not sponsor",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Excel",
-    "Tableau",
-    "ETL"
+    "Tableau"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "97658b3717f14112",
@@ -6866,19 +7129,20 @@
    "sponsorship_evidence": "will not sponsor",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Excel",
-    "Tableau",
-    "ETL"
+    "Tableau"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "140b911b514fd094",
@@ -6924,9 +7188,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "f23ea4837f0ddcea",
@@ -6972,9 +7238,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "4aa314dc131b2df2",
@@ -7004,23 +7272,23 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 80,
+   "match_pct": 60,
    "matched_skills": [
     "SQL",
     "Python",
     "Power BI",
     "Tableau",
-    "SAP",
     "Airflow",
-    "Git",
-    "Stakeholder management"
+    "SAP"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": true
   },
   {
    "id": "926ff2b34343f6c4",
@@ -7058,9 +7326,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0ca7044b05f3da51",
@@ -7090,18 +7360,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 15,
+   "match_pct": 10,
    "matched_skills": [
     "Salesforce",
-    "Git",
     "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "057fae44f74b04cf",
@@ -7131,21 +7402,21 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 50,
+   "match_pct": 35,
    "matched_skills": [
     "SQL",
     "Excel",
     "Power BI",
-    "Data modeling",
-    "ETL",
-    "Data governance"
+    "Governance"
    ],
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "90fd01c7836a2eb0",
@@ -7224,7 +7495,7 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 80,
+   "match_pct": 90,
    "matched_skills": [
     "SQL",
     "Python",
@@ -7233,14 +7504,17 @@
     "Power BI",
     "Tableau",
     "SAP",
-    "Git"
+    "Git",
+    "Governance"
    ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "d704dab1e8a8b557",
@@ -7287,9 +7561,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "8d5eb2841bfb5bd1",
@@ -7336,9 +7612,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "08972686e537c7b7",
@@ -7385,9 +7663,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "8bbfcabe57a78e58",
@@ -7434,9 +7714,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "6810489445372609",
@@ -7481,9 +7763,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "c1fe29fa25178b70",
@@ -7523,9 +7807,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "805c2b30ecb469d1",
@@ -7560,14 +7846,18 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 0,
-   "matched_skills": [],
+   "match_pct": 10,
+   "matched_skills": [
+    "Governance"
+   ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "32f4a80bace0f5c0",
@@ -7609,9 +7899,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "188e2bc8f29053c5",
@@ -7698,9 +7990,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "1f6560b57119d98d",
@@ -7742,9 +8036,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "d21b7abfab528e08",
@@ -7784,9 +8080,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "9319ac63e2ca45b2",
@@ -7821,21 +8119,21 @@
    "sponsorship_evidence": "- Security & Compliance: Must be a US Person and eligible to obtain and maintain an active US security clearance due to access to export-controlled information.",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 55,
+   "match_pct": 40,
    "matched_skills": [
     "SQL",
     "Excel",
     "Salesforce",
-    "PowerPoint",
-    "Stakeholder management",
-    "Executive presentations"
+    "PowerPoint"
    ],
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "533f24499b8ed971",
@@ -7870,19 +8168,20 @@
    "sponsorship_evidence": "- Must be able to obtain and hold a US Top Secret security clearance",
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 40,
+   "match_pct": 30,
    "matched_skills": [
     "SQL",
     "Python",
-    "Git",
-    "Data modeling"
+    "Git"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "916cc21b5dbeb6ab",
@@ -7927,9 +8226,11 @@
    "us_uncertain": false,
    "min_years": null,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "0c8f3e304188eabb",
@@ -7966,9 +8267,11 @@
    "us_uncertain": false,
    "min_years": 2,
    "first_seen_utc": "2026-10-29T17:08:58+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "427a64e6b9aaeb5a",
@@ -8006,9 +8309,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "425119b4e726e260",
@@ -8049,9 +8354,11 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "e42ef360b23164ec",
@@ -8088,9 +8395,11 @@
    "us_uncertain": false,
    "min_years": 0,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "51293676d2b93984",
@@ -8120,16 +8429,19 @@
    "sponsorship_evidence": null,
    "perm_likely": false,
    "perm_markers": [],
-   "match_pct": 10,
+   "match_pct": 15,
    "matched_skills": [
-    "SQL"
+    "SQL",
+    "Market sizing"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "eaee496fe8a2710d",
@@ -8163,15 +8475,17 @@
    "matched_skills": [
     "SQL",
     "Python",
-    "Forecasting",
-    "Segmentation"
+    "Segmentation",
+    "Forecasting"
    ],
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "caf9785f4212320c",
@@ -8208,9 +8522,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "af1fd54b3d63a48c",
@@ -8247,9 +8563,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "c410cd3417f91e6c",
@@ -8286,9 +8604,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   },
   {
    "id": "5715a40d19e56225",
@@ -8325,9 +8645,11 @@
    "us_uncertain": false,
    "min_years": 3,
    "first_seen_utc": "2026-10-29T17:04:14+00:00",
-   "last_seen_utc": "2026-11-03T09:04:20+00:00",
+   "last_seen_utc": "2026-11-03T17:06:56+00:00",
    "backfill": true,
-   "active": true
+   "active": true,
+   "fortune500": false,
+   "unicorn": false
   }
  ]
 }

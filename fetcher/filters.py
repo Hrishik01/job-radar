@@ -48,6 +48,12 @@ def min_years_required(description: str) -> int | None:
     return min(figures) if figures else None
 
 
+def experience_passes(years: int | None, settings: dict) -> bool:
+    """Keep unless the minimum required years exceeds max_years_required (3):
+    "3-5 years" stays, "4+ years" and "5-7 years" go. No stated figure keeps."""
+    return years is None or years <= settings["max_years_required"]
+
+
 # ================================================================ sentences
 
 def split_sentences(text: str) -> list[str]:

@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "fetcher"))
 import fetch  # noqa: E402
 import filters  # noqa: E402
 from boards import workday  # noqa: E402
+from company_lists import ListLookup  # noqa: E402
 import scoring  # noqa: E402
 from models import Job, stable_id  # noqa: E402
 from parse import clean_url, parse_salary, salary_from_hint  # noqa: E402
@@ -99,8 +100,17 @@ class SkillMatchTests(unittest.TestCase):
         self.assertIn("Excel", self.matched("Advanced Excel and VBA."))
 
     def test_excluded_skills_never_score(self):
-        matched = self.matched("dbt, DAX, Looker, LookML, A/B testing and causal inference.")
+        matched = self.matched("dbt, DAX, Looker, LookML, A/B testing, causal inference, Celonis and SimPy.")
         self.assertEqual(matched, [])
+        names = {s["name"].lower() for s in SETTINGS["skills"]}
+        for banned in ["dbt", "dax", "looker", "lookml", "a/b testing", "causal inference", "celonis", "simpy"]:
+            self.assertNotIn(banned, names)
+
+    def test_new_skills_and_aliases(self):
+        text = ("Run in-depth interviews and thematic coding, build market sizing and peer benchmarking, "
+                "own data governance, write SOPs and automate Excel macros.")
+        for skill in ["Qualitative research", "Market sizing", "Peer benchmarking", "Governance", "SOPs", "Excel"]:
+            self.assertIn(skill, self.matched(text), skill)
 
     def test_requirements_section_weighs_more(self):
         text = fixture("normal_job.txt")
@@ -178,6 +188,16 @@ class FilterTests(unittest.TestCase):
         self.assertEqual(filters.min_years_required("Requires 5+ years of experience with a BS, or 3+ years of experience with an MS."), 3)
         self.assertEqual(filters.min_years_required("4+ years of experience in analytics."), 4)
         self.assertIsNone(filters.min_years_required("5+ years of experience preferred."))
+
+    def test_experience_drops_minimum_of_four_or_more(self):
+        cases = {"3-5 years of experience in analytics.": True,
+                 "4+ years of experience in analytics.": False,
+                 "5-7 years of experience in analytics.": False,
+                 "2 to 4 years of experience required.": True,
+                 "A passion for data.": True}  # nothing stated: keep
+        for text, keep in cases.items():
+            years = filters.min_years_required(text)
+            self.assertEqual(filters.experience_passes(years, SETTINGS), keep, text)
 
     def test_us_status(self):
         t = "Data Analyst"
@@ -279,6 +299,26 @@ class RunHealthTests(unittest.TestCase):
     def test_most_boards_failing_fails_the_run(self):
         self.assertTrue(fetch.run_failed(boards_ok=100, boards_failed=140))
         self.assertTrue(fetch.run_failed(boards_ok=0, boards_failed=1))   # --only on a dead board
+
+
+class CompanyListTests(unittest.TestCase):
+    lists = {"fortune500": {"names": ["MetLife", "State Street Corp."]},
+             "unicorn": {"names": ["Anduril", "BrainCo", "Plaid"]}}
+
+    def test_exact_and_alias_badge(self):
+        lk = ListLookup(self.lists, {"Anduril Industries": "Anduril"})
+        self.assertTrue(lk.match("State Street")[0]["fortune500"])     # suffixes normalized away
+        self.assertTrue(lk.match("Plaid")[0]["unicorn"])
+        self.assertTrue(lk.match("Anduril Industries")[0]["unicorn"])  # via alias
+
+    def test_near_miss_is_logged_never_badged(self):
+        badges, near = ListLookup(self.lists, {}).match("Metlife Group")
+        self.assertFalse(badges["fortune500"])
+        self.assertTrue(near and "metlife" in near[0])
+
+    def test_excluded_same_name_is_not_badged(self):
+        lk = ListLookup(self.lists, {}, {"Brainco": "different company"})
+        self.assertFalse(lk.match("Brainco")[0]["unicorn"])
 
 
 class DetailTests(unittest.TestCase):

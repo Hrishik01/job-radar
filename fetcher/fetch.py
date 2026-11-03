@@ -22,6 +22,7 @@ from pathlib import Path
 import filters
 import scoring
 from boards import BOARDS
+from company_lists import ListLookup
 from models import Job
 from net import FetchError
 from parse import parse_salary, salary_from_hint
@@ -146,6 +147,11 @@ def main() -> int:
     lookup = Lookup.load(settings["uscis_aliases"])
     if lookup is None:
         log.warning("No USCIS lookup yet (data/uscis/h1b_lookup.json); sponsorship falls back to 'unknown'.")
+    # Fortune 500 / unicorn badges: USCIS aliases plus list-only aliases
+    lists = ListLookup.load({**settings["uscis_aliases"], **settings.get("list_aliases", {})},
+                            settings.get("list_exclude"))
+    if lists is None:
+        log.warning("No data/company_lists.json yet (run fetcher/company_lists.py); no company badges.")
 
     store = load_json(JOBS_PATH, {"meta": {"runs": []}, "jobs": []})
     known = {j["id"]: j for j in store["jobs"]}
@@ -172,6 +178,7 @@ def main() -> int:
     failures: list[str] = []
     tier2_lines: list[str] = []
     near_misses: list[str] = []
+    list_near_misses: list[str] = []
 
     for n, company in enumerate(companies, 1):
         board = BOARDS[company["board"]]
@@ -194,6 +201,11 @@ def main() -> int:
             if how in ("prefix", "unverified"):
                 near_misses.append(f"{how:<10} {company['name']!r} -> {key!r}")
 
+        badges = {}
+        if lists:
+            badges, near = lists.match(company["name"])
+            list_near_misses += near
+
         kept_here = 0
         for job in listed:
             if not filters.title_passes(job.title, settings):
@@ -213,7 +225,7 @@ def main() -> int:
                 continue
 
             years = filters.min_years_required(job.description)
-            if years is not None and years > settings["max_years_required"]:
+            if not filters.experience_passes(years, settings):
                 run["dropped_years"] += 1
                 continue
             us = filters.us_status(job.title, job.location, job.country_hint)
@@ -230,6 +242,8 @@ def main() -> int:
                 "last_seen_utc": started,
                 "backfill": first_seen <= board_first,
                 "active": True,
+                "fortune500": badges.get("fortune500", False),
+                "unicorn": badges.get("unicorn", False),
             })
             if not previous:
                 run["new"] += 1
@@ -274,6 +288,7 @@ def main() -> int:
         with open(LOG_DIR / "sponsorship_tier2.log", "a", encoding="utf-8") as f:
             f.write(f"# run {started}\n" + "\n".join(tier2_lines) + "\n")
     (LOG_DIR / "uscis_near_misses.log").write_text("\n".join(near_misses) + "\n", "utf-8")
+    (LOG_DIR / "company_list_near_misses.log").write_text("\n".join(list_near_misses) + "\n", "utf-8")
 
     log.info("\nBoards ok %d, failed %d | listed %d | kept %d (%d new) | dropped: title %d, years %d, non-US %d",
              run["boards_ok"], run["boards_failed"], run["listed"], run["kept"], run["new"],

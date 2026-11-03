@@ -25,6 +25,7 @@ fetcher/
   fetch.py       main pipeline -> data/jobs.json
   discover.py    builds data/companies.json (manual + SimplifyJobs + USCIS probes)
   uscis.py       USCIS H-1B CSV -> data/uscis/h1b_lookup.json, and the Lookup matcher
+  company_lists.py  Fortune 500 + unicorn names -> data/company_lists.json, and the badge matcher
   boards/        one module per ATS: greenhouse, lever, ashby, workday
   filters.py     title, years, US/non-US, work mode, location group, sponsorship, PERM
   scoring.py     skills match %
@@ -68,6 +69,7 @@ python -m venv .venv
 .venv/Scripts/python fetcher/discover.py             # full: also probes USCIS slugs (~80 min)
 
 .venv/Scripts/python fetcher/uscis.py data/uscis/<export>.csv  # rebuild the lookup
+.venv/Scripts/python fetcher/company_lists.py   # refresh Fortune 500 / unicorn names
 
 .venv/Scripts/python -m unittest -v
 ```
@@ -114,11 +116,20 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
   Application numbers start at 1 and are never reused. Won't-sponsor, PERM and
-  older-than-30-day jobs are hidden by default behind three toggles that show counts.
+  older postings are hidden by default behind three toggles that show counts.
 - **Freshness** (in `app.js`) is measured from the posted date, or first-seen when
-  a job has none: under 24h gets the ink "Fresh" badge and the Fresh only chip,
-  over 15 days gets "Old posting", over 30 days is hidden. Newest sorts by the
-  same date; Recently found sorts by first-seen.
+  a job has none; a backfill job with no posted date counts as older. Under 24h
+  gets the ink "Fresh" badge and the Fresh only chip; only the last 7 days show
+  by default ("Show older postings"). Newest sorts by that date with first-seen
+  as the tie-break only; Recently found sorts by first-seen. Greenhouse posted
+  dates come from `first_published`, never `updated_at`.
+- **Experience:** a job is dropped when the minimum stated years is 4 or more
+  (`max_years_required` 3): "3-5 years" stays, "4+" and "5-7" go.
+- **Company badges:** `fetcher/company_lists.py` builds `data/company_lists.json`
+  (2026 Fortune 500 and the CB Insights unicorn tracker, names only, with list
+  dates). Badges need an exact normalized or alias match (`uscis_aliases` plus
+  `list_aliases`); same-name different companies go in `list_exclude`. Prefix
+  matches are only logged to `data/cache/logs/company_list_near_misses.log`.
 - The site has one green accent, used only for sponsorship-likely and key
   numbers. Buttons, tags and chips must never wrap or overflow (`white-space: nowrap`).
 - Board modules expose `list_jobs(company, settings)`, `fill_details(company, job, settings)`

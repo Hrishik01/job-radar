@@ -34,8 +34,10 @@ def list_jobs(company: dict, settings: dict) -> list[Job]:
             title=item.get("title", "").strip(),
             location=(item.get("location") or {}).get("name", ""),
             apply_url=clean_url(item.get("absolute_url", "")),
-            posted_raw=item.get("updated_at"),
-            posted_source="greenhouse.updated_at",
+            # Original publish date only. updated_at moves on every edit, so a
+            # job without first_published falls back to first-seen instead.
+            posted_raw=item.get("first_published"),
+            posted_source="greenhouse.first_published" if item.get("first_published") else None,
             perm_flag=_perm_flag(item.get("metadata")),
         ))
     return jobs
@@ -51,6 +53,7 @@ def fill_details(company: dict, job: Job, settings: dict) -> None:
     if data.get("first_published"):
         job.posted_raw = data["first_published"]
         job.posted_source = "greenhouse.first_published"
+    job.closes_raw = data.get("application_deadline")  # usually empty
     for pay in data.get("pay_input_ranges") or []:
         if pay.get("min_cents") is not None:
             job.salary_hint = {

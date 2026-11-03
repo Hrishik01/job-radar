@@ -349,26 +349,27 @@ function renderFunnel(el) {
 
 // ---------- Snapshots: location and companies ----------
 
-// Same rule as the dashboard: posted date (first-seen when there is none) over 30 days
-function isVeryOld(job) {
-  const t = Date.parse(job.posted_raw || "") || Date.parse(job.first_seen_utc) || 0;
-  return Date.now() - t > 30 * 86400000;
+// Same rule as the dashboard: posted over 7 days ago. No posted date means
+// first-seen, except backfill jobs, whose age is unknown and counts as older.
+function isOlder(job) {
+  const t = Date.parse(job.posted_raw || "") || (job.backfill ? 0 : Date.parse(job.first_seen_utc) || 0);
+  return Date.now() - t > 7 * 86400000;
 }
 
-// Listed jobs, hiding won't-sponsor, PERM and 30+ day old jobs unless the
+// Listed jobs, hiding won't-sponsor, PERM and older jobs unless the
 // dashboard's toggles show them, so these charts count what the dashboard shows
 function snapshotJobs() {
   const p = state.prefs || {};
   const active = jobs.filter((j) => j.active);
   const shown = active.filter((j) => (p.showNo || j.sponsorship !== "no") &&
-    (p.showPerm || !j.perm_likely) && (p.showOld || !isVeryOld(j)));
+    (p.showPerm || !j.perm_likely) && (p.showOlder || !isOlder(j)));
   const hidden = [];
   const no = active.filter((j) => j.sponsorship === "no").length;
   const perm = active.filter((j) => j.perm_likely).length;
-  const old = active.filter(isVeryOld).length;
+  const older = active.filter(isOlder).length;
   if (!p.showNo && no) hidden.push(`${no} won't-sponsor`);
   if (!p.showPerm && perm) hidden.push(`${perm} PERM`);
-  if (!p.showOld && old) hidden.push(`${old} older-than-30-day`);
+  if (!p.showOlder && older) hidden.push(`${older} older (posted 7+ days ago)`);
   const note = hidden.length
     ? `Hides ${hidden.slice(0, -1).join(", ")}${hidden.length > 1 ? " and " : ""}${hidden.at(-1)} jobs, like the dashboard. Change this with the dashboard's toggles.`
     : "Includes won't-sponsor, PERM and older jobs, because the dashboard's toggles show them.";

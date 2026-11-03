@@ -208,7 +208,8 @@ main.wrap { border-top: 2px solid var(--ink); }
 .job-meta span { white-space: nowrap; }
 /* Fresh (posted under 24h): solid ink, so it never reads as the green H-1B accent */
 .fresh-badge { display: inline-block; margin: 0 0 6px; padding: 2px 7px; border-radius: 3px; background: var(--ink); color: var(--paper); font: 600 11px/1.4 var(--sans); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-.job-meta .old-posting { padding: 0 5px; border: 1px dashed var(--rule-strong); border-radius: 3px; }
+/* Fortune 500 / Unicorn: neutral outline, never the green accent */
+.co-badge { display: inline-block; margin: 0 4px 0 2px; padding: 0 5px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--muted); font: 600 10px/1.6 var(--sans); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: 1px; }
 
 .match { margin-top: 10px; max-width: 360px; }
 .match-row { display: flex; align-items: center; gap: 10px; }

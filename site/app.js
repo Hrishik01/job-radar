@@ -20,7 +20,7 @@ function defaultState() {
     lastExport: null,  // ISO time of the last export
     prefs: {
       tab: "new", theme: "system", sort: "newest", loc: "all",
-      modes: MODES.slice(), showNo: false, showPerm: false, showOld: false, freshOnly: false,
+      modes: MODES.slice(), showNo: false, showPerm: false, showOlder: false, freshOnly: false, bigCo: false,
       spons: "any", salary: 0, match: 0, background: "",
     },
   };
@@ -93,22 +93,37 @@ function postedOn(job) {
   return Date.parse(job.posted_raw || "") || 0;
 }
 
-// For sorting and freshness: the posted date, else when the fetcher first saw the job
+// For sorting and freshness: the posted date, else when the fetcher first saw
+// the job. A backfill job with no posted date was already listed when tracking
+// began, so its age is unknown and it counts as older than everything (0).
 function postedTime(job) {
-  return postedOn(job) || Date.parse(job.first_seen_utc) || 0;
+  if (postedOn(job)) return postedOn(job);
+  return job.backfill ? 0 : Date.parse(job.first_seen_utc) || 0;
 }
 
 // Freshness rules, all measured from postedTime()
-const FRESH_HOURS = 24;     // "Fresh" badge and the Fresh only chip
-const OLD_DAYS = 15;        // "Old posting" label
-const HIDE_OLD_DAYS = 30;   // hidden unless "Show postings older than 30 days" is on
+const FRESH_HOURS = 24;   // "Fresh" badge and the Fresh only chip
+const RECENT_DAYS = 7;    // older postings hidden unless "Show older postings" is on
 
 function ageHours(job) {
   return (Date.now() - postedTime(job)) / 3600000;
 }
 const isFresh = (job) => ageHours(job) < FRESH_HOURS;
-const isOld = (job) => ageHours(job) > OLD_DAYS * 24;
-const isVeryOld = (job) => ageHours(job) > HIDE_OLD_DAYS * 24;
+const isOlder = (job) => ageHours(job) > RECENT_DAYS * 24;
+
+// Fortune 500 / unicorn badges, set by the fetcher from data/company_lists.json
+const isBigCo = (job) => Boolean(job.fortune500 || job.unicorn);
+
+function companyBadges(job) {
+  return (job.fortune500 ? `<span class="co-badge" title="On the Fortune 500 list">Fortune 500</span>` : "") +
+    (job.unicorn ? `<span class="co-badge" title="Private, valued at $1B+ (unicorn list)">Unicorn</span>` : "");
+}
+
+// "3+ yrs required" from the fetcher's minimum-years figure, when stated
+function yearsLabel(job) {
+  if (job.min_years == null) return "";
+  return job.min_years === 0 ? "no minimum years" : `${job.min_years}+ yrs required`;
+}
 
 // Workday's application end date ("2026-11-13"), counted in local days
 function closesLabel(job) {
@@ -260,8 +275,10 @@ function searchTerms() {
 
 function sortJobs(list) {
   const p = state.prefs;
-  // Company's posted date (first-seen when there is none), so Fresh jobs lead
-  const newest = (a, b) => postedTime(b) - postedTime(a);
+  // Company's posted date (see postedTime), so Fresh jobs lead. A recent
+  // first-seen time only breaks ties; it never lifts an older posting.
+  const newest = (a, b) => postedTime(b) - postedTime(a) ||
+    Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc);
   const by = {
     newest,
     found: (a, b) => Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc) || postedTime(b) - postedTime(a),
@@ -280,7 +297,7 @@ function filterNew() {
     pool: pool.length,
     no: pool.filter((j) => j.sponsorship === "no").length,
     perm: pool.filter((j) => j.perm_likely).length,
-    old: pool.filter(isVeryOld).length,
+    older: pool.filter(isOlder).length,
   };
 
   const terms = searchTerms();
@@ -291,7 +308,7 @@ function filterNew() {
   const base = pool.filter((j) =>
     (p.showNo || j.sponsorship !== "no") &&
     (p.showPerm || !j.perm_likely) &&
-    (p.showOld || !isVeryOld(j)) &&
+    (p.showOlder || !isOlder(j)) &&
     matchesSearch(j, terms) &&
     (!titleQ || j.title.toLowerCase().includes(titleQ)) &&
     (!companyQ || j.company.toLowerCase().includes(companyQ)) &&
@@ -302,9 +319,12 @@ function filterNew() {
   const inMode = (j) => p.modes.includes(j.work_mode) || (!MODES.includes(j.work_mode) && p.modes.length === MODES.length);
   const isBoston = (j) => j.location_group === "Boston area";
 
-  // The Fresh only chip counts what it would show under the other chips
-  counts.fresh = base.filter((j) => isFresh(j) && inMode(j) && (p.loc !== "boston" || isBoston(j))).length;
-  const shown = p.freshOnly ? base.filter(isFresh) : base;
+  // The Fresh only and Fortune 500 / Unicorn chips each count what they would
+  // show under every other chip
+  const underChips = (j) => inMode(j) && (p.loc !== "boston" || isBoston(j));
+  counts.fresh = base.filter((j) => isFresh(j) && underChips(j) && (!p.bigCo || isBigCo(j))).length;
+  counts.bigCo = base.filter((j) => isBigCo(j) && underChips(j) && (!p.freshOnly || isFresh(j))).length;
+  const shown = base.filter((j) => (!p.freshOnly || isFresh(j)) && (!p.bigCo || isBigCo(j)));
 
   const modeOk = shown.filter(inMode);
   counts.locAll = modeOk.length;
@@ -343,14 +363,14 @@ function jobRow(job, tab) {
     <div class="job-main">
       ${isFresh(job) ? `<p class="fresh-badge">Fresh</p>` : ""}
       <h2 class="job-title">${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-act="open">${esc(job.title)}</a>` : esc(job.title)}</h2>
-      <p class="job-co">${esc(job.company.trim())} <span class="muted">· ${esc(job.location)}</span></p>
+      <p class="job-co">${esc(job.company.trim())} ${companyBadges(job)}<span class="muted">· ${esc(job.location)}</span></p>
       <p class="job-meta mono">
         ${job.location_group === "Boston area"
           ? `<span>Boston area · ${esc(modeLabel(job.work_mode))}</span>`
           : `<span>${esc(job.location_group || modeLabel(job.work_mode))}</span>`}
         ${postedOn(job) ? `<span>posted ${ageLabel(postedOn(job))}</span>` : ""}
         <span>found ${ageLabel(Date.parse(job.first_seen_utc))}</span>
-        ${isOld(job) ? `<span class="old-posting">Old posting</span>` : ""}
+        ${yearsLabel(job) ? `<span>${yearsLabel(job)}</span>` : ""}
         ${job.active && closesLabel(job) ? `<span>${closesLabel(job)}</span>` : ""}
         ${job.active ? "" : "<span>no longer listed</span>"}
       </p>
@@ -443,12 +463,13 @@ function render() {
     $("#active-filters").textContent = active ? `(${active})` : "";
     $("#count-no").textContent = `(${counts.no})`;
     $("#count-perm").textContent = `(${counts.perm})`;
-    $("#count-old").textContent = `(${counts.old})`;
+    $("#count-older").textContent = `(${counts.older})`;
+    $('[data-count="bigco"]').textContent = counts.bigCo;
 
     const hidden = [];
     if (!p.showNo && counts.no) hidden.push(`${counts.no} won't-sponsor`);
     if (!p.showPerm && counts.perm) hidden.push(`${counts.perm} PERM`);
-    if (!p.showOld && counts.old) hidden.push(`${counts.old} over ${HIDE_OLD_DAYS} days old`);
+    if (!p.showOlder && counts.older) hidden.push(`${counts.older} posted over ${RECENT_DAYS} days ago`);
     line = `Showing ${rows.length} of ${counts.pool}` + (hidden.length ? ` · hidden: ${hidden.join(", ")}` : "");
   } else if (tab === "applied") {
     const apps = state.apps
@@ -536,7 +557,7 @@ function renderKpis() {
   // minus won't-sponsor, PERM and 30+ day old jobs unless their toggles are on
   const p = state.prefs;
   const boston = newPool().filter((j) => j.location_group === "Boston area" &&
-    (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) && (p.showOld || !isVeryOld(j)));
+    (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) && (p.showOlder || !isOlder(j)));
   $("#kpi-boston").textContent = boston.length;
   spark("spark-boston", dailyCounts(seen(fresh.filter((j) => j.location_group === "Boston area"))));
 
@@ -773,8 +794,9 @@ function applyPrefsToControls() {
   $("#f-match").value = String(p.match);
   $("#show-no").checked = p.showNo;
   $("#show-perm").checked = p.showPerm;
-  $("#show-old").checked = p.showOld;
+  $("#show-older").checked = p.showOlder;
   $("#fresh-only").setAttribute("aria-pressed", String(p.freshOnly));
+  $("#big-co").setAttribute("aria-pressed", String(p.bigCo));
   $("#background").value = p.background;
   for (const b of $$("[data-loc]")) b.setAttribute("aria-pressed", String(b.dataset.loc === p.loc));
   for (const b of $$("[data-mode]")) b.setAttribute("aria-pressed", String(p.modes.includes(b.dataset.mode)));
@@ -808,12 +830,14 @@ function wireControls() {
   $("#f-match").addEventListener("change", (e) => setPref("match", Number(e.target.value)));
   $("#show-no").addEventListener("change", (e) => setPref("showNo", e.target.checked));
   $("#show-perm").addEventListener("change", (e) => setPref("showPerm", e.target.checked));
-  $("#show-old").addEventListener("change", (e) => setPref("showOld", e.target.checked));
-  $("#fresh-only").addEventListener("click", () => {
-    state.prefs.freshOnly = !state.prefs.freshOnly;
-    applyPrefsToControls();
-    setPref("freshOnly", state.prefs.freshOnly);
-  });
+  $("#show-older").addEventListener("change", (e) => setPref("showOlder", e.target.checked));
+  for (const [id, key] of [["#fresh-only", "freshOnly"], ["#big-co", "bigCo"]]) {
+    $(id).addEventListener("click", () => {
+      state.prefs[key] = !state.prefs[key];
+      applyPrefsToControls();
+      setPref(key, state.prefs[key]);
+    });
+  }
   for (const id of ["#search", "#f-title", "#f-company"]) $(id).addEventListener("input", render);
 
   $("#list").addEventListener("click", (e) => {

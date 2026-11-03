@@ -43,6 +43,21 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
 - **The dashboard** is plain HTML, CSS and JavaScript with no build step. The
   insights charts are hand-built SVG and wait for enough history before drawing.
 
+## Company badges
+
+Job cards can carry a **Fortune 500** or **Unicorn** badge, built from two
+public lists saved as company names only in `data/company_lists.json`:
+
+| List | Source | Date |
+| --- | --- | --- |
+| 2026 Fortune 500 | [fortune.com/ranking/fortune500](https://fortune.com/ranking/fortune500/) | published 2026-06-03 |
+| Unicorns (private, valued at $1B+) | [CB Insights unicorn tracker](https://www.cbinsights.com/research-unicorn-companies) | retrieved 2026-11-03; newest entry joined 2026-06-29 |
+
+Unicorn status changes as companies raise, list or fold, so refresh the file
+now and then with `python fetcher/company_lists.py`. A badge needs an exact
+name match (after the same normalization as the USCIS lookup) or an alias in
+`data/settings.json`; close-but-not-exact names are only logged for review.
+
 ## Layout
 
 ```

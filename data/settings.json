@@ -22,32 +22,33 @@
     {"name": "SQL", "aliases": ["SQL", "CTEs", "window functions", "query tuning"]},
     {"name": "Python", "aliases": ["Python", "pandas", "scikit-learn", "sklearn", "Snowpark"]},
     {"name": "R", "special": "r_language"},
-    {"name": "Excel", "aliases": ["Excel", "VBA"], "case_sensitive": true},
+    {"name": "Excel", "aliases": ["Excel", "advanced Excel", "Advanced Excel", "VBA", "macros", "Macros"], "case_sensitive": true},
     {"name": "Power BI", "aliases": ["Power BI", "PowerBI"]},
     {"name": "Tableau", "aliases": ["Tableau"]},
     {"name": "Snowflake", "aliases": ["Snowflake"]},
-    {"name": "Salesforce", "aliases": ["Salesforce", "SFDC"]},
-    {"name": "SAP", "aliases": ["SAP"], "case_sensitive": true},
     {"name": "Airflow", "aliases": ["Airflow"]},
     {"name": "Docker", "aliases": ["Docker"]},
     {"name": "MLflow", "aliases": ["MLflow"]},
     {"name": "AWS", "aliases": ["AWS", "Amazon Web Services"]},
     {"name": "PostgreSQL", "aliases": ["PostgreSQL", "Postgres"]},
     {"name": "MySQL", "aliases": ["MySQL"]},
-    {"name": "Git", "aliases": ["Git", "GitHub", "GitLab"]},
+    {"name": "Salesforce", "aliases": ["Salesforce", "SFDC"]},
+    {"name": "SAP", "aliases": ["SAP"], "case_sensitive": true},
     {"name": "Jira", "aliases": ["Jira"]},
+    {"name": "Git", "aliases": ["Git"]},
     {"name": "PowerPoint", "aliases": ["PowerPoint"]},
-    {"name": "Data modeling", "aliases": ["data modeling", "data modelling", "dimensional modeling"]},
-    {"name": "ETL", "aliases": ["ETL", "ELT"]},
     {"name": "KPI definition", "aliases": ["KPI", "KPIs", "key performance indicators"]},
-    {"name": "Data governance", "aliases": ["data governance"]},
-    {"name": "Forecasting", "aliases": ["forecasting", "forecast", "forecasts"]},
+    {"name": "Governance", "aliases": ["governance"]},
+    {"name": "Territory planning", "aliases": ["territory planning"]},
+    {"name": "Quota planning", "aliases": ["quota planning"]},
     {"name": "Segmentation", "aliases": ["segmentation"]},
+    {"name": "Forecasting", "aliases": ["forecasting", "forecast", "forecasts"]},
     {"name": "Root cause analysis", "aliases": ["root cause analysis", "root-cause analysis"]},
-    {"name": "Stakeholder management", "aliases": ["stakeholder management", "stakeholder engagement", "managing stakeholders"]},
-    {"name": "Executive presentations", "aliases": ["executive presentations", "presenting to executives", "present to executives", "executive audiences"]},
-    {"name": "Territory and quota planning", "aliases": ["territory planning", "quota planning", "territory design", "quota setting"]},
-    {"name": "Process documentation", "aliases": ["process documentation", "SOPs", "SOP", "standard operating procedures"]}
+    {"name": "Process documentation", "aliases": ["process documentation"]},
+    {"name": "SOPs", "aliases": ["SOPs", "SOP", "standard operating procedures"]},
+    {"name": "Qualitative research", "aliases": ["qualitative research", "in-depth interviews", "IDIs", "thematic coding"]},
+    {"name": "Market sizing", "aliases": ["market sizing"]},
+    {"name": "Peer benchmarking", "aliases": ["peer benchmarking"]}
   ],
   "match_cap": 10,
 
@@ -59,6 +60,12 @@
       "Braintree", "Dedham", "Lowell", "Andover", "Marlborough", "Chelsea",
       "Everett", "Revere", "Arlington", "Belmont", "Canton", "Norwood"
     ]
+  },
+
+  "list_aliases": {},
+  "list_exclude": {
+    "Icon": "icon.com, not ICON the 3D-printed homes unicorn (iconbuild.com)",
+    "Brainco": "Brain Co. (AI software), not BrainCo the brain-computer interface unicorn"
   },
 
   "uscis_aliases": {
