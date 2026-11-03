@@ -238,6 +238,8 @@ def main() -> int:
             record.update({
                 "us_uncertain": us == "uncertain",
                 "min_years": years,
+                # Display only: a figure stated just under "Preferred qualifications"
+                "min_years_preferred": None if years is not None else filters.min_years_preferred(job.description),
                 "first_seen_utc": first_seen,
                 "last_seen_utc": started,
                 "backfill": first_seen <= board_first,

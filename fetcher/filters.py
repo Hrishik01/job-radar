@@ -27,24 +27,114 @@ def title_passes(title: str, settings: dict) -> bool:
     return keep and not drop
 
 
+_NUMBER_WORDS = {w: n for n, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen".split())}
+_NUM = r"(\d{1,2}|" + "|".join(_NUMBER_WORDS) + r")"
+# The first number of: "8+ years", "8 or more years", "eight (8) years",
+# "5-7 years", "5 to 7 years", "8+ yrs", "8 years'", optionally after
+# "minimum of" / "at least" (which need no special handling: the number follows).
 _YEARS_RE = re.compile(
-    r"(?:minimum of |at least )?(\d{1,2})\s*\+?\s*(?:(?:-|–|to)\s*\d{1,2}\s*\+?\s*)?years?",
+    rf"(?<![\w.$]){_NUM}\s*(?:\(\s*\d{{1,2}}\s*\)\s*)?(?:\+|\s*plus)?\s*"
+    rf"(?:(?:-|–|—|to)\s*{_NUM}\s*\+?\s*)?(?:or more\s+)?(?:years?|yrs?)\b",
     re.IGNORECASE,
 )
 _PREFERRED_RE = re.compile(r"\b(preferred|nice to have|bonus|a plus|ideally)\b", re.IGNORECASE)
+_EXPERIENCE_WORDS = re.compile(r"\b(experience|background|track record)\b", re.IGNORECASE)
+
+# Section headings, for finding where requirements are stated
+_REQUIRED_HEAD = re.compile(
+    r"^(?:basic |minimum |required |key )?(?:qualifications|requirements|"
+    r"what you(?:'|’)ll need|what you need|what we(?:'|’)re looking for|what we need to see|"
+    r"who you are|you have|what you have|you bring|what you bring|about you|experience|must haves?|"
+    r"skills(?: and| &) (?:experience|qualifications))\b",
+    re.IGNORECASE,
+)
+_PREFERRED_HEAD = re.compile(r"\b(preferred|nice to have|bonus|plus|stand out|desired)\b", re.IGNORECASE)
+_OTHER_HEAD = re.compile(
+    r"^(?:responsibilities|what you(?:'|’)ll do|about (?:us|the (?:role|team|company|job))|benefits|perks|"
+    r"what we offer|compensation|pay|salary|equal (?:employment )?opportunity|our values|why join|"
+    r"location|the role|your role|job description|overview)\b",
+    re.IGNORECASE,
+)
+
+
+def _section_text(description: str, keep: str) -> str:
+    """Lines by section. keep="required": under requirement headings
+    ("Qualifications", "What we need to see"); "preferred": under preferred
+    ones ("Nice to have", "Ways to stand out"); "not_preferred": everything
+    outside preferred sections. Bulleted lines are never headings."""
+    lines, state = [], None
+    for line in description.splitlines():
+        head = line.strip().rstrip(":").strip()
+        if (0 < len(head) <= 60 and len(head.split()) <= 8 and not head.endswith(".")
+                and not head.startswith(("-", "•", "*"))):
+            if _PREFERRED_HEAD.search(head):
+                state = "preferred"
+                continue
+            if _REQUIRED_HEAD.match(head):
+                state = "required"
+                continue
+            if _OTHER_HEAD.match(head):
+                state = None
+                continue
+        if (state == keep) or (keep == "not_preferred" and state != "preferred"):
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def _is_preferred(sentence: str, m: re.Match) -> bool:
+    """True when a preferred word sits in the same clause as the figure:
+    "5+ years preferred" is skipped, but in "7+ years of experience, ideally
+    on data" or "3+ years (fintech preferred)" the hedge is a later clause."""
+    start = max(sentence.rfind(c, 0, m.start()) for c in ".;(") + 1
+    ends = [i for i in (sentence.find(c, m.end()) for c in ",;(") if i != -1]
+    return bool(_PREFERRED_RE.search(sentence[start:min(ends, default=len(sentence))]))
+
+
+# "5+ years in Sales Ops", "3 years of SQL", "2 years as an analyst": a
+# requirement even without the word "experience". "for the last 3 years",
+# "built 20-40 years ago" and "3 years in a row" are history, not requirements.
+_REQUIREMENT_AFTER = re.compile(r"\s+(?:in|of|as|with|working|doing|across)\b(?!\s+a\s+row)", re.IGNORECASE)
+_HISTORY_BEFORE = re.compile(r"\b(?:for|last|past|over|than|spent|since|within)\s+(?:the\s+)?(?:last\s+|past\s+)?$", re.IGNORECASE)
+
+
+def _reads_as_requirement(sentence: str, m: re.Match) -> bool:
+    return bool(_REQUIREMENT_AFTER.match(sentence, m.end())) and not _HISTORY_BEFORE.search(sentence[:m.start()])
+
+
+def _year_figures(text: str, need_experience_word: bool) -> list[int]:
+    figures = []
+    for sentence in split_sentences(text):
+        for m in _YEARS_RE.finditer(sentence):
+            if need_experience_word and not (_EXPERIENCE_WORDS.search(sentence) or _reads_as_requirement(sentence, m)):
+                continue
+            if _is_preferred(sentence, m):
+                continue
+            n = int(m.group(1)) if m.group(1).isdigit() else _NUMBER_WORDS[m.group(1).lower()]
+            if n <= 15:  # "18 years or older" is an age, "25 years" a company history
+                figures.append(n)
+    return figures
 
 
 def min_years_required(description: str) -> int | None:
-    """Smallest 'N years of experience' figure stated as a requirement.
+    """Smallest required-years figure.
 
-    Taking the smallest is deliberate: "5+ years with a BS or 3+ with an MS"
-    should not be dropped, and a false keep is cheaper than a false drop.
+    Inside a requirements section any years phrase counts ("8+ years in
+    consulting"). Without one, or if it states no figure, a sentence must
+    also mention experience, so "for more than 25 years" in a company blurb
+    is ignored. Taking the smallest is deliberate: "5+ years with a BS or 3+
+    with an MS" should not be dropped; a false keep is cheaper than a false drop.
     """
-    figures = []
-    for sentence in split_sentences(description):
-        if "experience" not in sentence.lower() or _PREFERRED_RE.search(sentence):
-            continue
-        figures += [int(m.group(1)) for m in _YEARS_RE.finditer(sentence) if int(m.group(1)) <= 15]
+    figures = _year_figures(_section_text(description, "required"), need_experience_word=False)
+    if not figures:
+        figures = _year_figures(_section_text(description, "not_preferred"), need_experience_word=True)
+    return min(figures) if figures else None
+
+
+def min_years_preferred(description: str) -> int | None:
+    """Smallest years figure under a preferred heading ("Preferred
+    Qualifications"). Shown on the card only; never used to drop a job."""
+    figures = _year_figures(_section_text(description, "preferred"), need_experience_word=False)
     return min(figures) if figures else None
 
 

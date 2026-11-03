@@ -119,10 +119,12 @@ function companyBadges(job) {
     (job.unicorn ? `<span class="co-badge" title="Private, valued at $1B+ (unicorn list)">Unicorn</span>` : "");
 }
 
-// "3+ yrs required" from the fetcher's minimum-years figure, when stated
+// "3+ yrs required" from the fetcher's minimum-years figure, when stated;
+// else "2+ yrs preferred" when only a preferred section names one
 function yearsLabel(job) {
-  if (job.min_years == null) return "";
-  return job.min_years === 0 ? "no minimum years" : `${job.min_years}+ yrs required`;
+  if (job.min_years != null) return job.min_years === 0 ? "no minimum years" : `${job.min_years}+ yrs required`;
+  if (job.min_years_preferred) return `${job.min_years_preferred}+ yrs preferred`;
+  return "";
 }
 
 // Workday's application end date ("2026-11-13"), counted in local days

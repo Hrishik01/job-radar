@@ -189,6 +189,69 @@ class FilterTests(unittest.TestCase):
         self.assertEqual(filters.min_years_required("4+ years of experience in analytics."), 4)
         self.assertIsNone(filters.min_years_required("5+ years of experience preferred."))
 
+    def test_years_phrasings(self):
+        cases = {
+            "8+ years of experience in analytics.": 8,
+            "8 or more years of experience in analytics.": 8,
+            "Minimum of 8 years of experience.": 8,
+            "At least 8 years of relevant experience.": 8,
+            "8 years of experience with SQL.": 8,
+            "8+ yrs experience in BI.": 8,
+            "Eight years of experience in consulting.": 8,
+            "Eight (8) years of experience required.": 8,
+            "5-7 years of experience in analytics.": 5,
+            "5 to 7 years of experience in analytics.": 5,
+            "5–7 years' experience in analytics.": 5,
+            "3 years' experience in a data role.": 3,
+            "1 year of experience with Tableau.": 1,
+        }
+        for text, years in cases.items():
+            self.assertEqual(filters.min_years_required(text), years, text)
+
+    def test_years_in_requirements_section_need_no_experience_word(self):
+        text = ("About us\nWe have been building GPUs for more than 25 years.\n\n"
+                "What we need to see:\n- 8+ years in management consulting at a strategy firm.\n"
+                "- A degree in Economics.\n\nWays to stand out from the crowd:\n- 2+ years of SQL experience.")
+        self.assertEqual(filters.min_years_required(text), 8)   # not 25 (history), not 2 (stand out)
+
+    def test_years_hedge_in_a_later_clause_still_counts(self):
+        cases = {"- 7+ years of supply chain systems experience, ideally on data or internal tools": 7,
+                 "- 3+ years merchant risk experience in fraud detection (fintech or lending preferred)": 3,
+                 "- 6+ years of experience in a quantitative role (ideally within mobility)": 6}
+        for text, years in cases.items():
+            self.assertEqual(filters.min_years_required(text), years, text)
+        self.assertIsNone(filters.min_years_required("2+ years of SQL experience is a plus."))
+        self.assertIsNone(filters.min_years_required("Ideally 5+ years of experience in fintech."))
+
+    def test_years_without_experience_word_outside_sections(self):
+        cases = {"- 3+ years in finance operations or sales operations.": 3,
+                 "- 7+ years in a capacity planning and forecasting role": 7,
+                 "- +2 years in a cybersecurity skilled role": 2}
+        for text, years in cases.items():
+            self.assertEqual(filters.min_years_required(text), years, text)
+        for history in ["We've had these bonuses for the last 3 years.",
+                        "Software built 20-40 years ago.",
+                        "We spent 3 years building the rails.",
+                        "Named a best workplace 4 years in a row.",
+                        "Placed in the INC 5000 list six times in the last ten years."]:
+            self.assertIsNone(filters.min_years_required(history), history)
+
+    def test_preferred_section_years_are_display_only(self):
+        text = ("Qualifications:\n- Excellent communication skills\n\n"
+                "Preferred Qualifications:\n- 1+ years experience in an analytical field")
+        self.assertIsNone(filters.min_years_required(text))
+        self.assertEqual(filters.min_years_preferred(text), 1)
+
+    def test_a_bullet_is_never_a_heading(self):
+        text = ("The Expertise and Skills You Bring\n- Bachelor's degree or equivalent experience preferred\n"
+                "- 3-5 years of Accounting/Finance or Stock Plan Administration experience")
+        self.assertEqual(filters.min_years_required(text), 3)
+
+    def test_years_ignores_history_age_and_preferred(self):
+        self.assertIsNone(filters.min_years_required("We have served clients for 30 years."))
+        self.assertIsNone(filters.min_years_required("Requirements:\nMust be 18 years or older."))
+        self.assertIsNone(filters.min_years_required("Requirements:\n- SQL\nNice to have:\n- 5+ years in fintech"))
+
     def test_experience_drops_minimum_of_four_or_more(self):
         cases = {"3-5 years of experience in analytics.": True,
                  "4+ years of experience in analytics.": False,
