@@ -11,11 +11,12 @@ Every module exposes the same two functions:
         Only called for new jobs whose title already passed the filter.
 """
 
-from boards import ashby, greenhouse, lever, workday
+from boards import ashby, greenhouse, lever, smartrecruiters, workday
 
 BOARDS = {
     "greenhouse": greenhouse,
     "lever": lever,
     "ashby": ashby,
     "workday": workday,
+    "smartrecruiters": smartrecruiters,
 }

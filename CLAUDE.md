@@ -23,10 +23,10 @@ notice flag and a skills match percentage. Output is one file: `data/jobs.json`.
 ```
 fetcher/
   fetch.py       main pipeline -> data/jobs.json
-  discover.py    builds data/companies.json (manual + SimplifyJobs + USCIS probes)
+  discover.py    builds data/companies.json (manual + public GitHub lists + USCIS probes)
   uscis.py       USCIS H-1B CSV -> data/uscis/h1b_lookup.json, and the Lookup matcher
   company_lists.py  Fortune 500 + unicorn names -> data/company_lists.json, and the badge matcher
-  boards/        one module per ATS: greenhouse, lever, ashby, workday
+  boards/        one module per ATS: greenhouse, lever, ashby, workday, smartrecruiters
   filters.py     title, years, US/non-US, work mode, location group, sponsorship, PERM
   scoring.py     skills match %
   parse.py       HTML-to-text, URL cleaning, salary parsing
@@ -65,8 +65,8 @@ python -m venv .venv
 .venv/Scripts/python fetcher/fetch.py --only veeva # one slug while tuning
 .venv/Scripts/python fetcher/fetch.py --limit 20   # first N companies
 
-.venv/Scripts/python fetcher/discover.py --no-uscis  # fast: manual + SimplifyJobs
-.venv/Scripts/python fetcher/discover.py             # full: also probes USCIS slugs (~80 min)
+.venv/Scripts/python fetcher/discover.py --no-uscis  # fast: manual + public GitHub lists
+.venv/Scripts/python fetcher/discover.py             # full: also probes 8,000 USCIS employers + Workday (hours; cached 30 days)
 
 .venv/Scripts/python fetcher/uscis.py data/uscis/<export>.csv  # rebuild the lookup
 .venv/Scripts/python fetcher/company_lists.py   # refresh Fortune 500 / unicorn names
@@ -81,7 +81,8 @@ The dashboard fetches `../data/jobs.json`, so serve the repo root over HTTP
 .venv/Scripts/python -m http.server 8765 --bind 127.0.0.1
 ```
 
-A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a run:
+A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
+(8 boards at a time, see `FETCH_WORKERS`). Logs worth reading after a run:
 
 - `data/cache/logs/uscis_near_misses.log`: closest-name and unverified USCIS
   matches. These are tagged `unknown`; confirm real ones by adding an alias.
@@ -132,6 +133,12 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
   matches are only logged to `data/cache/logs/company_list_near_misses.log`.
 - The site has one green accent, used only for sponsorship-likely and key
   numbers. Buttons, tags and chips must never wrap or overflow (`white-space: nowrap`).
+- **Discovery honesty:** every board in `companies.json` answered its own API
+  with a live job. Workday sponsor probing relies on 422 (no tenant on that
+  pod) vs 404 (right tenant, wrong site); Workday's site root returns 406 to
+  our User-Agent, so the site name is never read from there. Guessed boards
+  without a company-name check (Lever, Ashby, unconfirmed Workday) are
+  `"verified": false` and stay `unknown` for sponsorship.
 - Board modules expose `list_jobs(company, settings)`, `fill_details(company, job, settings)`
   and `NEEDS_DETAILS`. To support a new ATS, add a module in `fetcher/boards/`
   and register it in `boards/__init__.py`.
@@ -143,8 +150,9 @@ A full fetch over ~240 boards takes about 10 minutes. Logs worth reading after a
 1. Find the company's job board. Supported: Greenhouse
    (`boards-api.greenhouse.io/v1/boards/<slug>/jobs`), Lever
    (`api.lever.co/v0/postings/<slug>`), Ashby
-   (`api.ashbyhq.com/posting-api/job-board/<slug>`) and Workday
-   (`<tenant>.wd<pod>.myworkdayjobs.com/<site>`).
+   (`api.ashbyhq.com/posting-api/job-board/<slug>`), Workday
+   (`<tenant>.wd<pod>.myworkdayjobs.com/<site>`) and SmartRecruiters
+   (`api.smartrecruiters.com/v1/companies/<id>/postings`, IDs case-insensitive).
 2. Add an entry to `data/companies.json` with `"source": "manual"`:
 
    ```json

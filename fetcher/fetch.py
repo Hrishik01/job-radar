@@ -16,6 +16,7 @@ import json
 import logging
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -38,6 +39,11 @@ MAX_RUNS_KEPT = 500
 # boards errored, which points to an outage or a network block. A single dead
 # board, like a company that left its ATS, is logged and skipped.
 MAX_FAILED_SHARE = 0.5
+
+# Boards fetched at once. Politeness is per host and enforced in net.py, so
+# workers sharing a host (all Greenhouse boards) still queue one at a time;
+# workers on different hosts (each Workday tenant) run side by side.
+FETCH_WORKERS = 8
 
 # Raw fields that only fill_details() provides; reused for jobs we already know.
 DETAIL_FIELDS = ("description", "salary_hint", "country_hint", "posted_raw",
@@ -180,36 +186,36 @@ def main() -> int:
     near_misses: list[str] = []
     list_near_misses: list[str] = []
 
-    for n, company in enumerate(companies, 1):
+    def fetch_board(company: dict) -> dict:
+        """List one board and tag its jobs. Runs in a worker thread, so it
+        only reads shared state (known, first_fetched) and returns results
+        for the main thread to merge. net.py keeps each host's requests
+        spaced out however many workers share it."""
+        out = {"counts": dict.fromkeys(("dropped_title", "dropped_years", "dropped_non_us", "detail_errors"), 0),
+               "records": [], "tier2": [], "near": [], "list_near": [], "warnings": []}
         board = BOARDS[company["board"]]
         try:
             listed = board.list_jobs(company, settings)
         except FetchError as exc:
-            run["boards_failed"] += 1
-            failures.append(f"{company['name']} ({company['board']}/{company['slug']}): {exc}")
-            log.warning("[%d/%d] %s: FAILED %s", n, len(companies), company["name"], exc)
-            continue
-        run["boards_ok"] += 1
-        run["listed"] += len(listed)
-        fetched_boards.add((company["board"], company["slug"]))
-        board_first = first_fetched.setdefault(board_key(company["board"], company["slug"]), started)
+            out["error"] = str(exc)
+            return out
+        out["listed"] = len(listed)
+        board_first = first_fetched.get(board_key(company["board"], company["slug"]), started)
 
         sponsor_likely = False
         if lookup:
             key, how = uscis_match(company, lookup)
             sponsor_likely = how in ("exact", "alias")
             if how in ("prefix", "unverified"):
-                near_misses.append(f"{how:<10} {company['name']!r} -> {key!r}")
+                out["near"].append(f"{how:<10} {company['name']!r} -> {key!r}")
 
         badges = {}
         if lists:
-            badges, near = lists.match(company["name"])
-            list_near_misses += near
+            badges, out["list_near"] = lists.match(company["name"])
 
-        kept_here = 0
         for job in listed:
             if not filters.title_passes(job.title, settings):
-                run["dropped_title"] += 1
+                out["counts"]["dropped_title"] += 1
                 continue
 
             previous = known.get(job.id)
@@ -220,17 +226,17 @@ def main() -> int:
                 elif board.NEEDS_DETAILS:
                     board.fill_details(company, job, settings)
             except FetchError as exc:
-                run["detail_errors"] += 1
-                log.warning("  detail failed for %s: %s", job.title, exc)
+                out["counts"]["detail_errors"] += 1
+                out["warnings"].append(f"  detail failed for {job.title}: {exc}")
                 continue
 
             years = filters.min_years_required(job.description)
             if not filters.experience_passes(years, settings):
-                run["dropped_years"] += 1
+                out["counts"]["dropped_years"] += 1
                 continue
             us = filters.us_status(job.title, job.location, job.country_hint)
             if us == "non_us":
-                run["dropped_non_us"] += 1
+                out["counts"]["dropped_non_us"] += 1
                 continue
 
             record, tier2 = tag(job, settings, matchers, sponsor_likely)
@@ -247,15 +253,37 @@ def main() -> int:
                 "fortune500": badges.get("fortune500", False),
                 "unicorn": badges.get("unicorn", False),
             })
+            out["records"].append((record, previous is None))
             if not previous:
-                run["new"] += 1
-                tier2_lines += [f"{e['decision']:<12} | {job.company} | {job.title} | {e['sentence']}" for e in tier2]
-            known[job.id] = record
-            seen_ids.add(job.id)
-            kept_here += 1
+                out["tier2"] += [f"{e['decision']:<12} | {job.company} | {job.title} | {e['sentence']}" for e in tier2]
+        return out
 
-        run["kept"] += kept_here
-        log.info("[%d/%d] %s: %d listed, %d kept", n, len(companies), company["name"], len(listed), kept_here)
+    # Merge in board order, so the output doesn't depend on thread timing
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as pool:
+        for n, (company, out) in enumerate(zip(companies, pool.map(fetch_board, companies)), 1):
+            if "error" in out:
+                run["boards_failed"] += 1
+                failures.append(f"{company['name']} ({company['board']}/{company['slug']}): {out['error']}")
+                log.warning("[%d/%d] %s: FAILED %s", n, len(companies), company["name"], out["error"])
+                continue
+            run["boards_ok"] += 1
+            run["listed"] += out["listed"]
+            for k, v in out["counts"].items():
+                run[k] += v
+            fetched_boards.add((company["board"], company["slug"]))
+            first_fetched.setdefault(board_key(company["board"], company["slug"]), started)
+            for record, is_new in out["records"]:
+                known[record["id"]] = record
+                seen_ids.add(record["id"])
+                run["new"] += is_new
+            run["kept"] += len(out["records"])
+            tier2_lines += out["tier2"]
+            near_misses += out["near"]
+            list_near_misses += out["list_near"]
+            for w in out["warnings"]:
+                log.warning(w)
+            log.info("[%d/%d] %s: %d listed, %d kept", n, len(companies), company["name"],
+                     out["listed"], len(out["records"]))
 
     if run_failed(run["boards_ok"], run["boards_failed"]):
         log.error("%d of %d boards failed; jobs.json left untouched.",

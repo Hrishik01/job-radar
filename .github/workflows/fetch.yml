@@ -7,15 +7,19 @@ on:
   schedule:
     # Cron is always UTC. These times assume Eastern Standard Time (UTC-5,
     # early November to mid March). During daylight time (UTC-4) every run
-    # lands one hour later in ET, e.g. 7 AM instead of 6 AM.
+    # lands one hour later in ET, e.g. 7:23 AM instead of 6:23 AM.
     #
-    # Weekdays every 3 hours, 6 AM to 9 PM ET (6 runs):
-    #   6 AM, 9 AM, 12 PM, 3 PM, 6 PM ET = 11, 14, 17, 20, 23 UTC, Mon-Fri
-    - cron: "0 11,14,17,20,23 * * 1-5"
-    #   9 PM ET Mon-Fri = 02 UTC the next day, Tue-Sat
-    - cron: "0 2 * * 2-6"
+    # Every run is at :23 past the hour. GitHub queues all scheduled jobs on
+    # the hour and delays or drops many of them under load; an off-peak
+    # minute gets picked up far more reliably.
+    #
+    # Weekdays every 2 hours, 6 AM to 10 PM ET (9 runs):
+    #   6, 8, 10 AM, 12, 2, 4, 6 PM ET = 11, 13, 15, 17, 19, 21, 23 UTC, Mon-Fri
+    - cron: "23 11,13,15,17,19,21,23 * * 1-5"
+    #   8 PM and 10 PM ET Mon-Fri = 01 and 03 UTC the next day, Tue-Sat
+    - cron: "23 1,3 * * 2-6"
     # Weekends once, 10 AM ET = 15 UTC, Sat and Sun
-    - cron: "0 15 * * 0,6"
+    - cron: "23 15 * * 0,6"
   workflow_dispatch: {}  # "Run workflow" button on the Actions tab
 
 permissions:
@@ -31,7 +35,7 @@ jobs:
     # Pinned, so GitHub moving ubuntu-latest to a new release can't change
     # the environment under us. Bump this deliberately.
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 110  # under the 2-hour spacing; a cold fetch of ~1,400 boards took 30 minutes locally
     steps:
       - uses: actions/checkout@v5
 

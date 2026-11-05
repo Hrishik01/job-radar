@@ -14,10 +14,10 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
 ## How it works
 
 ```
- GitHub Actions cron (weekdays every 3h, weekends once)
+ GitHub Actions cron (weekdays every 2h, weekends once)
         |
         v
- fetcher/fetch.py ── Greenhouse / Lever / Ashby / Workday public JSON APIs
+ fetcher/fetch.py ── Greenhouse / Lever / Ashby / Workday / SmartRecruiters public JSON APIs
         |             (polite: honest User-Agent, per-host delay, retries)
         |
         |  title filter -> years filter -> US filter -> tags
@@ -89,11 +89,31 @@ opening the HTML file directly won't load any data.
 
 ## The scheduled run
 
-`.github/workflows/fetch.yml` runs the fetcher on weekdays at 6 AM, 9 AM,
-12 PM, 3 PM, 6 PM and 9 PM ET, and once at 10 AM ET on weekends (times
-assume EST, so they shift an hour later during daylight time). It runs the
-tests, fetches, and commits `data/jobs.json` if it changed. You can also start
-it by hand from the **Actions** tab with **Run workflow**.
+`.github/workflows/fetch.yml` runs the fetcher every 2 hours on weekdays
+from 6:23 AM to 10:23 PM ET, and once at 10:23 AM ET on weekends (times
+assume EST, so they shift an hour later during daylight time). Runs sit at
+:23 past the hour because GitHub delays or drops many scheduled jobs that
+start exactly on the hour. Each run runs the tests, fetches, and commits
+`data/jobs.json` if it changed. You can also start it by hand from the
+**Actions** tab with **Run workflow**.
+
+## Where the boards come from
+
+`fetcher/discover.py` builds `data/companies.json`, and every board in it
+was confirmed by the board's own API (at least one live job):
+
+- **Public new-grad lists on GitHub** (SimplifyJobs new-grad and internship
+  lists, speedyapply): direct Greenhouse, Lever, Ashby, SmartRecruiters and
+  Workday links, named after the company in the list row.
+- **USCIS H-1B sponsors:** likely slugs for the top 8,000 employers, tried
+  on Greenhouse, Ashby, Lever and SmartRecruiters.
+- **Workday for the top 500 sponsors:** the tenant's pod is found first
+  (Workday answers differently for "no such tenant" and "wrong site"), then
+  the most common careers-site names are tried. A board found this way is
+  verified only if the tenant's own "About" text names it.
+
+Boards found by guessing a slug on Lever, Ashby or Workday without a name
+check stay "unknown" for sponsorship.
 
 A few dead boards only produce warnings. If more than half the boards error,
 the run fails and nothing is committed.
@@ -105,6 +125,7 @@ the run fails and nothing is committed.
    - Lever: `api.lever.co/v0/postings/<slug>`
    - Ashby: `api.ashbyhq.com/posting-api/job-board/<slug>`
    - Workday: `<tenant>.wd<pod>.myworkdayjobs.com/<site>`
+   - SmartRecruiters: `api.smartrecruiters.com/v1/companies/<id>/postings`
 2. Add an entry to `data/companies.json` with `"source": "manual"`:
 
    ```json

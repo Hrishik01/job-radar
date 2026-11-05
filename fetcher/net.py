@@ -105,6 +105,27 @@ def request_json(
     raise FetchError(f"{last_error} for {method} {url} after {retries} attempts")
 
 
+def probe_status(method: str, url: str, *, body: dict | None = None, delay: float = 0.5) -> tuple[int, object]:
+    """(HTTP status, JSON or None) for discovery probes that need to tell
+    error codes apart, e.g. Workday's 422 (no such tenant on this pod) from
+    404 (right tenant, wrong site). Same polite delay; one retry on 429/5xx."""
+    host = urlsplit(url).netloc
+    for attempt in range(2):
+        _wait_for_host(host, delay)
+        try:
+            resp = _session().request(method, url, json=body, timeout=TIMEOUT)
+        except requests.RequestException as exc:
+            raise FetchError(f"{type(exc).__name__}: {exc}") from exc
+        if resp.status_code == 429 or resp.status_code >= 500:
+            time.sleep(2 ** (attempt + 1))
+            continue
+        try:
+            return resp.status_code, resp.json()
+        except ValueError:
+            return resp.status_code, None
+    raise FetchError(f"HTTP {resp.status_code} for {method} {url}")
+
+
 def get_text(url: str, *, delay: float = 0.5, cache_seconds: int = 0) -> str:
     """Fetch a plain-text document (used for the SimplifyJobs README)."""
     path = _cache_path("GET-TEXT", url, None)

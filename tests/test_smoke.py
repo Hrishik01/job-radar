@@ -15,6 +15,7 @@ import fetch  # noqa: E402
 import filters  # noqa: E402
 from boards import workday  # noqa: E402
 from company_lists import ListLookup  # noqa: E402
+import discover  # noqa: E402
 import scoring  # noqa: E402
 from models import Job, stable_id  # noqa: E402
 from parse import clean_url, parse_salary, salary_from_hint  # noqa: E402
@@ -407,6 +408,35 @@ class CompanyListTests(unittest.TestCase):
     def test_excluded_same_name_is_not_badged(self):
         lk = ListLookup(self.lists, {}, {"Brainco": "different company"})
         self.assertFalse(lk.match("Brainco")[0]["unicorn"])
+
+
+class DiscoveryTests(unittest.TestCase):
+    def test_list_links_take_the_row_company_name(self):
+        text = (
+            '<td><strong><a href="https://simplify.jobs/c/RELX">RELX</a></strong></td>\n'
+            '<td><a href="https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Alpharetta-GA/X_R1">Apply</a></td>\n'
+            '<td>↳</td><td><a href="https://relx.wd3.myworkdayjobs.com/en-US/RiskSolutions/job/Y_R2">Apply</a></td>\n'
+            '| <a href="https://www.nvidia.com"><strong>NVIDIA</strong></a> | Analyst | '
+            '<a href="https://jobs.smartrecruiters.com/BoschGroup/744-analyst">Apply</a> |\n')
+        found = {}
+        discover.parse_list(text, found)
+        self.assertEqual(found[("workday", "relx", 3, "relx")], "RELX")
+        self.assertEqual(found[("workday", "relx", 3, "risksolutions")], "RELX")
+        self.assertEqual(found[("smartrecruiters", "BoschGroup")], "NVIDIA")  # same-row name wins
+        self.assertNotIn(("workday", "relx", 3, "job"), found)
+
+    def test_location_count_is_never_a_company_name(self):
+        text = (
+            '<td><strong>🔥 Salesforce</strong></td><td>Analyst</td>\n'
+            '<td>↳</td><td><details><summary><strong>6 locations</strong></summary>SF, NYC</details></td>'
+            '<td><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/X_R1">Apply</a></td>\n')
+        found = {}
+        discover.parse_list(text, found)
+        self.assertEqual(found[("workday", "salesforce", 12, "external_career_site")], "Salesforce")
+
+    def test_workday_tenant_guesses_are_alphanumeric(self):
+        self.assertEqual(discover.tenant_guesses("state street bank and trust"),
+                         ["statestreetbankandtrust", "statestreetbanktrust"])
 
 
 class DetailTests(unittest.TestCase):

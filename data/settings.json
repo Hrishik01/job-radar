@@ -90,9 +90,17 @@
   "workday_search_terms": ["analyst", "analytics", "data scientist", "operations"],
 
   "discovery": {
-    "uscis_top_n": 2000,
+    "uscis_top_n": 8000,
+    "workday_probe_top_n": 500,
     "recheck_days": 30,
-    "simplify_readme_url": "https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/README.md"
+    "github_lists": [
+      "https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/README.md",
+      "https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/README.md",
+      "https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main/NEW_GRAD_USA.md"
+    ],
+    "workday_pods": [1, 5, 3, 12, 501, 108],
+    "workday_sites": ["{tenant}", "{tenant}careers", "external", "{tenant}_careers", "careers",
+                      "external_career_site", "{tenant}_external", "search", "external_careers"]
   },
 
   "http": {
