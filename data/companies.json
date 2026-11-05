@@ -10,7 +10,7 @@
     "manual/greenhouse": 3,
     "manual/lever": 1,
     "manual/workday": 7,
-    "uscis/ashby": 135,
+    "uscis/ashby": 134,
     "uscis/greenhouse": 304,
     "uscis/lever": 49,
     "uscis/smartrecruiters": 184,
@@ -10071,15 +10071,6 @@
       "uscis_key": "pacer staffing",
       "status": "ok",
       "verified": true
-    },
-    {
-      "name": "Revive Software Systems",
-      "board": "ashby",
-      "slug": "revive",
-      "source": "uscis",
-      "uscis_key": "revive software systems",
-      "status": "ok",
-      "verified": false
     },
     {
       "name": "Rhombus Power, Inc.",
