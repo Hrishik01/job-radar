@@ -96,7 +96,22 @@ def uscis_match(company: dict, lookup: Lookup) -> tuple[str | None, str]:
     return lookup.match(company["name"])
 
 
-def tag(job: Job, settings: dict, matchers, sponsor_likely: bool) -> tuple[dict, list[dict]]:
+def staffing_log(jobs: list[dict]) -> list[str]:
+    """One line per flagged company (active jobs only), then one indented
+    line per job with the reasons, for checking the staffing flag by hand."""
+    by_company: dict[str, list[dict]] = {}
+    for j in jobs:
+        if j["active"] and j.get("staffing"):
+            by_company.setdefault(j["company"], []).append(j)
+    lines = []
+    for company in sorted(by_company, key=str.lower):
+        flagged = by_company[company]
+        lines.append(f"{company} ({len(flagged)} job{'s' if len(flagged) != 1 else ''})")
+        lines += [f"    {j['title']} | {' || '.join(j['staffing_reasons'])}" for j in flagged]
+    return lines
+
+
+def tag(job: Job, settings: dict, matchers, sponsor_likely: bool, naics_sector: str = "") -> tuple[dict, list[dict]]:
     """Derive every computed field for one job. Returns (record, tier2 log)."""
     mode, mode_source = filters.work_mode(job)
 
@@ -110,6 +125,7 @@ def tag(job: Job, settings: dict, matchers, sponsor_likely: bool) -> tuple[dict,
     sponsorship = "no" if is_no else "likely" if sponsor_likely else "unknown"
 
     perm, markers = filters.perm_markers(job)
+    staffing = filters.staffing_reasons(job.description, naics_sector, settings)
     match_pct, matched = scoring.score(job.description, matchers, settings["match_cap"])
 
     record = job.to_dict()
@@ -125,6 +141,8 @@ def tag(job: Job, settings: dict, matchers, sponsor_likely: bool) -> tuple[dict,
         "sponsorship_evidence": evidence or None,
         "perm_likely": perm,
         "perm_markers": markers,
+        "staffing": bool(staffing),
+        "staffing_reasons": staffing,
         "match_pct": match_pct,
         "matched_skills": matched,
     })
@@ -203,9 +221,12 @@ def main() -> int:
         board_first = first_fetched.get(board_key(company["board"], company["slug"]), started)
 
         sponsor_likely = False
+        naics_sector = ""
         if lookup:
             key, how = uscis_match(company, lookup)
             sponsor_likely = how in ("exact", "alias")
+            if sponsor_likely:  # never take an industry from a fuzzy match
+                naics_sector = lookup.naics_sector(key)
             if how in ("prefix", "unverified"):
                 out["near"].append(f"{how:<10} {company['name']!r} -> {key!r}")
 
@@ -239,7 +260,7 @@ def main() -> int:
                 out["counts"]["dropped_non_us"] += 1
                 continue
 
-            record, tier2 = tag(job, settings, matchers, sponsor_likely)
+            record, tier2 = tag(job, settings, matchers, sponsor_likely, naics_sector)
             first_seen = previous["first_seen_utc"] if previous else started  # never updated
             record.update({
                 "us_uncertain": us == "uncertain",
@@ -319,10 +340,14 @@ def main() -> int:
             f.write(f"# run {started}\n" + "\n".join(tier2_lines) + "\n")
     (LOG_DIR / "uscis_near_misses.log").write_text("\n".join(near_misses) + "\n", "utf-8")
     (LOG_DIR / "company_list_near_misses.log").write_text("\n".join(list_near_misses) + "\n", "utf-8")
+    staffing_lines = staffing_log(jobs)
+    (LOG_DIR / "staffing.log").write_text("\n".join(staffing_lines) + "\n", "utf-8")
 
     log.info("\nBoards ok %d, failed %d | listed %d | kept %d (%d new) | dropped: title %d, years %d, non-US %d",
              run["boards_ok"], run["boards_failed"], run["listed"], run["kept"], run["new"],
              run["dropped_title"], run["dropped_years"], run["dropped_non_us"])
+    flagged = sum(1 for line in staffing_lines if not line.startswith(" "))
+    log.info("Staffing firms flagged: %d companies -> data/cache/logs/staffing.log", flagged)
     if tier2_lines:
         log.info("Tier 2 sponsorship sentences logged: %d -> data/cache/logs/sponsorship_tier2.log", len(tier2_lines))
     if failures:

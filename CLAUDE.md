@@ -88,6 +88,8 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   matches. These are tagged `unknown`; confirm real ones by adding an alias.
 - `data/cache/logs/sponsorship_tier2.log`: every citizenship/clearance sentence
   and whether it was tagged `no`, for checking precision.
+- `data/cache/logs/staffing.log`: every company with active jobs flagged
+  `staffing`, with each job's matched phrase.
 
 ## Conventions
 
@@ -100,6 +102,13 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   citizenship/clearance sentences with requirement wording, EEO boilerplate
   excluded). Otherwise `likely` only on an exact or alias USCIS match.
   Closest-name (prefix) matches and unverified USCIS-guessed boards stay `unknown`.
+- **Staffing:** `staffing: true` when the employer's USCIS NAICS sector is in
+  `staffing.naics_sectors` or the description matches a `staffing.phrases`
+  regex (C2C, W2 only, "our client is/needs…", "Implementation Partner:",
+  bench sales/consultants), both in `data/settings.json`. A phrase in a
+  "direct-hire" / "not open to" sentence doesn't count. USCIS only publishes
+  2-digit sectors; sector 56 also holds credit bureaus, PEOs and job boards,
+  so `naics_sectors` starts empty. Hidden by default behind "Show staffing firms".
 - **Location:** a foreign country in the title drops the job. In the location
   it drops the job only if no listed location is in the US. Location group
   comes from location text (Boston-area towns first); work mode from the feed
@@ -116,8 +125,8 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
 - **Dashboard state** (applications, removed, opened, preferences, the outreach
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
-  Application numbers start at 1 and are never reused. Won't-sponsor, PERM and
-  older postings are hidden by default behind three toggles that show counts.
+  Application numbers start at 1 and are never reused. Won't-sponsor, PERM,
+  staffing and older postings are hidden by default behind four toggles that show counts.
 - **Freshness** (in `app.js`) is measured from the posted date, or first-seen when
   a job has none; a backfill job with no posted date counts as older. Under 24h
   gets the ink "Fresh" badge and the Fresh only chip; only the last 7 days show

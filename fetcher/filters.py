@@ -410,3 +410,27 @@ def perm_markers(job) -> tuple[bool, list[str]]:
 
     conclusive = "board PERM flag" in markers or "experience in the job offered" in markers
     return conclusive or len(markers) >= 2, markers
+
+
+# ================================================================ staffing firms
+
+# "This is a direct-hire role and is not open to C2C" is the opposite of a
+# staffing post, so a phrase in a sentence like that doesn't count.
+_SENTENCE_SPLIT = re.compile(r"(?<=[.!?;])\s+|\n+")
+_DIRECT_HIRE = re.compile(r"\bdirect[- ]hire\b|\bnot open to\b|\bno third[- ]part(?:y|ies)\b", re.IGNORECASE)
+
+
+def staffing_reasons(description: str, naics_sector: str, settings: dict) -> list[str]:
+    """Why a job looks like it comes from a staffing firm, e.g.
+    ["C2C: Contract role, C2C or W2 accepted."]. Empty means not staffing."""
+    cfg = settings["staffing"]
+    reasons = []
+    if naics_sector and naics_sector in cfg["naics_sectors"]:
+        reasons.append(f"USCIS NAICS sector {naics_sector}")
+    for name, pattern in cfg["phrases"].items():
+        rx = re.compile(pattern, re.IGNORECASE)
+        for sentence in _SENTENCE_SPLIT.split(description or ""):
+            if rx.search(sentence) and not _DIRECT_HIRE.search(sentence):
+                reasons.append(f"{name}: {' '.join(sentence.split())[:160]}")
+                break
+    return reasons

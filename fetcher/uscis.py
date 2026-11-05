@@ -4,7 +4,8 @@ Run once after downloading CSVs into data/uscis/:
 
     python fetcher/uscis.py data/uscis/*.csv
 
-Writes data/uscis/h1b_lookup.json: {normalized employer name: [approvals, last_fy]}.
+Writes data/uscis/h1b_lookup.json:
+{normalized employer name: [approvals, last_fy, 2-digit NAICS sector]}.
 Only employers with at least one approval are kept; tax ID, city and ZIP are dropped.
 """
 
@@ -55,6 +56,9 @@ def build(csv_paths: list[str]) -> dict:
                 cols = {k.strip().lower(): (v or "").strip() for k, v in row.items() if k}
                 raw = cols.get("employer") or cols.get("employer (petitioner) name") or ""
                 fy = int(cols.get("fiscal year") or 0)
+                # "56 - Administrative and Support..." -> "56". The export only
+                # carries the 2-digit NAICS sector, never the full code.
+                sector = (cols.get("industry (naics) code") or "").split(" ")[0]
                 approvals = sum(int(v.replace(",", "")) for k, v in cols.items()
                                 if "approval" in k and v.replace(",", "").isdigit())
                 if not raw or approvals == 0:
@@ -64,9 +68,14 @@ def build(csv_paths: list[str]) -> dict:
                     key = normalize_company(part)
                     if not key:
                         continue
-                    entry = employers.setdefault(key, [0, 0])
+                    entry = employers.setdefault(key, [0, 0, {}])
                     entry[0] += approvals
                     entry[1] = max(entry[1], fy)
+                    if sector:
+                        entry[2][sector] = entry[2].get(sector, 0) + approvals
+    # Keep the sector with the most approvals ("" when none was listed)
+    for entry in employers.values():
+        entry[2] = max(entry[2], key=entry[2].get) if entry[2] else ""
     return employers
 
 
@@ -108,6 +117,11 @@ class Lookup:
                 best = key
             i += 1
         return (best, "prefix") if best else (None, "none")
+
+    def naics_sector(self, key: str | None) -> str:
+        """2-digit NAICS sector for a matched employer, "" if unknown."""
+        entry = self.employers.get(key) if key else None
+        return entry[2] if entry and len(entry) > 2 else ""
 
     def top(self, n: int) -> list[str]:
         """Employer keys with the most approvals."""

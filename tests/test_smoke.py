@@ -161,6 +161,49 @@ class PermTests(unittest.TestCase):
         self.assertTrue(filters.perm_markers(make_job("Plain text.", perm_flag=True))[0])
 
 
+class StaffingTests(unittest.TestCase):
+    def reasons(self, text, sector=""):
+        return [r.split(":")[0] for r in filters.staffing_reasons(text, sector, SETTINGS)]
+
+    def test_staffing_phrases_flag(self):
+        self.assertEqual(self.reasons("Contract role. C2C or W2 accepted."), ["C2C"])
+        self.assertEqual(self.reasons("Corp-to-corp candidates welcome."), ["C2C"])
+        self.assertEqual(self.reasons("Visa: H1B. W2 only, no OPT."), ["W2 only"])
+        self.assertEqual(self.reasons("Our client is in need of a data analyst."), ["our client"])
+        self.assertEqual(self.reasons("Implementation Partner: Infosys. Client: a bank."), ["implementation partner"])
+        self.assertEqual(self.reasons("We have bench consultants ready to deploy."), ["bench"])
+
+    def test_ordinary_wording_is_not_staffing(self):
+        # Seen on real direct-employer postings (Equifax, Citi, OpenAI, Veeva, IQVIA)
+        for text in ("This is a direct-hire role and is not open to C2C or vendors.",
+                     "Sharpen understanding of our client's needs.",
+                     "Present results to our Client Services teams.",
+                     "Help shape the bench around a commercial area.",
+                     "Run benchmarks on the lab bench.",
+                     "Work with our implementation partners on rollouts."):
+            self.assertEqual(self.reasons(text), [], text)
+
+    def test_naics_sector_only_when_configured(self):
+        settings = {**SETTINGS, "staffing": {**SETTINGS["staffing"], "naics_sectors": ["56"]}}
+        self.assertEqual(filters.staffing_reasons("Analyst role.", "56", settings), ["USCIS NAICS sector 56"])
+        self.assertEqual(filters.staffing_reasons("Analyst role.", "54", settings), [])
+        self.assertEqual(self.reasons("Analyst role.", "56"), [])  # empty by default
+
+    def test_lookup_reports_sector(self):
+        lookup = Lookup({"acme staffing": [10, 2026, "56"], "old": [3, 2024]}, {})
+        self.assertEqual(lookup.naics_sector("acme staffing"), "56")
+        self.assertEqual(lookup.naics_sector("old"), "")  # lookups built before the sector field
+        self.assertEqual(lookup.naics_sector(None), "")
+
+    def test_staffing_log_groups_by_company(self):
+        jobs = [{"company": "Sriven", "title": "Data Analyst", "active": True, "staffing": True,
+                 "staffing_reasons": ["our client: Our client is in need..."]},
+                {"company": "Sriven", "title": "Old", "active": False, "staffing": True, "staffing_reasons": ["x"]},
+                {"company": "Acme", "title": "Analyst", "active": True, "staffing": False, "staffing_reasons": []}]
+        self.assertEqual(fetch.staffing_log(jobs),
+                         ["Sriven (1 job)", "    Data Analyst | our client: Our client is in need..."])
+
+
 class FilterTests(unittest.TestCase):
     def test_titles(self):
         keep = ["Revenue Operations Analyst", "Data Analyst II", "Analytics Engineer", "Sales Operations Specialist",

@@ -232,6 +232,7 @@ main.wrap { border-top: 2px solid var(--ink); }
 .tag.likely { color: var(--signal); border-color: var(--signal); background: var(--signal-bg); }
 .tag.no { color: var(--warn); border-color: var(--warn); }
 .tag.perm { color: var(--warn); border-color: var(--warn); }
+.tag.staffing { color: var(--warn); border-color: var(--warn); }
 .tag.opened { color: var(--ink); }
 
 .dupe {

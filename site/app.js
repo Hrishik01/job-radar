@@ -20,7 +20,7 @@ function defaultState() {
     lastExport: null,  // ISO time of the last export
     prefs: {
       tab: "new", theme: "system", sort: "newest", loc: "all",
-      modes: MODES.slice(), showNo: false, showPerm: false, showOlder: false, freshOnly: false, bigCo: false,
+      modes: MODES.slice(), showNo: false, showPerm: false, showStaffing: false, showOlder: false, freshOnly: false, bigCo: false,
       spons: "any", salary: 0, match: 0, background: "",
     },
   };
@@ -299,6 +299,7 @@ function filterNew() {
     pool: pool.length,
     no: pool.filter((j) => j.sponsorship === "no").length,
     perm: pool.filter((j) => j.perm_likely).length,
+    staffing: pool.filter((j) => j.staffing).length,
     older: pool.filter(isOlder).length,
   };
 
@@ -310,6 +311,7 @@ function filterNew() {
   const base = pool.filter((j) =>
     (p.showNo || j.sponsorship !== "no") &&
     (p.showPerm || !j.perm_likely) &&
+    (p.showStaffing || !j.staffing) &&
     (p.showOlder || !isOlder(j)) &&
     matchesSearch(j, terms) &&
     (!titleQ || j.title.toLowerCase().includes(titleQ)) &&
@@ -396,6 +398,7 @@ function jobRow(job, tab) {
                : `<span class="salary-note">No salary listed</span>`}
       ${sponsTag(job)}
       ${job.perm_likely ? `<span class="tag perm" title="${esc((job.perm_markers || []).join(", "))}">PERM notice</span>` : ""}
+      ${job.staffing ? `<span class="tag staffing" title="${esc((job.staffing_reasons || []).join(" | "))}">Staffing</span>` : ""}
       ${opened ? `<span class="tag opened">Opened</span>` : ""}
     </div>
   </article>`;
@@ -465,12 +468,14 @@ function render() {
     $("#active-filters").textContent = active ? `(${active})` : "";
     $("#count-no").textContent = `(${counts.no})`;
     $("#count-perm").textContent = `(${counts.perm})`;
+    $("#count-staffing").textContent = `(${counts.staffing})`;
     $("#count-older").textContent = `(${counts.older})`;
     $('[data-count="bigco"]').textContent = counts.bigCo;
 
     const hidden = [];
     if (!p.showNo && counts.no) hidden.push(`${counts.no} won't-sponsor`);
     if (!p.showPerm && counts.perm) hidden.push(`${counts.perm} PERM`);
+    if (!p.showStaffing && counts.staffing) hidden.push(`${counts.staffing} staffing`);
     if (!p.showOlder && counts.older) hidden.push(`${counts.older} posted over ${RECENT_DAYS} days ago`);
     line = `Showing ${rows.length} of ${counts.pool}` + (hidden.length ? ` · hidden: ${hidden.join(", ")}` : "");
   } else if (tab === "applied") {
@@ -556,10 +561,11 @@ function renderKpis() {
   spark("spark-spons", all.map((n, i) => (last = n ? lik[i] / n : last)));
 
   // Same basis as the Boston area chip with no other filters: jobs in New,
-  // minus won't-sponsor, PERM and 30+ day old jobs unless their toggles are on
+  // minus won't-sponsor, PERM, staffing and older jobs unless their toggles are on
   const p = state.prefs;
   const boston = newPool().filter((j) => j.location_group === "Boston area" &&
-    (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) && (p.showOlder || !isOlder(j)));
+    (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) &&
+    (p.showStaffing || !j.staffing) && (p.showOlder || !isOlder(j)));
   $("#kpi-boston").textContent = boston.length;
   spark("spark-boston", dailyCounts(seen(fresh.filter((j) => j.location_group === "Boston area"))));
 
@@ -796,6 +802,7 @@ function applyPrefsToControls() {
   $("#f-match").value = String(p.match);
   $("#show-no").checked = p.showNo;
   $("#show-perm").checked = p.showPerm;
+  $("#show-staffing").checked = p.showStaffing;
   $("#show-older").checked = p.showOlder;
   $("#fresh-only").setAttribute("aria-pressed", String(p.freshOnly));
   $("#big-co").setAttribute("aria-pressed", String(p.bigCo));
@@ -832,6 +839,7 @@ function wireControls() {
   $("#f-match").addEventListener("change", (e) => setPref("match", Number(e.target.value)));
   $("#show-no").addEventListener("change", (e) => setPref("showNo", e.target.checked));
   $("#show-perm").addEventListener("change", (e) => setPref("showPerm", e.target.checked));
+  $("#show-staffing").addEventListener("change", (e) => setPref("showStaffing", e.target.checked));
   $("#show-older").addEventListener("change", (e) => setPref("showOlder", e.target.checked));
   for (const [id, key] of [["#fresh-only", "freshOnly"], ["#big-co", "bigCo"]]) {
     $(id).addEventListener("click", () => {
