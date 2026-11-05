@@ -102,13 +102,27 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   citizenship/clearance sentences with requirement wording, EEO boilerplate
   excluded). Otherwise `likely` only on an exact or alias USCIS match.
   Closest-name (prefix) matches and unverified USCIS-guessed boards stay `unknown`.
-- **Staffing:** `staffing: true` when the employer's USCIS NAICS sector is in
-  `staffing.naics_sectors` or the description matches a `staffing.phrases`
-  regex (C2C, W2 only, "our client is/needs…", "Implementation Partner:",
-  bench sales/consultants), both in `data/settings.json`. A phrase in a
-  "direct-hire" / "not open to" sentence doesn't count. USCIS only publishes
-  2-digit sectors; sector 56 also holds credit bureaus, PEOs and job boards,
-  so `naics_sectors` starts empty. Hidden by default behind "Show staffing firms".
+- **Staffing:** `staffing: true` when any of these hold (all lists in
+  `data/settings.json`):
+  - the company is in `staffing_companies`;
+  - the description matches a `staffing.phrases` regex: C2C, W2 only, "our
+    client is/needs…", "Implementation Partner:", bench sales/consultants,
+    "Duration: 6 months" / "6+ months contract", contract to hire / C2H, or
+    a self-statement ("we are a … staffing", "IT staffing");
+  - a line names 3+ of OPT, CPT, H-1B, EAD, GC, Citizen (a staffing visa
+    list), unless it talks about sponsorship;
+  - 2+ of the company's active jobs are flagged on their own evidence
+    (`company_min_flagged`; recomputed every run in `fetch.company_staffing`);
+  - the employer's USCIS NAICS sector is in `staffing.naics_sectors`.
+
+  A phrase in a sentence that turns agencies away ("direct-hire", "not open
+  to", "unsolicited resumes", "placement fee") doesn't count, and bare
+  "recruiting agency" never does (employers' agency notices use it).
+  Duration, contract to hire and "our client" are `weak_phrases`: a job
+  flagged on one of those alone is marked `[weak]` in the log. USCIS only
+  publishes 2-digit sectors; sector 56 also holds credit bureaus, PEOs and
+  job boards, so `naics_sectors` starts empty. Hidden by default behind
+  "Show staffing firms".
 - **Location:** a foreign country in the title drops the job. In the location
   it drops the job only if no listed location is in the US. Location group
   comes from location text (Boston-area towns first); work mode from the feed

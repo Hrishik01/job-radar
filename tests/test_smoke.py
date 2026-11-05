@@ -172,6 +172,49 @@ class StaffingTests(unittest.TestCase):
         self.assertEqual(self.reasons("Our client is in need of a data analyst."), ["our client"])
         self.assertEqual(self.reasons("Implementation Partner: Infosys. Client: a bank."), ["implementation partner"])
         self.assertEqual(self.reasons("We have bench consultants ready to deploy."), ["bench"])
+        self.assertEqual(self.reasons("Job Duration: 6+ Months Contract role"), ["duration"])
+        self.assertEqual(self.reasons("Location: Boston, MA Duration: 12+ Months"), ["duration"])
+        self.assertEqual(self.reasons("This is a 12-month contract."), ["duration"])
+        self.assertEqual(self.reasons("Contract-to-hire position."), ["contract to hire"])
+        self.assertEqual(self.reasons("Type: C2H"), ["contract to hire"])
+        self.assertEqual(self.reasons("Saxon is a IT Consulting & Staffing Company located at Irving, TX"),
+                         ["self-described staffing"])
+        self.assertEqual(self.reasons("We are a global staffing, consulting and technology company."),
+                         ["self-described staffing"])
+        self.assertEqual(self.reasons("Leading IT staffing provider."), ["self-described staffing"])
+
+    def test_visa_lists(self):
+        self.assertEqual(self.reasons("We are looking for OPT/CPT/H1/EAD/GC/Citizen candidates."), ["visa list (OPT, CPT, H-1B, EAD, GC, Citizen)"])
+        self.assertEqual(self.reasons("Visa: H-1B, GC, US Citizen only"), ["visa list (H-1B, GC, Citizen)"])
+        # Two kinds is not a list; sponsorship wording is a direct employer's policy
+        self.assertEqual(self.reasons("Open to GC holders and US Citizens."), [])
+        self.assertEqual(self.reasons("We cannot sponsor H-1B, OPT or CPT candidates."), [])
+        self.assertEqual(self.reasons("Lowercase opt in to the gc and citizen program."), [])
+
+    def test_manual_company_list(self):
+        self.assertEqual(filters.staffing_reasons("Analyst role.", "", SETTINGS, "Tech Tammina, Inc."),
+                         ["listed in staffing_companies"])
+        self.assertEqual(filters.staffing_reasons("Analyst role.", "", SETTINGS, "Technology Partners"), [])
+
+    def test_weak_only(self):
+        self.assertTrue(filters.weak_only(["duration: Duration: 6 Months"], SETTINGS))
+        self.assertFalse(filters.weak_only(["duration: x", "C2C: y"], SETTINGS))
+        self.assertFalse(filters.weak_only(["C2C: y"], SETTINGS))
+
+    def test_company_level_rule(self):
+        def job(company, reasons, active=True):
+            return {"company": company, "active": active, "staffing_reasons": reasons}
+        jobs = [job("Saxon", ["duration: a"]), job("Saxon", ["C2C: b"]), job("Saxon", []),
+                job("Saxon", [], active=False),
+                job("Acme", ["duration: c"]), job("Acme", [])]
+        fetch.company_staffing(jobs, 2)
+        self.assertEqual(jobs[2]["staffing_reasons"], ["company: 2 of its jobs are flagged"])
+        self.assertFalse(jobs[3]["staffing"])  # inactive jobs are left alone
+        self.assertFalse(jobs[5]["staffing"])  # one flagged job isn't enough
+        # Rerun after Saxon drops to one flagged job: the company flag goes away
+        jobs[1]["staffing_reasons"] = []
+        fetch.company_staffing(jobs, 2)
+        self.assertEqual([j["staffing"] for j in jobs[:3]], [True, False, False])
 
     def test_ordinary_wording_is_not_staffing(self):
         # Seen on real direct-employer postings (Equifax, Citi, OpenAI, Veeva, IQVIA)
@@ -180,7 +223,12 @@ class StaffingTests(unittest.TestCase):
                      "Present results to our Client Services teams.",
                      "Help shape the bench around a commercial area.",
                      "Run benchmarks on the lab bench.",
-                     "Work with our implementation partners on rollouts."):
+                     "Work with our implementation partners on rollouts.",
+                     "If contacted by a recruiting agency for an Anduril role, their email will identify it.",
+                     "Recruiting Agency Notice",
+                     "We do not accept unsolicited resumes from staffing agencies.",
+                     "Duration: Full-time, W-2 position",
+                     "A 12-week summer internship."):
             self.assertEqual(self.reasons(text), [], text)
 
     def test_naics_sector_only_when_configured(self):
@@ -200,8 +248,8 @@ class StaffingTests(unittest.TestCase):
                  "staffing_reasons": ["our client: Our client is in need..."]},
                 {"company": "Sriven", "title": "Old", "active": False, "staffing": True, "staffing_reasons": ["x"]},
                 {"company": "Acme", "title": "Analyst", "active": True, "staffing": False, "staffing_reasons": []}]
-        self.assertEqual(fetch.staffing_log(jobs),
-                         ["Sriven (1 job)", "    Data Analyst | our client: Our client is in need..."])
+        self.assertEqual(fetch.staffing_log(jobs, SETTINGS),
+                         ["Sriven (1 job)", "    [weak] Data Analyst | our client: Our client is in need..."])
 
 
 class FilterTests(unittest.TestCase):

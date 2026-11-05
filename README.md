@@ -39,8 +39,10 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
 - **PERM notices** (postings for roles already filled by a sponsored employee)
   are flagged when two or more markers appear, and hidden behind a toggle.
 - **Staffing firms** are flagged from contract-staffing wording in the
-  description (C2C, W2 only, "our client is…", "Implementation Partner:",
-  bench consultants) and hidden behind a toggle too.
+  description (C2C, W2 only, "Duration: 6 months", contract to hire, "our
+  client is…", OPT/CPT/H1/GC visa lists, "we are a staffing company"), from
+  a manual list in `data/settings.json`, or when two or more of a company's
+  jobs are flagged. They're hidden behind a toggle too.
 - **Stable IDs** come from the board's own job ID, so reruns never duplicate a
   job, and a board that errors never removes jobs from the file.
 - **The dashboard** is plain HTML, CSS and JavaScript with no build step. The

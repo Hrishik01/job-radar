@@ -96,9 +96,29 @@ def uscis_match(company: dict, lookup: Lookup) -> tuple[str | None, str]:
     return lookup.match(company["name"])
 
 
-def staffing_log(jobs: list[dict]) -> list[str]:
+COMPANY_REASON = "company: "  # prefix of the reason added by the company-level rule
+
+
+def company_staffing(jobs: list[dict], min_flagged: int) -> None:
+    """When min_flagged or more of a company's active jobs are flagged on
+    their own evidence, flag the rest of its active jobs too. Recomputed from
+    scratch every run, so a company that drops below the bar loses it."""
+    own = {}  # company -> active jobs flagged on their own evidence
+    for j in jobs:
+        j["staffing_reasons"] = [r for r in j.get("staffing_reasons") or [] if not r.startswith(COMPANY_REASON)]
+        if j["active"] and j["staffing_reasons"]:
+            own[j["company"]] = own.get(j["company"], 0) + 1
+    for j in jobs:
+        n = own.get(j["company"], 0)
+        if j["active"] and not j["staffing_reasons"] and n >= min_flagged:
+            j["staffing_reasons"] = [f"{COMPANY_REASON}{n} of its jobs are flagged"]
+        j["staffing"] = bool(j["staffing_reasons"])
+
+
+def staffing_log(jobs: list[dict], settings: dict) -> list[str]:
     """One line per flagged company (active jobs only), then one indented
-    line per job with the reasons, for checking the staffing flag by hand."""
+    line per job with the reasons, for checking the staffing flag by hand.
+    A job flagged on a single weak phrase is marked [weak]."""
     by_company: dict[str, list[dict]] = {}
     for j in jobs:
         if j["active"] and j.get("staffing"):
@@ -107,7 +127,9 @@ def staffing_log(jobs: list[dict]) -> list[str]:
     for company in sorted(by_company, key=str.lower):
         flagged = by_company[company]
         lines.append(f"{company} ({len(flagged)} job{'s' if len(flagged) != 1 else ''})")
-        lines += [f"    {j['title']} | {' || '.join(j['staffing_reasons'])}" for j in flagged]
+        for j in flagged:
+            weak = "[weak] " if filters.weak_only(j["staffing_reasons"], settings) else ""
+            lines.append(f"    {weak}{j['title']} | {' || '.join(j['staffing_reasons'])}")
     return lines
 
 
@@ -125,7 +147,7 @@ def tag(job: Job, settings: dict, matchers, sponsor_likely: bool, naics_sector: 
     sponsorship = "no" if is_no else "likely" if sponsor_likely else "unknown"
 
     perm, markers = filters.perm_markers(job)
-    staffing = filters.staffing_reasons(job.description, naics_sector, settings)
+    staffing = filters.staffing_reasons(job.description, naics_sector, settings, job.company)
     match_pct, matched = scoring.score(job.description, matchers, settings["match_cap"])
 
     record = job.to_dict()
@@ -323,6 +345,8 @@ def main() -> int:
             board_first = first_fetched.get(board_key(record["board"], record["slug"]), meta["first_sweep_utc"])
             record["backfill"] = record["first_seen_utc"] <= board_first
 
+    company_staffing(list(known.values()), settings["staffing"]["company_min_flagged"])
+
     jobs = sorted(known.values(), key=lambda j: (j["first_seen_utc"], j["company"], j["title"]), reverse=True)
     ids = [j["id"] for j in jobs]
     assert len(ids) == len(set(ids)), "duplicate job IDs"
@@ -340,7 +364,7 @@ def main() -> int:
             f.write(f"# run {started}\n" + "\n".join(tier2_lines) + "\n")
     (LOG_DIR / "uscis_near_misses.log").write_text("\n".join(near_misses) + "\n", "utf-8")
     (LOG_DIR / "company_list_near_misses.log").write_text("\n".join(list_near_misses) + "\n", "utf-8")
-    staffing_lines = staffing_log(jobs)
+    staffing_lines = staffing_log(jobs, settings)
     (LOG_DIR / "staffing.log").write_text("\n".join(staffing_lines) + "\n", "utf-8")
 
     log.info("\nBoards ok %d, failed %d | listed %d | kept %d (%d new) | dropped: title %d, years %d, non-US %d",

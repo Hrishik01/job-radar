@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import re
 
+from uscis import normalize_company
+
 # ================================================================ titles
 
 def title_passes(title: str, settings: dict) -> bool:
@@ -414,23 +416,54 @@ def perm_markers(job) -> tuple[bool, list[str]]:
 
 # ================================================================ staffing firms
 
-# "This is a direct-hire role and is not open to C2C" is the opposite of a
-# staffing post, so a phrase in a sentence like that doesn't count.
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?;])\s+|\n+")
-_DIRECT_HIRE = re.compile(r"\bdirect[- ]hire\b|\bnot open to\b|\bno third[- ]part(?:y|ies)\b", re.IGNORECASE)
+# Sentences that push staffing firms away rather than come from one:
+# "This is a direct-hire role and is not open to C2C", "We do not accept
+# unsolicited resumes from staffing agencies". A phrase in one doesn't count.
+_NOT_STAFFING = re.compile(
+    r"\bdirect[- ]hire\b|\bnot open to\b|\bno third[- ]part(?:y|ies)\b|\bunsolicited\b|\bplacement fees?\b"
+    r"|\b(?:will not|won't|do not|does not|don't|doesn't|not) (?:be )?(?:accept|consider|pay)\w*",
+    re.IGNORECASE)
+_SPONSOR_WORDING = re.compile(r"\bsponsor", re.IGNORECASE)
 
 
-def staffing_reasons(description: str, naics_sector: str, settings: dict) -> list[str]:
+def _squash(name: str) -> str:
+    """"Tech Tammina, Inc." -> "techtammina": legal suffixes, spaces and
+    punctuation dropped, for comparing company names."""
+    return normalize_company(name).replace(" ", "")
+
+
+def staffing_reasons(description: str, naics_sector: str, settings: dict, company: str = "") -> list[str]:
     """Why a job looks like it comes from a staffing firm, e.g.
-    ["C2C: Contract role, C2C or W2 accepted."]. Empty means not staffing."""
+    ["C2C: Contract role, C2C or W2 accepted."]. Empty means not staffing.
+    The company-level rule (2+ flagged jobs) runs later, in fetch.py."""
     cfg = settings["staffing"]
     reasons = []
+    if company and _squash(company) in {_squash(c) for c in settings.get("staffing_companies", [])}:
+        reasons.append("listed in staffing_companies")
     if naics_sector and naics_sector in cfg["naics_sectors"]:
         reasons.append(f"USCIS NAICS sector {naics_sector}")
+    sentences = _SENTENCE_SPLIT.split(description or "")
     for name, pattern in cfg["phrases"].items():
         rx = re.compile(pattern, re.IGNORECASE)
-        for sentence in _SENTENCE_SPLIT.split(description or ""):
-            if rx.search(sentence) and not _DIRECT_HIRE.search(sentence):
+        for sentence in sentences:
+            if rx.search(sentence) and not _NOT_STAFFING.search(sentence):
                 reasons.append(f"{name}: {' '.join(sentence.split())[:160]}")
                 break
+    # Visa lists ("OPT/CPT/H1/EAD/GC/Citizen candidates") are checked per line,
+    # not per sentence, so "U.S. Citizen" isn't cut at the abbreviation.
+    visa = cfg["visa_list"]
+    tokens = {name: re.compile(p) for name, p in visa["tokens"].items()}
+    for line in (description or "").splitlines():
+        named = [name for name, rx in tokens.items() if rx.search(line)]
+        if len(named) >= visa["min"] and not _SPONSOR_WORDING.search(line) and not _NOT_STAFFING.search(line):
+            reasons.append(f"visa list ({', '.join(named)}): {' '.join(line.split())[:160]}")
+            break
     return reasons
+
+
+def weak_only(reasons: list[str], settings: dict) -> bool:
+    """True when a job's only signal is a single weak phrase (duration,
+    contract to hire, "our client"), so it is worth checking by hand."""
+    weak = settings["staffing"]["weak_phrases"]
+    return len(reasons) == 1 and reasons[0].split(":")[0] in weak

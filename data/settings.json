@@ -19,16 +19,35 @@
   "max_years_required": 3,
 
   "staffing": {
-    "_note": "A job is flagged 'staffing' on a USCIS NAICS sector below or any phrase. USCIS only publishes 2-digit sectors; 56 (where 5613 employment services sits) also holds credit bureaus, PEOs and job boards, so it starts empty. Phrases are case-insensitive regexes.",
+    "_note": "A job is flagged 'staffing' on a USCIS NAICS sector below, any phrase, a visa list, a company in staffing_companies, or when company_min_flagged of its company's active jobs are flagged. USCIS only publishes 2-digit sectors; 56 (where 5613 employment services sits) also holds credit bureaus, PEOs and job boards, so it starts empty. Phrases are case-insensitive regexes; weak_phrases are listed for review when they are a job's only signal.",
     "naics_sectors": [],
     "phrases": {
       "C2C": "\\bc2c\\b|\\bcorp(?:oration)?[- ]to[- ]corp(?:oration)?\\b",
       "W2 only": "\\bw-?2 only\\b|\\bonly (?:on )?w-?2\\b",
       "our client": "\\bour client (?:is|has|seeks|needs|requires|wants)\\b|\\bon behalf of our client\\b",
       "implementation partner": "\\bimplementation partner\\s*[:–-]",
-      "bench": "\\bbench (?:sales|marketing|recruit\\w*|consultants?|candidates?|resources?|profiles?)\\b|\\bon (?:the |our )?bench\\b"
-    }
+      "bench": "\\bbench (?:sales|marketing|recruit\\w*|consultants?|candidates?|resources?|profiles?)\\b|\\bon (?:the |our )?bench\\b",
+      "duration": "\\bduration\\s*:?\\s*\\d+\\s*\\+?\\s*(?:months?|mos?)\\b|\\b\\d+\\s*\\+?[- ]?\\s*(?:months?|mos?)\\s*\\+?\\s*(?:long\\s+)?contract\\b",
+      "contract to hire": "\\bcontract[- ]to[- ]hire\\b|\\bc2h\\b",
+      "self-described staffing": "\\b(?:we are|is|are) (?:a|an|one of the)\\b[^.]{0,40}?\\b(?:staffing|(?:recruiting|recruitment) (?:company|firm|agency))\\b|(?-i:\\bIT) staffing\\b|\\bconsulting (?:and|&) staffing\\b"
+    },
+    "weak_phrases": ["duration", "contract to hire", "our client"],
+    "visa_list": {
+      "_note": "A sentence naming at least `min` of these (case-sensitive) is a staffing-style visa list, unless it talks about sponsorship.",
+      "min": 3,
+      "tokens": {
+        "OPT": "\\bOPT\\b",
+        "CPT": "\\bCPT\\b",
+        "H-1B": "\\bH-?1B?\\b",
+        "EAD": "\\bEAD\\b",
+        "GC": "\\bGC\\b|\\b[Gg]reen [Cc]ard\\b",
+        "Citizen": "\\b(?:US ?|U\\.S\\. )?Citizens?\\b|\\bUSC\\b"
+      }
+    },
+    "company_min_flagged": 2
   },
+
+  "staffing_companies": ["Saxon Global", "Tech Tammina", "my3tech", "Raasinfotek", "TestingXperts", "SynergisticIT", "Srivensystems"],
 
   "skills": [
     {"name": "SQL", "aliases": ["SQL", "CTEs", "window functions", "query tuning"]},
