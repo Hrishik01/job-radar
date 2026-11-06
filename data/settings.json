@@ -5,7 +5,9 @@
       "business intelligence", "revenue operations", "sales operations",
       "commercial operations", "business operations", "strategy analyst",
       "insights analyst", "reporting analyst", "analytics engineer",
-      "bi engineer", "business systems analyst", "operations analyst", "product analyst"
+      "bi engineer", "business systems analyst", "operations analyst", "product analyst",
+      "associate analyst", "associate consultant", "analyst i", "junior analyst",
+      "entry level analyst", "new grad"
     ],
     "drop": [
       "senior", "sr", "lead", "manager", "principal", "staff", "director",
@@ -17,6 +19,88 @@
     }
   },
   "max_years_required": 3,
+
+  "bands": {
+    "_note": "Every kept job is 'target' or 'stretch'. Stretch: minimum required years >= stretch_years, or a stretch_title pattern (case-sensitive). Otherwise target; target_title patterns (case-insensitive) are recorded as reasons. Senior/Sr./Principal are dropped by titles.drop before banding.",
+    "stretch_years": 3,
+    "stretch_title": {
+      "level II/III": "\\b(?:II|III)\\b"
+    },
+    "target_title": {
+      "Analyst I": "\\banalyst i\\b(?!i)",
+      "Associate": "\\bassociate\\b",
+      "new grad": "\\bnew grad(?:uate)?\\b",
+      "entry level": "\\bentry[- ]level\\b",
+      "early career": "\\bearly[- ]career\\b",
+      "junior": "\\bjunior\\b|\\bjr\\.?(?=\\s)"
+    }
+  },
+
+  "people_search": {
+    "_note": "Keywords for the dashboard's Find people links (LinkedIn and Google search URLs; nothing is fetched). manager: [title regex, phrases] pairs, first match wins.",
+    "manager": [
+      ["data scien|machine learning", ["data science manager", "head of data science", "director of data science"]],
+      ["business intelligence|\\bBI\\b|reporting", ["BI manager", "business intelligence manager", "head of BI"]],
+      ["analytics engineer|data engineer", ["analytics engineering manager", "data engineering manager", "head of data"]],
+      ["revenue operations|sales operations|commercial operations", ["revenue operations manager", "head of revenue operations", "sales operations manager"]],
+      ["product analy", ["product analytics manager", "head of product analytics"]],
+      ["business operations|operations analyst|strategy", ["business operations manager", "head of business operations", "strategy and operations manager"]],
+      ["research|clinical", ["research manager", "principal investigator", "research program manager"]],
+      ["business systems|business analyst", ["business analysis manager", "head of business analysis", "analytics manager"]]
+    ],
+    "default_manager": ["analytics manager", "head of data", "head of analytics"],
+    "recruiter": ["recruiter", "talent acquisition", "university recruiting"],
+    "alumni": "Northeastern"
+  },
+
+  "cap_exempt_employers": [
+    "Harvard University", "Boston Children's Hospital", "Dana-Farber Cancer Institute",
+    "Beth Israel Deaconess Medical Center", "Mass General Brigham", "MIT", "Broad Institute",
+    "Northeastern University", "Boston University", "Tufts University"
+  ],
+  "cap_exempt_aliases": {},
+  "cap_exempt": {
+    "_note": "National tiers. Confirmed: data/cap_exempt.json (Carnegie R1 + AAU, built by fetcher/cap_exempt.py) plus medical_centers and cap_exempt_employers. Possible: USCIS employers in NAICS sector 61 whose name matches possible_name, minus possible_exclude (for-profit schools) and anything matching never_possible (hospitals are badged only from the confirmed list). medical_centers are each university's own named academic medical center, curated by hand; the board finder checks the homepage names university_word.",
+    "possible_sector": "61",
+    "possible_name": "\\b(?:university|college|institute of technology|school of medicine)\\b",
+    "never_possible": "\\b(?:hospitals?|health|healthcare|medical centers?|clinics?)\\b",
+    "possible_exclude": ["University of Phoenix", "Strayer University", "Capella University", "DeVry University",
+                         "Walden University", "American Public University", "American Public University System",
+                         "College Board"],
+    "medical_centers": [
+      {"name": "Stanford Health Care", "university_word": "Stanford", "website": "https://stanfordhealthcare.org/"},
+      {"name": "UCSF Health", "university_word": "UCSF", "website": "https://www.ucsfhealth.org/"},
+      {"name": "UCLA Health", "university_word": "UCLA", "website": "https://www.uclahealth.org/"},
+      {"name": "UC San Diego Health", "university_word": "UC San Diego", "website": "https://health.ucsd.edu/"},
+      {"name": "UC Davis Health", "university_word": "UC Davis", "website": "https://health.ucdavis.edu/"},
+      {"name": "UCI Health", "university_word": "UC Irvine", "website": "https://www.ucihealth.org/"},
+      {"name": "University of Michigan Health", "university_word": "Michigan", "website": "https://www.uofmhealth.org/"},
+      {"name": "Duke University Health System", "university_word": "Duke", "website": "https://www.dukehealth.org/"},
+      {"name": "Johns Hopkins Medicine", "university_word": "Johns Hopkins", "website": "https://www.hopkinsmedicine.org/"},
+      {"name": "Penn Medicine", "university_word": "Pennsylvania", "website": "https://www.pennmedicine.org/"},
+      {"name": "Vanderbilt University Medical Center", "university_word": "Vanderbilt", "website": "https://www.vumc.org/"},
+      {"name": "University of Rochester Medical Center", "university_word": "Rochester", "website": "https://www.urmc.rochester.edu/"},
+      {"name": "NYU Langone Health", "university_word": "NYU", "website": "https://nyulangone.org/"},
+      {"name": "Emory Healthcare", "university_word": "Emory", "website": "https://www.emoryhealthcare.org/"},
+      {"name": "UNC Health", "university_word": "UNC", "website": "https://www.unchealth.org/"},
+      {"name": "UVA Health", "university_word": "Virginia", "website": "https://uvahealth.com/"},
+      {"name": "University of Utah Health", "university_word": "Utah", "website": "https://healthcare.utah.edu/"},
+      {"name": "University of Iowa Health Care", "university_word": "Iowa", "website": "https://uihc.org/"},
+      {"name": "UW Medicine", "university_word": "University of Washington", "website": "https://www.uwmedicine.org/"},
+      {"name": "The Ohio State University Wexner Medical Center", "university_word": "Ohio State", "website": "https://wexnermedical.osu.edu/"},
+      {"name": "UChicago Medicine", "university_word": "University of Chicago", "website": "https://www.uchicagomedicine.org/"},
+      {"name": "Northwestern Medicine", "university_word": "Northwestern", "website": "https://www.nm.org/"},
+      {"name": "UPMC", "university_word": "University of Pittsburgh", "website": "https://www.upmc.com/"},
+      {"name": "UAB Medicine", "university_word": "UAB", "website": "https://www.uabmedicine.org/"},
+      {"name": "UF Health", "university_word": "University of Florida", "website": "https://ufhealth.org/"},
+      {"name": "UK HealthCare", "university_word": "University of Kentucky", "website": "https://ukhealthcare.uky.edu/"},
+      {"name": "UW Health", "university_word": "Wisconsin", "website": "https://www.uwhealth.org/"},
+      {"name": "University of Miami Health System", "university_word": "Miami", "website": "https://umiamihealth.org/"},
+      {"name": "Indiana University Health", "university_word": "Indiana University", "website": "https://iuhealth.org/"}
+    ]
+  },
+  "cap_exempt_titles": ["research analyst", "research data analyst", "clinical data analyst", "data coordinator"],
+  "cap_exempt_search_terms": ["data coordinator", "research"],
 
   "staffing": {
     "_note": "A job is flagged 'staffing' on a USCIS NAICS sector below, any phrase, a visa list, a company in staffing_companies, or when company_min_flagged of its company's active jobs are flagged. USCIS only publishes 2-digit sectors; 56 (where 5613 employment services sits) also holds credit bureaus, PEOs and job boards, so it starts empty. Phrases are case-insensitive regexes; weak_phrases are listed for review when they are a job's only signal.",

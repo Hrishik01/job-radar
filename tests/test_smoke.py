@@ -16,6 +16,7 @@ import filters  # noqa: E402
 from boards import workday  # noqa: E402
 from company_lists import ListLookup  # noqa: E402
 import discover  # noqa: E402
+import cap_exempt  # noqa: E402
 import scoring  # noqa: E402
 from models import Job, stable_id  # noqa: E402
 from parse import clean_url, parse_salary, salary_from_hint  # noqa: E402
@@ -159,6 +160,124 @@ class PermTests(unittest.TestCase):
 
     def test_board_perm_flag_is_conclusive(self):
         self.assertTrue(filters.perm_markers(make_job("Plain text.", perm_flag=True))[0])
+
+
+class BandTests(unittest.TestCase):
+    def band(self, title, years):
+        return filters.experience_band(title, years, SETTINGS)[0]
+
+    def test_target_band(self):
+        for title, years in (("Data Analyst", 0), ("Data Analyst", 2), ("Business Analyst", None),
+                             ("Analyst I, Revenue Operations", None), ("Associate Analyst", 1),
+                             ("Junior Data Analyst", None), ("New Grad Data Scientist", None)):
+            self.assertEqual(self.band(title, years), "target", (title, years))
+        self.assertIn("title: Analyst I", filters.experience_band("Data Analyst I", None, SETTINGS)[1])
+        self.assertNotIn("title: Analyst I", filters.experience_band("Data Analyst II", 1, SETTINGS)[1])
+
+    def test_stretch_band(self):
+        for title, years in (("Data Analyst", 3), ("Data Scientist II", None), ("Business Analyst III", 1),
+                             ("Associate Analyst", 3)):  # stretch beats an entry-level title
+            self.assertEqual(self.band(title, years), "stretch", (title, years))
+        # Case-sensitive level: "ii" inside a word or lowercase isn't a level
+        self.assertEqual(self.band("Data Analyst, Hawaii Ops", None), "target")
+
+    def test_entry_level_titles_are_kept(self):
+        for title in ("Associate Analyst", "Associate Consultant", "Analyst I", "Junior Analyst",
+                      "Entry Level Analyst", "New Grad Data Analyst"):
+            self.assertTrue(filters.title_passes(title, SETTINGS), title)
+        self.assertFalse(filters.title_passes("Analyst II", SETTINGS))  # "analyst i" needs a word end
+        self.assertFalse(filters.title_passes("Senior Associate Consultant", SETTINGS))  # drop list still wins
+
+
+class CapExemptTests(unittest.TestCase):
+    def lookup(self, aliases=None):
+        return ListLookup({"cap_exempt": {"names": SETTINGS["cap_exempt_employers"]}},
+                          {**SETTINGS["uscis_aliases"], **(aliases or {})})
+
+    def test_exact_and_alias_only(self):
+        lk = self.lookup({"Massachusetts Institute of Technology": "MIT"})
+        self.assertTrue(lk.match("Dana-Farber Cancer Institute")[0]["cap_exempt"])
+        self.assertTrue(lk.match("Mass General Brigham, Inc.")[0]["cap_exempt"])
+        self.assertTrue(lk.match("Massachusetts Institute of Technology")[0]["cap_exempt"])
+        badges, near = lk.match("Northeastern University Global")  # close, not exact
+        self.assertFalse(badges["cap_exempt"])
+        self.assertTrue(near)
+
+    def test_extra_titles_only_when_given(self):
+        for title in ("Research Data Analyst", "Clinical Data Analyst", "Data Coordinator"):
+            self.assertTrue(filters.title_passes(title, SETTINGS, SETTINGS["cap_exempt_titles"]), title)
+        self.assertFalse(filters.title_passes("Data Coordinator", SETTINGS))
+        self.assertFalse(filters.title_passes("Senior Research Analyst", SETTINGS, SETTINGS["cap_exempt_titles"]))
+
+    def test_extra_search_terms_only_for_cap_exempt(self):
+        plain = fetch.search_settings(SETTINGS, False)
+        self.assertIs(plain, SETTINGS)
+        extra = fetch.search_settings(SETTINGS, True)
+        self.assertEqual(extra["workday_search_terms"],
+                         SETTINGS["workday_search_terms"] + SETTINGS["cap_exempt_search_terms"])
+        self.assertNotIn("data coordinator", SETTINGS["workday_search_terms"])  # original untouched
+
+
+class CacheTests(unittest.TestCase):
+    def test_damaged_cache_file_is_a_miss(self):
+        import tempfile
+        import net
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "x.json"
+            path.write_bytes(b'{"a": "caf\xe1"')  # not UTF-8, cut off
+            self.assertIsNone(net._read_cache(path, 3600))
+            self.assertIsNone(net._read_cache(Path(d) / "missing.json", 3600))
+            path.write_text('{"a": 1}', "utf-8")
+            self.assertEqual(net._read_cache(path, 3600), '{"a": 1}')
+            self.assertIsNone(net._read_cache(path, 0))  # caching off
+
+
+class CapExemptTierTests(unittest.TestCase):
+    def test_possible_tier(self):
+        employers = {
+            "state college of florida": [3, 2026, "61"],
+            "ohio state university": [900, 2026, "61"],
+            "university of phoenix": [5, 2026, "61"],            # for-profit, excluded
+            "university hospitals cleveland": [40, 2026, "61"],  # hospital: never possible
+            "acme college consulting": [2, 2026, "54"],          # wrong sector
+            "brooklyn academy": [1, 2026, "61"],                 # no university-like word
+            "old entry": [1, 2024],                              # lookup built before sectors
+        }
+        self.assertEqual(cap_exempt.possible_keys(employers, SETTINGS),
+                         {"state college of florida", "ohio state university"})
+
+    def test_aau_table_parse(self):
+        wikitext = ("===Current members===\n{| class=\"wikitable\"\n|-\n"
+                    "! scope=\"row\" |[[Arizona State University]]\n|Arizona\n|Public\n|-\n"
+                    "! scope=\"row\" |[[University of Toronto]]\n|Ontario\n|Public\n|-\n"
+                    "! scope=\"row\" |[[Washington University in St. Louis|Washington University]]\n|Missouri\n|Private\n|}\n")
+        self.assertEqual(cap_exempt.parse_aau(wikitext), ["Arizona State University", "Washington University"])
+
+    def test_carnegie_campus_names(self):
+        self.assertEqual(cap_exempt.common_name("Pennsylvania State University-Main Campus"),
+                         "Pennsylvania State University")
+        self.assertEqual(cap_exempt.common_name("Columbia University in the City of New York"), "Columbia University")
+        self.assertEqual(cap_exempt.common_name("University of California-Berkeley"),
+                         "University of California-Berkeley")  # a campus that is its own institution stays
+
+    def test_board_links(self):
+        self.assertEqual(cap_exempt._system("https://osu.wd1.myworkdayjobs.com/OSUCareers"), "Workday")
+        self.assertEqual(cap_exempt._system("https://jobs.uky.peopleadmin.com/postings"), "PeopleAdmin")
+        self.assertIsNone(cap_exempt._system("https://www.example.edu/jobs"))
+        m = cap_exempt._WD.search("https://wd1.myworkdaysite.com/en-US/recruiting/osu/OSUCareers")
+        self.assertEqual((m.group(4), m.group(5), m.group(6)), ("1", "osu", "OSUCareers"))
+
+
+class PeopleSearchTests(unittest.TestCase):
+    def test_peer_title_and_manager_keywords(self):
+        p = filters.people_search("Data Analyst I - Revenue (Remote)", SETTINGS)
+        self.assertEqual(p["peer"], "Data Analyst I")
+        self.assertEqual(p["manager"], SETTINGS["people_search"]["default_manager"])
+        self.assertIn("data science manager", filters.people_search("Data Scientist II, Growth", SETTINGS)["manager"])
+        self.assertIn("BI manager", filters.people_search("BI Analyst", SETTINGS)["manager"])
+        self.assertEqual(filters.people_search("Business Analyst | Payments", SETTINGS)["peer"], "Business Analyst")
+        self.assertEqual(filters.people_search("Analyst R12345", SETTINGS)["peer"], "Analyst")
+        self.assertEqual(p["alumni"], "Northeastern")
 
 
 class StaffingTests(unittest.TestCase):

@@ -233,6 +233,19 @@ main.wrap { border-top: 2px solid var(--ink); }
 .tag.no { color: var(--warn); border-color: var(--warn); }
 .tag.perm { color: var(--warn); border-color: var(--warn); }
 .tag.staffing { color: var(--warn); border-color: var(--warn); }
+.co-badge.soft { border-style: dashed; opacity: .85; }
+.people-menu { position: relative; display: inline-block; }
+.people-menu > summary { list-style: none; }
+.people-menu > summary::-webkit-details-marker { display: none; }
+.people-pop { position: absolute; z-index: 5; top: calc(100% + 4px); left: 0; display: grid;
+  grid-template-columns: auto auto auto; gap: 6px 14px; align-items: center; padding: 10px 12px;
+  background: var(--paper); border: 1px solid var(--ink); border-radius: 3px; white-space: nowrap; font-size: 14px; }
+.people-pop a { color: var(--ink); }
+@media (max-width: 640px) { .people-pop { position: static; margin-top: 6px; } }
+.tag.target { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+.shortlist-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 12px 0 0; }
+.shortlist-bar p { margin: 0; color: var(--muted); font-size: 14px; flex: 1 1 260px; }
+.shortlist-bar .btn { white-space: nowrap; }
 .tag.opened { color: var(--ink); }
 
 .dupe {

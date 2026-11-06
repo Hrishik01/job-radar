@@ -11,15 +11,17 @@ from uscis import normalize_company
 
 # ================================================================ titles
 
-def title_passes(title: str, settings: dict) -> bool:
+def title_passes(title: str, settings: dict, extra_keep: list[str] | tuple = ()) -> bool:
     """Keep analytics-family titles; drop senior/lead/manager etc. and internships.
 
     `drop_unless` drops a word unless one of its allowed phrases is also in the
     title, e.g. "engineer" is dropped except in "analytics engineer".
+    `extra_keep` adds keep phrases for one company (cap-exempt employers also
+    keep "research analyst", "data coordinator"...); the drop list still applies.
     """
     t = title.lower()
     titles = settings["titles"]
-    keep = any(re.search(rf"\b{re.escape(k)}\b", t) for k in titles["keep"])
+    keep = any(re.search(rf"\b{re.escape(k)}\b", t) for k in [*titles["keep"], *extra_keep])
     drop = any(re.search(rf"\b{re.escape(d)}\b", t) for d in titles["drop"])
     for word, allowed in titles.get("drop_unless", {}).items():
         if re.search(rf"\b{re.escape(word)}s?\b", t) and not any(
@@ -164,6 +166,45 @@ def experience_passes(years: int | None, settings: dict) -> bool:
     """Keep unless the minimum required years exceeds max_years_required (3):
     "3-5 years" stays, "4+ years" and "5-7 years" go. No stated figure keeps."""
     return years is None or years <= settings["max_years_required"]
+
+
+_TITLE_TAIL = re.compile(r"\s*(?:\(.*?\)|\[.*?\]|\s[-–—|,:]\s.*|,.*|\s#?\b[A-Z]{0,4}-?\d{4,}\b.*)$")
+
+
+def people_search(title: str, settings: dict) -> dict:
+    """Keywords for the dashboard's "Find people" search links (links only;
+    nothing is fetched). manager: who likely leads this team, from the first
+    matching title family in settings; peer: the job's own title without
+    its tail ("Data Analyst I - Revenue (Remote)" -> "Data Analyst I")."""
+    cfg = settings["people_search"]
+    manager = next((phrases for pattern, phrases in cfg["manager"]
+                    if re.search(pattern, title, re.IGNORECASE)), cfg["default_manager"])
+    peer = title
+    for _ in range(3):  # tails can stack: "Analyst (Remote) - Revenue"
+        peer = _TITLE_TAIL.sub("", peer).strip() or peer
+    return {"manager": manager, "recruiter": cfg["recruiter"], "peer": peer, "alumni": cfg["alumni"]}
+
+
+def experience_band(title: str, years: int | None, settings: dict) -> tuple[str, list[str]]:
+    """("target" | "stretch", reasons). Stretch: the minimum required years
+    reaches stretch_years (3), or the title has a stretch level (II, III).
+    Everything else that survived the filters is target. A stretch signal
+    wins over an entry-level title: "Associate Analyst" asking 3 years is
+    stretch. Senior/Sr./Principal never get here (the title filter drops them)."""
+    cfg = settings["bands"]
+    stretch, target = [], []
+    if years is not None and years >= cfg["stretch_years"]:
+        stretch.append(f"{years} years required")
+    for name, pattern in cfg["stretch_title"].items():
+        if re.search(pattern, title):  # case-sensitive: "II", not "ii"
+            stretch.append(f"title: {name}")
+    if stretch:
+        return "stretch", stretch
+    target.append("no years stated" if years is None else f"{years} years required")
+    for name, pattern in cfg["target_title"].items():
+        if re.search(pattern, title, re.IGNORECASE):
+            target.append(f"title: {name}")
+    return "target", target
 
 
 # ================================================================ sentences

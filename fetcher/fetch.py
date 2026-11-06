@@ -24,6 +24,7 @@ import filters
 import scoring
 from boards import BOARDS
 from company_lists import ListLookup
+import cap_exempt as cap_exempt_lists
 from models import Job
 from net import FetchError
 from parse import parse_salary, salary_from_hint
@@ -94,6 +95,15 @@ def uscis_match(company: dict, lookup: Lookup) -> tuple[str | None, str]:
     if company.get("uscis_key"):
         return company["uscis_key"], "exact" if company.get("verified") is not False else "unverified"
     return lookup.match(company["name"])
+
+
+def search_settings(settings: dict, cap_exempt: bool) -> dict:
+    """Settings for listing one board. Workday and SmartRecruiters only list
+    what the search terms find, so cap-exempt employers also search for
+    their extra titles ("data coordinator", "research")."""
+    if not cap_exempt:
+        return settings
+    return {**settings, "workday_search_terms": settings["workday_search_terms"] + settings["cap_exempt_search_terms"]}
 
 
 COMPANY_REASON = "company: "  # prefix of the reason added by the company-level rule
@@ -198,6 +208,17 @@ def main() -> int:
                             settings.get("list_exclude"))
     if lists is None:
         log.warning("No data/company_lists.json yet (run fetcher/company_lists.py); no company badges.")
+    # Cap-exempt, confirmed tier: R1 + AAU universities (data/cap_exempt.json),
+    # their medical centers and the Boston list. Same exact-or-alias rule as
+    # the badges above; Carnegie's campus spellings are aliases.
+    cap_data = cap_exempt_lists.load()
+    if cap_data is None:
+        log.warning("No data/cap_exempt.json yet (run fetcher/cap_exempt.py lists); only the Boston list is cap-exempt.")
+    cap_exempt = ListLookup({"cap_exempt": {"names": cap_exempt_lists.confirmed_names(settings, cap_data)}},
+                            {**settings["uscis_aliases"], **settings.get("cap_exempt_aliases", {}),
+                             **(cap_data or {}).get("aliases", {})})
+    # Possible tier: USCIS sector-61 employers with a university-like name
+    possible = cap_exempt_lists.possible_keys(lookup.employers, settings) if lookup else set()
 
     store = load_json(JOBS_PATH, {"meta": {"runs": []}, "jobs": []})
     known = {j["id"]: j for j in store["jobs"]}
@@ -234,30 +255,46 @@ def main() -> int:
         out = {"counts": dict.fromkeys(("dropped_title", "dropped_years", "dropped_non_us", "detail_errors"), 0),
                "records": [], "tier2": [], "near": [], "list_near": [], "warnings": []}
         board = BOARDS[company["board"]]
+        sponsor_likely = False
+        naics_sector = ""
+        uscis_key = None
+        if lookup:
+            key, how = uscis_match(company, lookup)
+            sponsor_likely = how in ("exact", "alias")
+            if sponsor_likely:  # never take an industry or a tier from a fuzzy match
+                naics_sector = lookup.naics_sector(key)
+                uscis_key = key
+            if how in ("prefix", "unverified"):
+                out["near"].append(f"{how:<10} {company['name']!r} -> {key!r}")
+
+        exempt, exempt_near = cap_exempt.match(company["name"])
+        is_exempt = exempt["cap_exempt"]
+        maybe_exempt = not is_exempt and uscis_key in possible
+        # A shared system board (Beth Israel Lahey Health) lists the
+        # cap-exempt member's jobs by location: only those jobs count.
+        exempt_locations = [loc.lower() for loc in company.get("cap_exempt_locations", [])]
+        # Cap-exempt employers also keep research/clinical data titles. Workday
+        # and SmartRecruiters only list what the search terms find, so search
+        # for those titles too.
+        extra_titles = settings["cap_exempt_titles"] if is_exempt or exempt_locations else []
         try:
-            listed = board.list_jobs(company, settings)
+            listed = board.list_jobs(company, search_settings(settings, bool(extra_titles)))
         except FetchError as exc:
             out["error"] = str(exc)
             return out
         out["listed"] = len(listed)
         board_first = first_fetched.get(board_key(company["board"], company["slug"]), started)
 
-        sponsor_likely = False
-        naics_sector = ""
-        if lookup:
-            key, how = uscis_match(company, lookup)
-            sponsor_likely = how in ("exact", "alias")
-            if sponsor_likely:  # never take an industry from a fuzzy match
-                naics_sector = lookup.naics_sector(key)
-            if how in ("prefix", "unverified"):
-                out["near"].append(f"{how:<10} {company['name']!r} -> {key!r}")
-
         badges = {}
         if lists:
             badges, out["list_near"] = lists.match(company["name"])
+        out["list_near"] += exempt_near
 
         for job in listed:
-            if not filters.title_passes(job.title, settings):
+            # A title kept only by the cap-exempt extras must turn out to be
+            # a cap-exempt job (checked once the location is known)
+            extra_only = not filters.title_passes(job.title, settings)
+            if extra_only and not (extra_titles and filters.title_passes(job.title, settings, extra_titles)):
                 out["counts"]["dropped_title"] += 1
                 continue
 
@@ -273,6 +310,11 @@ def main() -> int:
                 out["warnings"].append(f"  detail failed for {job.title}: {exc}")
                 continue
 
+            job_exempt = is_exempt or any(loc in job.location.lower() for loc in exempt_locations)
+            if extra_only and not job_exempt:
+                out["counts"]["dropped_title"] += 1
+                continue
+
             years = filters.min_years_required(job.description)
             if not filters.experience_passes(years, settings):
                 out["counts"]["dropped_years"] += 1
@@ -284,9 +326,15 @@ def main() -> int:
 
             record, tier2 = tag(job, settings, matchers, sponsor_likely, naics_sector)
             first_seen = previous["first_seen_utc"] if previous else started  # never updated
+            band, band_reasons = filters.experience_band(job.title, years, settings)
             record.update({
                 "us_uncertain": us == "uncertain",
                 "min_years": years,
+                "band": band,
+                "band_reasons": band_reasons,
+                # "confirmed" (badge "Cap-exempt"), "possible" ("Cap-exempt?") or None
+                "cap_exempt": "confirmed" if job_exempt else "possible" if maybe_exempt else None,
+                "people": filters.people_search(job.title, settings),
                 # Display only: a figure stated just under "Preferred qualifications"
                 "min_years_preferred": None if years is not None else filters.min_years_preferred(job.description),
                 "first_seen_utc": first_seen,

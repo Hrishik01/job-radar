@@ -9,7 +9,7 @@
     "manual/ashby": 1,
     "manual/greenhouse": 3,
     "manual/lever": 1,
-    "manual/workday": 7,
+    "manual/workday": 40,
     "uscis/ashby": 134,
     "uscis/greenhouse": 304,
     "uscis/lever": 49,
@@ -13014,6 +13014,804 @@
       "uscis_key": "campfire software",
       "status": "ok",
       "verified": false
+    },
+    {
+      "name": "Dana-Farber Cancer Institute",
+      "board": "workday",
+      "slug": "danafarber-dana-farber",
+      "tenant": "danafarber",
+      "pod": 5,
+      "site": "dana-farber",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Workday link on careers.dana-farber.org; found from the official careers page; CXS search returned live jobs (2026-11-06)"
+    },
+    {
+      "name": "Mass General Brigham",
+      "board": "workday",
+      "slug": "massgeneralbrigham-MGBExternal",
+      "tenant": "massgeneralbrigham",
+      "pod": 1,
+      "site": "MGBExternal",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Workday link on massgeneralbrigham.org/en/about/careers; found from the official careers page; CXS search returned live jobs (2026-11-06)"
+    },
+    {
+      "name": "Northeastern University",
+      "board": "workday",
+      "slug": "northeastern-careers",
+      "tenant": "northeastern",
+      "pod": 1,
+      "site": "careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Workday link on hr.northeastern.edu/careers/job-listings; found from the official careers page; CXS search returned live jobs (2026-11-06)"
+    },
+    {
+      "name": "Beth Israel Lahey Health",
+      "board": "workday",
+      "slug": "bilh-External",
+      "tenant": "bilh",
+      "pod": 1,
+      "site": "External",
+      "source": "manual",
+      "status": "ok",
+      "cap_exempt_locations": [
+        "Beth Israel Deaconess Medical Center"
+      ],
+      "note": "Shared board for the whole BILH system. bidmc.org/careers sends to jobs.bilh.org, whose apply buttons go here. Only jobs located at Beth Israel Deaconess Medical Center are cap-exempt; found from the official careers page; CXS search returned live jobs (2026-11-06)"
+    },
+    {
+      "name": "Boston Children's Hospital",
+      "board": "brassring",
+      "slug": "bostonchildrens",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "jobs.bostonchildrens.org applies through Kenexa BrassRing (sjobs.brassring.com, partnerid 368, siteid 5205). No adapter."
+    },
+    {
+      "name": "Tufts University",
+      "board": "icims",
+      "slug": "tuftscareers",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "jobs.tufts.edu uses iCIMS (tuftscareers.icims.com). No adapter."
+    },
+    {
+      "name": "Boston University",
+      "board": "silkroad",
+      "slug": "BU",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "bu.edu/hr links to SilkRoad (jobs.silkroad.com/BU/External). No adapter."
+    },
+    {
+      "name": "MIT",
+      "board": "peopleclick",
+      "slug": "client_mit",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "hr.mit.edu lists careers.peopleclick.com/careerscp/client_mit as the external portal. No adapter."
+    },
+    {
+      "name": "Broad Institute",
+      "board": "avature",
+      "slug": "broadinstitute",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Jobs are on Avature (broadinstitute.avature.net); broadinstitute.org/careers also returns 403 to our User-Agent. No adapter."
+    },
+    {
+      "name": "Brown University",
+      "board": "workday",
+      "slug": "brown-staff-careers-brown",
+      "tenant": "brown",
+      "pod": 5,
+      "site": "staff-careers-brown",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://brown.wd5.myworkdayjobs.com/staff-careers-brown/jobs; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "board": "workday",
+      "slug": "cmu-CMU",
+      "tenant": "cmu",
+      "pod": 115,
+      "site": "CMU",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://cmu.wd115.myworkdayjobs.com/CMU; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Emory University",
+      "board": "icims",
+      "slug": "emory-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://euvcareers-emory.icims.com/jobs/search?ss=1&searchKeyword=ETS&searchRelation=keyword_all&searchPositionType=2051&searchPositionType=8709). No adapter (2026-11-06)."
+    },
+    {
+      "name": "George Washington University",
+      "board": "peopleadmin",
+      "slug": "george-washington-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PeopleAdmin (https://gwu-studentemployment.peopleadmin.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Georgetown University",
+      "board": "workday",
+      "slug": "georgetown-Georgetown_Admin_Careers",
+      "tenant": "georgetown",
+      "pod": 1,
+      "site": "Georgetown_Admin_Careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://georgetown.wd1.myworkdayjobs.com/Georgetown_Admin_Careers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Massachusetts Institute of Technology",
+      "board": "peopleclick",
+      "slug": "massachusetts-institute-of-technology",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PeopleClick (https://careers.peopleclick.com/careerscp/client_mit/external/search.do). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Pennsylvania State University",
+      "board": "workday",
+      "slug": "psu-PSU_Academic",
+      "tenant": "psu",
+      "pod": 1,
+      "site": "PSU_Academic",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://psu.wd1.myworkdayjobs.com/PSU_Academic; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Purdue University",
+      "board": "sap-successfactors",
+      "slug": "purdue-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses SAP SuccessFactors (https://performancemanager8.successfactors.com/sf/learning?destUrl=https%3A%2F%2Fpurdueuniv.plateau.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DHOME_PAGE%26pageID%3DSTUDENT%20Home%26fromSF%3DY&company=purdueuniv). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Rice University",
+      "board": "oracle-recruiting-cloud",
+      "slug": "rice-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://emdz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/my-profile/sign-in). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Stony Brook University",
+      "board": "oracle-taleo",
+      "slug": "stony-brook-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Taleo (https://stonybrooku.taleo.net/careersection/2/west_campus/moresearch.ftl?lang=en&radiusType=K&searchExpanded=false&organization=560140755404&radius=1&organization=559140755404&radius=1&organization=560540755404&radius=1&organization=560340755404&radius=1&organization=563440755404&radius=1&organization=559540755404&radius=1&organization=560240755404&radius=1&organization=559440755404&radius=1&organization=559840755404&radius=1&organization=560440755404&radius=1&organization=559640755404&radius=1&organization=782100023514&radius=1&organization=560040755404&radius=1&organization=559740755404&radius=1&organization=991000023514&radius=1&organization=560640755404). No adapter (2026-11-06)."
+    },
+    {
+      "name": "The Ohio State University",
+      "board": "workday",
+      "slug": "osu-OSUCareers",
+      "tenant": "osu",
+      "pod": 1,
+      "site": "OSUCareers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://osu.wd1.myworkdayjobs.com/OSUCareers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Alabama at Birmingham",
+      "board": "oracle-taleo",
+      "slug": "university-of-alabama-at-birmingham",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Taleo (https://uab.taleo.net/careersection/ext/jobsearch.ftl?lang=en). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Arizona",
+      "board": "cornerstone",
+      "slug": "university-of-arizona",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://arizona.csod.com/samldefault.aspx). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of California, Irvine",
+      "board": "icims",
+      "slug": "university-of-california-irvine",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://careers-uci.icims.com/jobs/login?loginOnly=1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of California, Los Angeles",
+      "board": "icims",
+      "slug": "university-of-california-los-angeles",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://careers-ucla.icims.com/jobs/login?loginOnly=1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Chicago",
+      "board": "workday",
+      "slug": "uchicago-External",
+      "tenant": "uchicago",
+      "pod": 5,
+      "site": "External",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://uchicago.wd5.myworkdayjobs.com/External; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Colorado Boulder",
+      "board": "avature",
+      "slug": "university-of-colorado-boulder",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Avature (https://colorado.avature.net/internaljobs). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Florida",
+      "board": "pageup",
+      "slug": "university-of-florida",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://secure.dc4.pageuppeople.com/apply/674/aw/applicationForm/default.asp). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Miami",
+      "board": "workday",
+      "slug": "umiami-UMCareerStaff",
+      "tenant": "umiami",
+      "pod": 1,
+      "site": "UMCareerStaff",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://umiami.wd1.myworkdayjobs.com/UMCareerStaff/job/Miami-FL/University-of-Miami-UHealth-Live-Recruitment-Event---October-28th_R100101474; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Pittsburgh",
+      "board": "oracle-taleo",
+      "slug": "university-of-pittsburgh",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Taleo (https://cfopitt.taleo.net/careersection/pitt_internal/jobsearch.ftl?lang=en&portal=10100023232). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Rochester",
+      "board": "workday",
+      "slug": "rochester-UR_Staff",
+      "tenant": "rochester",
+      "pod": 5,
+      "site": "UR_Staff",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://rochester.wd5.myworkdayjobs.com/UR_Staff; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Texas at Austin",
+      "board": "workday",
+      "slug": "utaustin-UTstaff",
+      "tenant": "utaustin",
+      "pod": 1,
+      "site": "UTstaff",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://utaustin.wd1.myworkdayjobs.com/UTstaff; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Washington",
+      "board": "workday",
+      "slug": "uw-UWHires",
+      "tenant": "uw",
+      "pod": 5,
+      "site": "UWHires",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://wd5.myworkdaysite.com/recruiting/uw/UWHires; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Vanderbilt University",
+      "board": "oracle-recruiting-cloud",
+      "slug": "vanderbilt-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://ecsr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Washington University in St. Louis",
+      "board": "workday",
+      "slug": "wustl-External",
+      "tenant": "wustl",
+      "pod": 1,
+      "site": "External",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://wustl.wd1.myworkdayjobs.com/External; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Baylor University",
+      "board": "oracle-recruiting-cloud",
+      "slug": "baylor-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://ejof.fa.us2.oraclecloud.com/fscmUI/redwood/learner/learn/redirect?learningItemId=300000834613803&learningItemType=ORA_COURSE). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Clemson University",
+      "board": "workday",
+      "slug": "clemson-Clemson_Careers",
+      "tenant": "clemson",
+      "pod": 12,
+      "site": "Clemson_Careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://clemson.wd12.myworkdayjobs.com/Clemson_Careers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Colorado School of Mines",
+      "board": "workday",
+      "slug": "mines-Mines_Careers",
+      "tenant": "mines",
+      "pod": 1,
+      "site": "Mines_Careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://mines.wd1.myworkdayjobs.com/Mines_Careers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Georgia State University",
+      "board": "oracle-taleo",
+      "slug": "georgia-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Taleo (https://gsu.taleo.net/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Howard University",
+      "board": "workday",
+      "slug": "howard-HU",
+      "tenant": "howard",
+      "pod": 1,
+      "site": "HU",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://howard.wd1.myworkdayjobs.com/HU; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Iowa State University",
+      "board": "workday",
+      "slug": "isu-IowaStateJobs",
+      "tenant": "isu",
+      "pod": 1,
+      "site": "IowaStateJobs",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://isu.wd1.myworkdayjobs.com/IowaStateJobs; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Lehigh University",
+      "board": "pageup",
+      "slug": "lehigh-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (http://careers.pageuppeople.com/865/cw/en-us/listing). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Mississippi State University",
+      "board": "pageup",
+      "slug": "mississippi-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://msstate.pageuppeople.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Old Dominion University",
+      "board": "peopleadmin",
+      "slug": "old-dominion-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PeopleAdmin (https://cofvirginia.peopleadmin.com/institution_jobs). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Oregon State University",
+      "board": "workday",
+      "slug": "oregonstate-OSU_Careers_Site",
+      "tenant": "oregonstate",
+      "pod": 501,
+      "site": "OSU_Careers_Site",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://oregonstate.wd501.myworkdayjobs.com/OSU_Careers_Site; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Rensselaer Polytechnic Institute",
+      "board": "pageup",
+      "slug": "rensselaer-polytechnic-institute",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://rpi.dc4.pageuppeople.com). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Saint Louis University",
+      "board": "workday",
+      "slug": "slu-Careers",
+      "tenant": "slu",
+      "pod": 5,
+      "site": "Careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://slu.wd5.myworkdayjobs.com/Careers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "San Diego State University",
+      "board": "icims",
+      "slug": "san-diego-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://careers-sdsurf.icims.com/jobs/intro?hashed=-435770521&mobile=false&width=800&height=500&bga=true&needsRedirect=false&jan1offset=-480&jun1offset=-420). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Southern Illinois University-Carbondale",
+      "board": "neogov",
+      "slug": "southern-illinois-university-carbondale",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses NEOGOV (https://www.schooljobs.com/careers/siu). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Southern Methodist University",
+      "board": "oracle-taleo",
+      "slug": "southern-methodist-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Taleo (https://smu.taleo.net/careersection/ex/jobsearch.ftl?lang=en&portal=101430233). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Texas Tech University",
+      "board": "cornerstone",
+      "slug": "texas-tech-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://ttu.csod.com/LMS/catalog/Welcome.aspx?tab_page_id=-67&tab_id=-1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University at Albany",
+      "board": "icims",
+      "slug": "university-at-albany",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://careers-bncollege.icims.com/jobs/search?ss=1&searchRelation=keyword_all&searchLocation=-12816-ALBANY). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Arkansas",
+      "board": "workday",
+      "slug": "uasys-UAF_External_Career_Site",
+      "tenant": "uasys",
+      "pod": 5,
+      "site": "UAF_External_Career_Site",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://uasys.wd5.myworkdayjobs.com/UAF_External_Career_Site; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of California-San Francisco",
+      "board": "oracle-recruiting-cloud",
+      "slug": "university-of-california-san-francisco",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://iazuqy.fa.ocs.oraclecloud.com/fscmUI/redwood/celebrate/recognitions/recognitions-main). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Cincinnati",
+      "board": "sap-successfactors",
+      "slug": "university-of-cincinnati",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses SAP SuccessFactors (https://performancemanager8.successfactors.com/sf/admin?bplte_company=UCPROD&_s.crb=JM69MVNwnB75fSU7nt7iHPcMrM0YN8UyRNknGjYRh84%253d). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Dayton",
+      "board": "pageup",
+      "slug": "university-of-dayton",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://careers.pageuppeople.com/875/cw/en-us/subscribe). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Denver",
+      "board": "silkroad",
+      "slug": "university-of-denver",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses SilkRoad (https://dujobs.silkroad.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Hawaii at Manoa",
+      "board": "neogov",
+      "slug": "university-of-hawaii-at-manoa",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses NEOGOV (https://www.schooljobs.com/careers/hawaiiedu). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Louisiana at Lafayette",
+      "board": "cornerstone",
+      "slug": "university-of-louisiana-at-lafayette",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://louisiana.csod.com/ats/careersite/search.aspx?site=1&c=louisiana). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Louisville",
+      "board": "workday",
+      "slug": "uofl-UofLCareerSite",
+      "tenant": "uofl",
+      "pod": 1,
+      "site": "UofLCareerSite",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://uofl.wd1.myworkdayjobs.com/UofLCareerSite; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Maine",
+      "board": "oracle-recruiting-cloud",
+      "slug": "university-of-maine",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://fa-ewca-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?lastSelectedFacet=ORGANIZATIONS&mode=location&selectedOrganizationsFacet=300000014113612). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Maryland, Baltimore",
+      "board": "oracle-recruiting-cloud",
+      "slug": "university-of-maryland-baltimore",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://efzv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Massachusetts-Amherst",
+      "board": "pageup",
+      "slug": "university-of-massachusetts-amherst",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://umassamherst.dc4.pageuppeople.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Massachusetts-Boston",
+      "board": "pageup",
+      "slug": "university-of-massachusetts-boston",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (http://umass.pageuppeople.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Mississippi",
+      "board": "workday",
+      "slug": "olemiss-External__Staff",
+      "tenant": "olemiss",
+      "pod": 12,
+      "site": "External__Staff",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://olemiss.wd12.myworkdayjobs.com/External__Staff; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Nebraska Medical Center",
+      "board": "peopleadmin",
+      "slug": "university-of-nebraska-medical-center",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PeopleAdmin (https://unomaha.peopleadmin.com/). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Nevada-Las Vegas",
+      "board": "workday",
+      "slug": "nshe-UNLV-External",
+      "tenant": "nshe",
+      "pod": 1,
+      "site": "UNLV-External",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://nshe.wd1.myworkdayjobs.com/UNLV-External; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Nevada-Reno",
+      "board": "workday",
+      "slug": "nshe-UNR-external",
+      "tenant": "nshe",
+      "pod": 1,
+      "site": "UNR-external",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://nshe.wd1.myworkdayjobs.com/UNR-external; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of New Hampshire",
+      "board": "workday",
+      "slug": "usnh-Careers",
+      "tenant": "usnh",
+      "pod": 5,
+      "site": "Careers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://usnh.wd5.myworkdayjobs.com/Careers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of New Mexico",
+      "board": "cornerstone",
+      "slug": "university-of-new-mexico",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://myapps.microsoft.com/signin/Cornerstone%20On%20Demand/3e32bc16-9285-4eea-afdb-f40096e38160?tenantId=25aa9830-e0f9-482b-897e-1a3b3c855e5c&RelayState=https%253A%252F%252Funm.csod.com%252FLMS%252Fcatalog%252FWelcome.aspx). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Southern Mississippi",
+      "board": "cornerstone",
+      "slug": "university-of-southern-mississippi",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://usm.csod.com/ats/careersite/search.aspx?site=1&c=usm). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Toledo",
+      "board": "pageup",
+      "slug": "university-of-toledo",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://secure.dc4.pageuppeople.com/apply/1086/aw/applicationForm/default.asp). No adapter (2026-11-06)."
+    },
+    {
+      "name": "University of Wisconsin-Milwaukee",
+      "board": "workday",
+      "slug": "wisconsin-UW_Milwaukee",
+      "tenant": "wisconsin",
+      "pod": 1,
+      "site": "UW_Milwaukee",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://wisconsin.wd1.myworkdayjobs.com/UW_Milwaukee; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Wyoming",
+      "board": "oracle-recruiting-cloud",
+      "slug": "university-of-wyoming",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://eeik.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Utah State University",
+      "board": "icims",
+      "slug": "utah-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://usu.icims.com/icims2/servlet/icims2?module=Root&action=universalLogin&sso_connection=hs-9722-saml). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Virginia Polytechnic Institute and State University",
+      "board": "pageup",
+      "slug": "virginia-polytechnic-institute-and-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses PageUp (https://careers.pageuppeople.com/968/ci/en-us/listing). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Washington State University",
+      "board": "workday",
+      "slug": "wsu-WSU_Jobs",
+      "tenant": "wsu",
+      "pod": 5,
+      "site": "WSU_Jobs",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://wsu.wd5.myworkdayjobs.com/WSU_Jobs; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Wayne State University",
+      "board": "cornerstone",
+      "slug": "wayne-state-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Cornerstone (https://waynetalent.csod.com/ux/ats/careersite/2/home?c=waynetalent). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Weill Medical College of Cornell University",
+      "board": "sap-successfactors",
+      "slug": "weill-medical-college-of-cornell-university",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses SAP SuccessFactors (https://career4.successfactors.com/career?career_ns=job_listing&company=C0000274692P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&site=VjItcmY2YVFFcnJMYWhIb3RmMzhTYU9Ldz09&career_job_req_id=65025&selected_lang=en_US&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=America/New_York&_s.crb=ZW9fyugWHB7uCUWxPxnOJtL8ZDodmEw75BKMd46XS7U%3D). No adapter (2026-11-06)."
+    },
+    {
+      "name": "William & Mary",
+      "board": "workday",
+      "slug": "williammary-WM",
+      "tenant": "williammary",
+      "pod": 12,
+      "site": "WM",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://williammary.wd12.myworkdayjobs.com/WM; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Worcester Polytechnic Institute",
+      "board": "workday",
+      "slug": "wpi-WPI_External_Career_Site",
+      "tenant": "wpi",
+      "pod": 5,
+      "site": "WPI_External_Career_Site",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://wpi.wd5.myworkdayjobs.com/WPI_External_Career_Site; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "Vanderbilt University Medical Center",
+      "board": "workday",
+      "slug": "vumc-vumccareers",
+      "tenant": "vumc",
+      "pod": 1,
+      "site": "vumccareers",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://vumc.wd1.myworkdayjobs.com/vumccareers; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "University of Rochester Medical Center",
+      "board": "workday",
+      "slug": "rochester-UR_Staff",
+      "tenant": "rochester",
+      "pod": 5,
+      "site": "UR_Staff",
+      "source": "manual",
+      "status": "ok",
+      "note": "Cap-exempt. Found from the official site via https://rochester.wd5.myworkdayjobs.com/UR_Staff/job/Rochester---NY/Radiologic-Technologist_R264292; API returned live jobs (2026-11-06)."
+    },
+    {
+      "name": "NYU Langone Health",
+      "board": "silkroad",
+      "slug": "nyu-langone-health",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses SilkRoad (https://jobs.silkroad.com/NYULangone/NYULHCareers/Profile). No adapter (2026-11-06)."
+    },
+    {
+      "name": "UChicago Medicine",
+      "board": "oracle-recruiting-cloud",
+      "slug": "uchicago-medicine",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://fa-etnf-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001). No adapter (2026-11-06)."
+    },
+    {
+      "name": "Northwestern Medicine",
+      "board": "smartrecruiters",
+      "slug": "northwestern-medicine",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Workday link found but its CXS API returned no jobs (https://jobs.smartrecruiters.com/my-applications/NorthwesternMedicine/input-email?dcr_ci=NorthwesternMedicine). No adapter (2026-11-06)."
+    },
+    {
+      "name": "UF Health",
+      "board": "icims",
+      "slug": "uf-health",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses iCIMS (https://employees-ufhealth.icims.com/jobs/login?loginOnly=1). No adapter (2026-11-06)."
+    },
+    {
+      "name": "UW Health",
+      "board": "oracle-recruiting-cloud",
+      "slug": "uw-health",
+      "source": "manual",
+      "status": "unsupported",
+      "note": "Cap-exempt. Uses Oracle Recruiting Cloud (https://eimy.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=beaver+dam&lastSelectedFacet=ORGANIZATIONS&selectedOrganizationsFacet=300000003150001%3B300000003148012). No adapter (2026-11-06)."
     }
   ]
 }

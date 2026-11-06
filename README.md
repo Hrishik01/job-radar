@@ -43,6 +43,22 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
   client is…", OPT/CPT/H1/GC visa lists, "we are a staffing company"), from
   a manual list in `data/settings.json`, or when two or more of a company's
   jobs are flagged. They're hidden behind a toggle too.
+- **Experience bands:** jobs asking 0-2 years (or none) are **Target**; jobs
+  asking 3 years or titled II/III are **Stretch** and hidden by default. Jobs
+  asking 4+ years are dropped.
+- **Cap-exempt employers** get a **Cap-exempt** badge (confirmed: R1 and AAU
+  universities, their own academic medical centers, and 10 Boston employers)
+  or a softer **Cap-exempt?** badge (possible: USCIS education-sector
+  employers with a university-like name; hospitals are never "possible").
+  The Cap-exempt chip shows both, and cap-exempt jobs also keep research and
+  clinical data titles. **Best fit**, the default sort, puts Target first,
+  then confirmed, then possible cap-exempt, then H-1B likely, then match %.
+- **Find people** on each card opens LinkedIn or Google searches for the
+  hiring manager, a recruiter, a peer and Northeastern alumni at that
+  company. They're plain links; the app never fetches either site.
+- **Shortlist:** collect jobs in the Shortlist tab and export them as
+  `shortlist.json` for a local [career-ops](https://github.com/career-ops-hq/career-ops)
+  install; exported jobs are marked sent so they're never exported twice.
 - **Stable IDs** come from the board's own job ID, so reruns never duplicate a
   job, and a board that errors never removes jobs from the file.
 - **The dashboard** is plain HTML, CSS and JavaScript with no build step. The
@@ -62,6 +78,21 @@ Unicorn status changes as companies raise, list or fold, so refresh the file
 now and then with `python fetcher/company_lists.py`. A badge needs an exact
 name match (after the same normalization as the USCIS lookup) or an alias in
 `data/settings.json`; close-but-not-exact names are only logged for review.
+
+## Cap-exempt lists
+
+`fetcher/cap_exempt.py lists` builds `data/cap_exempt.json` (names only):
+
+| List | Source | Date |
+| --- | --- | --- |
+| Research 1 universities | [Carnegie Classifications 2025](https://carnegieclassifications.acenet.edu/institutions/?research2025[]=1), "Very High Research Spending and Doctorate Production" | retrieved 2026-11-06 |
+| AAU members (US) | [Wikipedia's AAU member table](https://en.wikipedia.org/wiki/Association_of_American_Universities), which cites [aau.edu](https://www.aau.edu/who-we-are/our-members) (aau.edu blocks automated clients) | retrieved 2026-11-06 |
+| Academic medical centers | curated in `data/settings.json`; each one's homepage must name its university | 2026-11-06 |
+
+`fetcher/cap_exempt.py boards --apply` finds each employer's job board from
+its official website (from Wikidata), follows its own job links, verifies
+supported boards through their API and marks the rest unsupported with the
+system's name. It never guesses a slug.
 
 ## Layout
 

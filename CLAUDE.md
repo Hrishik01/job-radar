@@ -26,6 +26,7 @@ fetcher/
   discover.py    builds data/companies.json (manual + public GitHub lists + USCIS probes)
   uscis.py       USCIS H-1B CSV -> data/uscis/h1b_lookup.json, and the Lookup matcher
   company_lists.py  Fortune 500 + unicorn names -> data/company_lists.json, and the badge matcher
+  cap_exempt.py  R1 + AAU names -> data/cap_exempt.json; finds and verifies their job boards
   boards/        one module per ATS: greenhouse, lever, ashby, workday, smartrecruiters
   filters.py     title, years, US/non-US, work mode, location group, sponsorship, PERM
   scoring.py     skills match %
@@ -70,6 +71,8 @@ python -m venv .venv
 
 .venv/Scripts/python fetcher/uscis.py data/uscis/<export>.csv  # rebuild the lookup
 .venv/Scripts/python fetcher/company_lists.py   # refresh Fortune 500 / unicorn names
+.venv/Scripts/python fetcher/cap_exempt.py lists           # refresh R1 + AAU names (slow: Wikidata)
+.venv/Scripts/python fetcher/cap_exempt.py boards --apply  # find their boards from official sites
 
 .venv/Scripts/python -m unittest -v
 ```
@@ -140,7 +143,7 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
   Application numbers start at 1 and are never reused. Won't-sponsor, PERM,
-  staffing and older postings are hidden by default behind four toggles that show counts.
+  staffing, stretch and older postings are hidden by default behind five toggles that show counts.
 - **Freshness** (in `app.js`) is measured from the posted date, or first-seen when
   a job has none; a backfill job with no posted date counts as older. Under 24h
   gets the ink "Fresh" badge and the Fresh only chip; only the last 7 days show
@@ -149,6 +152,40 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   dates come from `first_published`, never `updated_at`.
 - **Experience:** a job is dropped when the minimum stated years is 4 or more
   (`max_years_required` 3): "3-5 years" stays, "4+" and "5-7" go.
+- **Bands** (`filters.experience_band`, patterns in `settings.json` → `bands`):
+  every kept job is `stretch` when its minimum required years is 3 or its
+  title has a II/III level (case-sensitive), else `target` (0-2 years or none
+  stated). A stretch signal beats an entry-level title ("Associate Analyst"
+  asking 3 years is stretch); entry-level title signals are only reasons.
+  Senior/Sr./Principal never reach banding (the title drop list). The
+  dashboard shows a "Target" badge and hides stretch behind "Show stretch roles".
+- **Cap-exempt, two tiers** (`cap_exempt` on each job: `"confirmed"`,
+  `"possible"` or null). Confirmed: `data/cap_exempt.json` (Carnegie R1 +
+  AAU, Carnegie campus spellings as aliases) plus `cap_exempt.medical_centers`
+  and `cap_exempt_employers` in `settings.json`. Possible: USCIS employers
+  (exact or alias match only) in NAICS sector 61 with a university-like name,
+  minus `possible_exclude` (for-profit schools) and anything matching
+  `never_possible` (hospitals are badged only when confirmed). Confirmed
+  employers are matched
+  like the company badges (exact normalized name or alias via
+  `cap_exempt_aliases`/`uscis_aliases`; near-misses only logged). A shared
+  system board can mark only some jobs with `cap_exempt_locations` on its
+  `companies.json` entry (Beth Israel Lahey Health: jobs located at BIDMC).
+  Cap-exempt jobs also keep `cap_exempt_titles` (research/clinical data
+  analyst, data coordinator), and their Workday/SmartRecruiters boards also
+  search `cap_exempt_search_terms`. Badge and chip are neutral, never green.
+- **Find people:** each card links to LinkedIn and Google (`site:linkedin.com/in`)
+  searches for the hiring manager, a recruiter, a peer and Northeastern
+  alumni. Keywords come from `filters.people_search` and `people_search` in
+  `settings.json`. Links only: nothing ever fetches LinkedIn or Google.
+- **Best fit** is the default sort: Target band, then confirmed cap-exempt,
+  then possible, then sponsorship likely, then match %, then Newest. Saved prefs without `sortV`
+  switch to it once.
+- **Shortlist:** `state.shortlist` (`{id: {added, sent}}`) in `jobradar.v1`,
+  included in Export/Import. "Export to career-ops" downloads `shortlist.json`
+  (`app: "job-radar"`, `kind: "career-ops-shortlist"`) with the unsent jobs
+  and marks them sent. The local career-ops install's `import-jobradar.mjs`
+  reads it; keep the field names stable.
 - **Company badges:** `fetcher/company_lists.py` builds `data/company_lists.json`
   (2026 Fortune 500 and the CB Insights unicorn tracker, names only, with list
   dates). Badges need an exact normalized or alias match (`uscis_aliases` plus

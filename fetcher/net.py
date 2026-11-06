@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import threading
 import time
 from pathlib import Path
@@ -55,6 +56,26 @@ def _cache_path(method: str, url: str, body) -> Path:
     return CACHE_DIR / f"{hashlib.sha1(key.encode()).hexdigest()}.json"
 
 
+def _read_cache(path: Path, cache_seconds: int) -> str | None:
+    """A fresh cached body, or None. A file that can't be read (cut off by a
+    killed run, say) is a cache miss, never a crash."""
+    try:
+        if cache_seconds and time.time() - path.stat().st_mtime < cache_seconds:
+            return path.read_text("utf-8")
+    except (OSError, UnicodeDecodeError):
+        pass
+    return None
+
+
+def _write_cache(path: Path, text: str) -> None:
+    """Write to a temp file, then rename, so readers never see half a file
+    and two threads fetching the same URL can't interleave their writes."""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f"{path.name}.{threading.get_ident()}.tmp")
+    tmp.write_text(text, "utf-8")
+    os.replace(tmp, path)
+
+
 def request_json(
     method: str,
     url: str,
@@ -67,8 +88,12 @@ def request_json(
 ):
     """Fetch JSON. Returns None for a 404 when allow_404 is set."""
     path = _cache_path(method, url, body)
-    if cache_seconds and path.exists() and time.time() - path.stat().st_mtime < cache_seconds:
-        return json.loads(path.read_text("utf-8"))
+    cached = _read_cache(path, cache_seconds)
+    if cached is not None:
+        try:
+            return json.loads(cached)
+        except ValueError:
+            pass  # damaged cache file: fetch again
 
     host = urlsplit(url).netloc
     last_error = "no attempt made"
@@ -98,8 +123,7 @@ def request_json(
             raise FetchError(f"Invalid JSON from {url}") from exc
 
         if cache_seconds:
-            CACHE_DIR.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(data), "utf-8")
+            _write_cache(path, json.dumps(data))
         return data
 
     raise FetchError(f"{last_error} for {method} {url} after {retries} attempts")
@@ -129,8 +153,9 @@ def probe_status(method: str, url: str, *, body: dict | None = None, delay: floa
 def get_text(url: str, *, delay: float = 0.5, cache_seconds: int = 0) -> str:
     """Fetch a plain-text document (used for the SimplifyJobs README)."""
     path = _cache_path("GET-TEXT", url, None)
-    if cache_seconds and path.exists() and time.time() - path.stat().st_mtime < cache_seconds:
-        return path.read_text("utf-8")
+    cached = _read_cache(path, cache_seconds)
+    if cached is not None:
+        return cached
     _wait_for_host(urlsplit(url).netloc, delay)
     try:
         resp = _session().get(url, timeout=TIMEOUT, headers={"Accept": "text/plain"})
@@ -139,6 +164,5 @@ def get_text(url: str, *, delay: float = 0.5, cache_seconds: int = 0) -> str:
     if resp.status_code != 200:
         raise FetchError(f"HTTP {resp.status_code} for GET {url}")
     if cache_seconds:
-        CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        path.write_text(resp.text, "utf-8")
+        _write_cache(path, resp.text)
     return resp.text

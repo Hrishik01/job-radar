@@ -18,21 +18,31 @@ function defaultState() {
     opened: {},        // job id -> ISO time Open was clicked (pending "Did you apply?")
     openedLog: {},     // job id -> ISO time first opened; never cleared (insights funnel)
     lastExport: null,  // ISO time of the last export
+    shortlist: {},     // job id -> {added: ISO time, sent: ISO time | null} (career-ops export)
     prefs: {
-      tab: "new", theme: "system", sort: "newest", loc: "all",
-      modes: MODES.slice(), showNo: false, showPerm: false, showStaffing: false, showOlder: false, freshOnly: false, bigCo: false,
+      tab: "new", theme: "system", sort: "fit", sortV: 1, loc: "all",
+      modes: MODES.slice(), showNo: false, showPerm: false, showStaffing: false, showStretch: false,
+      showOlder: false, freshOnly: false, bigCo: false, capExempt: false,
       spons: "any", salary: 0, match: 0, background: "",
     },
   };
 }
 
-function loadState() {
+// Merges saved state over the defaults. Saved prefs from before Best fit
+// existed (no sortV) switch to Best fit once; after that your choice sticks.
+function mergeState(saved) {
   const base = defaultState();
+  const prefs = { ...base.prefs, ...saved.prefs };
+  if (!saved.prefs?.sortV) { prefs.sort = "fit"; prefs.sortV = 1; }
+  return { ...base, ...saved, prefs };
+}
+
+function loadState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
-    if (saved) return { ...base, ...saved, prefs: { ...base.prefs, ...saved.prefs } };
+    if (saved) return mergeState(saved);
   } catch (e) { /* storage blocked or corrupt: start fresh */ }
-  return base;
+  return defaultState();
 }
 
 function saveState() {
@@ -113,10 +123,50 @@ const isOlder = (job) => ageHours(job) > RECENT_DAYS * 24;
 
 // Fortune 500 / unicorn badges, set by the fetcher from data/company_lists.json
 const isBigCo = (job) => Boolean(job.fortune500 || job.unicorn);
+// Cap-exempt tiers from the fetcher: "confirmed" (R1/AAU universities, their
+// medical centers, the Boston list) or "possible" (USCIS education employers
+// with a university-like name). Both mean no H-1B lottery if right.
+const capTier = (job) => (job.cap_exempt === true ? "confirmed" : job.cap_exempt || null);
+const capRank = (job) => ({ confirmed: 2, possible: 1 }[capTier(job)] || 0);
+const isCapExempt = (job) => capRank(job) > 0;
+// Experience band from the fetcher: "target" (0-2 years, none stated) or "stretch"
+const isStretch = (job) => job.band === "stretch";
 
 function companyBadges(job) {
   return (job.fortune500 ? `<span class="co-badge" title="On the Fortune 500 list">Fortune 500</span>` : "") +
-    (job.unicorn ? `<span class="co-badge" title="Private, valued at $1B+ (unicorn list)">Unicorn</span>` : "");
+    (job.unicorn ? `<span class="co-badge" title="Private, valued at $1B+ (unicorn list)">Unicorn</span>` : "") +
+    (capTier(job) === "confirmed" ? `<span class="co-badge" title="R1/AAU university, its medical center, or a listed Boston employer: H-1B cap-exempt, no lottery">Cap-exempt</span>`
+      : capTier(job) === "possible" ? `<span class="co-badge soft" title="USCIS lists this employer under educational services with a university-like name. Probably cap-exempt; confirm before relying on it.">Cap-exempt?</span>` : "");
+}
+
+// "Find people": search links only. The app never fetches LinkedIn or Google;
+// each link opens the search in a new tab. Keywords come from the fetcher
+// (settings.json people_search).
+function peopleMenu(job) {
+  const ppl = job.people || { manager: ["analytics manager", "head of data"], peer: job.title,
+    recruiter: ["recruiter", "talent acquisition", "university recruiting"], alumni: "Northeastern" };
+  const co = `"${job.company.trim()}"`;
+  const any = (words) => `(${words.map((w) => `"${w}"`).join(" OR ")})`;
+  const rows = [
+    ["Hiring manager", `${co} ${any(ppl.manager)}`],
+    ["Recruiter", `${co} ${any(ppl.recruiter)}`],
+    ["Peer", `${co} "${ppl.peer}"`],
+    [`${ppl.alumni} alumni`, `${co} "${ppl.alumni}"`],
+  ];
+  const link = (href, text, label) =>
+    `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(label)}">${text}</a>`;
+  return `<details class="people-menu"><summary class="btn small">Find people</summary><div class="people-pop">
+    ${rows.map(([label, q]) => `<span>${esc(label)}</span>
+      ${link(`https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(q)}`, "LinkedIn ↗", `${label} on LinkedIn`)}
+      ${link(`https://www.google.com/search?q=${encodeURIComponent(`site:linkedin.com/in ${q}`)}`, "Google ↗", `${label} via Google`)}`).join("")}
+  </div></details>`;
+}
+
+function bandTag(job) {
+  const why = esc((job.band_reasons || []).join(", "));
+  if (job.band === "target") return `<span class="tag target" title="${why}">Target</span>`;
+  if (job.band === "stretch") return `<span class="tag" title="${why}">Stretch</span>`;
+  return "";
 }
 
 // "3+ yrs required" from the fetcher's minimum-years figure, when stated;
@@ -281,13 +331,19 @@ function sortJobs(list) {
   // first-seen time only breaks ties; it never lifts an older posting.
   const newest = (a, b) => postedTime(b) - postedTime(a) ||
     Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc);
+  // Best fit: Target band, then cap-exempt, then H-1B likely, then match %, then newest
+  const fit = (a, b) => (b.band === "target") - (a.band === "target") ||
+    capRank(b) - capRank(a) ||
+    (b.sponsorship === "likely") - (a.sponsorship === "likely") ||
+    (b.match_pct || 0) - (a.match_pct || 0) || newest(a, b);
   const by = {
+    fit,
     newest,
     found: (a, b) => Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc) || postedTime(b) - postedTime(a),
     match: (a, b) => (b.match_pct || 0) - (a.match_pct || 0) || newest(a, b),
     pay: (a, b) => topPay(b) - topPay(a) || newest(a, b),
     boston: (a, b) => (b.location_group === "Boston area") - (a.location_group === "Boston area") || newest(a, b),
-  }[p.sort] || newest;
+  }[p.sort] || fit;
   return list.sort(by);
 }
 
@@ -300,6 +356,7 @@ function filterNew() {
     no: pool.filter((j) => j.sponsorship === "no").length,
     perm: pool.filter((j) => j.perm_likely).length,
     staffing: pool.filter((j) => j.staffing).length,
+    stretch: pool.filter(isStretch).length,
     older: pool.filter(isOlder).length,
   };
 
@@ -312,6 +369,7 @@ function filterNew() {
     (p.showNo || j.sponsorship !== "no") &&
     (p.showPerm || !j.perm_likely) &&
     (p.showStaffing || !j.staffing) &&
+    (p.showStretch || !isStretch(j)) &&
     (p.showOlder || !isOlder(j)) &&
     matchesSearch(j, terms) &&
     (!titleQ || j.title.toLowerCase().includes(titleQ)) &&
@@ -323,12 +381,15 @@ function filterNew() {
   const inMode = (j) => p.modes.includes(j.work_mode) || (!MODES.includes(j.work_mode) && p.modes.length === MODES.length);
   const isBoston = (j) => j.location_group === "Boston area";
 
-  // The Fresh only and Fortune 500 / Unicorn chips each count what they would
-  // show under every other chip
+  // The quick-filter chips (Fresh only, Fortune 500 / Unicorn, Cap-exempt)
+  // each count what they would show under every other chip
   const underChips = (j) => inMode(j) && (p.loc !== "boston" || isBoston(j));
-  counts.fresh = base.filter((j) => isFresh(j) && underChips(j) && (!p.bigCo || isBigCo(j))).length;
-  counts.bigCo = base.filter((j) => isBigCo(j) && underChips(j) && (!p.freshOnly || isFresh(j))).length;
-  const shown = base.filter((j) => (!p.freshOnly || isFresh(j)) && (!p.bigCo || isBigCo(j)));
+  const QUICK = [["freshOnly", isFresh], ["bigCo", isBigCo], ["capExempt", isCapExempt]];
+  const quickOk = (j, skip) => QUICK.every(([key, test]) => key === skip || !p[key] || test(j));
+  counts.fresh = base.filter((j) => isFresh(j) && underChips(j) && quickOk(j, "freshOnly")).length;
+  counts.bigCo = base.filter((j) => isBigCo(j) && underChips(j) && quickOk(j, "bigCo")).length;
+  counts.capExempt = base.filter((j) => isCapExempt(j) && underChips(j) && quickOk(j, "capExempt")).length;
+  const shown = base.filter((j) => quickOk(j));
 
   const modeOk = shown.filter(inMode);
   counts.locAll = modeOk.length;
@@ -356,10 +417,15 @@ function jobRow(job, tab) {
   const url = safeUrl(job.apply_url);
   const opened = state.opened[job.id];
 
+  const listed = state.shortlist[job.id];
   const actions = tab === "removed"
     ? `<button class="btn small" data-act="restore">Restore</button>`
+    : tab === "shortlist"
+    ? `<button class="btn small" data-act="applied">Mark applied</button>
+       <button class="btn small" data-act="unshortlist">Remove from shortlist</button>`
     : `<button class="btn small" data-act="applied">Mark applied</button>
-       <button class="btn small" data-act="remove">Remove</button>`;
+       <button class="btn small" data-act="remove">Remove</button>
+       <button class="btn small" data-act="${listed ? "unshortlist" : "shortlist"}" aria-pressed="${Boolean(listed)}">${listed ? "Shortlisted ✓" : "Shortlist"}</button>`;
 
   return `
   <article class="job${job.id === currentId ? " current" : ""}" data-id="${esc(job.id)}" aria-label="${esc(job.title)} at ${esc(job.company)}">
@@ -389,6 +455,7 @@ function jobRow(job, tab) {
     <div class="actions">
       ${url ? `<a class="btn small primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-act="open">Open ↗</a>` : ""}
       ${actions}
+      ${peopleMenu(job)}
       <button class="btn small" data-act="outreach">Copy outreach</button>
       <button class="btn small" data-act="tailor">Copy tailoring</button>
     </div>
@@ -396,7 +463,9 @@ function jobRow(job, tab) {
       ${salary ? `<span class="salary mono" title="${esc(salaryFull(job))}">${salary}</span>
                   <span class="salary-note">${job.salary_hourly ? "from hourly × 2080" : "per year"}</span>`
                : `<span class="salary-note">No salary listed</span>`}
+      ${bandTag(job)}
       ${sponsTag(job)}
+      ${listed?.sent ? `<span class="tag" title="Exported to career-ops ${esc(new Date(listed.sent).toLocaleString())}">Sent ${esc(shortDate(listed.sent.slice(0, 10)))}</span>` : ""}
       ${job.perm_likely ? `<span class="tag perm" title="${esc((job.perm_markers || []).join(", "))}">PERM notice</span>` : ""}
       ${job.staffing ? `<span class="tag staffing" title="${esc((job.staffing_reasons || []).join(" | "))}">Staffing</span>` : ""}
       ${opened ? `<span class="tag opened">Opened</span>` : ""}
@@ -450,7 +519,9 @@ function render() {
   $("#count-new").textContent = pool.length;
   $("#count-applied").textContent = state.apps.length;
   $("#count-removed").textContent = Object.keys(state.removed).filter((id) => !applied.has(id)).length;
+  $("#count-shortlist").textContent = Object.keys(state.shortlist).length;
   $("#new-filters").hidden = tab !== "new";
+  $("#shortlist-bar").hidden = tab !== "shortlist";
 
   if (tab === "new") {
     const { list: rows, counts } = filterNew();
@@ -463,19 +534,22 @@ function render() {
     for (const m of MODES) $(`[data-count="${m}"]`).textContent = counts[m];
     $('[data-count="fresh"]').textContent = counts.fresh;
     // Shown on the folded "Filters and sort" toggle on phones
-    const active = [p.sort !== "newest", $("#f-title").value.trim(), $("#f-company").value.trim(),
+    const active = [p.sort !== "fit", $("#f-title").value.trim(), $("#f-company").value.trim(),
       p.spons !== "any", p.salary > 0, p.match > 0].filter(Boolean).length;
     $("#active-filters").textContent = active ? `(${active})` : "";
     $("#count-no").textContent = `(${counts.no})`;
     $("#count-perm").textContent = `(${counts.perm})`;
     $("#count-staffing").textContent = `(${counts.staffing})`;
+    $("#count-stretch").textContent = `(${counts.stretch})`;
     $("#count-older").textContent = `(${counts.older})`;
     $('[data-count="bigco"]').textContent = counts.bigCo;
+    $('[data-count="capexempt"]').textContent = counts.capExempt;
 
     const hidden = [];
     if (!p.showNo && counts.no) hidden.push(`${counts.no} won't-sponsor`);
     if (!p.showPerm && counts.perm) hidden.push(`${counts.perm} PERM`);
     if (!p.showStaffing && counts.staffing) hidden.push(`${counts.staffing} staffing`);
+    if (!p.showStretch && counts.stretch) hidden.push(`${counts.stretch} stretch`);
     if (!p.showOlder && counts.older) hidden.push(`${counts.older} posted over ${RECENT_DAYS} days ago`);
     line = `Showing ${rows.length} of ${counts.pool}` + (hidden.length ? ` · hidden: ${hidden.join(", ")}` : "");
   } else if (tab === "applied") {
@@ -486,6 +560,18 @@ function render() {
     html = apps.map(appRow).join("") ||
       emptyState("Your applications land here", "Click Open on a job and you'll be asked if you applied next time. Or log one you found elsewhere.");
     line = `${apps.length} application${apps.length === 1 ? "" : "s"}`;
+  } else if (tab === "shortlist") {
+    // jobs.json keeps closed jobs (active: false), so a shortlisted job is
+    // only missing if its file entry is gone; those are skipped
+    const rows = Object.keys(state.shortlist).map((id) => jobById.get(id))
+      .filter((j) => j && matchesSearch(j, terms))
+      .sort((a, b) => state.shortlist[b.id].added.localeCompare(state.shortlist[a.id].added));
+    visibleIds = rows.map((j) => j.id);
+    html = rows.map((j) => jobRow(j, "shortlist")).join("") ||
+      emptyState("Your shortlist is empty", "Click Shortlist on a job in New to collect it here, then export it to career-ops.");
+    const unsent = rows.filter((j) => !state.shortlist[j.id].sent).length;
+    line = `${rows.length} shortlisted · ${unsent} not yet sent to career-ops`;
+    $("#export-shortlist").disabled = unsent === 0;
   } else {
     const rows = jobs.filter((j) => state.removed[j.id] && !applied.has(j.id) && matchesSearch(j, terms));
     rows.sort((a, b) => state.removed[b.id].localeCompare(state.removed[a.id]));
@@ -565,7 +651,7 @@ function renderKpis() {
   const p = state.prefs;
   const boston = newPool().filter((j) => j.location_group === "Boston area" &&
     (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) &&
-    (p.showStaffing || !j.staffing) && (p.showOlder || !isOlder(j)));
+    (p.showStaffing || !j.staffing) && (p.showStretch || !isStretch(j)) && (p.showOlder || !isOlder(j)));
   $("#kpi-boston").textContent = boston.length;
   spark("spark-boston", dailyCounts(seen(fresh.filter((j) => j.location_group === "Boston area"))));
 
@@ -590,7 +676,7 @@ function renderDateline() {
 // ---------- Export / import ----------
 
 function hasStatus() {
-  return state.apps.length > 0 || Object.keys(state.removed).length > 0;
+  return state.apps.length > 0 || Object.keys(state.removed).length > 0 || Object.keys(state.shortlist).length > 0;
 }
 
 function renderExportNote() {
@@ -626,6 +712,41 @@ function exportBackup() {
   render();
 }
 
+// ---------- Shortlist export (career-ops) ----------
+
+// Downloads shortlist.json with every shortlisted job not sent yet, then marks
+// them sent so they're never exported twice. career-ops' import-jobradar.mjs
+// reads the newest shortlist*.json from Downloads.
+function exportShortlist() {
+  const ids = Object.keys(state.shortlist).filter((id) => !state.shortlist[id].sent && jobById.has(id));
+  if (!ids.length) { toast("Nothing new to send: every shortlisted job was already exported"); return; }
+  const now = new Date().toISOString();
+  const day = (t) => (t ? new Date(t).toISOString().slice(0, 10) : null);
+  const out = ids.map((id) => {
+    const j = jobById.get(id);
+    return {
+      id: j.id, apply_url: j.apply_url, title: j.title, company: j.company.trim(), location: j.location,
+      work_mode: j.work_mode, posted: day(postedOn(j)), band: j.band || null,
+      h1b: j.sponsorship, cap_exempt: capTier(j), match_pct: j.match_pct || 0,
+      matched_skills: j.matched_skills || [], min_years: j.min_years ?? null,
+      staffing: Boolean(j.staffing), perm_likely: Boolean(j.perm_likely),
+    };
+  });
+  const payload = { app: "job-radar", kind: "career-ops-shortlist", version: 1, exported_utc: now, jobs: out };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "shortlist.json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  for (const id of ids) state.shortlist[id].sent = now;
+  saveState();
+  toast(`Exported ${ids.length} job${ids.length === 1 ? "" : "s"} to shortlist.json`);
+  render();
+}
+
 async function importBackup(file) {
   let data;
   try { data = JSON.parse(await file.text()); }
@@ -637,10 +758,10 @@ async function importBackup(file) {
   const s = data.state;
   const ok = confirm(`Replace your current status with this backup?\n\n` +
     `Backup from ${new Date(data.exported_utc).toLocaleString()}: ${s.apps.length} applications, ` +
-    `${Object.keys(s.removed || {}).length} removed.\nNow: ${state.apps.length} applications.`);
+    `${Object.keys(s.removed || {}).length} removed, ${Object.keys(s.shortlist || {}).length} shortlisted.\n` +
+    `Now: ${state.apps.length} applications, ${Object.keys(state.shortlist).length} shortlisted.`);
   if (!ok) return;
-  const base = defaultState();
-  state = { ...base, ...s, prefs: { ...base.prefs, ...s.prefs } };
+  state = mergeState(s);
   saveState();
   applyPrefsToControls();
   applyTheme();
@@ -753,6 +874,15 @@ async function doAction(act, row) {
     delete state.opened[id];
     saveState();
     toast("Moved to Removed");
+  } else if (act === "shortlist" && job) {
+    state.shortlist[id] = { added: new Date().toISOString(), sent: null };
+    saveState();
+    toast("Added to Shortlist");
+  } else if (act === "unshortlist") {
+    if (state.prefs.tab === "shortlist") moveCurrentAfter(id);
+    delete state.shortlist[id];
+    saveState();
+    toast("Removed from Shortlist");
   } else if (act === "restore") {
     delete state.removed[id];
     saveState();
@@ -803,9 +933,11 @@ function applyPrefsToControls() {
   $("#show-no").checked = p.showNo;
   $("#show-perm").checked = p.showPerm;
   $("#show-staffing").checked = p.showStaffing;
+  $("#show-stretch").checked = p.showStretch;
   $("#show-older").checked = p.showOlder;
   $("#fresh-only").setAttribute("aria-pressed", String(p.freshOnly));
   $("#big-co").setAttribute("aria-pressed", String(p.bigCo));
+  $("#cap-exempt").setAttribute("aria-pressed", String(p.capExempt));
   $("#background").value = p.background;
   for (const b of $$("[data-loc]")) b.setAttribute("aria-pressed", String(b.dataset.loc === p.loc));
   for (const b of $$("[data-mode]")) b.setAttribute("aria-pressed", String(p.modes.includes(b.dataset.mode)));
@@ -840,8 +972,9 @@ function wireControls() {
   $("#show-no").addEventListener("change", (e) => setPref("showNo", e.target.checked));
   $("#show-perm").addEventListener("change", (e) => setPref("showPerm", e.target.checked));
   $("#show-staffing").addEventListener("change", (e) => setPref("showStaffing", e.target.checked));
+  $("#show-stretch").addEventListener("change", (e) => setPref("showStretch", e.target.checked));
   $("#show-older").addEventListener("change", (e) => setPref("showOlder", e.target.checked));
-  for (const [id, key] of [["#fresh-only", "freshOnly"], ["#big-co", "bigCo"]]) {
+  for (const [id, key] of [["#fresh-only", "freshOnly"], ["#big-co", "bigCo"], ["#cap-exempt", "capExempt"]]) {
     $(id).addEventListener("click", () => {
       state.prefs[key] = !state.prefs[key];
       applyPrefsToControls();
@@ -865,6 +998,11 @@ function wireControls() {
   });
 
   $("#export-btn").addEventListener("click", exportBackup);
+  $("#export-shortlist").addEventListener("click", exportShortlist);
+  // One "Find people" menu open at a time; a click elsewhere closes it
+  document.addEventListener("click", (e) => {
+    for (const d of $$(".people-menu[open]")) if (!d.contains(e.target)) d.open = false;
+  });
   $("#export-banner").addEventListener("click", (e) => { if (e.target.closest("[data-export]")) exportBackup(); });
   $("#import-btn").addEventListener("click", () => $("#import-file").click());
   $("#import-file").addEventListener("change", (e) => {

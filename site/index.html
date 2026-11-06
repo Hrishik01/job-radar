@@ -43,7 +43,7 @@
   <section class="kpis" aria-label="Summary">
     <div class="kpi"><span class="kpi-label">New this week</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-new">–</span><svg class="spark" id="spark-new" aria-hidden="true"></svg></span></div>
     <div class="kpi"><span class="kpi-label">Sponsor likely</span><span class="kpi-row"><span class="mono kpi-num signal" id="kpi-spons">–</span><svg class="spark" id="spark-spons" aria-hidden="true"></svg></span></div>
-    <div class="kpi" title="Boston-area jobs in New, not counting hidden won't-sponsor, PERM or staffing jobs"><span class="kpi-label">Boston area in New</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-boston">–</span><svg class="spark" id="spark-boston" aria-hidden="true"></svg></span></div>
+    <div class="kpi" title="Boston-area jobs in New, not counting hidden won't-sponsor, PERM, staffing or stretch jobs"><span class="kpi-label">Boston area in New</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-boston">–</span><svg class="spark" id="spark-boston" aria-hidden="true"></svg></span></div>
     <div class="kpi"><span class="kpi-label">Applied</span><span class="kpi-row"><span class="mono kpi-num" id="kpi-applied">–</span><svg class="spark" id="spark-applied" aria-hidden="true"></svg></span></div>
   </section>
 
@@ -51,6 +51,7 @@
     <button role="tab" id="tab-new" data-tab="new" aria-selected="true">New <span class="mono count" id="count-new"></span></button>
     <button role="tab" id="tab-applied" data-tab="applied" aria-selected="false">Applied <span class="mono count" id="count-applied"></span></button>
     <button role="tab" id="tab-removed" data-tab="removed" aria-selected="false">Removed <span class="mono count" id="count-removed"></span></button>
+    <button role="tab" id="tab-shortlist" data-tab="shortlist" aria-selected="false">Shortlist <span class="mono count" id="count-shortlist"></span></button>
     <button class="btn tabs-action" id="log-btn" type="button">Log application</button>
   </nav>
 
@@ -75,6 +76,7 @@
         <div class="chips" role="group" aria-label="Quick filters">
           <button type="button" class="chip" id="fresh-only" aria-pressed="false" title="Posted in the last 24 hours">Fresh only <span class="mono" data-count="fresh"></span></button>
           <button type="button" class="chip" id="big-co" aria-pressed="false" title="Companies on the Fortune 500 or unicorn list">Fortune 500 / Unicorn <span class="mono" data-count="bigco"></span></button>
+          <button type="button" class="chip" id="cap-exempt" aria-pressed="false" title="Universities, affiliated hospitals and nonprofit research: H-1B cap-exempt, no lottery">Cap-exempt <span class="mono" data-count="capexempt"></span></button>
         </div>
       </div>
 
@@ -84,6 +86,7 @@
       <div class="filter-row">
         <label class="field">Sort
           <select id="sort">
+            <option value="fit">Best fit</option>
             <option value="newest">Newest</option>
             <option value="found">Recently found</option>
             <option value="match">Highest match</option>
@@ -133,11 +136,16 @@
         <label class="switch"><input type="checkbox" id="show-no"><span class="track" aria-hidden="true"></span><span class="switch-text">Show won't-sponsor <span class="mono" id="count-no"></span></span></label>
         <label class="switch"><input type="checkbox" id="show-perm"><span class="track" aria-hidden="true"></span><span class="switch-text">Show PERM notices <span class="mono" id="count-perm"></span></span></label>
         <label class="switch"><input type="checkbox" id="show-staffing"><span class="track" aria-hidden="true"></span><span class="switch-text">Show staffing firms <span class="mono" id="count-staffing"></span></span></label>
+        <label class="switch"><input type="checkbox" id="show-stretch"><span class="track" aria-hidden="true"></span><span class="switch-text">Show stretch roles <span class="mono" id="count-stretch"></span></span></label>
         <label class="switch"><input type="checkbox" id="show-older"><span class="track" aria-hidden="true"></span><span class="switch-text">Show older postings <span class="mono" id="count-older"></span></span></label>
       </div>
     </div>
   </section>
 
+  <div class="shortlist-bar" id="shortlist-bar" hidden>
+    <p>Send shortlisted jobs to career-ops. Each export downloads <span class="mono">shortlist.json</span> with the jobs not sent yet, then marks them sent.</p>
+    <button class="btn primary" id="export-shortlist" type="button">Export to career-ops</button>
+  </div>
   <p class="result-line" id="result-line" aria-live="polite"></p>
   <div id="list" class="list" tabindex="-1"></div>
 
