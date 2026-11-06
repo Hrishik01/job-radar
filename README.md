@@ -51,8 +51,9 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
   or a softer **Cap-exempt?** badge (possible: USCIS education-sector
   employers with a university-like name; hospitals are never "possible").
   The Cap-exempt chip shows both, and cap-exempt jobs also keep research and
-  clinical data titles. **Best fit**, the default sort, puts Target first,
-  then confirmed, then possible cap-exempt, then H-1B likely, then match %.
+  clinical data titles. **Best fit**, the default sort, puts jobs matching
+  30% or more first; among those, Target first, then confirmed, then possible
+  cap-exempt, then H-1B likely, then match %. Jobs under 30% follow.
 - **Find people** on each card opens LinkedIn or Google searches for the
   hiring manager, a recruiter, a peer and Northeastern alumni at that
   company. They're plain links; the app never fetches either site.

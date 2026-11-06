@@ -218,6 +218,41 @@ class CapExemptTests(unittest.TestCase):
         self.assertNotIn("data coordinator", SETTINGS["workday_search_terms"])  # original untouched
 
 
+class BestFitTests(unittest.TestCase):
+    """site/fit.js under Node: the dashboard's Best fit order."""
+
+    def order(self, jobs):
+        import shutil
+        import subprocess
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node not installed")
+        script = ("const {fitCompare} = require(process.argv[1]); const jobs = JSON.parse(process.argv[2]);"
+                  "const newest = (a, b) => b.posted - a.posted;"
+                  "console.log(JSON.stringify(jobs.sort((a, b) => fitCompare(a, b, newest)).map(j => j.id)));")
+        out = subprocess.run([node, "-e", script, str(ROOT / "site" / "fit.js"), json.dumps(jobs)],
+                             capture_output=True, text=True, check=True)
+        return json.loads(out.stdout)
+
+    def job(self, id, match, cap=None, h1b="unknown", band="target", posted=0):
+        return {"id": id, "match_pct": match, "cap_exempt": cap, "sponsorship": h1b, "band": band, "posted": posted}
+
+    def test_boosts_only_from_30_percent(self):
+        jobs = [self.job("weak-uni", 20, cap="confirmed", h1b="likely"),
+                self.job("plain-40", 40),
+                self.job("uni-30", 30, cap="confirmed"),
+                self.job("h1b-35", 35, h1b="likely"),
+                self.job("weak-plain", 25)]
+        # 30%+ first, boosted by cap-exempt then H-1B; under 30% sorts after, by match only
+        self.assertEqual(self.order(jobs), ["uni-30", "h1b-35", "plain-40", "weak-plain", "weak-uni"])
+
+    def test_tiers_band_and_ties(self):
+        jobs = [self.job("possible", 50, cap="possible"), self.job("confirmed", 31, cap=True),
+                self.job("stretch", 90, cap="confirmed", band="stretch"),
+                self.job("old", 60, posted=1), self.job("new", 60, posted=2)]
+        self.assertEqual(self.order(jobs), ["confirmed", "possible", "new", "old", "stretch"])
+
+
 class CacheTests(unittest.TestCase):
     def test_damaged_cache_file_is_a_miss(self):
         import tempfile

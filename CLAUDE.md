@@ -43,6 +43,7 @@ site/
   index.html     dashboard: New / Applied / Removed tabs, filters, dialogs
   styles.css     ledger theme, light and dark (system default plus toggle)
   app.js         loads ../data/jobs.json; your status lives in localStorage
+  fit.js         Best fit order (loaded before app.js; tested under Node)
   insights.html  charts page (KPIs, heatmap, weekly trend, time to apply,
   insights.js    funnel, location split, top companies), hand-built SVG
 tests/           unittest smoke tests and text fixtures
@@ -178,9 +179,11 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   searches for the hiring manager, a recruiter, a peer and Northeastern
   alumni. Keywords come from `filters.people_search` and `people_search` in
   `settings.json`. Links only: nothing ever fetches LinkedIn or Google.
-- **Best fit** is the default sort: Target band, then confirmed cap-exempt,
-  then possible, then sponsorship likely, then match %, then Newest. Saved prefs without `sortV`
-  switch to it once.
+- **Best fit** is the default sort (`site/fit.js`, tested under Node by
+  `BestFitTests`): jobs matching 30%+ (`FIT_MIN_MATCH`) come before all
+  others. Within each group Target band comes first; cap-exempt (confirmed,
+  then possible) and sponsorship likely boost only the 30%+ group; then
+  match %, then Newest. Saved prefs without `sortV` switch to it once.
 - **Shortlist:** `state.shortlist` (`{id: {added, sent}}`) in `jobradar.v1`,
   included in Export/Import. "Export to career-ops" downloads `shortlist.json`
   (`app: "job-radar"`, `kind: "career-ops-shortlist"`) with the unsent jobs

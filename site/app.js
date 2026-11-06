@@ -123,11 +123,7 @@ const isOlder = (job) => ageHours(job) > RECENT_DAYS * 24;
 
 // Fortune 500 / unicorn badges, set by the fetcher from data/company_lists.json
 const isBigCo = (job) => Boolean(job.fortune500 || job.unicorn);
-// Cap-exempt tiers from the fetcher: "confirmed" (R1/AAU universities, their
-// medical centers, the Boston list) or "possible" (USCIS education employers
-// with a university-like name). Both mean no H-1B lottery if right.
-const capTier = (job) => (job.cap_exempt === true ? "confirmed" : job.cap_exempt || null);
-const capRank = (job) => ({ confirmed: 2, possible: 1 }[capTier(job)] || 0);
+// capTier / capRank live in fit.js (loaded first), next to the Best fit order
 const isCapExempt = (job) => capRank(job) > 0;
 // Experience band from the fetcher: "target" (0-2 years, none stated) or "stretch"
 const isStretch = (job) => job.band === "stretch";
@@ -331,11 +327,9 @@ function sortJobs(list) {
   // first-seen time only breaks ties; it never lifts an older posting.
   const newest = (a, b) => postedTime(b) - postedTime(a) ||
     Date.parse(b.first_seen_utc) - Date.parse(a.first_seen_utc);
-  // Best fit: Target band, then cap-exempt, then H-1B likely, then match %, then newest
-  const fit = (a, b) => (b.band === "target") - (a.band === "target") ||
-    capRank(b) - capRank(a) ||
-    (b.sponsorship === "likely") - (a.sponsorship === "likely") ||
-    (b.match_pct || 0) - (a.match_pct || 0) || newest(a, b);
+  // Best fit (fit.js): 30%+ matches first; cap-exempt and H-1B likely only
+  // boost those
+  const fit = (a, b) => fitCompare(a, b, newest);
   const by = {
     fit,
     newest,
