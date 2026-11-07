@@ -126,33 +126,87 @@ def _reads_as_requirement(sentence: str, m: re.Match) -> bool:
     return bool(_REQUIREMENT_AFTER.match(sentence, m.end())) and not _HISTORY_BEFORE.search(sentence[:m.start()])
 
 
+_ALTERNATIVE_OR = re.compile(r"(?<![/\w])or\b", re.IGNORECASE)
+_NOT_MY_DEGREE = re.compile(r"\b(?:ph\.?\s?d|doctorate|doctoral)\b", re.IGNORECASE)
+
+
+def _sentence_years(sentence: str, need_experience_word: bool) -> int | None:
+    """One years figure per sentence (a bullet is one sentence).
+
+    Figures joined by "or" are alternatives ("5 years, or 2 years with a
+    Master's"): the lowest one the candidate can meet counts, so an option tied
+    to a doctorate is ignored unless it is the only one. Figures not joined by
+    "or" are all required, even when one is part of another ("3 to 4+ years in
+    a data-heavy role, including 2+ in consulting and 1+ at a startup"): the
+    highest counts. "and/or" between two items is not an alternative."""
+    found = []  # (n, start, end)
+    for m in _YEARS_RE.finditer(sentence):
+        if need_experience_word and not (_EXPERIENCE_WORDS.search(sentence) or _reads_as_requirement(sentence, m)):
+            continue
+        if _is_preferred(sentence, m):
+            continue
+        n = int(m.group(1)) if m.group(1).isdigit() else _NUMBER_WORDS[m.group(1).lower()]
+        if n <= 15:  # "18 years or older" is an age, "25 years" a company history
+            found.append((n, m.start(), m.end()))
+    if not found:
+        return None
+    groups = [[0]]
+    for i in range(1, len(found)):
+        if _ALTERNATIVE_OR.search(sentence[found[i - 1][2]:found[i][1]]):
+            groups[-1].append(i)
+        else:
+            groups.append([i])
+    # An option's own clause (between commas, semicolons and "or") names the
+    # degree it needs: "PhD with 1-3 years" and "2 years with a PhD" alike.
+    bounds = [m.start() for m in re.finditer(r"[,;]|(?<![/\w])or\b", sentence, re.IGNORECASE)]
+    values = []
+    for g in groups:
+        options = []
+        for i in g:
+            _, start, end = found[i]
+            left = max((b for b in bounds if b < start), default=0)
+            right = min((b for b in bounds if b >= end), default=len(sentence))
+            options.append((found[i][0], bool(_NOT_MY_DEGREE.search(sentence[left:right]))))
+        reachable = [n for n, phd in options if not phd]
+        values.append(min(reachable) if reachable else max(n for n, _ in options))
+    return max(values)
+
+
+_CONTINUES_PREVIOUS = re.compile(r"^[-•*\s]*(?:or|in the alternative|alternatively)\b", re.IGNORECASE)
+
+
 def _year_figures(text: str, need_experience_word: bool) -> list[int]:
-    figures = []
+    """One figure per sentence. A sentence that opens with "or" or "in the
+    alternative" is the next option of the one before it ("BS plus 3 years;"
+    then "or MS plus 1 year"), so the two are read as one sentence."""
+    sentences: list[str] = []
     for sentence in split_sentences(text):
-        for m in _YEARS_RE.finditer(sentence):
-            if need_experience_word and not (_EXPERIENCE_WORDS.search(sentence) or _reads_as_requirement(sentence, m)):
-                continue
-            if _is_preferred(sentence, m):
-                continue
-            n = int(m.group(1)) if m.group(1).isdigit() else _NUMBER_WORDS[m.group(1).lower()]
-            if n <= 15:  # "18 years or older" is an age, "25 years" a company history
-                figures.append(n)
+        if sentences and _CONTINUES_PREVIOUS.match(sentence):
+            sentences[-1] += " " + sentence
+        else:
+            sentences.append(sentence)
+    figures = []
+    for sentence in sentences:
+        n = _sentence_years(sentence, need_experience_word)
+        if n is not None:
+            figures.append(n)
     return figures
 
 
 def min_years_required(description: str) -> int | None:
-    """Smallest required-years figure.
+    """Required years: the HIGHEST figure across separate sentences/bullets,
+    since each bullet is its own requirement ("3 to 4+ years in data" and "1+
+    years in operations" means 3). Within one sentence, see _sentence_years:
+    alternatives take the lowest option the candidate meets.
 
     Inside a requirements section any years phrase counts ("8+ years in
     consulting"). Without one, or if it states no figure, a sentence must
     also mention experience, so "for more than 25 years" in a company blurb
-    is ignored. Taking the smallest is deliberate: "5+ years with a BS or 3+
-    with an MS" should not be dropped; a false keep is cheaper than a false drop.
-    """
+    is ignored."""
     figures = _year_figures(_section_text(description, "required"), need_experience_word=False)
     if not figures:
         figures = _year_figures(_section_text(description, "not_preferred"), need_experience_word=True)
-    return min(figures) if figures else None
+    return max(figures) if figures else None
 
 
 def min_years_preferred(description: str) -> int | None:

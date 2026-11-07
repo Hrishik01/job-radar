@@ -153,6 +153,11 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   dates come from `first_published`, never `updated_at`.
 - **Experience:** a job is dropped when the minimum stated years is 4 or more
   (`max_years_required` 3): "3-5 years" stays, "4+" and "5-7" go.
+  The figure (`min_years_required`) is the HIGHEST across separate sentences
+  and bullets, since each is its own requirement; within one sentence offering
+  alternatives joined by "or" ("5 years, or 2 years with a Master's") it is the
+  lowest option the candidate meets (doctorate options don't count). A bullet
+  opening with "or" continues the one before it. "and/or" is not an alternative.
 - **Bands** (`filters.experience_band`, patterns in `settings.json` → `bands`):
   every kept job is `stretch` when its minimum required years is 3 or its
   title has a II/III level (case-sensitive), else `target` (0-2 years or none

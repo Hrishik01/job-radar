@@ -430,7 +430,32 @@ class FilterTests(unittest.TestCase):
     def test_mba_titles_dropped(self):
         self.assertFalse(filters.title_passes("MBA Full-Time Hire - Strategic Finance & Business Operations", SETTINGS))
 
-    def test_years_takes_smallest_requirement(self):
+    def test_years_highest_across_bullets_lowest_among_alternatives(self):
+        # Ellipsis Health: one bullet, a total plus its parts. Not alternatives: highest, 3 (was 1).
+        ellipsis = ("QUALIFICATIONS\n\n- 3 to 4+ years of experience in a data-heavy work environment "
+                    "(e.g., finance, consulting), including 2+ years of investment banking, private equity / "
+                    "growth equity, and/or consulting, and 1+ years of operational experience at a "
+                    "high-growth technology company.\n- Highly proficient in Google Workspace.")
+        self.assertEqual(filters.min_years_required(ellipsis), 3)
+        # Separate bullets are separate requirements: highest.
+        self.assertEqual(filters.min_years_required(
+            "Requirements:\n- 2+ years in business operations.\n- 4 years of SQL.\n- 1+ year with Tableau."), 4)
+        # One sentence offering alternatives: the lowest option the candidate meets.
+        self.assertEqual(filters.min_years_required("5 years of experience, or 2 years with a Master's degree."), 2)
+        self.assertEqual(filters.min_years_required(
+            "Requirements:\n- MS or MA plus 2 years, or BS or BA plus 3 years, of experience in analytics."), 2)
+        # Doctorate options don't count: no PhD.
+        self.assertEqual(filters.min_years_required(
+            "Requirements:\n- PhD with 1-3 years, MS or MA with 2-6 years, or BS or BA with 4-8 years of data science experience"), 2)
+        self.assertEqual(filters.min_years_required("6 years of experience, or 2 years with a PhD."), 6)
+        # An alternative that opens the next bullet belongs to the one before it.
+        self.assertEqual(filters.min_years_required(
+            "Qualifications:\n- BS in statistics with three (3) years of experience or equivalent;\n"
+            "- or MS in statistics with one (1) year of experience;"), 1)
+        # "and/or" joins items; it is not an alternative.
+        self.assertEqual(filters.min_years_required("Requirements:\n- 3+ years in finance and/or 1+ years in consulting."), 3)
+
+    def test_years_single_sentence_alternatives_and_plain(self):
         self.assertEqual(filters.min_years_required("Requires 5+ years of experience with a BS, or 3+ years of experience with an MS."), 3)
         self.assertEqual(filters.min_years_required("4+ years of experience in analytics."), 4)
         self.assertIsNone(filters.min_years_required("5+ years of experience preferred."))

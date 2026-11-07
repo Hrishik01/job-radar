@@ -2113,10 +2113,10 @@
     "Process documentation"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -2442,10 +2442,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -2849,10 +2849,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -2922,10 +2922,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -2986,11 +2986,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required",
-    "title: Associate"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -3839,10 +3838,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -4865,10 +4864,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -5128,10 +5127,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -5575,10 +5574,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -5638,10 +5637,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -8710,10 +8709,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -9714,10 +9713,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -9777,10 +9776,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -10336,10 +10335,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -11239,10 +11238,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 8,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "8 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -12471,10 +12470,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -12939,11 +12938,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 0,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "0 years required",
-    "title: Analyst I"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -13674,10 +13672,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 1,
    "band": "target",
    "band_reasons": [
-    "0 years required",
+    "1 years required",
     "title: Analyst I"
    ],
    "cap_exempt": null,
@@ -13803,10 +13801,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 1,
    "band": "target",
    "band_reasons": [
-    "0 years required",
+    "1 years required",
     "title: Analyst I"
    ],
    "cap_exempt": null,
@@ -13868,11 +13866,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required",
-    "title: Associate"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -17600,7 +17597,7 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 2,
    "band": "stretch",
    "band_reasons": [
     "title: level II/III"
@@ -17665,9 +17662,10 @@
     "Jira"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
+    "6 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -17728,11 +17726,10 @@
     "SAP"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required",
-    "title: Analyst I"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -17792,11 +17789,10 @@
     "SAP"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required",
-    "title: Analyst I"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -18241,10 +18237,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 8,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "8 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -20077,10 +20073,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "4 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -20526,10 +20522,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 8,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "8 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -20780,10 +20776,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required",
+    "2 years required",
     "title: Analyst I"
    ],
    "cap_exempt": null,
@@ -22134,10 +22130,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -22731,10 +22727,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 6,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -22870,10 +22866,10 @@
     "Git"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -23444,10 +23440,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -23508,10 +23504,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -23828,10 +23824,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -24173,10 +24169,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "7 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -25375,10 +25371,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -26148,10 +26144,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -26482,10 +26478,10 @@
     "Segmentation"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -27224,10 +27220,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -27292,10 +27288,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -27999,10 +27995,10 @@
     "Power BI"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -28060,10 +28056,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -28124,10 +28120,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "5 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -28189,10 +28185,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "5 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -28692,10 +28688,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required",
+    "5 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -29148,10 +29144,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -29778,7 +29774,7 @@
     "AWS"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "stretch",
    "band_reasons": [
     "title: level II/III"
@@ -30309,9 +30305,10 @@
     "SAP"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
+    "4 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -30699,10 +30696,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -31020,10 +31017,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -31214,10 +31211,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -31342,10 +31339,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -31601,10 +31598,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 7,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -31668,10 +31665,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "5 years required"
    ],
    "cap_exempt": "possible",
    "people": {
@@ -31938,10 +31935,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 0,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "0 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -32521,10 +32518,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -32923,10 +32920,10 @@
     "SAP"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -33054,10 +33051,10 @@
     "Jira"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -36833,10 +36830,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -37228,10 +37225,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 8,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "8 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -37292,10 +37289,10 @@
     "Root cause analysis"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "0 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -39466,10 +39463,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -39865,10 +39862,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 7,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -39930,9 +39927,10 @@
     "Process documentation"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
+    "6 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -40316,10 +40314,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -40837,10 +40835,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 8,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "8 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -40970,10 +40968,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 15,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "15 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -41871,10 +41869,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -42584,10 +42582,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 6,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -42649,10 +42647,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 10,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -43592,10 +43590,10 @@
     "SAP"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 6,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -43767,10 +43765,10 @@
     "AWS"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -43903,9 +43901,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 3,
    "band": "stretch",
    "band_reasons": [
+    "3 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -43969,10 +43968,10 @@
     "Jira"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -44153,10 +44152,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -44286,10 +44285,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 7,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -44939,7 +44938,7 @@
     "peer": "Data Scientist",
     "alumni": "Northeastern"
    },
-   "min_years_preferred": 2,
+   "min_years_preferred": 4,
    "first_seen_utc": "2026-11-05T18:36:27+00:00",
    "last_seen_utc": "2026-11-06T23:45:36+00:00",
    "backfill": true,
@@ -46770,10 +46769,10 @@
     "AWS"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -46835,10 +46834,10 @@
     "AWS"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -46900,10 +46899,10 @@
     "AWS"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -47159,10 +47158,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "5 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -47284,10 +47283,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -47485,10 +47484,10 @@
     "Power BI"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -47552,10 +47551,10 @@
     "Power BI"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -49745,10 +49744,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -51366,10 +51365,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -51434,10 +51433,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -51502,10 +51501,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -51572,10 +51571,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 1,
    "band": "target",
    "band_reasons": [
-    "0 years required"
+    "1 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -51642,10 +51641,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 0,
+   "min_years": 1,
    "band": "target",
    "band_reasons": [
-    "0 years required"
+    "1 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -53029,10 +53028,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -53355,10 +53354,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -55073,10 +55072,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -55770,10 +55769,10 @@
     "Root cause analysis"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -56643,10 +56642,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -57411,10 +57410,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -57477,10 +57476,10 @@
     "Root cause analysis"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -57669,10 +57668,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -57800,10 +57799,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 7,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -57998,10 +57997,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 10,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -58063,10 +58062,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -58128,10 +58127,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -58524,10 +58523,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -58588,10 +58587,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -59103,9 +59102,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
+    "4 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -59428,9 +59428,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 3,
    "band": "stretch",
    "band_reasons": [
+    "3 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -59495,9 +59496,10 @@
     "Airflow"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 3,
    "band": "stretch",
    "band_reasons": [
+    "3 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -59558,10 +59560,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -59625,10 +59627,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -59759,10 +59761,10 @@
     "MySQL"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60195,10 +60197,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 6,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60262,10 +60264,10 @@
     "SOPs"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60399,10 +60401,10 @@
     "Git"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60769,10 +60771,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 4,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60832,10 +60834,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -60949,10 +60951,10 @@
     "MySQL"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -61355,10 +61357,10 @@
     "Git"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -61787,10 +61789,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -61850,10 +61852,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -62826,10 +62828,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -62890,10 +62892,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -63157,10 +63159,10 @@
     "MySQL"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -63354,10 +63356,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -63425,10 +63427,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -63492,10 +63494,10 @@
     "Git"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -63888,10 +63890,10 @@
     "MySQL"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -64211,10 +64213,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -66139,10 +66141,10 @@
     "Salesforce"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -66458,9 +66460,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 2,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
+    "5 years required",
     "title: level II/III"
    ],
    "cap_exempt": null,
@@ -68135,10 +68138,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -68392,10 +68395,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 8,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "8 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -68653,10 +68656,10 @@
     "PowerPoint"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -69035,10 +69038,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -69431,10 +69434,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -69705,10 +69708,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -70774,10 +70777,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -70906,10 +70909,10 @@
     "Snowflake"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 7,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "7 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -71038,10 +71041,10 @@
     "Governance"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 10,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -71167,10 +71170,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 10,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "10 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -71552,10 +71555,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -73182,10 +73185,10 @@
     "Forecasting"
    ],
    "us_uncertain": true,
-   "min_years": 3,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -74121,10 +74124,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -74444,10 +74447,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -74512,10 +74515,10 @@
     "Excel"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 6,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "6 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -74652,10 +74655,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -77024,10 +77027,10 @@
     "Airflow"
    ],
    "us_uncertain": true,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -77961,10 +77964,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -78029,10 +78032,10 @@
     "Python"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -78556,10 +78559,10 @@
     "Git"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 9,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "9 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79028,10 +79031,10 @@
     "KPI definition"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 4,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "4 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79163,10 +79166,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79232,10 +79235,10 @@
     "Forecasting"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": 2,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "2 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79377,10 +79380,10 @@
     "PostgreSQL"
    ],
    "us_uncertain": false,
-   "min_years": 1,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "1 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79525,10 +79528,10 @@
     "SQL"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 5,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79877,10 +79880,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -79946,10 +79949,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -80015,10 +80018,10 @@
     "Tableau"
    ],
    "us_uncertain": false,
-   "min_years": 2,
-   "band": "target",
+   "min_years": 3,
+   "band": "stretch",
    "band_reasons": [
-    "2 years required"
+    "3 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -82280,10 +82283,10 @@
     "Salesforce"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -82343,10 +82346,10 @@
     "Salesforce"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -82406,10 +82409,10 @@
     "Salesforce"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
@@ -82469,10 +82472,10 @@
     "Salesforce"
    ],
    "us_uncertain": false,
-   "min_years": 3,
+   "min_years": 5,
    "band": "stretch",
    "band_reasons": [
-    "3 years required"
+    "5 years required"
    ],
    "cap_exempt": null,
    "people": {
