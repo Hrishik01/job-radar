@@ -485,6 +485,25 @@ TIER1_PHRASES = [
     "without sponsorship now or in the future", "ineligible for visa sponsorship",
     "not able to provide sponsorship", "no visa sponsorship",
 ]
+# Flexible Tier 1 wordings, matched anywhere in the description. Section never
+# matters here: a no-sponsorship line under "Preferred" or "Additional
+# Qualifications" is still a no. (Those headings only affect years.)
+_SPONSOR_KIND = r"(?:(?:visa|employer|employment|immigration|work)\s+)*"
+TIER1_PATTERNS = [re.compile(p, re.IGNORECASE) for p in (
+    # "without sponsorship", "without the need for visa sponsorship", "without requiring employer sponsorship"
+    rf"\bwithout\s+(?:the\s+need\s+(?:for|of)\s+|needing\s+|requiring\s+)?(?:any\s+)?{_SPONSOR_KIND}sponsorship\b(?!\s+for\s+(?:an?\s+)?(?:export|license))",
+    # "not able to sponsor", "unable to provide sponsorship", "cannot offer visa sponsorship"
+    rf"\b(?:unable|not\s+able|cannot|can\s?not|can(?:'|’)?t)\s+to\s+(?:provide\s+|offer\s+|extend\s+|support\s+)?{_SPONSOR_KIND}sponsor(?:ship)?\b",
+    rf"\bcannot\s+(?:provide\s+|offer\s+|extend\s+|support\s+)?{_SPONSOR_KIND}sponsor(?:ship)?\b",
+    # "will not sponsor", "does not provide sponsorship"
+    r"\b(?:will|do|does|did)\s+not\s+sponsor\b",
+    rf"\b(?:will|do|does|did)\s+not\s+(?:provide|offer|extend|support)\s+{_SPONSOR_KIND}sponsorship\b",
+    # "not eligible for sponsorship", "sponsorship is not available", "no visa sponsorship"
+    rf"\bnot\s+(?:be\s+)?(?:eligible|available)\s+for\s+{_SPONSOR_KIND}sponsorship\b",
+    r"\bsponsorship\s+(?:is\s+)?(?:not\s+(?:available|offered|provided)|unavailable)\b",
+    r"\bno\s+(?:(?:visa|employer|employment|immigration)\s+)+sponsorship\b",
+    r"\bno\s+sponsorship\s+(?:is\s+)?(?:available|provided|offered)\b",
+)]
 TIER2_TRIGGERS = ["us citizen", "citizens only", "security clearance", "itar", "export control"]
 TIER2_CONTEXT = re.compile(r"\b(must|required|requires|only|eligib\w* to obtain)\b", re.IGNORECASE)
 EEO_SKIP = ["without regard to", "equal opportunity", "regardless of", "protected veteran"]
@@ -500,6 +519,10 @@ def sponsorship_no(description: str) -> tuple[bool, str, list[dict]]:
     for phrase in TIER1_PHRASES:
         if phrase in text:
             return True, phrase, []
+    for rx in TIER1_PATTERNS:
+        m = rx.search(description)
+        if m:
+            return True, " ".join(m.group(0).split()).lower(), []
 
     log = []
     for sentence in split_sentences(description):

@@ -106,6 +106,10 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   citizenship/clearance sentences with requirement wording, EEO boilerplate
   excluded). Otherwise `likely` only on an exact or alias USCIS match.
   Closest-name (prefix) matches and unverified USCIS-guessed boards stay `unknown`.
+  Tier 1 also matches flexible wordings anywhere in the description, whatever the section
+  ("without (the need for) (visa) sponsorship", "not able to sponsor", "unable to provide
+  sponsorship", "not eligible for immigration sponsorship", "sponsorship is not available");
+  "preferred" and "additional" headings affect years only. A JD "no" always beats a USCIS "likely".
 - **Staffing:** `staffing: true` when any of these hold (all lists in
   `data/settings.json`):
   - the company is in `staffing_companies`;

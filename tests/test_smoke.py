@@ -139,6 +139,37 @@ class SponsorshipTests(unittest.TestCase):
         self.assertIn("citizen", evidence.lower())
         self.assertEqual(log[-1]["decision"], "tagged_no")
 
+    def test_pitchbook_no_sponsorship_bullet_under_preferred(self):
+        # PitchBook "Associate Analyst, GTM" was tagged "likely": the line sits under "Preferred".
+        jd = ("Skills and Qualifications:\n\nBasic\n\n- 1+ years previous experience with SQL and BI tools.\n\n"
+              "Preferred\n\n- Bachelor's degree in Business, Analytics, or a related field\n\n"
+              "- Must be authorized to work in the United States without the need for visa sponsorship now or in the future\n\n"
+              "Benefits + Compensation at PitchBook:\n\n- Comprehensive health benefits")
+        is_no, evidence, _ = filters.sponsorship_no(jd)
+        self.assertTrue(is_no)
+        self.assertEqual(evidence, "without the need for visa sponsorship")
+
+    def test_flexible_no_sponsorship_wordings(self):
+        for text in ["Candidates must be legally authorized to work in the US without sponsorship.",
+                     "Must be authorized to work without employer sponsorship now or in the future.",
+                     "Applicants must be authorized to work without requiring sponsorship.",
+                     "We are not able to sponsor visas.", "We are unable to provide sponsorship.",
+                     "We cannot offer visa sponsorship.", "The company does not provide work visa sponsorship.",
+                     "This role is not eligible for immigration sponsorship.", "Visa sponsorship is not available.",
+                     "No sponsorship available for this position.", "We will not provide immigration sponsorship."]:
+            self.assertTrue(filters.sponsorship_no(text)[0], text)
+        # Not a no: a question, an offer, or an export-license sentence.
+        for text in ["Will you now or in the future require visa sponsorship?", "We offer visa sponsorship for strong candidates.",
+                     "Access is conditioned on authorization to receive controlled software without sponsorship for an export license."]:
+            self.assertFalse(filters.sponsorship_no(text)[0], text)
+
+    def test_jd_no_overrides_uscis_likely(self):
+        job = make_job("Must be authorized to work in the United States without the need for visa sponsorship.")
+        record, _ = fetch.tag(job, SETTINGS, scoring.build_matchers(SETTINGS["skills"]), True)
+        self.assertEqual(record["sponsorship"], "no")
+        record, _ = fetch.tag(make_job("Great analyst role."), SETTINGS, scoring.build_matchers(SETTINGS["skills"]), True)
+        self.assertEqual(record["sponsorship"], "likely")
+
     def test_eligible_to_obtain_clearance(self):
         is_no, _, _ = filters.sponsorship_no(
             "- Eligible to obtain and maintain an active US Top Secret security clearance")
