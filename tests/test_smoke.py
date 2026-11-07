@@ -501,6 +501,19 @@ class FilterTests(unittest.TestCase):
                      "financial analysis strongly preferred."]:
             self.assertIsNone(filters.min_years_required(text), text)
 
+    def test_additional_qualifications_is_a_preferred_section(self):
+        # Harvard HILS: "Basic" stays required; "Additional Qualifications and Skills" is preferred.
+        harvard = ("Basic Qualifications:\n\n- Minimum of two years post-secondary education or relevant work experience.\n\n"
+                   "Additional Qualifications and Skills:\n\n- Bachelor's degree preferred.\n\n"
+                   "- 5+ years' experience in defining requirements for desktop, mobile, or web-based software "
+                   "applications and relational databases preferred.\n\nCertificates and Licenses:\n\n- Completion of courses preferred.")
+        self.assertEqual(filters.min_years_required(harvard), 2)
+        self.assertEqual(filters.min_years_preferred(harvard), 5)
+        # A bare 5-year figure under Additional Qualifications is preferred; under Basic it is required.
+        self.assertIsNone(filters.min_years_required("Additional Qualifications\n- 5+ years of SQL experience"))
+        self.assertEqual(filters.min_years_required("Basic Qualifications\n- 5+ years of SQL experience"), 5)
+        self.assertIsNone(filters.min_years_required("Additional Qualifications:\n- 4 years in analytics"))
+
     def test_preferred_years_in_a_preferred_section_and_with_several_figures(self):
         # University of Chicago: the required 2-5 stays, the strongly preferred 3 does not count.
         uchicago = ("Minimum Qualifications\n\nWork Experience:\n2-5 years of work experience in a related job discipline.\n\n"

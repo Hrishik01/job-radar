@@ -53,7 +53,10 @@ _REQUIRED_HEAD = re.compile(
     r"skills(?: and| &) (?:experience|qualifications))\b",
     re.IGNORECASE,
 )
-_PREFERRED_HEAD = re.compile(r"\b(preferred|nice to have|bonus|plus|stand out|desired)\b", re.IGNORECASE)
+# "Additional Qualifications (and Skills)" lists extras beyond the basic requirements.
+_PREFERRED_HEAD = re.compile(
+    r"\b(preferred|nice to have|bonus|plus|stand out|desired)\b|^additional\s+(?:qualifications|skills|requirements)\b",
+    re.IGNORECASE)
 _OTHER_HEAD = re.compile(
     r"^(?:responsibilities|what you(?:'|’)ll do|about (?:us|the (?:role|team|company|job))|benefits|perks|"
     r"what we offer|compensation|pay|salary|equal (?:employment )?opportunity|our values|why join|"

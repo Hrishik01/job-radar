@@ -47236,10 +47236,10 @@
     "R"
    ],
    "us_uncertain": false,
-   "min_years": 1,
+   "min_years": null,
    "band": "target",
    "band_reasons": [
-    "1 years required"
+    "no years stated"
    ],
    "cap_exempt": "confirmed",
    "people": {
@@ -47256,7 +47256,7 @@
     "peer": "Data Scientist",
     "alumni": "Northeastern"
    },
-   "min_years_preferred": null,
+   "min_years_preferred": 1,
    "first_seen_utc": "2026-11-05T18:36:27+00:00",
    "last_seen_utc": "2026-11-07T19:29:43+00:00",
    "backfill": true,
@@ -47297,10 +47297,10 @@
    "match_pct": 0,
    "matched_skills": [],
    "us_uncertain": false,
-   "min_years": 5,
-   "band": "stretch",
+   "min_years": 2,
+   "band": "target",
    "band_reasons": [
-    "5 years required"
+    "2 years required"
    ],
    "cap_exempt": "confirmed",
    "people": {

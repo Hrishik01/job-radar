@@ -166,7 +166,8 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   experience bullets (a degree bullet with a figure, plus an "equivalent combination of
   education and experience" line) are alternatives: the lowest counts. A heading with a
   parenthetical note ("Desired Qualifications (We're committed...)") still ends the
-  required section.
+  required section. "Additional Qualifications (and Skills)" is a preferred section, like
+  "Preferred" or "Desired Qualifications"; "Basic Qualifications" stays required.
 - **Bands** (`filters.experience_band`, patterns in `settings.json` → `bands`):
   every kept job is `stretch` when its minimum required years is 3 or its
   title has a II/III level (case-sensitive), else `target` (0-2 years or none
