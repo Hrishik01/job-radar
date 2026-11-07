@@ -158,8 +158,11 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   alternatives joined by "or" ("5 years, or 2 years with a Master's") it is the
   lowest option the candidate meets (doctorate options don't count). A bullet
   opening with "or" continues the one before it. "and/or" is not an alternative.
-  A preferred word ("preferred", "strongly preferred", "ideally", "a plus") anywhere in a
-  bullet that has one figure makes that figure preferred, not required. Degree-versus-
+  A preferred word makes a figure preferred only when it applies to the years themselves:
+  just before ("Ideally 5+ years"), just after in the same clause ("3+ years preferred"),
+  or ending a one-figure bullet as "strongly/highly preferred", "is preferred" or "a plus".
+  Domain hedges ("ideally on data", "(fintech or lending preferred)") leave the years required.
+  Degree-versus-
   experience bullets (a degree bullet with a figure, plus an "equivalent combination of
   education and experience" line) are alternatives: the lowest counts. A heading with a
   parenthetical note ("Desired Qualifications (We're committed...)") still ends the
