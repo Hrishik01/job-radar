@@ -134,37 +134,155 @@
   "staffing_companies": ["Saxon Global", "Tech Tammina", "my3tech", "Raasinfotek", "TestingXperts", "SynergisticIT", "Srivensystems"],
 
   "skills": [
-    {"name": "SQL", "aliases": ["SQL", "CTEs", "window functions", "query tuning"]},
-    {"name": "Python", "aliases": ["Python", "pandas", "scikit-learn", "sklearn", "Snowpark"]},
+    {"name": "SQL", "aliases": ["SQL", "CTE", "CTEs", "window functions", "query tuning"]},
+    {"name": "Python", "aliases": ["Python", "pandas", "scikit-learn", "sklearn", "XGBoost", "CatBoost", "Snowpark"]},
     {"name": "R", "special": "r_language"},
     {"name": "Excel", "aliases": ["Excel", "advanced Excel", "Advanced Excel", "VBA", "macros", "Macros"], "case_sensitive": true},
+    {"name": "Alteryx", "aliases": ["Alteryx"]},
     {"name": "Power BI", "aliases": ["Power BI", "PowerBI"]},
     {"name": "Tableau", "aliases": ["Tableau"]},
+    {"name": "Looker", "aliases": ["Looker", "LookML"]},
     {"name": "Snowflake", "aliases": ["Snowflake"]},
+    {"name": "dbt", "aliases": ["dbt", "data build tool"]},
+    {"name": "MetricFlow", "aliases": ["MetricFlow"]},
+    {"name": "DuckDB", "aliases": ["DuckDB"]},
     {"name": "Airflow", "aliases": ["Airflow"]},
     {"name": "Docker", "aliases": ["Docker"]},
     {"name": "MLflow", "aliases": ["MLflow"]},
     {"name": "AWS", "aliases": ["AWS", "Amazon Web Services"]},
     {"name": "PostgreSQL", "aliases": ["PostgreSQL", "Postgres"]},
     {"name": "MySQL", "aliases": ["MySQL"]},
+    {"name": "Prompt engineering", "aliases": ["prompt engineering"]},
+    {"name": "Claude API", "aliases": ["Claude API", "Anthropic API"]},
+    {"name": "LLM", "aliases": ["LLM", "LLMs", "large language model", "large language models"]},
     {"name": "Salesforce", "aliases": ["Salesforce", "SFDC"]},
     {"name": "SAP", "aliases": ["SAP"], "case_sensitive": true},
     {"name": "Jira", "aliases": ["Jira"]},
     {"name": "Git", "aliases": ["Git"]},
     {"name": "PowerPoint", "aliases": ["PowerPoint"]},
+    {"name": "Google Sheets", "aliases": ["Google Sheets"]},
+    {"name": "Confluence", "aliases": ["Confluence"]},
     {"name": "KPI definition", "aliases": ["KPI", "KPIs", "key performance indicators"]},
-    {"name": "Governance", "aliases": ["governance"]},
+    {"name": "Data governance", "aliases": ["data governance"]},
     {"name": "Territory planning", "aliases": ["territory planning"]},
     {"name": "Quota planning", "aliases": ["quota planning"]},
     {"name": "Segmentation", "aliases": ["segmentation"]},
     {"name": "Forecasting", "aliases": ["forecasting", "forecast", "forecasts"]},
     {"name": "Root cause analysis", "aliases": ["root cause analysis", "root-cause analysis"]},
+    {"name": "Data quality", "aliases": ["data quality"]},
+    {"name": "Data validation", "aliases": ["data validation"]},
     {"name": "Process documentation", "aliases": ["process documentation"]},
     {"name": "SOPs", "aliases": ["SOPs", "SOP", "standard operating procedures"]},
+    {"name": "A/B test", "aliases": ["A/B test", "A/B tests", "A/B testing", "AB testing"]},
+    {"name": "Cohort analysis", "aliases": ["cohort analysis", "cohort analyses"]},
     {"name": "Qualitative research", "aliases": ["qualitative research", "in-depth interviews", "IDIs", "thematic coding"]},
     {"name": "Market sizing", "aliases": ["market sizing"]},
     {"name": "Peer benchmarking", "aliases": ["peer benchmarking"]}
   ],
+  "_skills_note": "Never add DAX or causal inference (gaps, see gap_skills). Spark, Kafka and ODBC stay out on purpose.",
+
+  "gap_skills": {
+    "_note": "Skills I don't have. Named in a job's required section: a 'Gap' chip and gap_penalty points off match %, floor 0. Named only in a preferred section: the chip, no penalty. Regexes; case-insensitive unless the key is in gap_case_sensitive.",
+    "PySpark": "\\bPySpark\\b",
+    "Gainsight": "\\bGainsight\\b",
+    "REDCap": "\\bREDCap\\b",
+    "DAX": "\\bDAX\\b",
+    "Celonis": "\\bCelonis\\b",
+    "UiPath": "\\bUiPath\\b",
+    "SimPy": "\\bSimPy\\b",
+    "ARIMA": "\\bS?ARIMAX?\\b",
+    "Prophet": "\\bProphet\\b",
+    "causal inference": "\\bcausal inference\\b",
+    "diff-in-diff": "\\bdiff(?:erence)?-in-diff(?:erence)?s?\\b",
+    "propensity scoring": "\\bpropensity scor(?:e|es|ing)\\b|\\bpropensity[- ]score matching\\b",
+    "marketing mix modeling": "\\b(?:marketing|media) mix model(?:l?ing|s)?\\b",
+    "multi-touch attribution": "\\bmulti-?touch attribution\\b",
+    "Salesforce Administrator certification": "\\bSalesforce (?:Certified )?Admin(?:istrator)?\\b[^.\\n]{0,40}\\bcertif|\\bcertified Salesforce Admin(?:istrator)?\\b"
+  },
+  "gap_case_sensitive": ["DAX", "Prophet", "ARIMA"],
+  "gap_penalty": 15,
+
+  "mismatch": {
+    "_note": "Role-type mismatch: a job is tagged with a type when its title matches one of the type's 'title' patterns, or its requirements (the required section; the whole description when it has no section headings) match at least min_hits different 'requirements' patterns. Case-insensitive; (?-i:...) marks a case-sensitive part. Every hit is logged to data/cache/logs/mismatch.log.",
+    "accounting": {
+      "min_hits": 2,
+      "title": [
+        "\\baccountant\\b",
+        "\\bbookkeep"
+      ],
+      "requirements": [
+        "\\bGAAP\\b",
+        "(?-i:\\bCPA\\b)",
+        "\\bjournal entr(?:y|ies)\\b",
+        "\\bmonth[- ]end close\\b",
+        "(?-i:\\bAR/AP\\b)|\\baccounts (?:payable|receivable)\\b",
+        "\\b(?:degree|bachelor'?s|B\\.?S\\.?|B\\.?A\\.?)\\b[^.\\n]{0,25}\\baccounting\\b|\\baccounting degree\\b"
+      ]
+    },
+    "software engineering": {
+      "min_hits": 2,
+      "title": [
+        "\\bsoftware (?:engineer|developer)\\b"
+      ],
+      "requirements": [
+        "\\bJava\\b|\\bC\\+\\+",
+        "\\bback-?end services?\\b",
+        "\\bmicro-?services?\\b",
+        "\\b(?:as|work as) an? software engineer\\b"
+      ]
+    },
+    "clinical": {
+      "min_hits": 1,
+      "title": [
+        "\\bnurse\\b",
+        "(?-i:\\bRN\\b)"
+      ],
+      "requirements": [
+        "(?-i:\\bRN\\b)[^.\\n]{0,20}\\blicen[cs]",
+        "\\b(?:active|current|valid|unrestricted) (?-i:RN)\\b",
+        "\\blicensed (?:as an? )?(?:(?-i:RN)|registered nurse)\\b",
+        "\\bregistered nurse[^.\\n]{0,20}\\blicen[cs]",
+        "\\bnursing licen[cs]e\\b",
+        "\\bclinical licensure\\b",
+        "\\blicensed (?:practical|vocational) nurse\\b"
+      ]
+    },
+    "research faculty": {
+      "min_hits": 1,
+      "title": [
+        "\\bprofessor\\b",
+        "\\bfaculty\\b",
+        "\\bpost-?doc"
+      ],
+      "requirements": [
+        "\\b(?:assistant|associate|full|research|visiting|adjunct|clinical) professor\\b",
+        "\\bPh\\.?D\\.?\\b[^.\\n]{0,30}\\brequired\\b|\\brequires? an? Ph\\.?D\\b|\\bmust (?:have|hold) an? Ph\\.?D\\b",
+        "\\btenure[- ]track\\b"
+      ]
+    },
+    "quota-carrying sales": {
+      "min_hits": 1,
+      "title": [
+        "(?-i:\\b(?:SDR|BDR)\\b)",
+        "\\baccount executive\\b",
+        "\\b(?:sales|business) development rep"
+      ],
+      "requirements": [
+        "\\bquota[- ]carrying\\b|\\bcarr(?:y|ies|ying) an? (?:sales )?quota\\b",
+        "\\b(?:experience|years?) as an? (?:SDR|BDR|account executive)\\b"
+      ]
+    }
+  },
+  "focus_functions": {
+    "_note": "Titles that Best fit ranks above other roles with the same match % (revenue, sales and commercial operations, BI).",
+    "patterns": [
+      "\\brevenue operations\\b|\\brev ?ops\\b",
+      "\\bsales operations\\b|\\bsales ops\\b",
+      "\\bcommercial operations\\b",
+      "\\bbusiness intelligence\\b|(?-i:\\bBI\\b)"
+    ]
+  },
+
   "match_cap": 10,
 
   "locations": {

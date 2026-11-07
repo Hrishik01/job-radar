@@ -15,8 +15,8 @@ notice flag and a skills match percentage. Output is one file: `data/jobs.json`.
   per-host delay, retries with backoff and caches responses in `data/cache/`.
 - **No secrets, API keys or personal details in the repo**, including this file.
 - **Ask before installing packages.** Dependencies are the stdlib plus `requests`.
-- The skills matcher must never include dbt, DAX, Looker/LookML, A/B testing
-  or causal inference.
+- The skills matcher must never include DAX or causal inference (both are
+  gap flags instead). Spark, Kafka and ODBC also stay out of the skills list.
 
 ## Layout
 
@@ -94,6 +94,8 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   and whether it was tagged `no`, for checking precision.
 - `data/cache/logs/staffing.log`: every company with active jobs flagged
   `staffing`, with each job's matched phrase.
+- `data/cache/logs/mismatch.log`: every active job tagged with a role-type
+  mismatch, with the phrases that triggered it.
 
 ## Conventions
 
@@ -148,7 +150,7 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   background text) lives only in the browser's `localStorage` under
   `jobradar.v1`. Export/Import JSON is the backup. Never commit an export.
   Application numbers start at 1 and are never reused. Won't-sponsor, PERM,
-  staffing, stretch and older postings are hidden by default behind five toggles that show counts.
+  staffing, mismatched, stretch and older postings are hidden by default behind six toggles that show counts.
 - **Freshness** (in `app.js`) is measured from the posted date, or first-seen when
   a job has none; a backfill job with no posted date counts as older. Under 24h
   gets the ink "Fresh" badge and the Fresh only chip; only the last 7 days show
@@ -194,6 +196,19 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   Cap-exempt jobs also keep `cap_exempt_titles` (research/clinical data
   analyst, data coordinator), and their Workday/SmartRecruiters boards also
   search `cap_exempt_search_terms`. Badge and chip are neutral, never green.
+- **Match %** is skill overlap with `skills` in `settings.json` (my
+  experience pool; whole words, "R" only in language forms), then minus
+  `gap_penalty` (15) per `gap_skills` entry named in the job's required section,
+  floor 0. `match_raw` keeps the score before penalties. Required means the
+  required section (the whole description outside preferred sections when
+  there are no headings), the same split as the years rule; preferred-only
+  gaps show a "Gap" chip with no penalty, and mentions elsewhere are ignored.
+- **Role-type mismatch** (`mismatch` in `settings.json`, `filters.role_mismatch`):
+  a type applies on a title pattern, or on `min_hits` different requirement
+  patterns. Patterns need clear wording: "support the ARNP/RN" isn't nursing,
+  a Java/C++ language list isn't software engineering (the languages count
+  as one signal), and "partner with account executives" isn't sales.
+  Hidden by default behind "Show mismatched roles"; logged to `mismatch.log`.
 - **Find people:** each card links to LinkedIn and Google (`site:linkedin.com/in`)
   searches for the hiring manager, a recruiter, a peer and Northeastern
   alumni. Keywords come from `filters.people_search` and `people_search` in
@@ -202,7 +217,9 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   `BestFitTests`): jobs matching 30%+ (`FIT_MIN_MATCH`) come before all
   others. Within each group Target band comes first; cap-exempt (confirmed,
   then possible) and sponsorship likely boost only the 30%+ group; then
-  match %, then Newest. Saved prefs without `sortV` switch to it once.
+  match %, then focus functions (`focus_functions`: revenue/sales/commercial
+  operations, BI titles) ahead of other roles with the same match %, then
+  Newest. Saved prefs without `sortV` switch to it once.
 - **Shortlist:** `state.shortlist` (`{id: {added, sent}}`) in `jobradar.v1`,
   included in Export/Import. "Export to career-ops" downloads `shortlist.json`
   (`app: "job-radar"`, `kind: "career-ops-shortlist"`) with the unsent jobs

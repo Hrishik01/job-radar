@@ -233,6 +233,9 @@ main.wrap { border-top: 2px solid var(--ink); }
 .tag.no { color: var(--warn); border-color: var(--warn); }
 .tag.perm { color: var(--warn); border-color: var(--warn); }
 .tag.staffing { color: var(--warn); border-color: var(--warn); }
+.tag.mismatch { color: var(--warn); border-color: var(--warn); }
+.tag.gap { color: var(--muted); border-color: var(--muted); }
+.tag.gap.soft { border-style: dashed; }
 .co-badge.soft { border-style: dashed; opacity: .85; }
 .people-menu { position: relative; display: inline-block; }
 .people-menu > summary { list-style: none; }

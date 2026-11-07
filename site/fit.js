@@ -13,7 +13,9 @@ const capRank = (job) => ({ confirmed: 2, possible: 1 }[capTier(job)] || 0);
 
 // 30%+ matches first. Within each group: Target band first; then, for 30%+
 // jobs only, confirmed cap-exempt, possible cap-exempt, H-1B likely; then
-// match %, then the `newest` tie-break app.js passes in.
+// match %; then revenue/sales/commercial operations and BI roles
+// (focus_function, from settings.json focus_functions) ahead of other roles
+// with the same match %; then the `newest` tie-break app.js passes in.
 function fitCompare(a, b, newest) {
   const strong = (j) => (j.match_pct || 0) >= FIT_MIN_MATCH;
   return strong(b) - strong(a) ||
@@ -21,6 +23,7 @@ function fitCompare(a, b, newest) {
     (strong(a) && (capRank(b) - capRank(a) ||
       (b.sponsorship === "likely") - (a.sponsorship === "likely"))) ||
     (b.match_pct || 0) - (a.match_pct || 0) ||
+    Boolean(b.focus_function) - Boolean(a.focus_function) ||
     newest(a, b);
 }
 

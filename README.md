@@ -53,7 +53,14 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
   The Cap-exempt chip shows both, and cap-exempt jobs also keep research and
   clinical data titles. **Best fit**, the default sort, puts jobs matching
   30% or more first; among those, Target first, then confirmed, then possible
-  cap-exempt, then H-1B likely, then match %. Jobs under 30% follow.
+  cap-exempt, then H-1B likely, then match %, with revenue/sales/commercial
+  operations and BI roles first among equal matches. Jobs under 30% follow.
+- **Match %** counts skills from my experience pool, minus 15 points for
+  each skill I don't have that a job requires (shown as a "Gap" chip; a
+  preferred-only gap shows the chip without the penalty). Roles that clearly
+  belong to another field (accounting, software engineering, clinical,
+  research faculty, quota-carrying sales) get a "Mismatch" tag and are
+  hidden by default.
 - **Find people** on each card opens LinkedIn or Google searches for the
   hiring manager, a recruiter, a peer and Northeastern alumni at that
   company. They're plain links; the app never fetches either site.

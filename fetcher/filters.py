@@ -279,6 +279,67 @@ def experience_passes(years: int | None, settings: dict) -> bool:
     return years is None or years <= settings["max_years_required"]
 
 
+# ================================================================ fit: gaps, mismatch, focus
+
+def _requirements_text(description: str) -> str:
+    """The required section, or, when the posting has no section headings,
+    everything outside a preferred section (same fallback as the years rule)."""
+    return _section_text(description, "required") or _section_text(description, "not_preferred")
+
+
+def skill_gaps(description: str, settings: dict) -> tuple[list[str], list[str]]:
+    """(required gaps, preferred-only gaps): gap_skills named in the required
+    section, and those named only under a preferred heading. Mentions in other
+    sections (company blurb, benefits) don't count."""
+    required_text = _requirements_text(description)
+    preferred_text = _section_text(description, "preferred")
+    case_sensitive = set(settings.get("gap_case_sensitive", []))
+    required, preferred = [], []
+    for name, pattern in settings["gap_skills"].items():
+        if name.startswith("_"):
+            continue
+        rx = re.compile(pattern, 0 if name in case_sensitive else re.IGNORECASE)
+        if rx.search(required_text):
+            required.append(name)
+        elif rx.search(preferred_text):
+            preferred.append(name)
+    return required, preferred
+
+
+def gap_adjusted_match(match_pct: int, required_gaps: list[str], settings: dict) -> int:
+    """Match % minus gap_penalty per required gap, never below 0."""
+    return max(0, match_pct - settings["gap_penalty"] * len(required_gaps))
+
+
+def _snippet(text: str, m: re.Match) -> str:
+    return " ".join(text[max(0, m.start() - 40):m.end() + 40].split())
+
+
+def role_mismatch(title: str, description: str, settings: dict) -> list[dict]:
+    """[{"type", "phrase", "where", "context"}] for each mismatch type that
+    applies: a title pattern, or min_hits different requirement patterns.
+    Empty when the job is in my field."""
+    requirements = _requirements_text(description)
+    found = []
+    for kind, cfg in settings["mismatch"].items():
+        if kind.startswith("_"):
+            continue
+        title_hits = [m for p in cfg["title"] if (m := re.search(p, title, re.IGNORECASE))]
+        req_hits = [m for p in cfg["requirements"] if (m := re.search(p, requirements, re.IGNORECASE))]
+        if title_hits:
+            found += [{"type": kind, "phrase": m.group(0), "where": "title", "context": title} for m in title_hits]
+        elif len(req_hits) >= cfg["min_hits"]:
+            found += [{"type": kind, "phrase": m.group(0), "where": "requirements", "context": _snippet(requirements, m)}
+                      for m in req_hits]
+    return found
+
+
+def focus_function(title: str, settings: dict) -> bool:
+    """Revenue/sales/commercial operations or BI in the title: Best fit ranks
+    these above other roles with the same match %."""
+    return any(re.search(p, title, re.IGNORECASE) for p in settings["focus_functions"]["patterns"])
+
+
 _TITLE_TAIL = re.compile(r"\s*(?:\(.*?\)|\[.*?\]|\s[-–—|,:]\s.*|,.*|\s#?\b[A-Z]{0,4}-?\d{4,}\b.*)$")
 
 

@@ -158,7 +158,10 @@ def tag(job: Job, settings: dict, matchers, sponsor_likely: bool, naics_sector: 
 
     perm, markers = filters.perm_markers(job)
     staffing = filters.staffing_reasons(job.description, naics_sector, settings, job.company)
-    match_pct, matched = scoring.score(job.description, matchers, settings["match_cap"])
+    match_raw, matched = scoring.score(job.description, matchers, settings["match_cap"])
+    # Skills I don't have: required ones cost gap_penalty points each
+    gaps_required, gaps_preferred = filters.skill_gaps(job.description, settings)
+    mismatch = filters.role_mismatch(job.title, job.description, settings)
 
     record = job.to_dict()
     record.update({
@@ -175,10 +178,27 @@ def tag(job: Job, settings: dict, matchers, sponsor_likely: bool, naics_sector: 
         "perm_markers": markers,
         "staffing": bool(staffing),
         "staffing_reasons": staffing,
-        "match_pct": match_pct,
+        "match_pct": filters.gap_adjusted_match(match_raw, gaps_required, settings),
+        "match_raw": match_raw,  # before gap penalties
         "matched_skills": matched,
+        "gaps_required": gaps_required,
+        "gaps_preferred": gaps_preferred,
+        # Types like "accounting" (hidden by default); evidence goes to mismatch.log
+        "mismatch": sorted({m["type"] for m in mismatch}),
+        "mismatch_evidence": [f"{m['type']}: {m['phrase']} ({m['where']})" for m in mismatch],
+        # Revenue/sales/commercial ops or BI: ranks first among equal match % in Best fit
+        "focus_function": filters.focus_function(job.title, settings),
     })
     return record, tier2
+
+
+def mismatch_log(jobs: list[dict]) -> list[str]:
+    """One line per active mismatched job with each matched phrase, for
+    checking the mismatch rules by hand."""
+    lines = []
+    for j in sorted((j for j in jobs if j["active"] and j.get("mismatch")), key=lambda j: (j["mismatch"], j["company"])):
+        lines.append(f"{', '.join(j['mismatch']):<22} | {j['company']} | {j['title']} | {' || '.join(j['mismatch_evidence'])}")
+    return lines
 
 
 def main() -> int:
@@ -414,6 +434,9 @@ def main() -> int:
     (LOG_DIR / "company_list_near_misses.log").write_text("\n".join(list_near_misses) + "\n", "utf-8")
     staffing_lines = staffing_log(jobs, settings)
     (LOG_DIR / "staffing.log").write_text("\n".join(staffing_lines) + "\n", "utf-8")
+    mismatch_lines = mismatch_log(jobs)
+    (LOG_DIR / "mismatch.log").write_text("\n".join(mismatch_lines) + "\n", "utf-8")
+    log.info("Role-type mismatches: %d jobs -> data/cache/logs/mismatch.log", len(mismatch_lines))
 
     log.info("\nBoards ok %d, failed %d | listed %d | kept %d (%d new) | dropped: title %d, years %d, non-US %d",
              run["boards_ok"], run["boards_failed"], run["listed"], run["kept"], run["new"],

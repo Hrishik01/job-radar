@@ -21,7 +21,7 @@ function defaultState() {
     shortlist: {},     // job id -> {added: ISO time, sent: ISO time | null} (career-ops export)
     prefs: {
       tab: "new", theme: "system", sort: "fit", sortV: 1, loc: "all",
-      modes: MODES.slice(), showNo: false, showPerm: false, showStaffing: false, showStretch: false,
+      modes: MODES.slice(), showNo: false, showPerm: false, showStaffing: false, showStretch: false, showMismatch: false,
       showOlder: false, freshOnly: false, bigCo: false, capExempt: false,
       spons: "any", salary: 0, match: 0, background: "",
     },
@@ -127,6 +127,16 @@ const isBigCo = (job) => Boolean(job.fortune500 || job.unicorn);
 const isCapExempt = (job) => capRank(job) > 0;
 // Experience band from the fetcher: "target" (0-2 years, none stated) or "stretch"
 const isStretch = (job) => job.band === "stretch";
+// Role-type mismatch from the fetcher ("accounting", "research faculty"...)
+const isMismatch = (job) => (job.mismatch || []).length > 0;
+
+// "Gap: DAX": skills I don't have. Required ones already cost match points.
+function gapTags(job) {
+  const tag = (skill, required) => `<span class="tag gap${required ? "" : " soft"}" title="${required
+    ? "Named in the required section: match % lowered" : "Named only as preferred: no effect on match %"}">Gap: ${esc(skill)}</span>`;
+  return (job.gaps_required || []).map((s) => tag(s, true)).join("") +
+    (job.gaps_preferred || []).map((s) => tag(s, false)).join("");
+}
 
 function companyBadges(job) {
   return (job.fortune500 ? `<span class="co-badge" title="On the Fortune 500 list">Fortune 500</span>` : "") +
@@ -350,6 +360,7 @@ function filterNew() {
     no: pool.filter((j) => j.sponsorship === "no").length,
     perm: pool.filter((j) => j.perm_likely).length,
     staffing: pool.filter((j) => j.staffing).length,
+    mismatch: pool.filter(isMismatch).length,
     stretch: pool.filter(isStretch).length,
     older: pool.filter(isOlder).length,
   };
@@ -363,6 +374,7 @@ function filterNew() {
     (p.showNo || j.sponsorship !== "no") &&
     (p.showPerm || !j.perm_likely) &&
     (p.showStaffing || !j.staffing) &&
+    (p.showMismatch || !isMismatch(j)) &&
     (p.showStretch || !isStretch(j)) &&
     (p.showOlder || !isOlder(j)) &&
     matchesSearch(j, terms) &&
@@ -462,6 +474,8 @@ function jobRow(job, tab) {
       ${listed?.sent ? `<span class="tag" title="Exported to career-ops ${esc(new Date(listed.sent).toLocaleString())}">Sent ${esc(shortDate(listed.sent.slice(0, 10)))}</span>` : ""}
       ${job.perm_likely ? `<span class="tag perm" title="${esc((job.perm_markers || []).join(", "))}">PERM notice</span>` : ""}
       ${job.staffing ? `<span class="tag staffing" title="${esc((job.staffing_reasons || []).join(" | "))}">Staffing</span>` : ""}
+      ${(job.mismatch || []).map((t) => `<span class="tag mismatch" title="${esc((job.mismatch_evidence || []).join(" | "))}">Mismatch: ${esc(t)}</span>`).join("")}
+      ${gapTags(job)}
       ${opened ? `<span class="tag opened">Opened</span>` : ""}
     </div>
   </article>`;
@@ -534,6 +548,7 @@ function render() {
     $("#count-no").textContent = `(${counts.no})`;
     $("#count-perm").textContent = `(${counts.perm})`;
     $("#count-staffing").textContent = `(${counts.staffing})`;
+    $("#count-mismatch").textContent = `(${counts.mismatch})`;
     $("#count-stretch").textContent = `(${counts.stretch})`;
     $("#count-older").textContent = `(${counts.older})`;
     $('[data-count="bigco"]').textContent = counts.bigCo;
@@ -543,6 +558,7 @@ function render() {
     if (!p.showNo && counts.no) hidden.push(`${counts.no} won't-sponsor`);
     if (!p.showPerm && counts.perm) hidden.push(`${counts.perm} PERM`);
     if (!p.showStaffing && counts.staffing) hidden.push(`${counts.staffing} staffing`);
+    if (!p.showMismatch && counts.mismatch) hidden.push(`${counts.mismatch} mismatched`);
     if (!p.showStretch && counts.stretch) hidden.push(`${counts.stretch} stretch`);
     if (!p.showOlder && counts.older) hidden.push(`${counts.older} posted over ${RECENT_DAYS} days ago`);
     line = `Showing ${rows.length} of ${counts.pool}` + (hidden.length ? ` · hidden: ${hidden.join(", ")}` : "");
@@ -641,11 +657,12 @@ function renderKpis() {
   spark("spark-spons", all.map((n, i) => (last = n ? lik[i] / n : last)));
 
   // Same basis as the Boston area chip with no other filters: jobs in New,
-  // minus won't-sponsor, PERM, staffing and older jobs unless their toggles are on
+  // minus won't-sponsor, PERM, staffing, mismatched, stretch and older jobs unless their toggles are on
   const p = state.prefs;
   const boston = newPool().filter((j) => j.location_group === "Boston area" &&
     (p.showNo || j.sponsorship !== "no") && (p.showPerm || !j.perm_likely) &&
-    (p.showStaffing || !j.staffing) && (p.showStretch || !isStretch(j)) && (p.showOlder || !isOlder(j)));
+    (p.showStaffing || !j.staffing) && (p.showMismatch || !isMismatch(j)) &&
+    (p.showStretch || !isStretch(j)) && (p.showOlder || !isOlder(j)));
   $("#kpi-boston").textContent = boston.length;
   spark("spark-boston", dailyCounts(seen(fresh.filter((j) => j.location_group === "Boston area"))));
 
@@ -927,6 +944,7 @@ function applyPrefsToControls() {
   $("#show-no").checked = p.showNo;
   $("#show-perm").checked = p.showPerm;
   $("#show-staffing").checked = p.showStaffing;
+  $("#show-mismatch").checked = p.showMismatch;
   $("#show-stretch").checked = p.showStretch;
   $("#show-older").checked = p.showOlder;
   $("#fresh-only").setAttribute("aria-pressed", String(p.freshOnly));
@@ -966,6 +984,7 @@ function wireControls() {
   $("#show-no").addEventListener("change", (e) => setPref("showNo", e.target.checked));
   $("#show-perm").addEventListener("change", (e) => setPref("showPerm", e.target.checked));
   $("#show-staffing").addEventListener("change", (e) => setPref("showStaffing", e.target.checked));
+  $("#show-mismatch").addEventListener("change", (e) => setPref("showMismatch", e.target.checked));
   $("#show-stretch").addEventListener("change", (e) => setPref("showStretch", e.target.checked));
   $("#show-older").addEventListener("change", (e) => setPref("showOlder", e.target.checked));
   for (const [id, key] of [["#fresh-only", "freshOnly"], ["#big-co", "bigCo"], ["#cap-exempt", "capExempt"]]) {

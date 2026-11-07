@@ -102,16 +102,28 @@ class SkillMatchTests(unittest.TestCase):
         self.assertIn("Excel", self.matched("Advanced Excel and VBA."))
 
     def test_excluded_skills_never_score(self):
-        matched = self.matched("dbt, DAX, Looker, LookML, A/B testing, causal inference, Celonis and SimPy.")
+        # DAX and causal inference are gaps, never skills; Spark, Kafka, ODBC are left out on purpose
+        matched = self.matched("DAX, causal inference, Spark, Kafka, ODBC, Celonis and SimPy.")
         self.assertEqual(matched, [])
         names = {s["name"].lower() for s in SETTINGS["skills"]}
-        for banned in ["dbt", "dax", "looker", "lookml", "a/b testing", "causal inference", "celonis", "simpy"]:
+        for banned in ["dax", "causal inference", "spark", "kafka", "odbc"]:
             self.assertNotIn(banned, names)
+        self.assertNotIn("PySpark", self.matched("PySpark pipelines"))
+
+    def test_experience_pool_skills(self):
+        text = ("dbt and MetricFlow models in DuckDB, Looker dashboards, A/B testing and cohort analysis, "
+                "Alteryx workflows, XGBoost in Python, prompt engineering with the Claude API and LLMs, "
+                "Google Sheets, Confluence, data quality and data validation checks, data governance.")
+        for skill in ["dbt", "MetricFlow", "DuckDB", "Looker", "A/B test", "Cohort analysis", "Alteryx", "Python",
+                      "Prompt engineering", "Claude API", "LLM", "Google Sheets", "Confluence", "Data quality",
+                      "Data validation", "Data governance"]:
+            self.assertIn(skill, self.matched(text), skill)
+        self.assertNotIn("Data governance", self.matched("Corporate governance and board reporting."))
 
     def test_new_skills_and_aliases(self):
         text = ("Run in-depth interviews and thematic coding, build market sizing and peer benchmarking, "
                 "own data governance, write SOPs and automate Excel macros.")
-        for skill in ["Qualitative research", "Market sizing", "Peer benchmarking", "Governance", "SOPs", "Excel"]:
+        for skill in ["Qualitative research", "Market sizing", "Peer benchmarking", "Data governance", "SOPs", "Excel"]:
             self.assertIn(skill, self.matched(text), skill)
 
     def test_requirements_section_weighs_more(self):
@@ -249,6 +261,63 @@ class CapExemptTests(unittest.TestCase):
         self.assertNotIn("data coordinator", SETTINGS["workday_search_terms"])  # original untouched
 
 
+class FitSignalTests(unittest.TestCase):
+    """Gap flags, role-type mismatch and the function boost (filters.py)."""
+
+    def test_required_gaps_cost_points_preferred_do_not(self):
+        text = ("Qualifications\n- SQL and Python\n- Experience with DAX and PySpark\n"
+                "Preferred Qualifications\n- Exposure to causal inference\n"
+                "About us\n- We use Gainsight internally.\n")
+        required, preferred = filters.skill_gaps(text, SETTINGS)
+        self.assertEqual(sorted(required), ["DAX", "PySpark"])
+        self.assertEqual(preferred, ["causal inference"])  # Gainsight in the blurb doesn't count
+        self.assertEqual(filters.gap_adjusted_match(60, required, SETTINGS), 30)
+        self.assertEqual(filters.gap_adjusted_match(20, required, SETTINGS), 0)  # floor 0
+        self.assertEqual(filters.gap_adjusted_match(40, [], SETTINGS), 40)
+
+    def test_gap_spellings(self):
+        text = ("Requirements\n- Difference-in-differences, propensity score matching, marketing mix modeling\n"
+                "- Multi-touch attribution and SARIMA or Prophet forecasts\n"
+                "- Salesforce Administrator certification required\n")
+        required, _ = filters.skill_gaps(text, SETTINGS)
+        for gap in ["diff-in-diff", "propensity scoring", "marketing mix modeling", "multi-touch attribution",
+                    "ARIMA", "Prophet", "Salesforce Administrator certification"]:
+            self.assertIn(gap, required, gap)
+        self.assertEqual(filters.skill_gaps("Requirements\n- Reporting in Salesforce.\n", SETTINGS), ([], []))
+
+    def mismatch(self, title, text):
+        return sorted({m["type"] for m in filters.role_mismatch(title, text, SETTINGS)})
+
+    def test_mismatch_types(self):
+        self.assertEqual(self.mismatch("Financial Analyst", "Requirements\n- CPA preferred\n- GAAP and month-end close\n"),
+                         ["accounting"])
+        self.assertEqual(self.mismatch("Analyst", "Requirements\n- Java or C++ backend services\n"),
+                         ["software engineering"])
+        self.assertEqual(self.mismatch("Clinical Data Analyst", "Requirements\n- Current RN license in Florida\n"),
+                         ["clinical"])
+        self.assertEqual(self.mismatch("Assistant Professor: Analytics", "Teach courses."), ["research faculty"])
+        self.assertEqual(self.mismatch("Business Analyst", "Requirements\n- PhD required in statistics\n"),
+                         ["research faculty"])
+        self.assertEqual(self.mismatch("Sales Development Representative - New Grad", "Book meetings."),
+                         ["quota-carrying sales"])
+
+    def test_mismatch_needs_clear_evidence(self):
+        # Seen on real postings that are in my field
+        self.assertEqual(self.mismatch("Clinical Business Operations Representative",
+                                       "Support the Physician and the ARNP/RN with scheduling."), [])
+        self.assertEqual(self.mismatch("Data Scientist", "Requirements\n- Python, R, Java or C++\n"), [])
+        self.assertEqual(self.mismatch("Revenue Operations Analyst",
+                                       "Requirements\n- Partner with account executives and SDR leaders\n"), [])
+        self.assertEqual(self.mismatch("Financial Analyst", "Requirements\n- Familiar with GAAP\n"), [])  # one hit
+
+    def test_focus_functions(self):
+        for title in ["Revenue Operations Analyst", "Sales Operations Analyst", "Commercial Operations Associate",
+                      "BI Analyst", "Business Intelligence Analyst", "RevOps Analyst"]:
+            self.assertTrue(filters.focus_function(title, SETTINGS), title)
+        for title in ["Data Analyst", "Business Analyst", "Bill Analyst"]:
+            self.assertFalse(filters.focus_function(title, SETTINGS), title)
+
+
 class BestFitTests(unittest.TestCase):
     """site/fit.js under Node: the dashboard's Best fit order."""
 
@@ -276,6 +345,12 @@ class BestFitTests(unittest.TestCase):
                 self.job("weak-plain", 25)]
         # 30%+ first, boosted by cap-exempt then H-1B; under 30% sorts after, by match only
         self.assertEqual(self.order(jobs), ["uni-30", "h1b-35", "plain-40", "weak-plain", "weak-uni"])
+
+    def test_focus_function_breaks_equal_match(self):
+        jobs = [dict(self.job("data-40", 40, posted=5)), dict(self.job("bi-40", 40, posted=1), focus_function=True),
+                dict(self.job("data-45", 45)), dict(self.job("revops-35", 35), focus_function=True)]
+        # Only among equal match %: 45% still beats the BI role at 40%
+        self.assertEqual(self.order(jobs), ["data-45", "bi-40", "data-40", "revops-35"])
 
     def test_tiers_band_and_ties(self):
         jobs = [self.job("possible", 50, cap="possible"), self.job("confirmed", 31, cap=True),
