@@ -485,15 +485,23 @@ class FilterTests(unittest.TestCase):
                 "- A degree in Economics.\n\nWays to stand out from the crowd:\n- 2+ years of SQL experience.")
         self.assertEqual(filters.min_years_required(text), 8)   # not 25 (history), not 2 (stand out)
 
-    def test_preferred_word_anywhere_in_a_bullet_makes_its_figure_preferred(self):
-        # Was "hedge in a later clause still counts"; now any preferred word in the bullet wins.
-        for text in ["- 7+ years of supply chain systems experience, ideally on data or internal tools",
-                     "- 3+ years merchant risk experience in fraud detection (fintech or lending preferred)",
-                     "- 6+ years of experience in a quantitative role (ideally within mobility)",
+    def test_years_hedge_in_a_later_clause_still_counts(self):
+        # A hedge on the domain ("ideally on data", "(fintech preferred)") never changes the years.
+        cases = {"- 7+ years of supply chain systems experience, ideally on data or internal tools": 7,
+                 "- 3+ years merchant risk experience in fraud detection (fintech or lending preferred)": 3,
+                 "- 6+ years of experience in a quantitative role (ideally within mobility)": 6,
+                 "- 5+ years of financial services experience, preferably in payments.": 5}
+        for text, years in cases.items():
+            self.assertEqual(filters.min_years_required(text), years, text)
+
+    def test_preferred_word_about_the_years_makes_the_figure_preferred(self):
+        for text in ["3+ years preferred.", "5+ years of experience preferred.", "Preferably 3 years of SQL.",
+                     "Ideally 5+ years of experience in fintech.", "2+ years of SQL experience is a plus.",
                      "- Minimum of 3 years of experience in healthcare revenue cycle management, billing, or "
-                     "financial analysis strongly preferred.",
-                     "2+ years of SQL experience is a plus.", "Ideally 5+ years of experience in fintech."]:
+                     "financial analysis strongly preferred."]:
             self.assertIsNone(filters.min_years_required(text), text)
+
+    def test_preferred_years_in_a_preferred_section_and_with_several_figures(self):
         # University of Chicago: the required 2-5 stays, the strongly preferred 3 does not count.
         uchicago = ("Minimum Qualifications\n\nWork Experience:\n2-5 years of work experience in a related job discipline.\n\n"
                     "Preferred Qualifications\n\nExperience:\n\n- Minimum of 3 years of experience in healthcare "

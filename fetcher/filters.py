@@ -113,18 +113,37 @@ def _section_text(description: str, keep: str) -> str:
     return "\n".join(lines)
 
 
+_PREF_WORD = r"(?:(?:strongly|highly)\s+)?(?:preferred|preferably|desired|ideally|a plus|nice to have|bonus)"
+_PREF_BEFORE = re.compile(rf"\b{_PREF_WORD}\b\s*:?(?:\s+\w+){{0,2}}\s*$", re.IGNORECASE)
+_PREF_AFTER = re.compile(rf"(?:\s+\w+){{0,3}}?\s+(?:(?:is|are)\s+)?{_PREF_WORD}\b", re.IGNORECASE)
+_PREF_TRAILING = re.compile(
+    r"(?:\b(?:strongly|highly)\s+preferred|\b(?:is|are)\s+(?:preferred|desired|a plus)|\ba plus|\bnice to have)\W*$",
+    re.IGNORECASE)
+
+
 def _is_preferred(sentence: str, m: re.Match, sole_figure: bool = False) -> bool:
-    """True when the figure is preferred, not required. A bullet with a single
-    figure is preferred if a preferred word ("preferred", "strongly preferred",
-    "ideally", "a plus") appears ANYWHERE in it: "Minimum of 3 years in billing,
-    or analysis, strongly preferred". When a bullet has several figures, only a
-    preferred word in the figure's own clause counts, so "5+ years required, 8+
-    years preferred" keeps the 5."""
-    if sole_figure:
-        return bool(_PREFERRED_RE.search(sentence))
-    start = max(sentence.rfind(c, 0, m.start()) for c in ".;(") + 1
-    ends = [i for i in (sentence.find(c, m.end()) for c in ",;(") if i != -1]
-    return bool(_PREFERRED_RE.search(sentence[start:min(ends, default=len(sentence))]))
+    """True when a preferred word applies to the YEARS themselves, not to the
+    domain around them. Three shapes count:
+      - just before the figure: "Ideally 5+ years", "preferably 3 years";
+      - just after it, in the same clause: "3+ years preferred", "5 years of
+        experience is a plus";
+      - at the very end of a bullet with one figure, when it is clearly about the
+        whole requirement: "Minimum of 3 years in billing, or analysis, strongly
+        preferred" ("strongly/highly preferred", "is/are preferred", "a plus",
+        "nice to have").
+    Anything in parentheses is a hedge on the content, and so is "ideally on
+    data" in a later clause: "7+ years of supply chain experience, ideally on
+    data" and "3+ years in fraud (fintech or lending preferred)" stay required.
+    With several figures in a bullet only the first two shapes apply, so "5+
+    years required, 8+ years preferred" keeps the 5."""
+    masked = re.sub(r"\([^)]*\)", lambda x: " " * len(x.group()), sentence)
+    before = masked[max(masked.rfind(c, 0, m.start()) for c in ",;.(") + 1:m.start()]
+    if _PREF_BEFORE.search(before):
+        return True
+    ends = [i for i in (masked.find(c, m.end()) for c in ",;.(") if i != -1]
+    if _PREF_AFTER.match(masked[m.end():min(ends, default=len(masked))]):
+        return True
+    return sole_figure and bool(_PREF_TRAILING.search(masked))
 
 
 # "5+ years in Sales Ops", "3 years of SQL", "2 years as an analyst": a
