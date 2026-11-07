@@ -2820,8 +2820,13 @@
     "PySpark"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -2895,8 +2900,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -2970,8 +2980,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -4177,8 +4192,13 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible for a security clearance (description)",
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -15371,8 +15391,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -16793,8 +16817,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: ability to obtain and maintain a security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -18960,8 +18988,13 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -19304,8 +19337,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -19374,8 +19412,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -23049,8 +23092,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible for a government clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -23266,8 +23313,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: US Citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -24177,8 +24228,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -24248,8 +24304,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Top Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"TOP SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -27098,8 +27159,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -27165,8 +27230,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -29623,8 +29692,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -30718,8 +30791,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: ability to obtain and maintain a security clearance (description)",
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 0,
@@ -31614,8 +31692,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Secret (or above) US security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -32758,8 +32840,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -33887,8 +33973,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain and maintain a security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -34025,8 +34115,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -34511,8 +34605,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Secret or Top Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -34883,8 +34981,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: ability to obtain a security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -34952,8 +35054,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -35021,8 +35127,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -35092,8 +35202,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -35163,8 +35277,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -35439,8 +35557,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -35515,8 +35637,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -35588,8 +35714,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -35661,8 +35791,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -35799,8 +35933,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -35871,8 +36009,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible for a security clearance (description)",
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -37407,8 +37550,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible to obtain a government security clearance (description)",
+    "federal: Active TS/SCI Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -37693,8 +37841,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible to obtain a government security clearance (description)",
+    "federal: Active Top Secret DoD Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -38120,8 +38273,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -38195,8 +38352,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -38268,8 +38429,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Secret security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -38337,8 +38502,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Top Secret/SCI security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -38408,8 +38577,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -40547,8 +40720,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. Citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -40618,8 +40795,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. Citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 0,
@@ -41190,8 +41371,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain a security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -42940,8 +43125,12 @@
    "gaps_preferred": [
     "DAX"
    ],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: US citizenship required (description)"
+   ],
    "focus_function": true,
    "us_uncertain": false,
    "min_years": 3,
@@ -44634,8 +44823,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -45263,8 +45456,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Top Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -46251,8 +46448,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -47805,8 +48006,15 @@
     "Salesforce Administrator certification"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: federal clients (description)",
+    "federal: U.S. Citizenship is required (description)",
+    "federal: Active Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -47925,8 +48133,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: cleared (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -48068,8 +48280,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: US citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -51744,8 +51960,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -51817,8 +52038,13 @@
    "gaps_preferred": [
     "UiPath"
    ],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -51890,8 +52116,13 @@
    "gaps_preferred": [
     "UiPath"
    ],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -51959,8 +52190,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52034,8 +52269,14 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Ability to obtain and maintain a Public Trust clearance (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -52111,8 +52352,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -52182,8 +52428,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52408,8 +52659,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52482,8 +52738,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52557,8 +52818,14 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)",
+    "federal: ACTIVE and MAINTAINED \"TOP SECRET/SCI (TS/SCI)\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52632,8 +52899,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Top Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"TOP SECRET/SCI (TS/SCI)\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52706,8 +52978,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -52782,8 +53059,14 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Federal clients (description)",
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: Active SECRET or higher security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -52856,8 +53139,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -52930,8 +53218,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -53005,8 +53298,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Top Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"TOP SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53082,8 +53380,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53155,8 +53458,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -53228,8 +53536,13 @@
     "UiPath"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53303,8 +53616,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53377,8 +53695,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53448,8 +53771,14 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: federal client (description)",
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: active and maintained SECRET Federal security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53519,8 +53848,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -53592,8 +53926,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53665,8 +54004,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53804,8 +54148,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Secret (description)",
+    "federal: ACTIVE and MAINTAINED \"SECRET\" Federal or DoD security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53874,8 +54223,14 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: federal client (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -53945,8 +54300,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -54014,8 +54374,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -54147,8 +54512,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: Clearance Required: Ability (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -54221,8 +54591,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Cleared (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -54293,8 +54667,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Cleared (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -55628,8 +56006,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -55701,8 +56084,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -55773,8 +56161,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -56056,8 +56449,14 @@
    "gaps_preferred": [
     "PySpark"
    ],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: ability to obtain clearance (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -56135,8 +56534,14 @@
    "gaps_preferred": [
     "PySpark"
    ],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: ability to obtain clearance (description)",
+    "federal: US Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -56202,8 +56607,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 0,
@@ -56270,8 +56679,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: TS/SCI (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 0,
@@ -58294,8 +58707,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)",
+    "federal: federal clients (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -59605,8 +60023,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: US Citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -63558,8 +63980,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain and maintain a security clearance (description)",
+    "federal: U.S. Citizenship required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -63821,8 +64248,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Top Secret or TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -64875,8 +65306,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain a Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -64948,8 +65383,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -65021,8 +65460,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -65348,8 +65791,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Public Trust (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -65488,8 +65935,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -65640,8 +66091,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -65971,8 +66426,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -66812,8 +67271,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -67252,8 +67715,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -67321,8 +67788,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -67614,8 +68085,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -67686,8 +68161,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain a Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -67756,8 +68235,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Ability to obtain a Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -69928,8 +70411,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -69998,8 +70485,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. Citizenship Required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -73014,8 +73505,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS//SCI Security Clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -74407,8 +74902,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Clearance Required: Active Top Secret (description)",
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -74891,8 +75391,12 @@
     "PySpark"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. Citizenship required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -75029,8 +75533,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Top Secret clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -75101,8 +75609,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active Top Secret security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -75173,8 +75685,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS/SCI security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -75245,8 +75761,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -75317,8 +75837,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -75389,8 +75913,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -75463,8 +75991,13 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: eligible to obtain a government clearance (description)",
+    "federal: US citizenship required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -75614,8 +76147,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS/SCI with polygraph level clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 1,
@@ -75765,8 +76302,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS/SCI with Poly security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -75839,8 +76380,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: US Citizenship required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -75916,8 +76461,12 @@
     "SimPy"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: cleared (title)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -76268,8 +76817,12 @@
     "PySpark"
    ],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: federal clients (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -76345,8 +76898,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: active TS/SCI with polygraph level clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -76568,8 +77125,12 @@
    "matched_skills": [],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active TS clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 2,
@@ -76643,8 +77204,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: Active Secret security clearance (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": null,
@@ -85223,8 +85788,12 @@
    ],
    "gaps_required": [],
    "gaps_preferred": [],
-   "mismatch": [],
-   "mismatch_evidence": [],
+   "mismatch": [
+    "federal"
+   ],
+   "mismatch_evidence": [
+    "federal: U.S. citizenship is required (description)"
+   ],
    "focus_function": false,
    "us_uncertain": false,
    "min_years": 3,
@@ -86451,7 +87020,9 @@
    "fortune500": false,
    "unicorn": false,
    "staffing_reasons": [],
-   "staffing": false
+   "staffing": false,
+   "mismatch": [],
+   "mismatch_evidence": []
   },
   {
    "id": "2a28fa07eae9a0bd",
@@ -87335,7 +87906,9 @@
    "fortune500": false,
    "unicorn": true,
    "staffing_reasons": [],
-   "staffing": false
+   "staffing": false,
+   "mismatch": [],
+   "mismatch_evidence": []
   },
   {
    "id": "926ff2b34343f6c4",

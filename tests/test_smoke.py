@@ -301,6 +301,24 @@ class FitSignalTests(unittest.TestCase):
         self.assertEqual(self.mismatch("Sales Development Representative - New Grad", "Book meetings."),
                          ["quota-carrying sales"])
 
+    def test_federal_mismatch(self):
+        for text in ["Must be able to obtain a Public Trust.",
+                     "Candidates must be clearance eligible.",
+                     "U.S. Citizenship with the ability to obtain and maintain a security clearance",
+                     "You will support a federal client in DC.",
+                     "U.S. citizenship required.",
+                     "Travel Required: None Clearance Required: Active Secret What You Will Do: analyze data",
+                     'What You Will Need: - An ACTIVE and MAINTAINED "SECRET" Federal or DoD security clearance']:
+            # Anywhere in the description: these lines sit in headers and footers too
+            self.assertEqual(self.mismatch("Data Analyst", f"About the role\n{text}\nQualifications\n- SQL\n"),
+                             ["federal"], text)
+        self.assertEqual(self.mismatch("Cleared Data Analyst", "Analyze data."), ["federal"])
+        for text in ["Travel Required: Up to 10% Clearance Required: None What You Will Do: dashboards",
+                     "Pay may vary based on experience and training, security clearances, licensure.",
+                     "We serve federal, state and commercial clients.",
+                     "Ensure solutions adhere to federal financial management standards."]:
+            self.assertEqual(self.mismatch("Data Analyst", text), [], text)
+
     def test_mismatch_needs_clear_evidence(self):
         # Seen on real postings that are in my field
         self.assertEqual(self.mismatch("Clinical Business Operations Representative",

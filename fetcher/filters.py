@@ -318,18 +318,23 @@ def _snippet(text: str, m: re.Match) -> str:
 def role_mismatch(title: str, description: str, settings: dict) -> list[dict]:
     """[{"type", "phrase", "where", "context"}] for each mismatch type that
     applies: a title pattern, or min_hits different requirement patterns.
-    Empty when the job is in my field."""
+    A type with "scope": "description" (federal) reads the whole description,
+    since clearance lines often sit in a header or footer. Empty when the job
+    is in my field."""
     requirements = _requirements_text(description)
     found = []
     for kind, cfg in settings["mismatch"].items():
         if kind.startswith("_"):
             continue
+        whole = cfg.get("scope") == "description"
+        text, where = (description, "description") if whole else (requirements, "requirements")
         title_hits = [m for p in cfg["title"] if (m := re.search(p, title, re.IGNORECASE))]
-        req_hits = [m for p in cfg["requirements"] if (m := re.search(p, requirements, re.IGNORECASE))]
+        req_hits = [m for p in cfg["requirements"] if (m := re.search(p, text, re.IGNORECASE))]
+        phrase = lambda m: " ".join(m.group(0).split())  # "Clearance Required:\nActive" on one line
         if title_hits:
-            found += [{"type": kind, "phrase": m.group(0), "where": "title", "context": title} for m in title_hits]
+            found += [{"type": kind, "phrase": phrase(m), "where": "title", "context": title} for m in title_hits]
         elif len(req_hits) >= cfg["min_hits"]:
-            found += [{"type": kind, "phrase": m.group(0), "where": "requirements", "context": _snippet(requirements, m)}
+            found += [{"type": kind, "phrase": phrase(m), "where": where, "context": _snippet(text, m)}
                       for m in req_hits]
     return found
 

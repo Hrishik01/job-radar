@@ -59,7 +59,8 @@ refreshes the data several times a day, and GitHub Pages serves the dashboard.
   each skill I don't have that a job requires (shown as a "Gap" chip; a
   preferred-only gap shows the chip without the penalty). Roles that clearly
   belong to another field (accounting, software engineering, clinical,
-  research faculty, quota-carrying sales) get a "Mismatch" tag and are
+  research faculty, quota-carrying sales, and federal roles needing a
+  clearance, Public Trust or U.S. citizenship) get a "Mismatch" tag and are
   hidden by default.
 - **Find people** on each card opens LinkedIn or Google searches for the
   hiring manager, a recruiter, a peer and Northeastern alumni at that

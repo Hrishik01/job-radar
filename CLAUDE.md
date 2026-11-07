@@ -208,6 +208,11 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   patterns. Patterns need clear wording: "support the ARNP/RN" isn't nursing,
   a Java/C++ language list isn't software engineering (the languages count
   as one signal), and "partner with account executives" isn't sales.
+  The `federal` type (Public Trust, clearance eligible / ability to obtain a
+  clearance, federal client, U.S. citizenship required, "Clearance Required:
+  <anything but None>", an active Secret/TS clearance, or "Cleared"/TS/SCI in
+  the title) has `"scope": "description"`: it reads the whole description,
+  because those lines often sit in a header or footer.
   Hidden by default behind "Show mismatched roles"; logged to `mismatch.log`.
 - **Find people:** each card links to LinkedIn and Google (`site:linkedin.com/in`)
   searches for the hiring manager, a recruiter, a peer and Northeastern

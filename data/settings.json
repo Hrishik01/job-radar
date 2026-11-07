@@ -271,6 +271,24 @@
         "\\bquota[- ]carrying\\b|\\bcarr(?:y|ies|ying) an? (?:sales )?quota\\b",
         "\\b(?:experience|years?) as an? (?:SDR|BDR|account executive)\\b"
       ]
+    },
+    "federal": {
+      "min_hits": 1,
+      "scope": "description",
+      "_why_scope": "Clearance and citizenship lines often sit in a header ('Clearance Required: Active Secret') or a footer, not under Qualifications, so this type reads the whole description.",
+      "title": [
+        "\\bcleared\\b",
+        "(?-i:\\bTS/SCI\\b)"
+      ],
+      "requirements": [
+        "\\bpublic trust\\b",
+        "\\bclearance[- ]eligible\\b|\\beligib(?:le|ility) (?:to obtain|for) (?:an? )?(?:\\w+ )?(?:security )?clearance\\b",
+        "\\bability to obtain (?:and maintain )?(?:an? )?(?:\\w+ ){0,2}clearance\\b",
+        "\\bfederal clients?\\b",
+        "\\bU\\.?S\\.? citizenship (?:is )?required\\b|\\brequires? U\\.?S\\.? citizenship\\b",
+        "\\bclearance required:\\s*(?!none\\b)\\w+(?:[ \\t]+(?:top )?(?:secret|SCI|TS|trust)\\b)?",
+        "\\bactive (?:and maintained )?\\W?(?:top secret|secret|TS)\\b[^.\\n]{0,40}\\bclearance\\b"
+      ]
     }
   },
   "focus_functions": {
