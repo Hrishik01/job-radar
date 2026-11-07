@@ -83,6 +83,13 @@ def _section_text(description: str, keep: str) -> str:
     lines, state = [], None
     for line in description.splitlines():
         head = line.strip().rstrip(":").strip()
+        if "(" in head and not head.startswith(("-", "•", "*")) and not (len(head) <= 60 and len(head.split()) <= 8):
+            # "Desired Qualifications (We're committed to ... apply anyway)":
+            # a heading followed by a parenthetical note. Judge the part before it.
+            pre = head.split("(")[0].strip().rstrip(":").strip()
+            if 0 < len(pre.split()) <= 5 and (
+                    _PREFERRED_HEAD.search(pre) or _REQUIRED_HEAD.match(pre) or _OTHER_HEAD.match(pre)):
+                head = pre
         if (0 < len(head) <= 60 and len(head.split()) <= 8 and not head.endswith(".")
                 and not head.startswith(("-", "•", "*"))):
             preferred = _PREFERRED_HEAD.search(head)
@@ -106,10 +113,15 @@ def _section_text(description: str, keep: str) -> str:
     return "\n".join(lines)
 
 
-def _is_preferred(sentence: str, m: re.Match) -> bool:
-    """True when a preferred word sits in the same clause as the figure:
-    "5+ years preferred" is skipped, but in "7+ years of experience, ideally
-    on data" or "3+ years (fintech preferred)" the hedge is a later clause."""
+def _is_preferred(sentence: str, m: re.Match, sole_figure: bool = False) -> bool:
+    """True when the figure is preferred, not required. A bullet with a single
+    figure is preferred if a preferred word ("preferred", "strongly preferred",
+    "ideally", "a plus") appears ANYWHERE in it: "Minimum of 3 years in billing,
+    or analysis, strongly preferred". When a bullet has several figures, only a
+    preferred word in the figure's own clause counts, so "5+ years required, 8+
+    years preferred" keeps the 5."""
+    if sole_figure:
+        return bool(_PREFERRED_RE.search(sentence))
     start = max(sentence.rfind(c, 0, m.start()) for c in ".;(") + 1
     ends = [i for i in (sentence.find(c, m.end()) for c in ",;(") if i != -1]
     return bool(_PREFERRED_RE.search(sentence[start:min(ends, default=len(sentence))]))
@@ -126,6 +138,11 @@ def _reads_as_requirement(sentence: str, m: re.Match) -> bool:
     return bool(_REQUIREMENT_AFTER.match(sentence, m.end())) and not _HISTORY_BEFORE.search(sentence[:m.start()])
 
 
+_EQUIVALENCY = re.compile(
+    r"\bequivalent\s+(?:combination|education|experience)\b|\bcombination\s+of\s+(?:education|training|study)\b",
+    re.IGNORECASE)
+_DEGREE_WORD = re.compile(
+    r"\b(?:bachelor|master|degree|diploma|post-secondary|ged|high school)\w*", re.IGNORECASE)
 _ALTERNATIVE_OR = re.compile(r"(?<![/\w])or\b", re.IGNORECASE)
 _NOT_MY_DEGREE = re.compile(r"\b(?:ph\.?\s?d|doctorate|doctoral)\b", re.IGNORECASE)
 
@@ -140,10 +157,11 @@ def _sentence_years(sentence: str, need_experience_word: bool) -> int | None:
     a data-heavy role, including 2+ in consulting and 1+ at a startup"): the
     highest counts. "and/or" between two items is not an alternative."""
     found = []  # (n, start, end)
-    for m in _YEARS_RE.finditer(sentence):
+    matches = list(_YEARS_RE.finditer(sentence))
+    for m in matches:
         if need_experience_word and not (_EXPERIENCE_WORDS.search(sentence) or _reads_as_requirement(sentence, m)):
             continue
-        if _is_preferred(sentence, m):
+        if _is_preferred(sentence, m, sole_figure=len(matches) == 1):
             continue
         n = int(m.group(1)) if m.group(1).isdigit() else _NUMBER_WORDS[m.group(1).lower()]
         if n <= 15:  # "18 years or older" is an age, "25 years" a company history
@@ -175,8 +193,8 @@ def _sentence_years(sentence: str, need_experience_word: bool) -> int | None:
 _CONTINUES_PREVIOUS = re.compile(r"^[-•*\s]*(?:or|in the alternative|alternatively)\b", re.IGNORECASE)
 
 
-def _year_figures(text: str, need_experience_word: bool) -> list[int]:
-    """One figure per sentence. A sentence that opens with "or" or "in the
+def _year_sentences(text: str, need_experience_word: bool) -> list[tuple[str, int]]:
+    """(sentence, figure) per sentence with one. A sentence that opens with "or" or "in the
     alternative" is the next option of the one before it ("BS plus 3 years;"
     then "or MS plus 1 year"), so the two are read as one sentence."""
     sentences: list[str] = []
@@ -185,12 +203,16 @@ def _year_figures(text: str, need_experience_word: bool) -> list[int]:
             sentences[-1] += " " + sentence
         else:
             sentences.append(sentence)
-    figures = []
+    pairs = []
     for sentence in sentences:
         n = _sentence_years(sentence, need_experience_word)
         if n is not None:
-            figures.append(n)
-    return figures
+            pairs.append((sentence, n))
+    return pairs
+
+
+def _year_figures(text: str, need_experience_word: bool) -> list[int]:
+    return [n for _, n in _year_sentences(text, need_experience_word)]
 
 
 def min_years_required(description: str) -> int | None:
@@ -203,10 +225,23 @@ def min_years_required(description: str) -> int | None:
     consulting"). Without one, or if it states no figure, a sentence must
     also mention experience, so "for more than 25 years" in a company blurb
     is ignored."""
-    figures = _year_figures(_section_text(description, "required"), need_experience_word=False)
-    if not figures:
-        figures = _year_figures(_section_text(description, "not_preferred"), need_experience_word=True)
-    return max(figures) if figures else None
+    text = _section_text(description, "required")
+    pairs = _year_sentences(text, need_experience_word=False)
+    if not pairs:
+        text = _section_text(description, "not_preferred")
+        pairs = _year_sentences(text, need_experience_word=True)
+    if not pairs:
+        return None
+    figures = [n for _, n in pairs]
+    # "Bachelor's and 2 years" / "Four years of experience" / "equivalent
+    # combination of education and experience": bullets that are degree-versus-
+    # experience alternatives, so the lowest counts (the candidate holds the
+    # degrees). Needs both signs: a degree bullet that carries a figure AND an
+    # equivalency line. The line alone is boilerplate ("An equivalent combination
+    # of education and experience may substitute"), so it never lowers a figure.
+    if _EQUIVALENCY.search(text) and any(_DEGREE_WORD.search(s) for s, _ in pairs):
+        return min(figures)
+    return max(figures)
 
 
 def min_years_preferred(description: str) -> int | None:

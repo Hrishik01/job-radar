@@ -485,14 +485,39 @@ class FilterTests(unittest.TestCase):
                 "- A degree in Economics.\n\nWays to stand out from the crowd:\n- 2+ years of SQL experience.")
         self.assertEqual(filters.min_years_required(text), 8)   # not 25 (history), not 2 (stand out)
 
-    def test_years_hedge_in_a_later_clause_still_counts(self):
-        cases = {"- 7+ years of supply chain systems experience, ideally on data or internal tools": 7,
-                 "- 3+ years merchant risk experience in fraud detection (fintech or lending preferred)": 3,
-                 "- 6+ years of experience in a quantitative role (ideally within mobility)": 6}
-        for text, years in cases.items():
-            self.assertEqual(filters.min_years_required(text), years, text)
-        self.assertIsNone(filters.min_years_required("2+ years of SQL experience is a plus."))
-        self.assertIsNone(filters.min_years_required("Ideally 5+ years of experience in fintech."))
+    def test_preferred_word_anywhere_in_a_bullet_makes_its_figure_preferred(self):
+        # Was "hedge in a later clause still counts"; now any preferred word in the bullet wins.
+        for text in ["- 7+ years of supply chain systems experience, ideally on data or internal tools",
+                     "- 3+ years merchant risk experience in fraud detection (fintech or lending preferred)",
+                     "- 6+ years of experience in a quantitative role (ideally within mobility)",
+                     "- Minimum of 3 years of experience in healthcare revenue cycle management, billing, or "
+                     "financial analysis strongly preferred.",
+                     "2+ years of SQL experience is a plus.", "Ideally 5+ years of experience in fintech."]:
+            self.assertIsNone(filters.min_years_required(text), text)
+        # University of Chicago: the required 2-5 stays, the strongly preferred 3 does not count.
+        uchicago = ("Minimum Qualifications\n\nWork Experience:\n2-5 years of work experience in a related job discipline.\n\n"
+                    "Preferred Qualifications\n\nExperience:\n\n- Minimum of 3 years of experience in healthcare "
+                    "revenue cycle management, billing, or financial analysis strongly preferred.")
+        self.assertEqual(filters.min_years_required(uchicago), 2)
+        # With several figures in one bullet only the figure's own clause counts.
+        self.assertEqual(filters.min_years_required("Requirements:\n- 5+ years required, 8+ years preferred."), 5)
+
+    def test_years_degree_versus_experience_bullets_are_alternatives(self):
+        self.assertEqual(filters.min_years_required(
+            "Required Qualifications\n\n- Bachelor's degree and 2 years of experience.\n"
+            "- Four years of experience in operations.\n"
+            "- Or an equivalent combination of education and experience."), 2)
+        # Ohio State: a heading with a parenthetical note still ends the required section.
+        osu = ("Required Qualifications\n\n- Bachelor's degree or equivalent combination of education/experience.\n\n"
+               "- 2 year's of experience in business operations, administrative support, or related field.\n\n"
+               "Desired Qualifications (We're committed to building a team that reflects a variety of skills and "
+               "experiences and encourage you to apply even if your experience does not align perfectly)\n\n"
+               "- Four (4) years of relevant experience\n\n- Knowledge of University fiscal policies desired.")
+        self.assertEqual(filters.min_years_required(osu), 2)
+        self.assertEqual(filters.min_years_preferred(osu), 4)
+        # Without the equivalency wording, separate bullets stay separate requirements.
+        self.assertEqual(filters.min_years_required(
+            "Requirements:\n- 2 years of SQL.\n- 4 years of Python."), 4)
 
     def test_years_without_experience_word_outside_sections(self):
         cases = {"- 3+ years in finance operations or sales operations.": 3,

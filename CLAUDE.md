@@ -158,6 +158,12 @@ A full fetch over ~1,400 boards takes about 30 minutes with an empty HTTP cache
   alternatives joined by "or" ("5 years, or 2 years with a Master's") it is the
   lowest option the candidate meets (doctorate options don't count). A bullet
   opening with "or" continues the one before it. "and/or" is not an alternative.
+  A preferred word ("preferred", "strongly preferred", "ideally", "a plus") anywhere in a
+  bullet that has one figure makes that figure preferred, not required. Degree-versus-
+  experience bullets (a degree bullet with a figure, plus an "equivalent combination of
+  education and experience" line) are alternatives: the lowest counts. A heading with a
+  parenthetical note ("Desired Qualifications (We're committed...)") still ends the
+  required section.
 - **Bands** (`filters.experience_band`, patterns in `settings.json` → `bands`):
   every kept job is `stretch` when its minimum required years is 3 or its
   title has a II/III level (case-sensitive), else `target` (0-2 years or none
