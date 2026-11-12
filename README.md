@@ -134,13 +134,16 @@ opening the HTML file directly won't load any data.
 
 ## The scheduled run
 
-`.github/workflows/fetch.yml` runs the fetcher every 2 hours on weekdays
-from 6:23 AM to 10:23 PM ET, and once at 10:23 AM ET on weekends (times
-assume EST, so they shift an hour later during daylight time). Runs sit at
-:23 past the hour because GitHub delays or drops many scheduled jobs that
-start exactly on the hour. Each run runs the tests, fetches, and commits
-`data/jobs.json` if it changed. You can also start it by hand from the
-**Actions** tab with **Run workflow**.
+`.github/workflows/fetch.yml` is scheduled every hour at :17 and :47, from
+6 AM to 11:47 PM ET, every day (times assume EST, so they shift an hour
+later during daylight time). GitHub's cron is best-effort and drops or
+delays most scheduled runs, so these are backup slots: a small gate job
+(`fetcher/gate.py`) skips a run in seconds when the last successful fetch
+finished under 90 minutes ago. That aims for a fetch about every 2 hours.
+Runs never overlap, and a run that is fetching is never cancelled. A fetch
+runs the tests, fetches, and commits `data/jobs.json` if it changed. You
+can also start one by hand from the **Actions** tab with **Run workflow**,
+which always fetches.
 
 ## Where the boards come from
 

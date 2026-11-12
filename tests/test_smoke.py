@@ -336,6 +336,36 @@ class FitSignalTests(unittest.TestCase):
             self.assertFalse(filters.focus_function(title, SETTINGS), title)
 
 
+class GateTests(unittest.TestCase):
+    """fetcher/gate.py: scheduled runs skip while the last fetch is fresh."""
+
+    def test_fresh_data_skips_stale_data_runs(self):
+        import gate
+        from datetime import datetime, timedelta, timezone
+        now = datetime(2026, 11, 12, 18, 0, tzinfo=timezone.utc)
+        store = lambda t: {"meta": {"generated_utc": t.isoformat()}}
+        self.assertFalse(gate.should_run(store(now - timedelta(minutes=30)), now)[0])
+        self.assertFalse(gate.should_run(store(now - timedelta(minutes=89)), now)[0])
+        self.assertTrue(gate.should_run(store(now - timedelta(minutes=90)), now)[0])
+        self.assertTrue(gate.should_run(store(now - timedelta(hours=5)), now)[0])
+
+    def test_unreadable_means_run(self):
+        import gate
+        from datetime import datetime, timezone
+        now = datetime(2026, 11, 12, 18, 0, tzinfo=timezone.utc)
+        for store in (None, {}, {"meta": {}}, {"meta": {"generated_utc": "not a date"}}):
+            self.assertTrue(gate.should_run(store, now)[0], store)
+        # A naive timestamp is read as UTC
+        self.assertFalse(gate.should_run({"meta": {"generated_utc": "2026-11-12T17:30:00"}}, now)[0])
+
+    def test_workflow_schedule_and_concurrency(self):
+        wf = (ROOT / ".github" / "workflows" / "fetch.yml").read_text("utf-8")
+        self.assertIn('cron: "17,47 0-4,11-23 * * *"', wf)   # 6 AM-11:47 PM ET (EST), every day
+        self.assertIn("cancel-in-progress: false", wf)        # never cancel a fetch mid-run
+        self.assertIn("workflow_dispatch", wf)                # manual button stays
+        self.assertIn("needs.gate.outputs.run == 'true'", wf)
+
+
 class BestFitTests(unittest.TestCase):
     """site/fit.js under Node: the dashboard's Best fit order."""
 

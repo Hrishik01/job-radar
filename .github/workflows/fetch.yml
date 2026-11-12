@@ -7,35 +7,65 @@ on:
   schedule:
     # Cron is always UTC. These times assume Eastern Standard Time (UTC-5,
     # early November to mid March). During daylight time (UTC-4) every run
-    # lands one hour later in ET, e.g. 7:23 AM instead of 6:23 AM.
+    # lands one hour later in ET, e.g. 7:17 AM instead of 6:17 AM.
     #
-    # Every run is at :23 past the hour. GitHub queues all scheduled jobs on
-    # the hour and delays or drops many of them under load; an off-peak
-    # minute gets picked up far more reliably.
+    # GitHub's cron is best-effort: from Nov 5 to Nov 12 it never fired 33
+    # of 48 slots (no 6-10 AM ET run at all) and ran the rest a median 80
+    # minutes late. So there are many backup slots, at off-peak minutes, and
+    # the gate job below skips a run in seconds when the data is still fresh.
     #
-    # Weekdays every 2 hours, 6 AM to 10 PM ET (9 runs):
-    #   6, 8, 10 AM, 12, 2, 4, 6 PM ET = 11, 13, 15, 17, 19, 21, 23 UTC, Mon-Fri
-    - cron: "23 11,13,15,17,19,21,23 * * 1-5"
-    #   8 PM and 10 PM ET Mon-Fri = 01 and 03 UTC the next day, Tue-Sat
-    - cron: "23 1,3 * * 2-6"
-    # Weekends once, 10 AM ET = 15 UTC, Sat and Sun
-    - cron: "23 15 * * 0,6"
-  workflow_dispatch: {}  # "Run workflow" button on the Actions tab
+    # Every day, every hour at :17 and :47, 6 AM to 11:47 PM ET:
+    #   6 AM-6:47 PM ET = 11-23 UTC; 7 PM-11:47 PM ET = 00-04 UTC (next day)
+    - cron: "17,47 0-4,11-23 * * *"
+  workflow_dispatch: {}  # "Run workflow" button on the Actions tab; always fetches
 
 permissions:
   contents: write  # lets the job push the jobs.json commit
 
-# Never run two fetches at once; a second one waits for the first.
+# Never run two fetches at once. A run that arrives while one is fetching
+# waits; GitHub keeps one waiting run per group, so a newer arrival replaces
+# the waiting one (shown as cancelled). The run that is fetching is never
+# cancelled, and a waiting run that starts after it finishes is skipped by
+# the gate, since the data is then fresh.
 concurrency:
   group: fetch
   cancel-in-progress: false
 
 jobs:
+  gate:
+    # Seconds, not minutes: only jobs.json and the gate script, and the
+    # runner's own Python (no setup-python, no pip).
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.fresh.outputs.run }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            data/jobs.json
+            fetcher/gate.py
+          sparse-checkout-cone-mode: false
+
+      # Scheduled runs skip when the last successful fetch finished under 90
+      # minutes ago. A manual "Run workflow" always fetches.
+      - name: Is the data fresh?
+        id: fresh
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run: fetching regardless of freshness."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            python3 fetcher/gate.py
+          fi
+
   fetch:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
     # Pinned, so GitHub moving ubuntu-latest to a new release can't change
     # the environment under us. Bump this deliberately.
     runs-on: ubuntu-24.04
-    timeout-minutes: 110  # under the 2-hour spacing; a cold fetch of ~1,400 boards took 30 minutes locally
+    timeout-minutes: 110  # a full fetch of ~1,400 boards takes about 28 minutes on GitHub
     steps:
       - uses: actions/checkout@v5
 

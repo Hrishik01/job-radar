@@ -32,6 +32,7 @@ fetcher/
   scoring.py     skills match %
   parse.py       HTML-to-text, URL cleaning, salary parsing
   net.py         polite HTTP with disk cache (not http.py: that shadows the stdlib)
+  gate.py        workflow freshness gate: skip a scheduled run if the last fetch is under 90 min old
   models.py      Job dataclass and stable ID
 data/
   settings.json  editable lists: titles, skills, Boston-area towns, USCIS aliases
@@ -54,6 +55,13 @@ docs/screenshots README images (taken with a fresh browser profile, no personal 
 
 The scheduled run fails (and commits nothing) only when more than half the
 boards error (`MAX_FAILED_SHARE` in `fetch.py`). Fewer failures show as warnings.
+
+The workflow has backup cron slots every hour at :17 and :47 (6 AM-11:47 PM
+ET, every day) because GitHub drops or delays most scheduled runs. Its `gate`
+job runs `fetcher/gate.py` (stdlib only, on the runner's own Python, sparse
+checkout) and skips the fetch when `meta.generated_utc` is under 90 minutes
+old; a manual Run workflow always fetches. Concurrency group `fetch` with
+`cancel-in-progress: false`: a fetch in progress is never cancelled.
 
 ## Running
 
